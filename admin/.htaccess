@@ -1,0 +1,20 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+RewriteRule ^/?$ index.php [NC,L]
+RewriteRule ^painel/?$ painel2.php [NC,L]
+RewriteRule ^painel/caixas/?$ caixas2.php [NC,L]
+RewriteRule ^painel/caixas/([0-9]+)/?$ caixa2.php?caixa=$1 [NC,L]
+
+RewriteRule ^painel/artigos/?$ artigos2.php [NC,L]
+RewriteRule ^painel/artigos/novo/?$ artigos-novo2.php [NC,L]
+RewriteRule ^painel/artigos/([0-9]+)/?$ artigos-pagina2.php?artigo=$1 [NC,L]
+
+RewriteRule ^painel/sitego/?$ sitego.php [NC,L]
+
+RewriteRule ^painel/rifas/?$ rifas.php [NC,L]
+RewriteRule ^painel/rifas/nova/?$ rifas-nova.php [NC,L]
+
+RewriteRule ^painel/pedidos/?$ pedidos.php [NC,L]

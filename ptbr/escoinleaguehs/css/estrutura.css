@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'akrobatregular';
+    src: url('../../../fontes/akrobat-regular-webfont.woff2') format('woff2'),
+         url('../../../fontes/akrobat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'akrobatregular';
+}
+body {
+	background: url(../img/bg2.png);
+	background-size: 100%;
+	background-attachment: fixed;
+}
+.barraCentral {
+	width: 60%;
+	margin: 0px auto;
+}
+.linha {
+	width: 100%;
+	float: left;
+	margin-top: 35px;
+}
+.faixaVoltar {
+	width: 100%;
+	float: left;
+	background: #000;
+	color: #fff;
+	padding: 5px 0px;
+	border-bottom: solid 1px #fff;
+}
+.faixa1 {
+	background: url(../img/bg1.jpg);
+	background-size: 100% auto;
+	width: 100%;
+	float: left;
+	height: 550px;
+	color: #fff;
+	border-bottom: solid 5px #000;
+}
+.faixa1 .logoliga {
+	float: right;
+	height: 65%;
+	margin-right: 10%;
+}
+.logo {
+	width: 10%;
+}
+.menu {
+	list-style: none;
+	float: right;
+	font-size: 22px;
+	color: #fff;
+}
+.menu li {
+	display: inline-block;
+	margin-left: 30px;
+	color: #fff;
+}
+.menu li:hover {
+	color: #000;
+}
+.custom1 {
+	margin-top: 25px;
+}
+input[type=button]{
+	padding: 10px 30px;	
+	background: #f60;
+	border: solid 2px #000;
+	font-weight: bold;
+}
+input[type=button]:hover{
+	cursor: pointer;
+	background: #FF8635;
+}
+.faixa2 {
+	width: 100%;
+	float: left;
+	background: #e6e6e6;
+	padding: 10px 0px;
+	text-align: right;
+}
+.faixa2 .divisoes {
+	float: left;
+}
+.faixa3 {
+	width: 100%;
+	float: left;
+	background: #b3b3b3;
+	padding: 10px 0px;
+	border-bottom: solid 5px #000;
+}
+.faixa3 .sorteio {
+	float: right;
+}
+.faixa4 {
+	width: 100%;
+	float: left;
+	background: rgba(0,0,0,0.50);
+	padding: 10px 0px;
+	border-bottom: solid 5px #000;
+	text-align: right;
+	color: #fff;
+}
+.faixa4 .transmissao {
+	float: left;
+}
+.faixa5 {
+	width: 100%;
+	float: left;
+	padding: 20px 0px;
+	border-bottom: solid 3px #F60;
+	background: url(../img/bg3.png);
+	text-align: center;
+}
+.faixa5 .logo {
+	width: 150px;
+	margin-top: -100px;
+}
+.faixa5 hr, .faixa6 hr {
+	width: 15%;
+	height: 2px;
+	background: #f60;
+	border: none;
+	margin: 10px auto;
+}
+.faixa5 .tabelaPlanos {
+	width: 100%;
+	padding: 15px;
+	background: #fff;
+	border: solid 1px #ccc;
+}
+.faixa5 .tabelaPlanos tr {
+	background: #fff;
+	text-align: center;
+	display: table-row;
+}
+.faixa5 .tabelaPlanos thead tr{
+	background: none;
+	font-weight: bold;
+	font-size: 18px;
+}
+.faixa5 .tabelaPlanos tr td {
+	padding: 20px 0px;
+	border-bottom: solid 1px #ccc;
+	width: 5px;
+}
+.faixa5 .tabelaPlanos tr.semBorda td {
+	border: none;
+}
+.faixa5 .tabelaPlanos tr.invisivel {
+	display: none;
+}
+.faixa5 .tabelaPlanos tr td.beneficio {
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+}
+.faixa5 .tabelaPlanos tr td img {
+	height: 30px;
+	width: auto;
+}
+.faixa5 .mostrarPreco {
+	margin-top: 20px;
+	padding: 20px 40px;
+	font-size: 22px;
+	background: #00a3b2;
+}
+.faixa5 .mostrarPreco:hover {
+	cursor: pointer;
+	background: #33B5C1;
+}
+
+/*
+
+.faixa5 .plano {
+	padding: 20px;
+	background: #fff;
+	border: solid 2px #000;
+	width: 18%;
+	margin: 15px;
+	display: inline-block;
+	text-align: left;
+}
+.faixa5 .plano .tempo {
+	font-weight: bold;
+	color: #9F9F9F;
+}
+.faixa5 .plano .valor {
+	font-size: 40px;
+	font-weight: bold;
+}
+.faixa5 .plano hr {
+	width: 80%;
+	height: 3px;
+	background: #ccc;
+	float: left;
+}
+.faixa5 .plano .beneficios {
+	width: 100%;
+	float: left;
+	list-style: none;
+}
+.faixa5 .plano .beneficios li {
+	padding-left: 10px;
+	border-left: solid 3px #f60;
+	margin-bottom: 10px;
+}
+
+*/
+
+.faixa6 {
+	width: 100%;
+	float: left;
+	padding: 30px 0px;
+	border-bottom: solid 5px #f60;
+	background: url(../img/bg4.png);
+	background-size: 100% auto;
+	text-align: center;
+	color: #fff;
+}
+.faixa7 {
+	width: 100%;
+	float: left;
+	background: #000;
+	padding: 10px 0px;
+	color: #fff;
+	text-align: center;
+}

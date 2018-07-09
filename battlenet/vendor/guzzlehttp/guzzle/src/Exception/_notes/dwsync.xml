@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="BadResponseException.php" server="ftp.esportscups.com.br" local="131375519216781308" remote="131375520000000000" Dst="1" />
+<file name="ClientException.php" server="ftp.esportscups.com.br" local="131375519217016337" remote="131375520000000000" Dst="1" />
+<file name="ConnectException.php" server="ftp.esportscups.com.br" local="131375519217291589" remote="131375520000000000" Dst="1" />
+<file name="RequestException.php" server="ftp.esportscups.com.br" local="131375519217681733" remote="131375520000000000" Dst="1" />
+<file name="SeekException.php" server="ftp.esportscups.com.br" local="131375519217957015" remote="131375520000000000" Dst="1" />
+<file name="GuzzleException.php" server="ftp.esportscups.com.br" local="131375519217451670" remote="131375520000000000" Dst="1" />
+<file name="ServerException.php" server="ftp.esportscups.com.br" local="131375519218118084" remote="131375520000000000" Dst="1" />
+<file name="TooManyRedirectsException.php" server="ftp.esportscups.com.br" local="131375519218319080" remote="131375520000000000" Dst="1" />
+<file name="TransferException.php" server="ftp.esportscups.com.br" local="131375519218523651" remote="131375520000000000" Dst="1" />
+</dwsync>

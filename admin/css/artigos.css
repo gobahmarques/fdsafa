@@ -1,0 +1,36 @@
+.barraCentral .acoes {
+	width: 100%;
+	float: left;
+	text-align: right;
+}
+.barraCentral .listaArtigos {
+	width: 100%;
+	float: left;
+	border: solid 1px #000;
+	margin-top:10px;
+}
+.barraCentral .listaArtigos tr {
+	margin-bottom: 2px;
+}
+.barraCentral .listaArtigos tr td {
+	padding: 10px;
+	background: #fff;
+	text-align: center;
+}
+.barraCentral .criarArtigo {
+	width: 1002px;
+	padding: 10px;
+	float: left;
+	background: #fff;
+	border: solid 1px #000;
+}
+.barraCentral .criarArtigo input {
+	margin-bottom: 10px;
+}
+.barraCentral .criarArtigo textarea {
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.barraCentral .criarArtigo input[type=submit]{
+	float: right;
+}

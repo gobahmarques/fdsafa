@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	font-weight: bold;
+	font-size: 18px;
+}
+body {
+	background: url(../../img/sobre/bgfaixa4.png) fixed;
+	background-size: 100% auto;
+}
+.faixa1 {
+	background: url(../../img/sobre/bgfaixa1.png) no-repeat;
+	background-size: 100% auto;
+	background-position: 0px -180px; 
+	overflow: hidden;
+	border-bottom: solid 5px #000;
+	padding: 235px 0px;
+}
+
+.faixa1 .col-md-7 {
+	margin-top: 20px;
+}
+.faixa1 .caixa2  {
+	float: right;
+	margin: 250px 0px;
+	margin-top: -10px;
+}
+
+.faixa2 {
+	background: #c6c6c6;
+	padding: 20px 0px;
+}
+
+.row img {
+	height: 230px;
+	width: auto;
+}
+.faixa2 img {
+	height: 310px;
+}
+.faixa2 .col-md-7 {
+	text-align: right;
+	margin-top: 90px;
+}
+
+.faixa3 {
+	background: #716f6f;
+	padding: 10px 0px;
+}
+.faixa3 img {
+	height: 280px;
+	float: right;
+	margin-bottom: 30px;
+}
+
+.faixa3 .col-md-7 {
+	margin-top: 60px;
+	text-align: justify;
+}
+
+.faixa4 {	
+	background-attachment: scroll;
+	background-size: 100% auto;
+	overflow: hidden;
+	border-bottom: solid 5px #f60;
+}
+
+.faixa4 .col-md-10 {
+	margin: 250px auto;
+	padding: 10px;
+	text-align: center;
+	font-size: 50px;
+	font-weight: bold;
+	color: #000;
+}
+
+.faixa5 {
+	text-align: center;
+	background: #BCECEF;
+	border-bottom: solid 5px #00a3b2;
+}
+.faixa5 .apresentacao {
+	margin: 50px auto;
+}
+
+.faixa5 .membro {
+	margin-bottom: 20px;
+	position: relative;
+	z-index: 99;	
+	padding: 20px;
+}
+.faixa5 .membro img{
+	border-radius: 500px;
+	margin-bottom: 20px;
+}
+.faixa5 .membro .descMembro {
+	display: none;
+	
+}
+.faixa5 .membro:hover {
+	background: #C3C3C1;
+	margin-bottom: -200px;
+}
+.faixa5 .membro:hover .descMembro {
+	display: block;
+}
+.faixa6 {
+	text-align: center;
+	padding: 25px 0px;
+	background: #fff;
+}
+.faixa6 input[type=button] {
+	background: #fff;
+	border: solid 2px #f60;
+	color: #f60;
+	font-weight: bold;
+	padding: 10px 20px;
+	margin-top: 10px;
+}

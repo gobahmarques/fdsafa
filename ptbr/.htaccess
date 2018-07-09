@@ -1,0 +1,124 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+RewriteRule ^home/?$ index.php [NC,L]
+RewriteRule ^cadastro/enviar/?$ cadastro_enviar.php [NC,L]
+RewriteRule ^termos/?$ termos/termos.php [NC,L]
+RewriteRule ^privacidade/?$ termos/privacidade.php [NC,L]
+
+RewriteRule ^sobre/?$ sobre/sobre.php [NC,L]
+
+# JOGADOR AGORA #
+RewriteRule ^jogar/?$ jogar/jogar.php [NC,L]
+RewriteRule ^jogar/hearthstone/?$ jogar/jogar.php?jogo=369 [NC,L]
+RewriteRule ^jogar/dota2/?$ jogar/jogar.php?jogo=357 [NC,L]
+RewriteRule ^jogar/lol/?$ jogar/jogar.php?jogo=147 [NC,L]
+RewriteRule ^jogar/overwatch/?$ jogar/jogar.php?jogo=258 [NC,L]
+RewriteRule ^jogar/pubg/?$ jogar/jogar.php?jogo=741 [NC,L]
+RewriteRule ^jogar/gwent/?$ jogar/jogar.php?jogo=123 [NC,L]
+RewriteRule ^jogar/clashroyale/?$ jogar/jogar.php?jogo=653 [NC,L]
+
+RewriteRule ^jogar/campeonatos/?$ jogar/campeonatos/campeonatos.php [NC,L]
+RewriteRule ^jogar/campeonatos/hearthstone/?$ jogar/campeonatos/campeonatos.php?jogo=369 [NC,L]
+RewriteRule ^jogar/campeonatos/dota2/?$ jogar/campeonatos/campeonatos.php?jogo=357 [NC,L]
+RewriteRule ^jogar/campeonatos/lol/?$ jogar/campeonatos/campeonatos.php?jogo=147 [NC,L]
+RewriteRule ^jogar/campeonatos/overwatch/?$ jogar/campeonatos/campeonatos.php?jogo=258 [NC,L]
+RewriteRule ^jogar/campeonatos/pubg/?$ jogar/campeonatos/campeonatos.php?jogo=741 [NC,L]
+RewriteRule ^jogar/campeonatos/gwent/?$ jogar/campeonatos/campeonatos.php?jogo=123 [NC,L]
+RewriteRule ^jogar/campeonatos/clashroyale/?$ jogar/campeonatos/campeonatos.php?jogo=653 [NC,L]
+
+RewriteRule ^jogar/lobbys/?$ jogar/lobbys/lobbys.php [NC,L]
+RewriteRule ^jogar/lobbys/hearthstone/?$ jogar/lobbys/lobbys.php?jogo=369 [NC,L]
+RewriteRule ^jogar/lobbys/dota2/?$ jogar/lobbys/lobbys.php?jogo=357 [NC,L]
+RewriteRule ^jogar/lobbys/lol/?$ jogar/lobbys/lobbys.php?jogo=147 [NC,L]
+RewriteRule ^jogar/lobbys/overwatch/?$ jogar/lobbys/lobbys.php?jogo=258 [NC,L]
+RewriteRule ^jogar/lobbys/pubg/?$ jogar/lobbys/lobbys.php?jogo=741 [NC,L]
+RewriteRule ^jogar/lobbys/gwent/?$ jogar/lobbys/lobbys.php?jogo=123 [NC,L]
+RewriteRule ^jogar/lobbys/clashroyale/?$ jogar/lobbys/lobbys.php?jogo=653 [NC,L]
+
+# USUARIO #
+
+RewriteRule ^usuario/([0-9]+)/?$ usuario/jogador.php?perfil=$1 [NC,L]
+RewriteRule ^usuario/([0-9]+)/amigos/?$ usuario/amigos.php?perfil=$1 [NC,L]
+RewriteRule ^usuario/([0-9]+)/times/?$ usuario/times.php?perfil=$1 [NC,L]
+RewriteRule ^usuario/([0-9]+)/carteira-real/?$ usuario/carteira-real.php?perfil=$1 [NC,L]
+RewriteRule ^usuario/([0-9]+)/carteira-real/adicionar-saldo/?$ usuario/carteira-real-adicionar-saldo.php?perfil=$1 [NC,L]
+RewriteRule ^usuario/([0-9]+)/carteira-escoin/?$ usuario/carteira-escoin.php?perfil=$1 [NC,L]
+RewriteRule ^usuario/([0-9]+)/permissoes/?$ usuario/permissoes.php?perfil=$1 [NC,L]
+RewriteRule ^usuario/([0-9]+)/organizacao/?$ jogador_organizacao.php?perfil=$1 [NC,L]
+
+# LOJA #
+RewriteRule ^loja/?$ loja/loja.php [NC,L]
+RewriteRule ^loja/check-out/([0-9]+)/([0-9]+)/?$ loja/loja-checkout.php?produto=$1&endereco=$2 [NC,L]
+
+# LOJA #
+RewriteRule ^caixas/?$ caixas/caixas.php [NC,L]
+
+# ORGANIZAÇÃO #
+RewriteRule ^organizacao/([0-9]+)/?$ organizacao/organizacao.php?codigo=$1 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/em-andamento/?$ organizacao/em-andamento.php?codigo=$1 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/anteriores/?$ organizacao/anteriores.php?codigo=$1 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/em-breve/?$ organizacao/em-breve.php?codigo=$1 [NC,L]
+
+RewriteRule ^organizacao/([0-9]+)/novo-torneio/?$ organizacao/paineladmin/novo-torneio.php?codigo=$1 [NC,L]
+
+RewriteRule ^organizacao/([0-9]+)/novo-torneio/enviar/?$ organizacao/paineladmin/novo-torneio-enviar.php?codigo=$1 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/?$ organizacao/paineladmin/painel.php?codigo=$1 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/caixas/?$ organizacao-painel-caixas.php?codigo=$1 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/caixas/([0-9]+)/?$ organizacao-painel-caixas-pagina.php?codigo=$1&caixa=$2 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/caixas/enviar/?$ organizacao-painel-caixas-enviar.php?codigo=$1 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/produtos/?$ organizacao-painel-produtos.php?codigo=$1 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/campeonato/([0-9]+)/?$ organizacao/paineladmin/campeonatos/painel.php?codigo=$1&torneio=$2 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/campeonato/([0-9]+)/editar/?$ organizacao/paineladmin/campeonatos/editar.php?codigo=$1&torneio=$2 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/campeonato/([0-9]+)/etapas/?$ organizacao/paineladmin/campeonatos/partidas.php?codigo=$1&torneio=$2 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/campeonato/([0-9]+)/etapas/nova/?$ organizacao/paineladmin/campeonatos/nova-etapa.php?codigo=$1&torneio=$2 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/campeonato/([0-9]+)/etapa/([0-9]+)/?$ organizacao/paineladmin/campeonatos/etapa.php?codigo=$1&torneio=$2&etapa=$3 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/campeonato/([0-9]+)/etapa/([0-9]+)/sementes/?$ organizacao/paineladmin/campeonatos/sementes.php?codigo=$1&torneio=$2&etapa=$3 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/campeonato/([0-9]+)/inscricoes/?$ organizacao/paineladmin/campeonatos/inscricoes.php?codigo=$1&torneio=$2 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/campeonato/([0-9]+)/inscricoes/([0-9]+)/([0-9]+)/?$ organizacao/paineladmin/campeonatos/inscricoes-acoes.php?codigo=$1&torneio=$2&jogador=$3&funcao=$4 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/campeonato/([0-9]+)/lancar-premiacao/?$ organizacao/paineladmin/campeonatos/lancar-premiacao.php?codigo=$1&torneio=$2 [NC,L]
+
+RewriteRule ^organizacao/([0-9]+)/painel/ligas/?$ organizacao/paineladmin/ligas/painel.php?codigo=$1 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/ligas/nova-liga/?$ organizacao/paineladmin/ligas/nova-liga.php?codigo=$1 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/ligas/nova-liga/enviar/?$ organizacao/paineladmin/ligas/nova-liga-enviar.php?codigo=$1 [NC,L]
+\
+RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/?$ organizacao/paineladmin/ligas/liga.php?codigo=$1&liga=$2 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/divisoes/?$ organizacao/paineladmin/ligas/divisoes.php?codigo=$1&liga=$2 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/divisao/([0-9]+)/?$ organizacao/paineladmin/ligas/divisao.php?codigo=$1&liga=$2&divisao=$3 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/divisao/([0-9]+)/definicao-torneio/?$ organizacao/paineladmin/ligas/divisao-definicao-torneio.php?codigo=$1&liga=$2&divisao=$3 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/divisao/([0-9]+)/definicao-torneio/enviar/?$ organizacao/paineladmin/ligas/divisao-definicao-torneio-enviar.php?codigo=$1&liga=$2&divisao=$3 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/divisao/([0-9]+)/torneios/?$ organizacao/paineladmin/ligas/divisao-torneios.php?codigo=$1&liga=$2&divisao=$3 [NC,L]
+
+# CIRCUITOS #
+RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/circuitos/?$ organizacao/paineladmin/ligas/circuitos.php?codigo=$1&liga=$2 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/novo-circuito/?$ organizacao/paineladmin/ligas/novo-circuito.php?codigo=$1&liga=$2 [NC,L]
+RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/circuito/([0-9]+)/?$ organizacao/paineladmin/ligas/circuito.php?codigo=$1&liga=$2&circuito=$3 [NC,L]
+
+
+#  CAMPEONATOS #
+RewriteRule ^campeonato/([0-9]+)/?$ campeonatos/campeonato.php?codigo=$1 [NC,L]
+RewriteRule ^campeonato/([0-9]+)/inscricao/?$ campeonatos/campeonato-inscricao.php?codigo=$1 [NC,L]
+RewriteRule ^campeonato/([0-9]+)/participantes/?$ campeonatos/campeonato-inscritos.php?codigo=$1 [NC,L]
+RewriteRule ^campeonato/([0-9]+)/etapas/?$ campeonatos/campeonato-etapas.php?codigo=$1 [NC,L]
+RewriteRule ^campeonato/([0-9]+)/etapa/([0-9]+)/?$ campeonatos/campeonato-etapa.php?codigo=$1&etapa=$2 [NC,L]
+RewriteRule ^campeonato/([0-9]+)/partida/([0-9]+)/?$ campeonatos/partidas/partida.php?codigo=$1&partida=$2 [NC,L]
+RewriteRule ^campeonato/([0-9]+)/lineup/([0-9]+)/?$ campeonatos/lineup.php?codigo=$1&codequipe=$2 [NC,L]
+RewriteRule ^campeonato/([0-9]+)/etapa/([0-9]+)/grupo/([0-9]+)/?$ campeonatos/campeonato-etapa-grupo.php?codigo=$1&etapa=$2&grupo=$3 [NC,L]
+RewriteRule ^campeonato/([0-9]+)/premiados/?$ campeonatos/premiados.php?codigo=$1 [NC,L]
+
+# EQUIPE #
+RewriteRule ^time/([0-9]+)/?$ times/time.php?codigo=$1 [NC,L]
+
+# ARTIGOS #
+RewriteRule ^artigos/?$ artigos/artigos.php [NC,L]
+RewriteRule ^artigo/([0-9]+)/?$ artigos/artigos-pagina.php?codigo=$1 [NC,L]
+RewriteRule ^artigo/previa/?$ artigo_previa.php [NC,L]
+
+# LOBBYS #
+RewriteRule ^lobby/([0-9]+)/?$ lobby/lobby.php?codigo=$1 [NC,L]
+
+# RIFAS #
+RewriteRule ^rifas/?$ rifas/rifas.php [NC,L]
+

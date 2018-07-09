@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AppendStream.php" server="ftp.esportscups.com.br" local="131375519228233330" remote="131375520600000000" Dst="1" />
+<file name="BufferStream.php" server="ftp.esportscups.com.br" local="131375519228538584" remote="131375520600000000" Dst="1" />
+<file name="CachingStream.php" server="ftp.esportscups.com.br" local="131375519228907609" remote="131375520600000000" Dst="1" />
+<file name="FnStream.php" server="ftp.esportscups.com.br" local="131375519229721725" remote="131375520600000000" Dst="1" />
+<file name="DroppingStream.php" server="ftp.esportscups.com.br" local="131375519229171100" remote="131375520600000000" Dst="1" />
+<file name="functions_include.php" server="ftp.esportscups.com.br" local="131375519236371198" remote="131375520600000000" Dst="1" />
+<file name="InflateStream.php" server="ftp.esportscups.com.br" local="131375519229965367" remote="131375520600000000" Dst="1" />
+<file name="functions.php" server="ftp.esportscups.com.br" local="131375519236153595" remote="131375520600000000" Dst="1" />
+<file name="LazyOpenStream.php" server="ftp.esportscups.com.br" local="131375519230198794" remote="131375520600000000" Dst="1" />
+<file name="LimitStream.php" server="ftp.esportscups.com.br" local="131375519230604044" remote="131375520600000000" Dst="1" />
+<file name="MessageTrait.php" server="ftp.esportscups.com.br" local="131375519230969204" remote="131375520600000000" Dst="1" />
+<file name="MultipartStream.php" server="ftp.esportscups.com.br" local="131375519231264346" remote="131375520600000000" Dst="1" />
+<file name="NoSeekStream.php" server="ftp.esportscups.com.br" local="131375519231494536" remote="131375520600000000" Dst="1" />
+<file name="PumpStream.php" server="ftp.esportscups.com.br" local="131375519232031872" remote="131375520600000000" Dst="1" />
+<file name="Request.php" server="ftp.esportscups.com.br" local="131375519232340576" remote="131375520600000000" Dst="1" />
+<file name="Response.php" server="ftp.esportscups.com.br" local="131375519232595769" remote="131375520600000000" Dst="1" />
+<file name="ServerRequest.php" server="ftp.esportscups.com.br" local="131375519232862916" remote="131375520600000000" Dst="1" />
+<file name="Stream.php" server="ftp.esportscups.com.br" local="131375519233446948" remote="131375520600000000" Dst="1" />
+<file name="StreamDecoratorTrait.php" server="ftp.esportscups.com.br" local="131375519233777214" remote="131375520600000000" Dst="1" />
+<file name="StreamWrapper.php" server="ftp.esportscups.com.br" local="131375519234147824" remote="131375520600000000" Dst="1" />
+<file name="UploadedFile.php" server="ftp.esportscups.com.br" local="131375519234508085" remote="131375520600000000" Dst="1" />
+<file name="UriNormalizer.php" server="ftp.esportscups.com.br" local="131375519235443577" remote="131375520600000000" Dst="1" />
+<file name="Uri.php" server="ftp.esportscups.com.br" local="131375519235093422" remote="131375520600000000" Dst="1" />
+<file name="UriResolver.php" server="ftp.esportscups.com.br" local="131375519235753786" remote="131375520600000000" Dst="1" />
+</dwsync>

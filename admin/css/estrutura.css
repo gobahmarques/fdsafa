@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'akrobatregular';
+    src: url('../fontes/akrobat-regular-webfont.woff2') format('woff2'),
+         url('../fontes/akrobat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'akrobatregular';
+}
+.barraCentral {
+	width: 1024px;
+	height: auto;
+	margin: 0px auto;
+}
+body {
+	background: #ccc;
+	color: #000;
+}
+header {
+	width: 100%;
+	height: auto;		
+}
+.botaoLaranja {
+	background: #f60;
+	color: #000;
+	border: solid 1px #000;
+	padding: 5px 15px;
+	font-weight: bold;
+}
+input, select {
+	padding: 5px;
+}
+input[type=button]:hover, input[type=submit]:hover {
+	cursor: pointer;
+}
+
+/* FORM LOGIN */
+
+.login {
+	width: 400px;
+	margin: 0px auto;
+	margin-top: 50px;
+	background: #00a3b2;
+	text-align: center;
+	padding: 20px;
+}
+.login input {
+	padding: 10px;
+	font-size: 18px;
+	width: 100%;
+	background: #fff;
+	border: solid 1px #000;
+	margin-top: 5px;
+}
+
+/* MENU SUPERIOR */
+
+.menuSuperior {
+	width: 100%;
+	list-style: none;
+	background: #000;
+	float: left;
+	margin-bottom: 20px;
+}
+.menuSuperior img {
+	float: left;
+	height: 50px;
+	margin: 10px 0px;
+	margin-right: 30px;
+}
+.menuSuperior li {
+	padding: 5px 15px;
+	font-size: 24px;
+	float: left;
+	margin-top: 32px;
+	color: #ccc;
+	margin-right: 5px;
+}
+.menuSuperior li:hover {
+	background: #ccc;
+	cursor: pointer;
+	color: #000;
+}
+.menuSuperior li.ativo {
+	background: #ccc;
+	color: #000;
+}
+
+
+/* CAIXAS */
+
+.caixas {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+.caixas tr td {
+	width: 33%;
+	padding: 5px;
+}
+.caixas .caixa {
+	width: 100%;
+	padding: 10px 0px;
+	float: left;
+	background: #313131;
+	margin-top: 5px;
+	color: #fff;
+}

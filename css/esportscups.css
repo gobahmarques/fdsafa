@@ -1,0 +1,2530 @@
+@font-face {
+    font-family: 'akrobatregular';
+    src: url('../fontes/akrobat-regular-webfont.woff2') format('woff2'),
+         url('../fontes/akrobat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'bebas neue';
+    src: url('../fontes/bebasneue-webfont.woff2') format('woff2'),
+         url('../fontes/bebasneue-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+	font-family: 'akrobatregular';
+    border-radius: 0px;
+}
+.btn {
+    border-radius: 0px;
+}
+.btn-azul {
+    background: #00a3b2;
+    color: #fff;    
+}
+.btn-azul:hover {
+    background: #666;
+    color: #fff;    
+}
+.btn-laranja {
+    background: #f60;
+}
+.btn-full {
+    width: 100%;
+}
+.btn-seguir {
+    background: rgba(0,0,0,0.5);
+    font-weight: bold;
+    border: solid 2px #f60;
+    color: #f60;
+}
+.btn-seguir:hover {
+    border: solid 2px #00a3b2;
+    color: #fff;
+}
+.bg-azul {
+    background: #00a3b2;
+}
+.bg-laranja {
+    background: #f60;
+}
+.bg-cinza {
+    background: #3c3c3b;
+}
+.bg-cinza-dois {
+    background: #575756;
+}
+a:hover {
+    text-decoration: none;
+}
+.modalNewsletter {
+    background: rgba(0,0,0,0.85);    
+}
+.modalNewsletter .modal-content {
+    overflow: hidden;
+    border-radius: 0px;
+}
+.modalNewsletter .conteudo {
+    width: 100%;
+    float: left;
+    font-weight: bold;
+}
+.modalNewsletter .conteudo .bg {
+    background: #000;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+.modalNewsletter .conteudo .bg img {
+    position: relative;
+    top: -100px;
+}
+.modalNewsletter .conteudo .formularioModal {
+    padding: 30px;
+}
+
+
+.newsletter {
+	width: 100%;
+	float: left;
+	background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(rgba(254,202,55,1), rgba(242,173,22,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgba(254,202,55,1), rgba(242,173,22,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgba(254,202,55,1), rgba(242,173,22,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgba(254,202,55,1), rgba(242,173,22,1)); /* Standard syntax */
+	color: #764c29;
+	text-align: center;
+    padding-bottom: 10px;
+}
+.newsletter .quadroum {
+	background: #f59400;
+	padding: 10px;
+	text-align: center;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 10px;
+}
+.newsletter input[type=email]{
+	padding: 5px;
+	float: left;
+	margin-left: 15px;
+	margin-top: 15px;
+	width: 185px;
+	border: solid 1px #ccc;
+}
+.newsletter input[type=submit]{
+	
+	padding: 5px 10px;
+	float: right;
+	margin-right: 15px;
+	margin-top: 15px;
+	border: solid 1px #ccc;
+	background: #00A3B2;
+	color: #fff;
+}
+
+/* NOTIFICAÇÕES */
+
+.notificacoeslista {
+    width: 100%;
+    float: left;
+    list-style: none;
+}
+.notificacoeslista li {
+    padding: 10px;
+    background: #f2f2f2;
+    border: solid 1px #ccc;
+    margin-bottom: 10px;
+}
+.notificacoeslista li:hover {
+    background: #ccc;
+    border: solid 1px #666;
+    cursor: pointer;
+}
+
+/* GERAIS */
+
+.tituloIndex {
+    border-bottom: solid 2px #ccc;
+    padding: 5px 0px;
+    margin-top: 20px;
+}
+.tituloIndex strong {
+    color: #666;
+}
+.detalheTituloIndex {
+    height: 0px;
+    width: 0px;
+    float: right;
+    margin-top: -20px;
+    border-top: 5px solid transparent;
+    border-right: 5px solid #ccc;
+    border-bottom: 5px solid #ccc;
+    border-left: 5px solid transparent;
+}
+.tituloLateral {
+    border-bottom: solid 2px #f60;
+    padding: 5px 0px;
+    margin-top: 40px;
+    text-align: right;
+}
+.detalheTituloLateral {
+    height: 0px;
+    width: 0px;
+    float: left;
+    margin-top: -20px;
+    border-top: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #f60;
+    border-left: 5px solid #f60;
+}
+.centralizar {
+    text-align: center;
+}
+.caminhoNavegacao {
+    background: none;
+    border-radius: 0px;
+    width: 100%;
+    background: #000;
+}
+.caminhoNavegacao li {
+    background: #f2f2f2;
+    padding: 5px 10px;
+    margin: 0px 2px;
+    border: solid 1px #ccc;
+}
+.caminhoNavegacao li:hover {
+    background: #00a3b2;
+    cursor: pointer;
+    color: #fff;
+}
+.caminhoNavegacao li.ativo {
+    background: #00a3b2;
+    color: #fff;
+}
+.caminhoNavegacao li.ativo: {
+    cursor: crosshair;
+}
+
+/* INDEX */
+
+.barraJogosIndex img{
+   width: 100%;
+    margin-bottom: 20px;
+    border: solid 5px #fff;
+}
+.barraJogosIndex .jogo:hover img{
+    border: solid 5px #00a3b2;
+}
+.listaTorneios .campeonato, .listaLobbys .lobby {
+    padding: 15px;
+    text-align: center;
+}
+.listaTorneios .campeonato:hover, .listaLobbys .lobby:hover {
+    cursor: pointer;
+    background: #ccc;
+}
+.posicaoRank {
+    width: 100%;
+    float: left;
+    margin: 10px 0px;
+    text-align: center;
+}
+.posicaoRank img {
+    height: 30px;
+    width: 30px;
+}
+.barraSociais {
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+.barraSociais a {
+    color: #fff;
+}
+.barraSociais .facebook {
+    background: #3b5998;
+    padding: 20px;
+}
+.barraSociais .facebook:hover {
+    background: #3b5998;
+}
+.barraSociais .twitter {
+    background: #0084b4;
+    padding: 20px;
+}
+.barraSociais .twitch {
+    background: #6441a5;
+    padding: 20px;
+}
+.barraSociais .youtube {
+    background: #f00;
+    padding: 20px;
+}
+.parceiros {
+    padding: 20px;
+    border: solid 1px #ccc;
+    border-top: none;
+    border-bottom: none;
+}
+.parceiro {
+    margin-bottom: 15px;
+}
+
+/* MENUS */
+
+.mainMenu .dropdown .dropdown-menu{
+    background: #666;
+    color: #fff;
+}
+.mainMenu .dropdown .dropdown-menu a {
+    color: #fff;
+}
+.mainMenu .dropdown .dropdown-menu a:hover {
+    color: #666;
+}
+.menuJogos {
+    border-bottom: solid 2px #666;
+    background: #666;
+    width: 100%;
+    color: #fff;
+    padding: 0px;
+}
+.menuJogos ul li {
+    padding: 15px;
+    margin-bottom: -3px;
+}
+.menuJogos ul li img {
+    height: 30px;
+    filter: grayscale(1);
+}
+.menuJogos ul li.active {
+    background: #fff;
+}
+.menuJogos ul li.active img {
+    filter: grayscale(0);
+}
+.menuJogos ul li:hover {
+    background: #fff;
+    cursor: pointer;
+}
+.menuJogos ul li:hover img {
+    filter: grayscale(0);
+}
+.botaoMenuJogos {
+    padding: 10px;
+    background: #666;
+    color: #fff;
+    overflow: hidden;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+.botaoMenuJogos img {
+    height: 35px;
+}
+#sideBarJogos {
+    list-style: none;   
+}
+#sideBarJogos li{
+    color: #ccc;
+    line-height: 25px;
+    padding: 20px;
+    font-size: 22px;
+}
+#sideBarJogos li:hover {
+    color: #00a3b2;
+    cursor: pointer;
+}
+#sideBarJogos li img {
+    height: 25px;
+    margin-right: 20px;
+}
+.menuLoja {
+    padding: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.menuLoja a {
+    color: #666;
+}
+.menuLoja li {
+    padding: 5px 15px;
+}
+.menuLoja li.active {
+    background: #666;
+    color: #fff;
+}
+.subMenuLoja {
+    width: 100%;
+    background: #666;
+    padding: 0px;
+    margin-top: -20px;
+    border-bottom: solid 3px #00a3b2;
+    display: none;
+    margin-bottom: 10px;
+}
+.subMenuLoja ul a {
+    color: #ccc;
+}
+.subMenuLoja li {
+    padding: 5px 15px;
+}
+.subMenuLoja li.active {
+    color: #fff;
+    font-weight: bold;
+}
+
+.menuJogar {
+    background: #000;
+    color: #fff;
+    list-style: none;
+    position: relative;
+    z-index: 100;
+}
+.menuJogar li {
+    display: inline-block;
+    padding: 10px 15px;    
+    margin: 0px 5px;
+}
+.menuJogar li img {
+    height: 30px;
+    filter: grayscale(1);
+}
+.menuJogar li.ativo {
+    background: #fff;
+    color: #000;
+    border: solid 5px #000;
+    border-bottom: 0px;
+    margin-top: -5px;
+    
+}
+.menuJogar li.ativo img {
+    filter: grayscale(0);
+}
+.menuJogar li:hover {
+    cursor: pointer;
+    color: #00a3b2;
+}
+.menuJogar li:hover img{
+    filter: grayscale(0);
+}
+
+
+.menuCups {
+    list-style: none;
+    border-bottom: solid 5px #666;
+}
+.menuCups li{
+    display: inline-block;
+    padding: 10px;
+    background: #ccc;
+}
+.menuCups li.ativo {
+    background: #666;
+    color: #fff;
+    font-weight: bold;
+}
+.menuCups li:hover {
+    cursor: pointer;
+    background: #666;
+    color: #fff;
+}
+
+.menuCarteira {
+    list-style: none;
+    width: 100%;
+    margin-bottom: -1px;
+}
+.menuCarteira li {
+    display: inline-block;
+    padding: 10px;
+    background: #fff;
+    border: solid 1px #ccc;
+    color: #000;
+}
+.menuCarteira li.ativo {
+    background: #f2f2f2;
+    border-bottom: solid 1px #f2f2f2;
+}
+.menuCarteira li:hover {
+    cursor: pointer;
+    background: #f2f2f2;
+    border-bottom: solid 1px #f2f2f2;
+}
+.menuCarteira li.addSaldo {
+    background: #00a3b2;
+    font-weight: bold;
+    color: #fff;
+}
+
+.menuChatPartida {
+    list-style: none;
+    width: 100%;
+    float: left;
+}
+.menuChatPartida li {
+    padding: 5px 10px;
+    border: solid 1px #ccc;
+    display: inline-block;
+}
+.menuChatPartida li.ativo {
+    background: #fff;
+    border-bottom: solid 1px #fff;
+    position: relative;
+    z-index: 2;
+}
+
+/* CHATS */
+
+.chatPartida {
+    background: #fff;
+    width: 100%;
+    float: left;
+    padding: 10px;
+    border: solid 1px #ccc;
+    margin-top: -17px;
+}
+.chatPartida .mensagens {
+    width: 100%;
+    border: solid 1px #ccc;
+    padding: 5px;
+}
+.chatPartida .mensagem {
+    width: 100%;
+    border: solid 1px #ccc;
+    padding: 5px;
+    font-size: 12px;
+}
+.chatPartida input[type=submit]{
+    padding: 5px 10px;
+    border: solid 1px #ccc;
+    background: #f2f2f2;
+    float: right;
+    margin-top: -30px;
+    position: relative;
+    z-index: 2;
+    font-size: 12px;
+}
+
+/* HEADER */
+
+.menuPrincipalHeader {
+    list-style: none;    
+    margin-bottom: 0px;
+    background: #fff;
+    position: relative;
+    z-index: 99;
+}
+.menuPrincipalHeader li {
+    display: inline-block;
+    color: #666;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+.menuPrincipalHeader li.ativo, .menuPrincipalHeader li:hover {
+    background: #3c3c3c;
+    color: #fff;
+    cursor: pointer;
+}
+.menu-fixo {
+    position: fixed;
+    z-index: 1;
+}
+header .navbar {
+    position: relative;
+    z-index: 99;
+}
+.partidasPendentesUsuario {
+    padding: 10px 0px;
+    background: rgba(0,0,0,0.75);
+    width: 100%;
+    position: relative;
+    border-bottom: solid 3px #f60;
+    z-index: 50;
+    transition-property: padding-top;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+    transition-delay: 0.1s;
+}
+.partidasPendentesUsuario .partidaGrupo {
+    color: #fff;
+}
+.partidasPendentesUsuario .partidaGrupo:hover {
+    cursor: pointer;
+    border: solid 1px #333;
+    background: #666;
+}
+
+header {
+    width: 100%;
+    transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-delay: 1s;
+    color: #fff;
+    position: relative;
+    z-index: 99;
+}
+header .logoHeader {
+    height: 50px;
+}
+header .caixaUsuario {
+    color: #fff;
+    width: 100%;
+}
+header .caixaUsuario .fotoPerfil {
+    height: 50px;
+    margin-left: 20px;
+}
+header .caixaUsuario .caixaUm {
+    float: left;
+    text-align: right;    
+}
+header .caixaUsuario .caixaDois {
+    float: right;
+}
+header .caixaUsuario .caixaTres {
+    float: right;
+    padding-top: 15px;
+    color: #ccc;
+}
+header .caixaUsuario .caixaTres i {
+    margin-left: 10px;
+}
+header .caixaUsuario .caixaTres i:hover {
+    color: #00a3b2;
+    cursor: pointer;
+}
+header .caixaUsuario .caixaTres img {
+    height: 25px;
+}
+header .caixaUsuario .caixaUm .link {
+    color: #f60;
+    float: right;
+    margin-left: 10px;
+}
+header .caixaUsuario .caixaUm .link a {
+    color: #f60;
+}
+header .saldosHeader {
+    color: #fff;
+    font-weight: bold;
+}
+header .saldosHeader .saldo {
+    display: inline-block;
+    padding: 10px;
+    border: solid 1px #555;
+    margin: 5px;
+    color: #fff;
+    background: #333;
+}
+header .saldosHeader .saldo:hover {
+    cursor: pointer;
+    background: #00a3b2;
+}
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 10px 0px;
+    margin-top: 150px;
+    float: left;
+}
+footer .logo {
+    height: 50px;
+    filter: grayscale(1);
+}
+footer a {
+    color: #fff;
+    margin-left: 25px;
+    line-height: 50px;
+}
+footer a:hover {
+    color: #00a3b2;
+    cursor: pointer;
+}
+
+/* ARTIGOS */
+
+.artigos {
+    margin-top: 20px;
+}
+.artigos .artigo {
+    text-align: justify;
+    font-size: 14px;
+    border: solid 1px #fff;
+    background: #CCC;
+    margin: 20px 0px;
+}
+.artigos .artigo:hover {
+    border: solid 1px #666;
+}
+.artigos .artigo img {
+    width: 100%;
+}
+.artigos .artigo .card-text {
+    max-height: 60px;
+    overflow: hidden;
+}
+.linhaTituloArtigo {
+    width: 100%;
+    padding: 50px 0px;
+    background: url("../img/bgs/hearthstone.jpg");
+    overflow: hidden;
+    border-bottom: solid 3px #666;
+}
+.linhaTituloArtigo .jogo {
+    float: left;
+    padding: 0px 0px 5px 0px;
+    border-bottom: solid 3px #f60;
+}
+.linhaTituloArtigo .tituloArtigo {
+    width: 100%;
+    float: left;
+}
+.linhaTituloArtigo .infos {
+    width: 100%;
+    float: left;
+}
+.apresentacaoArtigo {
+    margin-top: 20px;
+}
+.apresentacaoArtigo ul {
+    margin-left: 30px;
+}
+.destaqueArtigo {
+    height: 100px;
+    overflow: hidden;
+    background: #000;
+    margin-bottom: 10px;
+    color: #fff;
+    padding-left: 20px;
+}
+.destaqueArtigo img {
+    width: 110%;
+    opacity: 0.35;
+    margin-bottom: -165px;
+    position: relative;
+    z-index: 0;
+    margin-left: -20px;
+}
+.destaqueArtigo h5 {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+}
+.destaqueArtigo:hover {
+    cursor: pointer;
+    border: solid 5px #f60;
+    border-style: outset;
+    padding-left: 15px;
+}
+/* CAIXAS */
+
+.caixas {
+    margin-top: 20px;
+}
+.caixas a {
+    text-decoration: none;
+}
+.caixa {
+    border: solid 1px #fff;
+    padding: 5px;
+    color: #000;
+    text-decoration: none;
+    margin: 10px 0px;
+    float: left;
+    width: 100%;
+}
+.caixa:hover {
+    cursor: pointer;  
+    border: solid 1px #ccc;
+}
+.caixa img {
+    height: 125px;
+}
+.caixa .valor {
+    padding: 10px;
+    width: 50%;
+    float: left;
+    font-weight: bold;
+    color: #fff;
+}
+.caixa .valorCoin {
+    background: #00a3b2;
+}
+.caixa .valorReal {
+    background: #f60;
+}
+.visualizarCaixa {
+    background: #ccc;
+    padding: 20px 0px;
+    border-bottom: solid 3px #666;
+    overflow: hidden;
+    display: none;
+}
+.visualizarCaixa .infosCaixa {
+    border: solid 1px #666;
+    padding: 15px;
+}
+.visualizarCaixa .recompensa {
+    border: dashed 1px #000;
+    margin: 20px 0px;
+    padding: 10px;
+}
+.visualizarCaixa .recompensa img {
+    width: 100%;
+}
+.visualizarCaixa .dropsCaixa {
+    border: solid 1px #666;
+    margin: 20px 0px;
+    padding: 15px;
+}
+.visualizarCaixa .dropsCaixa img {
+    width: 75%;
+}
+.visualizarCaixa .ultimosDrops {
+    padding: 20px;
+    border: solid 1px #666;
+}
+
+/* LOJA */
+
+.produto {
+	border: solid 1px #ccc;
+	padding: 5px;
+}
+
+.produto .categoria {
+	background: #00a3b2;
+	overflow: hidden;
+	font-weight: bold;
+	color: #fff;
+	font-size: 16px;
+	padding: 5px;
+}
+.produto .foto {
+	margin: 10px 0px;
+}
+.produto .foto img {
+	width: 75%;
+}
+.produto .titulo {
+	font-size: 20px;
+	color: #f60;
+	font-weight: bold;
+}
+.produto .subCategoria {
+	font-size: 16px;
+}
+.produto .valor {
+	font-size: 16px;
+	line-height: 20px;
+	margin: 10px 0px;
+}
+.produto .valor img {
+	height: 15px;
+	float: left;
+	margin-right: 5px;
+
+}
+.produto .andamento input {
+	width: 100%;
+	padding: 5px;
+	background: #f60;
+	border: solid 1px #000;
+	font-weight: bold;
+	color: #000;
+}
+.produto .andamento img {
+	height: 15px;
+	float: left;
+	margin-right: 5px;
+}
+.produto .andamento .barraTotal {
+	height: 5px;
+	width: 100%;
+	background: #ccc;
+	margin-bottom: 10px;
+}
+.produto .andamento .barraTotal .barraAtual {
+	height: 5px;
+	background: #f60;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/* RIFAS */
+
+.visualizarRifa {
+    background: #ccc;
+    border-bottom: solid 3px #666;
+}
+.cupomRifa {
+	background: #00a3b2;
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	margin: 2px 1px;
+	line-height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+	border: solid 5px #00a3b2;
+	color: #fff;
+	position: relative;
+}
+.cupomRifa:hover {
+	cursor: pointer;
+	border: solid 5px #000;
+}
+.clockrifa {
+	border: solid 2px #000;
+	padding: 10px;
+	font-weight: bold;
+}
+
+/* CAMPEONATOS */
+
+.campeonatos img {
+    width: 100%;
+}
+.campeonatos .campeonatoLista {
+    margin-bottom: 50px;
+    padding: 15px;
+    border: solid 1px #ccc;
+    background: #f2f2f2;
+}
+.campeonatos .campeonatoLista:hover {
+    border: solid 1px #666;
+    cursor: pointer;
+}
+.bgjogo {
+    width: 100%;
+    background: #000;
+    padding: 30px 0px;
+    overflow: hidden;
+    float: left;
+}
+.bgjogo2 {
+    margin-top: -90px;
+    padding-top: 90px;
+    border-bottom: solid 3px #666;
+}
+.bgjogo a {
+    color: #000;
+}
+.bgjogo.hs {
+    background: url("../img/bgs/hearthstone.jpg");
+    background-size: 100% auto;
+}
+.bgjogo.dota2 {
+    background: url("../img/bgs/dota2.jpg");
+    background-size: 100% auto;
+}
+.bgjogo.gwent {
+    background: url("../img/bgs/gwent.jpg");
+    background-size: 100% auto;
+}
+.bgjogo.lol {
+    background: url("../img/bgs/lol.jpg");
+    background-size: 100% auto;
+}
+.bgjogo.overwatch {
+    background: url("../img/bgs/overwatch.jpg");
+    background-size: 100% auto;
+}
+.bgjogo .iconeJogo {
+    height: 20px;
+    margin-right: 10px;
+}
+.bgJogo .boxInscricao {
+    width: 100%;
+    padding: 20px;
+    background: rgba(255,255,255,0.75);
+    box-shadow: 0px 0px 50px;
+    margin-top: 40px;
+}
+.bgJogo .boxInscricao .barraAviso {
+    background: #00a3b2;
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+}
+.bgJogo .boxInscricao input[type=button] {
+    width: 100%;
+    background: #f60;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    border: solid 1px #000;
+}
+.bgJogo .boxInscricao .atual {
+    color: #ccc;
+    font-size: 24px;
+    border-bottom: solid 1px #ccc;
+}
+.bgJogo .boxInscricao .max {
+    font-size: 30px;
+}
+.bgJogo .boxInscricao .tipo {
+    color: #ccc;
+}
+.menuCampeonato {
+    width: 100%;
+    background: #ccc;
+    list-style: none;
+}
+.menuCampeonato a {
+    color: #000;
+}
+.menuCampeonato li {
+    display: inline-block;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+.menuCampeonato li:hover {
+    cursor: pointer;
+    background: #fff;    
+}
+.menuCampeonato .ativo {
+    background: #fff;
+    margin-top: -5px;
+    border-top: solid 5px #f60;
+}
+.textosCampeonato ul, .textosCampeonato ol{
+    margin-left: 30px;
+}
+.inscrito {
+    font-weight: bold;
+    border: solid 1px #ccc;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 5px ;
+    overflow: hidden;
+}
+.inscrito:hover {
+    cursor: pointer;
+    border: solid 1px #ccc;
+    background: #f2f2f2;
+}
+.inscrito img {
+    float: left;
+    margin-right: 5px;
+    width: 50px;
+    height: 50px;
+}
+.thumbEtapa {
+    border: solid 1px #ccc;
+    color: #000;
+}
+.thumbEtapa a {
+    color: #000;
+    text-decoration: none;
+}
+.thumbEtapa:hover {
+    background: #f2f2f2;    
+}
+.thumbEtapa a img {
+    height: 125px;
+}
+.jogostabelas {
+    width: 100%;
+    padding: 10px;
+}
+.jogostabelas a {
+    color: #000;
+    text-decoration: none;
+}
+.titulogrupo {
+    padding: 10px;
+    background: #ccc;
+    color: #fff;
+    font-weight: bold;
+}
+.grupopontoscorridos {
+    width: 100%;
+    border: solid 1px #ccc;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+.grupopontoscorridos tr td {
+    padding: 10px;
+}
+.grupopontoscorridos:hover tr td {
+    text-decoration: none;
+    color: #00a3b2;
+}
+.tituloRank {
+    padding: 10px;
+    background: #f60;
+    color: #fff;
+    font-weight: bold;
+    float: right;
+}
+.rankTop {
+    width: 100%;
+    border: solid 1px #f60;
+    color: #f60;
+    margin-bottom: 20px;
+}
+.rankGeral {
+    width: 100%;
+    border: solid 1px #ccc;
+    color: #ccc;
+    
+}
+.rankTop tr td, .rankGeral tr td {
+    padding: 7px 10px;
+}
+.partidaGrupo {
+    border: solid 1px #ccc;
+    padding: 5px;
+    color: #000;
+    margin-bottom: 30px;
+}
+.partidaGrupo:hover {
+    cursor: pointer;
+    background: #f2f2f2;
+}
+.partidaGrupo a {
+    color: #000;
+}
+.grupoPartidasGrupo {
+    margin-bottom: 50px;
+}
+
+/* CAMPEONATO -> INSCRIÇÃO */
+
+.passoInscricao {
+    padding: 10px;
+    border: solid 1px #ccc;
+    margin-bottom: 10px;
+}
+.passoInscricao h3 {
+    background: #f2f2f2;
+    padding: 5px;
+}
+.passoInscricao .img img {
+    width: 35px;
+    height: 35px;
+}
+.passoInscricao .conta {
+    font-size: 30px;
+    font-weight: bold;
+}
+.heroi {
+	width: 100%;
+	-webkit-filter: grayscale(100%);
+	-webkit-transition: all .6s ease; 
+	-webkit-backface-visibility: hidden;
+	position: relative;
+	z-index: 2;
+}
+.heroi:hover {
+	-webkit-filter: grayscale(0%);
+	cursor:pointer;
+}
+.limitado:checked + .heroi{
+	-webkit-filter: grayscale(0%);
+	cursor:pointer;
+}
+
+/* CAMPEONATO -> PARTIDA */
+
+.faixaPartida {
+    width: 100%;
+    padding: 20px;
+    background: #00a3b2;
+}
+.infosJogadoresPartida {
+    width: 100%;
+    float: left;
+}
+.infosJogadoresPartida .jogador {
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    padding: 15px;
+    width: 45%;
+    float: left;
+}
+.infosJogadoresPartida .jogador img {
+    width: 75px;
+    height: 75px;
+    border: solid 5px #666;
+}
+.infosJogadoresPartida .jogadorUm {
+    border-left: solid 5px #666;
+}
+.infosJogadoresPartida .jogadorDois {
+    border-right: solid 5px #666;
+}
+.infosJogadoresPartida .jogadorUm img {
+    float: right;
+}
+.infosJogadoresPartida .jogadorDois img {
+    float: left;
+}
+.infosJogadoresPartida .jogador .placar {
+    padding: 2px;
+    font-size: 50px;
+    font-weight: bold;
+    height: 75px;
+}
+.infosJogadoresPartida .jogador.vencedor {
+    background: rgba(255, 102, 0, 0.4);
+    color: #000;
+}
+.infosJogadoresPartida .jogador .checkin {
+    border: solid 5px #00a3b2;
+}
+.infosJogadoresPartida .versus {
+    background: #000;
+    color: #ccc;
+    width: 10%;
+    float: left;
+    margin-top: -10px;
+    padding: 40px 0px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.infosJogadoresPartida .jogador .conta {
+    line-height: 75px;
+    font-weight: bold;
+    font-size: 22px;
+}
+.barraDrafts {
+    width: 100%;
+    float: left;
+    margin-top: -10px;
+    margin-bottom: -60px;
+}
+.barraDrafts .draft {
+    padding: 10px;
+    background: rgba(0,0,0,0.4);
+}
+.barraDrafts .draftUm{
+    float: left;
+    margin-left: 5px;
+}
+.barraDrafts .draftDois{
+    float: right;
+    margin-right: 5px;
+}
+.infosPartida {
+    width: 100%;
+    float: left;
+    text-align: center;    
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+}
+.infosCamp .sobreCampeonato, .infosCamp .statusCampeonato {
+    margin-top: 25px;
+}
+.infosCamp .sobreCampeonato img {
+    height: 140px;
+}
+.infosCamp .statusCampeonato .texto {
+    font-size: 20px;
+}
+.infosCamp .statusCampeonato .texto .titulo {
+    font-weight: bold;
+    color: #f60;
+    margin: 0px;
+    font-size: 22px;
+}
+.infosCamp .statusCampeonato .botao input[type=button] {
+    padding: 10px 15px;
+    border: solid 2px #f60;
+    background: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.infosCamp .statusCampeonato .botao input[type=button]:hover {
+    border: #000 solid 2px;
+    cursor: pointer;
+}
+.painelPartida {
+    width: 100%;
+    background: #f2f2f2;
+    border-bottom: solid 3px #ccc;
+    padding: 20px 0px;
+    float: left;
+}
+.painelPartida input[type=radio] {
+    display: none;
+}
+
+.painelPartida .decisaoPartida {
+  padding: 20px 15px;
+    border: solid 1px #ccc;
+}
+.painelPartida .decisaoPartida:hover {
+    cursor: pointer;
+    background: #ccc;
+    border: solid 1px #666;
+}
+
+.painelPartida input[type=radio]:checked + label {
+  color: #000;
+  background: #f60;
+}
+.painelPartida #option-one:checked + label, .menuAdmin #option-four:checked + label {
+	background: #138334;
+	color: #fff;
+}
+.painelPartida #option-two:checked + label, .menuAdmin #option-five:checked + label {
+	background: #f60;
+	color: #fff;
+}
+.painelPartida #option-three:checked + label, .menuAdmin #option-six:checked + label {
+	background: #680B0D;
+	color: #fff;
+}
+.painelPartida .alerta {
+    text-align: center;
+}
+/* CAMPEONATO -> PREMIADOS */
+
+.posicao1 {
+	background: #FFD700;
+	color: #000;
+	font-weight: bold;
+}
+.posicao1:hover {
+    background: #ffd700;
+}
+.posicao2 {
+	background: #c0c0c0;
+	color: #000;
+	font-weight: bold;
+}
+.posicao3 {
+	background: #cd7f32;
+	color: #000;
+	font-weight: bold;
+}
+
+/* PERFIL */
+
+.perfilJogador {
+    margin-top: 20px;
+}
+.perfilJogador .banner {
+    width: 100%;
+    height: 250px;
+    margin-bottom: -130px;
+}
+.perfilJogador .acoesPerfil {
+    margin: 2px 10px;
+    float: left;
+    margin-bottom: -5px;
+}
+.perfilJogador .fotoPerfil {
+    width: 165px;
+    height: 165px;
+    border: solid 5px #fff;
+    position: relative;
+    z-index: 1;
+    float: left;
+    margin-left: -5px;
+    margin-right: 10px;
+}
+.perfilJogador .infosPerfil {
+    background: #666;
+    padding: 10px;
+    color: #fff;
+    border: solid 1px #000;
+    float: left;
+}
+.perfilJogador .infosPerfil h2 {
+    font-weight: bold;
+}
+.perfilJogador .menuPerfil {
+    list-style: none;
+    padding-left: 185px;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    margin-top: -35px;
+}
+.perfilJogador .menuPerfil li {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #fff;   
+}
+.perfilJogador .menuPerfil li.ativo {
+    background: #fff;
+    color: #000;
+    border-top: solid 5px #f60;
+    margin-top: -5px;
+}
+.perfilJogador .menuPerfil li:hover {
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+/* LOBBYS */
+
+#tabelaLobbys {
+    width: 100%;
+}
+#tabelaLobbys tr td {
+    padding: 10px;
+}
+#tabelaLobbys tr td img {
+    height: 15px;
+    margin-right: 5px;
+}
+#tabelaLobbys thead tr td {
+    background: #666;
+    color: #fff;
+}
+#tabelaLobbys tr:hover td {
+    background: #ccc;
+    cursor: pointer;
+}
+#tabelaLobbys thead:hover tr td {
+    background: #666;
+    cursor: default;
+}
+.criarLobby {
+	width: 100%;
+	float: right;
+	margin-top: 10px;
+	padding: 10px;
+	background: #ccc;
+	text-align: left;
+}
+.criarLobby img {
+	height: 30px;
+	float: left;
+	margin-right: 10px;
+}
+.criarLobby .jogo {
+	width: 100%;
+	padding: 10px;
+	line-height: 35px;
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	border: solid 1px #000;
+	background: rgba(0,0,0,0.15);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.criarLobby .jogo img {
+	height: 35px;
+}
+.criarLobby input[type=text] {
+	width: 100%;
+	padding: 10px;
+	float: left;
+	background: #f2f2f2;
+	color: #000;
+	border: solid 1px #666;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.criarLobby input[type=number]{
+	width: 162px;
+	padding: 10px;
+	background: #f2f2f2;
+	color: #000;
+	border: solid 1px #666;
+	font-size: 14px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.criarLobby select {
+	padding: 10px;
+	background: #f2f2f2;
+	border: solid 1px #666;
+	margin-bottom: 10px;
+	width: 100px;
+	float: left;
+	margin-right: 10px;
+}
+.criarLobby input[type=password] {
+	width: 230px;
+	padding: 10px;
+	float: left;
+	background: #f2f2f2;
+	color: #000;
+	border: solid 1px #666;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.criarLobby input[type=submit]{
+	width: 100%;
+}
+
+/* PAGINAS DO USUARIO */
+
+.amigo {
+    width: 100%;
+    background: #f2f2f2;
+    border: solid 1px #ccc;
+    padding: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.amigo img {
+    height: 75px;
+    width: 75px;
+    float: left;
+    margin-right: 5px;
+}
+.amigo .acoes {
+    font-size: 12px;
+}
+.amigo .acoes .acao {
+    float: left;
+    margin: 0px 10px;
+}
+.amigo .acoes .acao:hover {
+    cursor: pointer;
+    color: #f60;
+}
+.resumoCarteira {
+    border: solid #ccc 1px;
+    padding: 10px;
+    background: #f2f2f2;
+    width: 100%;
+    overflow: hidden;
+}
+.resumoCarteira table {
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.resumoCarteira table tr td {
+    padding: 10px;
+}
+.resumoCarteira table img {
+    height: 15px;
+    float: right;
+    margin-left: 0px;
+}
+.resumoCarteira table thead tr td {
+    background: #666;
+    color: #fff;
+    font-weight: bold;
+}
+.resumoCarteira .dado {
+    background: #00a3b2;
+    padding: 10px;
+    border: solid 1px #000;
+    margin-bottom: 30px;
+    color: #fff;
+}
+.resumoCarteira .dado .conteudo {
+    font-size: 36px;
+    font-weight: bold;
+}
+.resumoCarteira .plano {
+    background: #ccc;
+    padding: 10px;
+    border: solid 1px #000;
+    margin-top: 10px;
+}
+.resumoCarteira .plano .caixaBotao {
+    padding: 5px;
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    margin-top: -40px;
+}
+.resumoCarteira .plano .caixaBotao .btn {
+    margin-left: 20px;
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+}
+.resumoCarteira .plano .caixaBotao.acoes {
+    display: block;
+}
+.resumoCarteira .plano .caixaBotao.aviso {
+    display: none;
+}
+.conexoes .conexao {
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    border: solid 1px #666;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.conexoes .conexao .icone {
+    float: left;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+.conexoes .conexao .acao {
+    float: right;
+    width: 40px;
+    height: 40px;
+}
+.conexoes .conexao img {
+    width: 100%;
+    float: left;
+}
+.conexoes .battlenet {  
+    background: #00B4FF;    
+}
+.conexoes .steam {
+    background: #000;
+}
+
+/* TIMES */
+
+.bgEquipe {
+	width: 100%;
+	background: #f60;
+    padding-top: 40px;
+    position: relative;
+    margin-top: -40px;
+    z-index: 0;
+}
+.bgEquipe.hs {
+	background: url(https://www.esportscups.com.br/img/bgs/hearthstone.jpg);
+	width: auto;
+	overflow: hidden;
+	border-bottom: solid 3px #ccc;
+}
+.bgEquipe.dota2 {
+	background: url(https://www.esportscups.com.br/img/bgs/dota2.jpg);
+	width: auto;
+	overflow: hidden;
+	border-bottom: solid 3px #ccc;
+}
+.bgEquipe.lol {
+	background: url(https://www.esportscups.com.br/img/bgs/lol.jpg);
+	width: auto;
+	overflow: hidden;
+	border-bottom: solid 3px #ccc;
+}
+.logoEquipe {
+	max-width: 150px;
+}
+
+.integrantes {
+	list-style: none;
+	margin: 30px 0px;
+}
+.integrantes li {
+	display: inline-block;
+	margin: 10px;
+}
+.integrantes li img.fotoIntegrante {
+	height: 140px;
+    width: 140px;
+	margin-bottom: 10px;
+	border: solid 5px #727272;
+}
+.integrantes li img.capitao {
+	height: 20px;
+}
+.barraPainel {
+	width: 100%;
+	float: left;
+	background: #ccc;
+	padding: 10px 0px;
+}
+.infoLineup {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+}
+.infoLineup span {
+    color: #f60;
+}
+
+/* ORGANIZACAO */
+
+.barraOrganizacao {
+    padding: 10px;
+    color: #fff;
+}
+.barraOrganizacao .integrante {
+    background: #f2f2f2;
+    border: solid 1px #ccc;
+    padding: 5px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.barraOrganizacao .integrante img {
+    height: 50px;
+    width: 50px;
+    float: left;
+    margin-right: 5px;
+}
+.barraOrganizacao .linksOrganizacao img{
+    float: left;
+    margin-right: 20px;
+}
+.opcoesOrganizacao {
+    background: #f2f2f2;
+    border: solid 1px #ccc;
+    padding: 5px;
+}
+.opcoesOrganizacao img {
+    width: 100%;
+}
+.menuPainelOrganizacao {
+    list-style: none;
+    background: #f2f2f2;
+    margin-top: 10px;
+}
+.menuPainelOrganizacao li {
+    padding: 5px;
+    border: solid 1px #f2f2f2;
+}
+.menuPainelOrganizacao li:hover, .menuPainelOrganizacao li.ativo {
+    background: #ccc;
+    font-weight: bold;
+    border: solid 1px #666;
+    border-right: solid 50px #fff;
+    cursor: pointer;
+}
+.navegacaoPainel {
+    border-radius: 0px;
+    color: #666;
+    list-style: none;
+    border: solid 1px #666;
+    border-bottom: solid 5px #666;
+    border-top: solid 5px #666;
+}
+.navegacaoPainel li {
+    padding: 5px 15px;
+    display: inline-block;
+    background: #f2f2f2;
+    color: #000;
+}
+
+.navegacaoPainel li:hover {
+    background: #ccc;
+    cursor: pointer;
+}
+.navegacaoPainel li a {
+    color: #000;
+}
+.navegacaoPainel li.ativo {
+    background: #666;
+    color: #fff;
+    font-weight: bold;
+}
+.torneioPainelOrganizacao {
+    background: #f2f2f2;
+    border: solid 1px #ccc;
+    padding: 5px;
+    color: #000;
+    margin-bottom: 10px;
+}
+.torneioPainelOrganizacao:hover {
+    background: #ccc;
+    border: solid 1px #666;
+}
+.torneioPainelOrganizacao img{
+    width: 100%;
+}
+.resumoCampPainel {
+    background: #f2f2f2;
+    border: solid 1px #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.acoesPainelOrg .acao {
+    padding: 10px;
+    background: #f2f2f2;
+    border: solid 1px #ccc;
+    margin-bottom: 20px;
+    color: #000;
+}
+.acoesPainelOrg .acao:hover {
+    cursor: pointer;
+    border: solid 1px #666;
+    background: #ccc;
+}
+.acoesPainelOrg .acao img {
+    height: 100px;
+}
+.contagemInscricao {
+    background: #f2f2f2;
+    border: solid 1px #ccc;
+    padding: 20px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.listagemSementes {
+    background: #f2f2f2;
+    border: solid 1px #ccc;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#carousel {
+	width: 100%;
+	overflow: hidden;
+	background: #000;
+}
+#carousel2 {
+	width: 100%;
+	overflow: hidden;
+	height: 500px;
+}
+.campSlide {
+	width: 100%;
+	float: left;
+	height: 500px;
+	font-family: bebas neue;
+	padding: 50px 0px;
+	position: relative;
+	z-index: 1;
+}
+.campSlide .logo {
+	float: left;
+	height: 225px;
+}
+.campSlide .descricao {
+	max-width: 50%;
+	font-size: 22px;
+	float: right;
+	text-align: right;
+}
+.campSlide .descricao h1 {
+	font-family: bebas neue;
+}
+.campSlide .informacoes {
+	width: 100%;
+	float: left;
+}
+.trapezio2 {
+	border-bottom: 105px solid #00a3b2; 
+	border-right: 125px solid transparent; 
+	height: 0px; 
+	width: 50%;
+	float: left;
+	margin-top: 50px;
+}
+.trapezio2 .informacoes {
+	margin: 10px 0px 0px 10px;
+	font-size: 20px;
+	color: #fff;
+	font-weight: bold;
+}
+.trapezio2 .informacoes span {
+	font-size: 14px;
+}
+.campSlide hr {
+	width: 100%;
+	float: left;
+	height: 5px;
+	background: #00a3b2;
+	border: none;
+	margin-top: -5px;
+}
+.campSlide .clock {
+	float: right;
+	width: 50%;
+	font-size: 36px;
+	background: none;
+	margin-top: -150px;
+}
+.jogo:hover img{
+	border: solid 5px #00a3b2;
+}
+.grupoArtigos {
+	height: 463px;
+	background: #000;
+	overflow: hidden;
+}
+.grupoArtigos .slide .textoPrincipal {
+	width: 100%;
+	height: 200px;
+	float: left;
+	color: #fff;
+	margin-top: -200px;
+	background: linear-gradient(transparent, #353535);
+	padding: 30px;	
+	position: relative;
+	z-index: 1;
+}
+.grupoArtigos .slide h2 {
+	font-family: bebas neue;
+}
+.grupoArtigos .slide .textoSecundario {
+	width: 100%;
+	height: 150px;
+	float: left;
+	color: #fff;
+	margin-top: -150px;
+	background: linear-gradient(transparent, #353535);
+	padding: 15px;
+	position: relative;
+	z-index: 1;
+}
+.grupoArtigos .slide .textoSecundario h2 {
+	font-size: 20px;
+}
+.grupoArtigos .slide:hover img{
+	opacity: 1;
+}
+.grupoArtigos .slide1 {
+	width: 50%;
+	float: left;
+	height: 100%;
+	background: #000;
+	border: solid 1px #000;
+	overflow: hidden;
+}
+.grupoArtigos .slide1 img {
+	height: 100%;
+	opacity: 0.4;
+}
+.grupoArtigos .slide2 {
+	float: left;
+	width: 50%;
+	height: 50%;
+	border: solid 1px #000;
+	overflow: hidden;
+}
+.grupoArtigos .slide3 {
+	float: left;
+	width: 50%;
+	height: 50%;
+	border: solid 1px #000;
+	overflow: hidden;
+}
+.grupoArtigos .slide2 img, .grupoArtigos .slide3 img{
+	height: 100%;
+	opacity: 0.4;
+}
+
+
+/* lobbys */
+
+.barraInfos {
+	width: 100%;
+	float: right;
+	border: solid 1px #ccc;
+	padding: 10px;
+	background: #ccc;
+	margin-top: -12px;
+}
+.barraInfos label {
+	padding: 3px 10px;
+	color: #000;
+	background: #fff;
+	border: solid 1px #ccc;
+	font-size: 12px;
+	float: left;
+	margin-top: 5px;
+	margin-bottom: -15px;
+	width: auto;
+}
+.infos {
+	width: 100%;
+	padding: 5px 10px;
+	border: solid 1px #ccc;
+	float: left;
+	margin-right:10px;
+	margin-bottom: 15px;
+	text-align: left;
+	background: #fff;
+
+}
+.infos h1 {
+	max-width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.infos img {
+	height: 35px;
+	float: left;
+	margin-right: 10px;
+}
+.slots {
+	width: 47%;
+	float: right;
+	text-align:center;
+	padding: 18px 10px;
+	border: solid 1px #ccc;
+	background: #fff;
+}
+.slots label {
+	margin-bottom: -32px;
+}
+.analise {
+	width: 228px;
+	float: right;
+	text-align:center;
+	padding: 10px 10px;
+	border: solid 1px #ccc;
+	background: #fff;
+	margin-bottom: 15px;
+}
+.analise label {
+	margin-bottom: -20px;
+}
+.analise input[type=file] {
+	display: none;
+}
+.analise #labelss {
+	width: 226px;
+	padding: 10px 0px;
+}
+.analise #labelss:hover {
+	cursor: pointer;
+	border: solid 1px #000;
+}
+.analise input[type=number] {
+	padding: 10px;
+	margin-top: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	width: 226px;
+}
+.texto {
+	width: 100%;
+	padding: 10px 10px;
+	border: solid 1px #ccc;
+	float: left;
+	background: #fff;
+	margin-top: 15px;
+	margin-bottom: 15px;
+    text-align: center;
+    font-size: 28px;
+}
+.texto img {
+	height: 30px;
+}
+.pote {
+	width: 49%;
+	float: left;
+	padding: 5px 10px;
+	border: solid 1px #ccc;
+	margin-right: 10px;
+	font-size: 36px;
+	background: #fff;
+}
+.pote .duvida {
+	padding: 5px;
+	border: solid 1px #000;
+	font-size: 10px;
+	float: left;
+	font-weight: bold;
+}
+.pote .duvida:hover {
+	border: solid 1px #f60;
+	cursor: pointer;
+}
+.pote .iconeCoin {
+	height: 25px;
+	margin-right: 10px;
+}
+.situacao .texto {
+	width: 67%;
+	float:right;
+	text-align:center;
+	font-size: 14px;
+}
+.opcoesAposta {
+	float: left;
+	padding: 5px;
+	border: solid 1px #ccc;
+	margin-bottom: 20px;
+	background: #fff;
+}
+.vagarapida {
+	padding: 26px 20px;
+	font-size: 20px;
+	border: solid 2px #000;
+	background: #f60;
+	width: 100%;
+}
+.btPalpite {
+	background: #0358BC;
+	color: #fff;
+	padding: 5px 10px;
+	font-size: 18px;
+	border: solid 2px #00408B;
+	margin: 5px;
+}
+.btPalpite:hover {
+	border: solid 2px #7DB4F4;
+}
+.btPalpite.ativo {
+	border: #000 solid 2px;
+	background: #00a3b2;
+}
+.estoupronto {
+	background: rgba(16,135,59,1.00);
+	color: #fff;
+}
+.estoupronto:hover {
+	border: solid 2px #08BD39;
+}
+.naoestoupronto {
+	background: rgba(115,6,8,1.00);
+	color: #fff;
+}
+.naoestoupronto:hover {
+	border: solid 2px #FF0004;
+}
+.barraEquipes {
+    background: #ccc;
+	width: 100%;
+	float: left;
+	padding: 0px;
+	margin-top: 10px;
+}
+.equipe {
+	width: 100%;
+	height: auto;
+	background: #fff;
+	display: inline-block;
+	padding: 5px;
+	border: solid 1px #ccc;
+	margin: 0px 0px 10px 5px;
+	text-align: left;
+}
+
+.equipe .membros {
+	list-style: none;
+	margin-top: 10px;
+}
+.equipe .membros li {
+	text-align: left;
+	line-height: 25px;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 5px;
+	margin: 1px 0px;
+}
+.equipe .membros li:hover {
+	background: rgba(204,204,204,0.25);
+}
+.equipe .membros li.vaga {
+	color: #ccc;
+	font-weight: normal;
+}
+.equipe .membros li.vaga:hover {
+	cursor: pointer;
+	color: #000;
+}
+.equipe .membros li.ready {
+	background: rgba(255,102,0,0.35);
+}
+.equipe .membros li .iconeCapitao {
+	height: 15px;
+	float: left;
+	margin-right: 5px;
+}
+.equipe .membros li .fotoMembro {
+	height: 25px;
+	float: left;
+	margin-right: 10px;
+}
+.equipe .membros li .sairSlot {
+	float: right;
+	height: 25px;
+}
+.equipe .membros li .sairSlot:hover {
+	cursor: pointer;
+	box-shadow: 0px 0px 10px #000;
+}
+.equipe .membros li .palpite {
+	float: right;
+	line-height: 25px;
+	margin-right: 10px;
+}
+.equipe .membros li .palpite img {
+	float: left;
+	margin-right: 5px;
+	height: 15px;
+	margin-top: 5px;
+}
+.printscreen {
+	max-width: 70%;
+	float: right;
+	margin-right: 20px;
+}
+#formVotacao .colocacao {
+	padding: 15px;
+	border: solid 1px #ccc;
+	font-size: 60px;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin: 0px auto;
+	width: 50px;
+}
+#formVotacao .campoVoto {
+	padding: 10px;
+	margin-right: 20px;
+	border: solid 1px #000;
+	float: left;
+	width: 26%;
+	margin-bottom: 25px;
+}
+#formVotacao .campoVoto.obs {
+	color: #f60;
+}
+#formVotacao .campoVoto label {
+	padding: 5px;
+	border: solid 1px #000;
+	font-size: 12px;
+	margin-bottom: -20px;
+	margin-top: 5px;
+	float: left;
+	background: #fff;
+}
+#formVotacao .campoVoto input[type=button]{
+	margin-top: 0px;
+}
+#formVotacao .campoVoto .concordo {
+	background: #156B07;
+	color: #fff;
+}
+#formVotacao .campoVoto .discordo {
+	background: #870C0E;
+	color: #fff;
+}
+.contVotos {
+	width: 27.5%;
+	float: left;
+	border: solid 1px #ccc;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+.contVotos .afavor {
+	float: left;
+	width: 50%;
+	background: #83D198;
+	text-align: center;
+	padding: 10px 0px;
+	font-size: 28px;
+	font-weight: bold;
+}
+.contVotos .contra {
+	float: left;
+	width: 50%;
+	background: #E86F71;
+	text-align: center;
+	padding: 10px 0px;
+	font-size: 28px;
+	font-weight: bold;
+}
+.listaVotos {
+	width: 28%;
+	float: left;
+}
+.listaVotos tr td {
+	text-align: center;
+	padding: 5px 0px;
+	border-bottom: solid 1px #ccc;
+}
+.listaVotos img {
+	height: 20px;
+}
+.chats {
+	width: 100%;
+	float: left;
+	padding: 10px 0px;
+	background: #8C8C8C;
+	margin-top: 20px;
+}
+.abasChat {
+	list-style: none;
+}
+.abasChat li {
+	display: inline-block;
+	padding: 5px 10px;
+	border: solid 2px #ccc;
+	font-weight: bold;
+	color: #ccc;
+	margin-bottom: -2px;
+}
+.abasChat li:hover, .abasChat li.ativo {
+	background: #fff;
+	color: #000;
+	cursor: pointer;
+	border-bottom: solid 2px #fff;
+}
+.chat {
+	width: 715px;
+	background: #fff;
+	padding: 10px;
+	float: left;
+	border: solid 2px #ccc;
+}
+.chat .mensagens {
+	width: 693px;
+	border: solid 1px #ccc;
+	padding: 10px;
+	height: 258px;
+	overflow: auto;
+}
+.chat .mensagens .msg {
+	color: #8C8C8C;
+}
+.chat .mensagens .msg.destaque {
+	color: #f60;
+}
+.chat form {
+	display: none;
+}
+.chat input[type=text]{
+	width: 636px;
+	padding: 5px;
+	border: solid 1px #ccc;
+	margin-top: -1px;
+	margin-right: -1PX;
+}
+.chat input[type=submit]{
+	width: 80px;
+	float: right;
+	padding: 5px 15px;
+	border: solid 1px #ccc;
+	margin-top: -1px;
+	text-align: center;
+}
+.chat input[type=submit]:hover {
+	background: #9E9E9E;
+}
+.suporte {
+	width: 250px;
+	border: dashed 1px #ccc;
+	padding: 10px;
+	float: right;
+	color: #fff;
+	text-align:center;
+}
+
+/* TELA DE CONFLITOS */
+
+.listaConflitos {
+	width: 20%;
+	float: left;
+	padding: 5px 5px 0px 5px;
+	border: solid 1px #ccc;
+	list-style: none;
+	margin-right: 10px;
+}
+.listaConflitos li {
+	width: 100%;
+	height: 75px;
+	overflow: hidden;
+	margin-bottom: 5px;
+	text-align: left;
+	font-size: 18px;
+	font-weight: bold;
+	border: solid 1px #fff;
+}
+.listaConflitos li img {
+	width: 50%;
+	float: left;
+	margin-right: 5px;
+	filter: grayscale(1);
+}
+.listaConflitos li:hover {
+	cursor: pointer;
+}
+.listaConflitos li:hover img {
+	filter: grayscale(0);
+}
+.listaVotos {
+	width: 20%;
+	float: right;
+	padding: 5px 5px 0px 5px;
+	border: solid 1px #ccc;
+	list-style: none;
+}
+.listaVotos li {
+	width: 100%;
+	margin-bottom: 5px;
+}
+.areaVotacao {
+	width: 56.9%;
+	float: left;
+	padding: 5px;
+	border: solid 1px #ccc;
+}
+.areaVotacao .printVotacao {
+	width: 100%;
+	max-height:565px;
+	float: left;
+	margin-bottom: 5px;
+	overflow: hidden;
+}
+.areaVotacao .printVotacao img {
+	width: 100%;
+}
+.areaVotacao .colocacaoVotacao {
+	width: 20%;
+	float: left;
+	padding: 10px;
+	border: solid 1px #ccc;
+	font-size: 22px;
+	font-weight: bold;
+	margin-right: 5px;
+}
+.areaVotacao .votoVotacao {
+	width: 52.8%;
+	float: left;
+	padding: 10px;
+	border: solid 1px #ccc;
+}
+.areaVotacao .votoVotacao img {
+	height: 30px;
+}
+.areaVotacao .votoVotacao .voto {
+	padding: 10px;
+	border: solid 3px #ccc;
+	width: 15%;
+	display: inline-block;
+	margin-top: 5px;
+}
+.areaVotacao .votoVotacao .voto:hover {
+	border: solid 3px #000;
+	cursor: pointer;
+	background: rgba(255,102,0,0.25)
+}
+.areaVotacao .totalVotacao {
+	width: 20%;
+	float: right;
+	padding: 10px;
+	border: solid 1px #ccc;
+	font-size: 28px;
+	font-weight: bold;
+}
+.areaVotacao .totalVotacao img {
+	height: 20px;
+	margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

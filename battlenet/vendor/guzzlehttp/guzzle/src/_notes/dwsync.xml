@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="Client.php" server="ftp.esportscups.com.br" local="131375519210163563" remote="131375520000000000" Dst="1" />
+<file name="ClientInterface.php" server="ftp.esportscups.com.br" local="131375519210448697" remote="131375520000000000" Dst="1" />
+<file name="functions_include.php" server="ftp.esportscups.com.br" local="131375519214624952" remote="131375520000000000" Dst="1" />
+<file name="functions.php" server="ftp.esportscups.com.br" local="131375519214399816" remote="131375520000000000" Dst="1" />
+<file name="HandlerStack.php" server="ftp.esportscups.com.br" local="131375519211009034" remote="131375520600000000" Dst="1" />
+<file name="Middleware.php" server="ftp.esportscups.com.br" local="131375519211772461" remote="131375520600000000" Dst="1" />
+<file name="Pool.php" server="ftp.esportscups.com.br" local="131375519212017537" remote="131375520600000000" Dst="1" />
+<file name="MessageFormatter.php" server="ftp.esportscups.com.br" local="131375519211349203" remote="131375520600000000" Dst="1" />
+<file name="PrepareBodyMiddleware.php" server="ftp.esportscups.com.br" local="131375519212237631" remote="131375520600000000" Dst="1" />
+<file name="RedirectMiddleware.php" server="ftp.esportscups.com.br" local="131375519212629095" remote="131375520600000000" Dst="1" />
+<file name="RequestOptions.php" server="ftp.esportscups.com.br" local="131375519212973937" remote="131375520600000000" Dst="1" />
+<file name="TransferStats.php" server="ftp.esportscups.com.br" local="131375519213674451" remote="131375520600000000" Dst="1" />
+<file name="UriTemplate.php" server="ftp.esportscups.com.br" local="131375519214044690" remote="131375520600000000" Dst="1" />
+<file name="RetryMiddleware.php" server="ftp.esportscups.com.br" local="131375519213389315" remote="131375520600000000" Dst="1" />
+</dwsync>
