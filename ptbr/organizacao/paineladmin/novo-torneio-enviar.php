@@ -79,7 +79,7 @@
 		$qtdBan = $_POST['qtdBans'];
 	}
 
-	mysqli_query($conexao, "INSERT INTO campeonato VALUES (NULL, ".$organizacao['codigo'].", ".$usuario['codigo'].", $jogo, '$nome', $vagas, $qtdJogador, $inscricao, $inscricaoReal, '$inicioInscricao', '$fimInscricao', '$inicioTorneio', '$fimTorneio', '$regiao', '$descricao', '$regulamento', '$premiacao', '$cronograma', NULL, $tipoInscricao, '$fusoHorario', '$link', '$pais', '$local', $etapaPresencial, 0, 0, $qtdPick, $qtdBan, '$plataforma', $precheckin, NULL, $dispInsc)");
+	mysqli_query($conexao, "INSERT INTO campeonato VALUES (NULL, ".$organizacao['codigo'].", ".$usuario['codigo'].", $jogo, '$nome', $vagas, $qtdJogador, $inscricao, $inscricaoReal, '$inicioInscricao', '$fimInscricao', '$inicioTorneio', '$fimTorneio', '$regiao', '$descricao', '$regulamento', '$premiacao', '$cronograma', NULL, $tipoInscricao, '$fusoHorario', '$link', '$pais', '$local', $etapaPresencial, 0, 0, $qtdPick, $qtdBan, '$plataforma', $precheckin, NULL, $dispInsc, NULL)");
 
 	$id = mysqli_insert_id($conexao);
 

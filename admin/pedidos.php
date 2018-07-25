@@ -80,6 +80,7 @@ desired effect
                   <tr>
                     <th>Cod. Pedido</th>
                     <th>Usuário</th>
+                    <th>Nick</th>
                     <th>E-mail</th>
                     <th>Data</th>                    
                     <th>Produto</th>
@@ -90,12 +91,13 @@ desired effect
 					<?php
 						$pedidos = mysqli_query($conexao, "SELECT * FROM pedido WHERE data_entrega is null ORDER BY data_pedido");
 					  	while($pedido = mysqli_fetch_array($pedidos)){
-                            $comprador = mysqli_fetch_array(mysqli_query($conexao, "SELECT nome, sobrenome, email FROM jogador WHERE codigo = ".$pedido['cod_jogador'].""));
+                            $comprador = mysqli_fetch_array(mysqli_query($conexao, "SELECT nome, sobrenome, nick, email FROM jogador WHERE codigo = ".$pedido['cod_jogador'].""));
                             $produto = mysqli_fetch_array(mysqli_query($conexao, "SELECT nome FROM produto WHERE codigo = ".$pedido['cod_produto']." "));
 							?>
 					  			<tr>
 					  				<td><?php echo $pedido['codigo']; ?></td>
 									<td><?php echo $comprador['nome']." ".$comprador['sobrenome']; ?></td>
+                                    <td><?php echo $comprador['nick']; ?></td>
                                     <td><?php echo $comprador['email']; ?></td>
 									<td><?php echo date("d/m/Y - H:i", strtotime($pedido['data_pedido'])); ?></td>									
 									<td><?php echo $produto['nome']; ?></td>
@@ -242,6 +244,7 @@ desired effect
                     url: "scripts/pedidos.php",
                     data: "funcao=1&numPedido="+numPedido,
                     success: function(resultado){
+                        alert(resultado);
                         window.location.reload();
                     }
                 });   

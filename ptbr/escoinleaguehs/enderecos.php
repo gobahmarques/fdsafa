@@ -1,7 +1,7 @@
 <?php
-	$css = 'http://localhost/esportscups/ptbr/escleaguehs/css/';
-	$img = 'http://localhost/esportscups/ptbr/escleaguehs/img/';
-	$js = 'http://localhost/esportscups/ptbr/escleaguehs/js/';
+	$css = 'http://localhost/esportscups/ptbr/escoinleaguehs/css/';
+	$img = 'http://localhost/esportscups/ptbr/escoinleaguehs/img/';
+	$js = 'http://localhost/esportscups/ptbr/escoinleaguehs/js/';
 ?>
 
-<base href="http://localhost/esportscups/ptbr/escleaguehs/" />
+<base href="http://localhost/esportscups/ptbr/escoinleaguehs/" />

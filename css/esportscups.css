@@ -2491,6 +2491,20 @@ footer a:hover {
 	margin-left: 20px;
 }
 
+.bracket .acoes .acao {
+    padding: 0px 15px;
+    float: left;
+    border: solid 2px #ccc;
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 30px;
+    color: #666;
+}
+.bracket .acoes .acao:hover {
+    cursor: pointer;
+    border: solid 2px #666;
+    background: #ccc;
+}
 
 
 

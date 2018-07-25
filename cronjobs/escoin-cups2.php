@@ -58,7 +58,7 @@
 
 	mysqli_query($conexao, "
 		INSERT INTO campeonato VALUES
-		(NULL, 11, 639282, 369, 'eSCoin Cup Hearthstone', 32, 1, 0, 0, '$inicioInscricao', '$fimInscricao', '$inicioCamp', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 0, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 4, 1, 'PC', 60, NULL, 0)
+		(NULL, 11, 639282, 369, 'eSCoin Cup Hearthstone', 32, 1, 0, 0, '$inicioInscricao', '$fimInscricao', '$inicioCamp', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 0, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 4, 1, 'PC', 60, NULL, 0, NULL)
 	");
 
 	$id = mysqli_insert_id($conexao);
@@ -146,7 +146,7 @@
 
 	mysqli_query($conexao, "
 		INSERT INTO campeonato VALUES
-		(NULL, 11, 639282, 357, 'eSCoin Cup Dota 2 X1', 16, 1, 0, 0, '$inicioInscricao', '$fimInscricao', '$inicioCamp', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 0, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 0, 0, 'PC', 60, NULL, 0)
+		(NULL, 11, 639282, 357, 'eSCoin Cup Dota 2 X1', 16, 1, 0, 0, '$inicioInscricao', '$fimInscricao', '$inicioCamp', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 0, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 0, 0, 'PC', 60, NULL, 0, NULL)
 	");
 
 	$id = mysqli_insert_id($conexao);
@@ -208,7 +208,7 @@
 
 	mysqli_query($conexao, "
 		INSERT INTO campeonato VALUES
-		(NULL, 11, 639282, 147, 'eSCoin Cup LoL', 16, 5, 0, 0, '$inicioInscricao', '$fimInscricao', '$inicioCamp', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 1, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 0, 0, 'PC', 60, NULL, 0)
+		(NULL, 11, 639282, 147, 'eSCoin Cup LoL', 16, 5, 0, 0, '$inicioInscricao', '$fimInscricao', '$inicioCamp', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 1, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 0, 0, 'PC', 60, NULL, 0, NULL)
 	");
 	
 	$id = mysqli_insert_id($conexao);
@@ -260,7 +260,7 @@
 
 	mysqli_query($conexao, "
 		INSERT INTO campeonato VALUES
-		(NULL, 11, 639282, 123, 'eSCoin Cup GWENT', 32, 1, 0, 0, '$inicioInscricao', '$fimInscricao', '$inicioCamp', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 0, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 4, 1, 'PC', 60, NULL, 0)
+		(NULL, 11, 639282, 123, 'eSCoin Cup GWENT', 32, 1, 0, 0, '$inicioInscricao', '$fimInscricao', '$inicioCamp', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 0, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 4, 1, 'PC', 60, NULL, 0, NULL)
 	");
 
 	$id = mysqli_insert_id($conexao);
@@ -300,7 +300,7 @@
 
 	mysqli_query($conexao, "
 		INSERT INTO campeonato VALUES
-		(NULL, 11, 639282, 258, 'eSCoin Cup Overwatch', 16, 6, 0, 0, '$inicioInscricao', '$fimInscricao', '$inicioCamp', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 1, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 0, 0, 'PC', 60, NULL, 0)
+		(NULL, 11, 639282, 258, 'eSCoin Cup Overwatch', 16, 6, 0, 0, '$inicioInscricao', '$fimInscricao', '$inicioCamp', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 1, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 0, 0, 'PC', 60, NULL, 0, NULL)
 	");
 
 	$id = mysqli_insert_id($conexao);

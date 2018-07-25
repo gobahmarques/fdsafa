@@ -1,4 +1,4 @@
-<?php
+ <?php
 	function elimSimples($etapa, $campeonato){
 		include "../../enderecos.php";
 		include "../../conexao-banco.php";
@@ -32,7 +32,7 @@
 				$xRound = 0;
 				$avancoYpoly = 25;
 			?>
-			<svg class="jogostabelas" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<svg class="jogostabelas" id="jogostabelas" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				<g transform="scale(1)" id="elimSimples">
 					<g>	<!-- MOSTRAR ROUNDS -->			
 						<g>
@@ -61,7 +61,7 @@
 						while($coluna <= $maxRounds){
 							$partidas = mysqli_query($conexao, "SELECT * FROM campeonato_partida WHERE cod_etapa = ".$etapa['cod_etapa']." AND cod_campeonato = ".$campeonato['codigo']." AND coluna = $coluna ORDER BY codigo ASC LIMIT $maxJogos");
 							if($coluna == 1){
-								$alturaR1 = mysqli_num_rows($partidas) * 75 + 75;
+								$alturaR1 = mysqli_num_rows($partidas) * 80 + 75;
 							}
 							while($partida = mysqli_fetch_array($partidas)){
 								if($partida['status'] != 3){
@@ -428,8 +428,8 @@
 				posicaoGeral =$("#brackets").position();
 				posicaoBracket =$("#elimSimples").position();
 				
-				xTabela = posicaoBracket.left - posicaoGeral.left - 190;
-				yTabela = posicaoBracket.top - posicaoGeral.top - (50 * parseFloat($("#valZoom").val()));
+				xTabela = posicaoBracket.left - (375 * parseFloat($("#valZoom").val()));
+				yTabela = posicaoBracket.top  - (posicaoBracket.top * parseFloat($("#valZoom").val()));
 				
 				xMouse = e.pageX;
 				yMouse = e.pageY;
@@ -441,11 +441,11 @@
 					var avancoX = (xMouse - e.pageX)*2;
 					var avancoY = (yMouse - e.pageY)*2;
 					//console.log(y+", "+newY+", "+top+", "+(top+(newY-y))); 
-					$("#elimSimples").attr("transform", "scale("+parseFloat($("#valZoom").val())+") translate("+(xTabela + avancoX+180)+","+(yTabela + avancoY-1)+")");
+					$("#elimSimples").attr("transform", "scale("+parseFloat($("#valZoom").val())+") translate("+(xTabela + avancoX)+","+(yTabela + avancoY)+")");
 				}
 			});
 			jQuery(function($){
-				$(".jogostabelas").attr("height","<?php echo $alturaR1; ?>");
+				$(".jogostabelas").attr("height","<?php echo $alturaR1; ?>");  
 			});
 		</script>
 	<?php	
@@ -1380,9 +1380,10 @@
 				down=true;
 				posicaoGeral =$("#brackets").position();
 				posicaoBracket =$("#elimSimples").position();
+                
 				
-				xTabela = posicaoBracket.left - posicaoGeral.left - 190;
-				yTabela = posicaoBracket.top - posicaoGeral.top - (50 * parseFloat($("#valZoom").val()));
+				xTabela = posicaoBracket.left - (375 * parseFloat($("#valZoom").val()));
+				yTabela = posicaoBracket.top  - (posicaoBracket.top * parseFloat($("#valZoom").val()));
 				
 				xMouse = e.pageX;
 				yMouse = e.pageY;
@@ -1395,10 +1396,9 @@
 			
 			$(".jogostabelas").mousemove(function(e){
 				if(down){
-					var avancoX = (xMouse - e.pageX)*2.5;
-					var avancoY = (yMouse - e.pageY)*2.5;
-					//console.log(y+", "+newY+", "+top+", "+(top+(newY-y))); 
-					$("#elimSimples").attr("transform", "scale("+parseFloat($("#valZoom").val())+") translate("+((xTabela*parseFloat($("#valZoom").val())) + avancoX)+","+((yTabela*parseFloat($("#valZoom").val())) + avancoY)+")");
+					var avancoX = (xMouse - e.pageX)*4;
+					var avancoY = (yMouse - e.pageY)*4;
+					$("#elimSimples").attr("transform", "scale("+parseFloat($("#valZoom").val())+") translate("+(xTabela + avancoX)+","+(yTabela + avancoY)+")");
 					
 				}
 			});

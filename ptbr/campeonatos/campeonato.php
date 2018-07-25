@@ -93,22 +93,23 @@
                             <?php echo $campeonato['premiacao']; ?>	
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12 col-md-12">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Barra lateral página de Artigo -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-3038725769937948"
+                                 data-ad-slot="7294511218"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 col-md-12">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- Barra lateral página de Artigo -->
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-3038725769937948"
-                         data-ad-slot="7294511218"
-                         data-ad-format="auto"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            </div>
+            
         </div>
 
         <?php include "../footer.php"; ?>

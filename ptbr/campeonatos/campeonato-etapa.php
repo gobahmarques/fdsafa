@@ -40,34 +40,38 @@
             </div>
         </div>
         <div class="row-fluid">
-        <?php
-			require "../../scripts/carregar-bracket.php";
-			switch($etapaInfos['tipo_etapa']){
-				case 1: // ELIMINAÇÃO SIMPLES
-					elimSimples($_GET['etapa'], $campeonato['codigo']);		
-					break;
-				case 2: // GRUPOS PONTOS CORRIDOS
-					gruposPontosCorridos($etapaInfos, $campeonato);
-					break;
-				case 3:
-					elimDupla($_GET['etapa'], $campeonato['codigo']);
-			}		
-		?>
-        </div>
-        <div class="row">
-                <div class="col-12 col-md-12">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- Barra lateral página de Artigo -->
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-3038725769937948"
-                         data-ad-slot="7294511218"
-                         data-ad-format="auto"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-12">
+                    <?php
+                        require "../../scripts/carregar-bracket.php";
+                        switch($etapaInfos['tipo_etapa']){
+                            case 1: // ELIMINAÇÃO SIMPLES
+                                elimSimples($_GET['etapa'], $campeonato['codigo']);		
+                                break;
+                            case 2: // GRUPOS PONTOS CORRIDOS
+                                gruposPontosCorridos($etapaInfos, $campeonato);
+                                break;
+                            case 3:
+                                elimDupla($_GET['etapa'], $campeonato['codigo']);
+                        }		
+                    ?>   
+                    </div>
+                    <div class="col-12 col-md-12">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Barra lateral página de Artigo -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-3038725769937948"
+                             data-ad-slot="7294511218"
+                             data-ad-format="auto"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
                 </div>
-            </div>
+            </div>                 
+        </div>
 
         <?php include "../footer.php"; ?>
         <!-- Optional JavaScript -->
@@ -78,6 +82,11 @@
             jQuery(function($){
                 $(".tabelas").addClass("ativo");
                 $(".menuPrincipalHeader .campeonatos").addClass("ativo");
+                var divh = $(".jogostabelas").width();
+                    var x = divh / 1090;
+                    $("#elimSimples").attr("transform","scale("+x+")");
+                    $("#valZoom").val(x);
+                
             });
         </script>
         

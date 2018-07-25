@@ -5,263 +5,344 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ESC League de Hearthstone</title>
-<link rel="stylesheet" href="<?php echo $css; ?>estrutura.css">
+<title>eSCoin League de Hearthstone - eSports Cups</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo $css; ?>estrutura.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
 </head>
 
 <body>
-	<div class="faixaVoltar">
-		<div class="barraCentral">
-			VOLTAR PARA <strong>E-SPORTS CUPS</strong>
-		</div>
-	</div>
-	<div class="faixa1">
-		<div class="barraCentral">
-			<div class="linha">
-				<img src="../img/logo.png" alt="" class="logo">
-				<ul class="menu">
-					<a href="#divisoes"><li>Divisões</li></a>
-					<a href="#sorteio"><li>Sorteio Mensal</li></a>
-					<a href="#transmissoes"><li>Transmissões</li></a>
-					<a href="#planos"><li>Planos</li></a>				
-				</ul>
-			</div>
-			<div class="linha custom1">
-				<img src="img/logo.png" alt="" class="logoliga"><br><br><br><br><br>
-				<h1>ESC LEAGUE DE HEARTHSTONE</h1><br>
-				Faça parte da Liga de Hearthstone que mais cresce. <br>
-				Aqui as chances de se profissionalizar realmente <br>
-				existem. <br><br>
-				<a href="#planos"><input type="button" value="QUERO ENTRAR"></a>				
-			</div>
-		</div>
-	</div>
-	<div class="faixa2">
-		<div class="barraCentral">
-			<a name="divisoes"></a>
-			<img src="img/divisoes.png" alt="" class="divisoes"><br><br><br>
-			<h1>TRÊS DIVISÕES PARA NIVELAMENTO</h1><br>
-			A liga é composta por 3 (três) divisões, onde todos <br>
-			iniciam na Divisão Amadora e podem alcançar a <br>
-			Divisão Pro de acordo com seus rendimentos. <br><br>
-			Cada Divisão é executada uma vez a cada 60 dias. <br><br>
-			"Os de cima sobem e os de baixo descem" <br><br>
-			<a href="#planos"><input type="button" value="QUERO ENTRAR"></a>
-		</div>
-	</div>
-	<div class="faixa3">
-		<div class="barraCentral">
-			<a name="sorteio"></a>
-			<img src="img/sorteio.png" alt="" class="sorteio"><br>
-			<h1>UM CIRCUITO A CADA 60 DIAS</h1><br>
-			60 dias é o tempo suficiente para executarmos o ciclo das <br>
-			3 divisões da Liga. <br>
-			<strong>Dia 01 a Dia 15</strong> - Período de Inscrições <br>
-			<strong>dia 16 a dia 30</strong> - Divisão Amadora - R$ 100,00 Premiação<br>
-			<strong>Dia 31 a dia 45</strong> - Divisão Intermediária - R$ 200,00 Premiação<br>
-			<strong>dia 59 e dia 60</strong> - Divisão Profissional - R$ 400,00 Premiação<br><br>
-			<a href="#planos"><input type="button" value="QUERO ENTRAR"></a>
-		</div>		
-	</div>
-	<div class="faixa4">
-		<div class="barraCentral">
-			<a name="transmissoes"></a>
-			<br>
-			<img src="img/transmissao.png" alt="" class="transmissao">
-			<h1>TRANSMISSÕES</h1><br>
-			Realizamos transmissões ao vivo com narração e comentários das <br>
-			fases mais fundamentais de cada Divisão. <br><br>
-			Queremos dar visibilidade para os jogadores que estão buscando <br>
-			a vida profissional no Hearthstone e também para aqueles que <br>
-			já possuem uma carreira estabelecida. <br><br>
-			<img src="img/twitch.png" alt="">
-		</div>
-	</div>
-	
-	<div class="faixa5">
-		<div class="barraCentral">
-			<a name="planos"></a>
-			<img src="img/logo.png" alt="" class="logo"><br><br>
-			<h1>JOGUE COM A GENTE</h1>
-			<hr>
-			<table cellpadding="0" cellspacing="0" class="tabelaPlanos">
-				<thead>
-					<tr>
-						<td></td>
-						<td>Qualificatória</td>
-						<td>Divisão Base</td>
-						<td>Divisão Principal</td>
-						<td>Divisão Profissional</td>
-					</tr>	
-				</thead>	
-				<tr>
-					<td class="beneficio">Circuito (60 dias)</td>
-					<td></td>
-					<td><img src="img/ok.png" alt=""></td>
-					<td><img src="img/ok.png" alt=""></td>
-					<td><img src="img/ok.png" alt=""></td>
-				</tr>
-				<tr>
-					<td class="beneficio">Recompensa e$</td>
-					<td></td>
-					<td></td>
-					<td>+ e$ 3.000</td>
-					<td>+ e$ 6.000</td>
-				</tr>
-				<tr>
-					<td class="beneficio">Premiação Total</td>
-					<td>4 Vagas para Divisão Base</td>
-					<td>R$ 100,00</td>
-					<td>R$ 200,00</td>
-					<td>R$ 400,00</td>
-				</tr>
-				<tr>
-					<td class="beneficio">Vagas</td>
-					<td>Ilimitadas</td>
-					<td>Ilimitadas</td>
-					<td>32</td>
-					<td>16</td>
-				</tr>
-				<tr>
-					<td class="beneficio">Formatos</td>
-					<td>Eliminação Simples</td>
-					<td>Fase de Grupos + <br>
-					Eliminação Simples</td>
-					<td>Fase de Grupos + <br>
-					Eliminação Dupla</td>
-					<td>Grupo Chaveado +<br>
-					Eliminação Simples</td>
-				</tr>
-				<tr>
-					<td class="beneficio">Pré Requisito</td>
-					<td>Nenhum</td>
-					<td>Inscrição ou <br>
-					TOP 4 Qualificatória</td>
-					<td><strong>TOP 8 Divisão Base</strong> <br>
-					no Circuito Anterior</td>
-					<td><strong>TOP 4 Divisão Principal</strong> <br>
-					no Circuito Anterior</td>
-				</tr>
-				<tr class="invisivel">
-					<td class="beneficio">Valor</td>
-					<td><h2>GRÁTIS</h2></td>
-					<td><h2>R$ 4,90</h2></td>
-					<td><h2>R$ 9,90</h2></td>
-					<td><h2>R$ 14,90</h2></td>
-				</tr>
-				<tr class="semBorda invisivel">
-					<td></td>
-					<td></td>
-					<td><input type="button" value="ESCOLHER"></td>
-					<td><input type="button" value="ESCOLHER"></td>
-					<td><input type="button" value="ESCOLHER"></td>
-				</tr>
-			</table>
-			<input type="button" value="Gostaria de Participar" class="mostrarPreco" onClick="mostrarPreco();">
-			<!--
-			
-			
-			<h1>JOGUE COM A GENTE</h1>
-			<hr>
-			<div class="plano">
-				<div class="tempo">
-					FREE
-				</div>
-				<div class="valor">
-					R$ 0
-				</div>
-				<hr>
-				<ul class="beneficios">
-					<li>Qualificatórias</li>
-				</ul>
-			</div>
-			<div class="plano">
-				<div class="tempo">
-					1 MÊS
-				</div>
-				<div class="valor">
-					R$ 15
-				</div>
-				<hr>
-				<ul class="beneficios">
-					<li>Circuito Mensal</li>
-					<li>Sorteio Mensal</li>
-					<li>+ e$ 1.000</li>
-				</ul>
-			</div>
-			<div class="plano">
-				<div class="tempo">
-					2 MESES + 1 GRÁTIS
-				</div>
-				<div class="valor">
-					R$ 30
-				</div>
-				<hr>
-				<ul class="beneficios">
-					<li>Circuito Mensal</li>
-					<li>Sorteio Mensal</li>
-					<li>+ e$ 3.000</li>
-					<li>+ 1 mês na Liga</li>
-				</ul>
-			</div>
-			<div class="plano">
-				<div class="tempo">
-					4 MESES + 2 GRÁTIS
-				</div>
-				<div class="valor">
-					R$ 54
-				</div>
-				<hr>
-				<ul class="beneficios">
-					<li>Circuito Mensal</li>
-					<li>Sorteio Mensal</li>
-					<li>+ e$ 6.000</li>
-					<li>+ 2 mês na Liga</li>
-				</ul>
-			</div>
-			-->
-		</div>
-	</div>
-	<div class="faixa6">
-		<div class="barraCentral">
-			<h1>FIQUE POR DENTRO DE TUDO</h1>
-			<hr>
-			Nos informe seu melhor e-mail onde gostaria de receber todas as notícias da ESC League de Hearthstone. <br>
-			Transmissões, ofertas, dias e horários de partidas, erratas, etc... <br><br>
-			<!-- Begin MailChimp Signup Form -->
-			<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
-			<style type="text/css">
-				#mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
-				/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-				   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-			</style>
-			<div id="mc_embed_signup">
-			<form action="//esportscups.us16.list-manage.com/subscribe/post?u=a834600c251090e6177674a3b&amp;id=a145cc8cad" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-				<div id="mc_embed_signup_scroll">
+    <div class="row-fluid linha-um">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <h1>eSCoin League de Hearthstone</h1>
+                    A Liga de Hearthstone mais desafiadora no Servidor das Américas.<br>
+                    <br>
+                    <img src="<?php echo $img; ?>logo.png" class="logo">
+                </div>
+                
+                <div class="col-12 col-md-2">                    
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="info">
+                        <label>PREMIAÇÃO</label><br>
+                        e$ 500.000+
+                    </div>                    
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="info">
+                        <label>PARTIDAS / circuito</label><br>
+                        500+
+                    </div>                    
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="info">
+                        <label>DURAÇÃO</label><br>
+                        SEMESTRAL
+                    </div>                    
+                </div>
+                
+                <div class="col-12 col-md-42">                    
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div class="row-fluid linha-dois">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <h2>4 ETAPAS CLASSIFICATÓRIAS</h2> 
+                    Durante 150 dias realizaremos 4 etapas classificatórias para o Evento Principal. <br>
+                    Serão mais de 500 partidas realizadas e horas de transmissões para eleger <br>
+                    os 16 convidados para o Evento Principal.
+                    <br><br>
+                </div>
+                <div class="col-md-12">
+                    <table>
+                        <tr>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                <img src="img/gema-comum.png" class="gema">
+                                <h3>ETAPA COMUM</h3>
+                            </td>
+                            <td>
+                                <img src="img/gema-rara.png" class="gema">
+                                <h3>ETAPA RARA</h3>
+                            </td>
+                            <td>
+                                <img src="img/gema-epica.png" class="gema">
+                                <h3>ETAPA ÉPICA</h3>
+                            </td>
+                            <td>
+                                <img src="img/gema-lendaria.png" class="gema">
+                                <h3>ETAPA LENDÁRIA</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                DURAÇÃO  
+                            </td>
+                            <td>
+                                EM BREVE<br>  
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                FORMATO  
+                            </td>
+                            <td>
+                                EM BREVE<br>  
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                 QTD. VAGAS  
+                            </td>
+                            <td>
+                                EM BREVE<br>  
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                 REGRA 
+                            </td>
+                            <td>
+                                EM BREVE<br>  
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES EM BREVE" disabled>
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES EM BREVE" disabled>
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES EM BREVE" disabled>
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES EM BREVE" disabled>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                </div>
+                <div class="col-12 col-md-12">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Barra lateral página de Artigo -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-3038725769937948"
+                         data-ad-slot="7294511218"
+                         data-ad-format="auto"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="linha-quatro row-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">                    
+                    <h2>EVENTO PRINCIPAL</h2>                    
+                    Os 16 mais pontuados após a execução das 4 etapas classificatórias <br>
+                    irão se enfrentar em uma Eliminação Dupla para disputar o <br>
+                    prêmio de 500 mil eSCoins (e$).<br><br>
+                    <img src="<?php echo $img; ?>logo.png" class="logo-min" width="150px"><br><br>
+                </div>
+                <div class="col-md-6 text-right">
+                    <h4>CLASSIFICAÇÃO GERAL</h4>
+                    Atualizado dia 13 de Julho de 2018 <br><br>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>JOGADOR</td>
+                                <td>PTS</td>
+                            </tr>
+                        </thead>                        
+                        <tr>
+                            <td>1</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>EM BREVE</td>
+                            <td>----</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid linha-tres">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <br>
+                    <img src="<?php echo $img; ?>transmissao.png" width="350px">                    
+                </div>
+                <div class="col-md-6 text-right">
+                    <h2>TRANSMISSÕES</h2>
+                    Realizaremos transmissões ao vivo com narração e comentários periodicamente, <br>
+                    divulgando sempre a programação em nossas redes sociais (Facebook e Instagram). <br><br>
+                    Queremos transmitir a maioria de jogos que pudermos para alimentar ainda mais <br>
+                    a comunidade com conteúdo de qualidade e conteúdo. <br>Siga nosso canal e      acompanhe as disputas. <br><br>
+                    <div class="twitch">
+                        <i class="fab fa-twitch"></i>/ESPORTSCUPS
+                    </div>                 
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid linha-cinco text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>FIQUE POR DENTRO DE TUDO</h2>
+                    Informe-nos o seu melhor e-mail onde gostaria de receber todas as notíficas da eSCoin League de Hearthstone. <br>
+                    Transmissões, ofertas, dias e horários de partidas, erratas, etc...
+                    <!-- Begin MailChimp Signup Form -->
+                    <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+                    <style type="text/css">
+                        #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+                        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                           We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                    </style>
+                    <div id="mc_embed_signup">
+                    <form action="https://esportscups.us18.list-manage.com/subscribe/post?u=491faca4b1b499fd4138aa470&amp;id=910895c8da" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll">
 
-				<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="seu melhor e-mail aqui" required>
-				<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-				<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_a834600c251090e6177674a3b_a145cc8cad" tabindex="-1" value=""></div>
-				<div class="clear"><input type="submit" value="Me Inscrever" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-				</div>
-			</form>
-			</div>
+                        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Seu melhor E-MAIL aqui" required>
+                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_491faca4b1b499fd4138aa470_910895c8da" tabindex="-1" value=""></div>
+                        <div class="clear"><input type="submit" value="Enviar" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                        </div>
+                    </form>
+                    </div>
 
-			<!--End mc_embed_signup-->
-		</div>
-	</div>
-	<div class="faixa7">
-		<div class="barraCentral">
-			CRIADO POR <strong>E-SPORTS CUPS</strong>
-		</div>
-	</div>
-	<script src="https://www.esportscups.com.br/js/jquery.js"></script>
-	<script src="https://www.esportscups.com.br/js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
-	<script>
-		function mostrarPreco(){
-			$(".invisivel").css("display", "table-row");
-			$(".mostrarPreco").css("display", "none");
-		}
-	</script>
+                    <!--End mc_embed_signup-->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
 </body>
 </html>
