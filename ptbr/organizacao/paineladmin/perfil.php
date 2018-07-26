@@ -5,6 +5,13 @@
         </div>
         <div class="col-7 col-md-12">
             <h2><?php echo $organizacao['nome']; ?></h2>
+            <?php
+                if($funcao['status'] == 9){
+                ?>
+                    <a href="ptbr/organizacao/<?php echo $organizacao['codigo']; ?>/painel/editar/"><i class="fas fa-cog"></i> Editar</a>
+                <?php
+                }
+            ?>
         </div>
     </div>                         
 </div>

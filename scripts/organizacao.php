@@ -50,6 +50,88 @@
 			}
 			
 			break;
+        case "atualizarInfos":
+            $id = $_POST['codorganizacao'];
+            $descricao = $_POST['descricao'];
+            $email = $_POST['email'];
+            $site = $_POST['site'];
+            $facebook = $_POST['facebook'];
+            $discord = $_POST['discord'];
+            $twitter = $_POST['twitter'];
+            $twitch = $_POST['twitch'];
+            $azubu = $_POST['azubu'];
+            $youtube = $_POST['youtube'];
+            
+            mysqli_query($conexao, "UPDATE organizacao
+            SET descricao = '$descricao',
+            email = '$email',
+            site = '$site',
+            facebook = '$facebook',
+            discord = '$discord',
+            twitter = '$twitter',
+            twitch = '$twitch',
+            azubu = '$azubu',
+            youtube = '$youtube'
+            WHERE codigo = $id");
+            
+            if(isset($_FILES['perfil']) && $_FILES['perfil']['error'] == 0){
+                echo "existe foto<br>";
+                $arquivo_tmp = $_FILES['perfil']['tmp_name'];
+                $nome = $_FILES['perfil']['name'];
+                // Pega a extensão
+                $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+                // Converte a extensão para minúsculo
+                $extensao = strtolower ( $extensao );
+
+                if ( strstr ( '.jpg;.jpeg;.png', $extensao ) ) {
+                    // Cria um nome único para esta imagem
+                    // Evita que duplique as imagens no servidor.
+                    // Evita nomes com acentos, espaços e caracteres não alfanuméricos
+                    $novoNome = 'perfil.'.$extensao;
+                    // Concatena a pasta com o nome
+                    $destino = '../img/organizacoes/'.$id."/".$novoNome;
+                    $destino2 = 'organizacoes/'.$id."/".$novoNome;
+                    if(file_exists("../img/organizacoes/".$id."/")){
+                        echo "existe pasta";
+                        @move_uploaded_file ($arquivo_tmp, $destino);
+                    }else{
+                        mkdir("../img/organizacoes/".$id."/");
+                        @move_uploaded_file($arquivo_tmp, $destino);
+                    }
+                    mysqli_query($conexao, "UPDATE organizacao SET perfil = '$destino2' WHERE codigo = $id");
+                }
+            }
+            
+            if(isset($_FILES['fotobanner']) && $_FILES['fotobanner']['error'] == 0){
+                echo "existe foto<br>";
+                $arquivo_tmp = $_FILES['fotobanner']['tmp_name'];
+                $nome = $_FILES['fotobanner']['name'];
+                // Pega a extensão
+                $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+                // Converte a extensão para minúsculo
+                $extensao = strtolower ( $extensao );
+
+                if ( strstr ( '.jpg;.jpeg;.png', $extensao ) ) {
+                    // Cria um nome único para esta imagem
+                    // Evita que duplique as imagens no servidor.
+                    // Evita nomes com acentos, espaços e caracteres não alfanuméricos
+                    $novoNome = 'banner.'.$extensao;
+                    // Concatena a pasta com o nome
+                    $destino = '../img/organizacoes/'.$id."/".$novoNome;
+                    $destino2 = 'organizacoes/'.$id."/".$novoNome;
+                    if(file_exists("../img/organizacoes/".$id."/")){
+                        echo "existe pasta";
+                        @move_uploaded_file ($arquivo_tmp, $destino);
+                    }else{
+                        mkdir("../img/organizacoes/".$id."/");
+                        @move_uploaded_file($arquivo_tmp, $destino);
+                    }
+                    mysqli_query($conexao, "UPDATE organizacao SET banner = '$destino2' WHERE codigo = $id");
+                }
+            }
+            
+            header("location: ../ptbr/organizacao/$id/painel/");     
+            break;
 	}
 	// strtoupper(md5(uniqid(rand(), true)));
 ?>

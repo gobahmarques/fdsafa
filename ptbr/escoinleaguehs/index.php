@@ -52,10 +52,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-12">
-                    <h2>4 ETAPAS CLASSIFICATÓRIAS</h2> 
-                    Durante 150 dias realizaremos 4 etapas classificatórias para o Evento Principal. <br>
-                    Serão mais de 500 partidas realizadas e horas de transmissões para eleger <br>
-                    os 16 convidados para o Evento Principal.
+                    <h2>CLASSIFICAÇÃO</h2> 
+                    Iremos realizar 4 etapas classificatórias para definir os 16 jogadores que serão <br>
+                    convidados para o Evento Principal. Cada etapa pontuará os 10 melhores, ao final das <br>
+                    4 etapas iremos convidar os 16 mais pontuados (de acordo com o Rank Geral da Liga) <br>
+                    para o Torneio Principal com uma premiação de e$ 500.000 (eSCoin).
                     <br><br>
                 </div>
                 <div class="col-md-12">
@@ -86,7 +87,7 @@
                                 DURAÇÃO  
                             </td>
                             <td>
-                                EM BREVE<br>  
+                                30 DIAS<br>  
                             </td>
                             <td>
                                 EM BREVE<br> 
@@ -103,7 +104,7 @@
                                 FORMATO  
                             </td>
                             <td>
-                                EM BREVE<br>  
+                                PONTOS CORRIDOS<br>  
                             </td>
                             <td>
                                 EM BREVE<br> 
@@ -120,7 +121,24 @@
                                  QTD. VAGAS  
                             </td>
                             <td>
-                                EM BREVE<br>  
+                                SEM LIMITE<br>  
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                            <td>
+                                EM BREVE<br> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                 MODO 
+                            </td>
+                            <td>
+                                <strong>PADRÃO</strong><br>  
                             </td>
                             <td>
                                 EM BREVE<br> 
@@ -137,7 +155,7 @@
                                  REGRA 
                             </td>
                             <td>
-                                EM BREVE<br>  
+                                Apenas <strong>Cartas Básicas</strong> e <strong>Cartas Comuns</strong><br>  
                             </td>
                             <td>
                                 EM BREVE<br> 
@@ -153,7 +171,7 @@
                             <td>
                             </td>
                             <td>
-                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES EM BREVE" disabled>
+                                <a href="https://www.esportscups.com.br/ptbr/campeonato/340/" target="_blank"><input type="button" class="btn btn-success" value="INSCRIÇÕES ABERTAS"></a>
                             </td>
                             <td>
                                 <input type="button" class="btn btn-dark" value="INSCRIÇÕES EM BREVE" disabled>

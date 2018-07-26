@@ -91,6 +91,8 @@ RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/divisao/([0-9]+)/definica
 RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/divisao/([0-9]+)/definicao-torneio/enviar/?$ organizacao/paineladmin/ligas/divisao-definicao-torneio-enviar.php?codigo=$1&liga=$2&divisao=$3 [NC,L]
 RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/divisao/([0-9]+)/torneios/?$ organizacao/paineladmin/ligas/divisao-torneios.php?codigo=$1&liga=$2&divisao=$3 [NC,L]
 
+RewriteRule ^organizacao/([0-9]+)/painel/editar/?$ organizacao/paineladmin/editar.php?codigo=$1 [NC,L]
+
 # CIRCUITOS #
 RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/circuitos/?$ organizacao/paineladmin/ligas/circuitos.php?codigo=$1&liga=$2 [NC,L]
 RewriteRule ^organizacao/([0-9]+)/painel/liga/([0-9]+)/novo-circuito/?$ organizacao/paineladmin/ligas/novo-circuito.php?codigo=$1&liga=$2 [NC,L]

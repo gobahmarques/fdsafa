@@ -168,7 +168,7 @@
                     </div>
                     <div class="col-8 col-md-8">
                         <?php  echo "<br><h3>".$campeonato['nome']."</h3>"; ?>
-                        ID Torneio: <?php echo $campeonato['codigo']; ?> / ID Partida: <?php echo $partida['codigo']; ?><br> Organizado por: <a href="<?php echo "organizacao/".$organizacao['codigo']."/"; ?>"><?php echo $organizacao['nome']; ?></a>
+                        ID Torneio: <?php echo $campeonato['codigo']; ?> / ID Partida: <?php echo $partida['codigo']; ?><br> Organizado por: <a href="<?php echo "ptbr/organizacao/".$organizacao['codigo']."/"; ?>"><?php echo $organizacao['nome']; ?></a>
                     </div>
                 </div>
             </div>

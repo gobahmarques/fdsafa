@@ -30,7 +30,7 @@
             <div class="col-6 col-md-3">
                 <div class="form-group">
                     <label for="number">Qtd. Grupos</label>
-                    <input type="number" name="grupos" min="2" value="2" class="form-control">
+                    <input type="number" name="grupos" min="1" value="2" class="form-control">
                 </div>
             </div>
             <div class="col-6 col-md-3">
