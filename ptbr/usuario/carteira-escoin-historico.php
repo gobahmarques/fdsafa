@@ -37,20 +37,33 @@
         <div class="container">
             <ul class="menuCarteira">
                 <li class="ativo">Resumo</li>
-                <a href="ptbr/usuario/<?php echo $usuario['codigo']; ?>/carteira-escoin/historico/"><li>Histórico (em breve)</li></a>
+                <li>Histórico (em breve)</li>
             </ul>
             <div class="row-fluid">
                 <div class="resumoCarteira">
-                
-                <div class="col-12 col-md-6 float-left">
+                <div class="col-12 col-md-12 float-left">
                     <h2>Resumo de sua Carteira eSCoin</h2>
+                    <div class="filtros-busca-carteira">
+                        <form id="filtrosTransacoes">
+                            <input type="hidden" name="funcao" value="pesquisaHistoricoCoin">
+                            <input type="hidden" name="codjogador" value="<?php echo $usuario['codigo']; ?>">
+                            Início: <input type="date" name="inicio" onchange="atualizarTransacoes();">
+                            Fim: <input type="date" name="fim" onchange="atualizarTransacoes();">
+                            Tipo: <select name="tipoTransacao" onchange="atualizarTransacoes();">
+                                <option hidden value="">Selecione</option>
+                                <option value="1">Créditos</option>
+                                <option value="0">Débitos</option>
+                            </select>
+                        </form>
+                    </div>
                 <?php
                     $transacoes = mysqli_query($conexao, "SELECT * FROM log_coin WHERE cod_jogador = ".$usuario['codigo']." ORDER BY datahora DESC LIMIT 10");
                     if(mysqli_num_rows($transacoes) != 0){
                     ?>
-                        <table cellpadding="0" cellspacing="0">
+                        <table cellpadding="0" cellspacing="0" class="tabela-historico">
                             <thead>
                                 <tr>
+                                    <td>Cod.</td>
                                     <td>Data</td>
                                     <td>Descrição</td>
                                     <td class="valor">Valor</td>
@@ -60,6 +73,7 @@
                                 while($transacao = mysqli_fetch_array($transacoes)){
                                 ?>
                                     <tr>
+                                        <td><?php echo $transacao['codigo'];?></td>
                                         <td><?php echo date("d/m/Y H:i",strtotime($transacao['datahora'])); ?></td>
                                         <td><?php echo $transacao['descricao'];?></td>
                                         <td>
@@ -86,50 +100,7 @@
                     <?php	
                     }
                 ?>
-                </div>
-                <div class="col-12 col-md-6 float-left">
-                    <div class="row">
-                        <div class="col-6 col-md-6 float-left">
-                            <div class="dado">
-                                TOTAL INVESTIMENTO
-                                <div class="conteudo">						
-                                    <?php echo "e$ ".number_format($totalInvestimento['valor'], 0, '', '.'); ?>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col-6 col-md-6 float-left">
-                            <div class="dado">
-                                TOTAL FATURAMENTO
-                                <div class="conteudo">
-                                    <?php echo "e$ ".number_format($totalFaturamento['valor'], 0, '', '.'); ?>
-                                </div>
-                            </div>                            
-                        </div>
-                        <div class="col-6 col-md-6 float-left">
-                            <div class="dado">
-                                TOTAL DE MOVIMENTAÇÕES
-                                <div class="conteudo">
-                                    <?php echo $totalMovimentacoes; ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-6 float-left">
-                            <div class="dado">
-                                SALDO ATUAL
-                                <div class="conteudo">
-                                    <?php echo "e$ ".number_format($usuario['pontos'], 0, '', '.'); ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-12">
-                            A <strong>eSCoin</strong> é uma moeda de recompensa da plataforma e a única forma de adquiri-la é utilizando as diversas funções e serviços que disponibilizamos por aqui.<br>
-                            Alguns deles são: login diário; apostas em <a href="ptbr/jogar/lobbys/">Lobbys</a>; receber premiação em <a href="ptbr/jogar/campeonatos/">campeonatos</a> que oferecem premiação em e$; abertura de <a href="ptbr/caixas/">Caixas</a> de eSports;
-                        </div>
-                    </div>
-                </div>
-                </div>
-                
+                </div>               
             </div>
         </div>
 
@@ -139,6 +110,16 @@
         <script src="<?php echo $js; ?>jquery.js"></script>
         <script src="<?php echo $js; ?>bootstrap.js"></script>
         <script>
+            function atualizarTransacoes(){
+                $.ajax({
+                    type: "POST",
+                    url: "scripts/usuario.php",
+                    data: $("#filtrosTransacoes").serialize(),
+                    success: function(resultado){
+                        $(".tabela-historico").html(resultado);
+                    }
+                });
+            }
             $(function(){   
                 $(".carteiraes").addClass("ativo"); 
             });

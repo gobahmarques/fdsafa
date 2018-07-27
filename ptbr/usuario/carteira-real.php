@@ -37,7 +37,7 @@
         <div class="container">
             <ul class="menuCarteira">
                 <li class="ativo">Resumo</li>
-                <li>Histórico (em breve)</li>
+                <a href="ptbr/usuario/<?php echo $usuario['codigo']; ?>/carteira-real/historico/"><li>Histórico (em breve)</li></a>
                 <a href="ptbr/usuario/<?php echo $usuario['codigo']; ?>/carteira-real/adicionar-saldo/"><li class="addSaldo">Adicionar Saldo</li></a>
             </ul>
             <div class="row-fluid">

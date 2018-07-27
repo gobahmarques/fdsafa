@@ -2507,7 +2507,12 @@ footer a:hover {
 }
 
 
-
+.filtros-busca-carteira {
+    background: #666;
+    padding: 5px;
+    color: #fff;
+    margin-bottom: 5px;
+}
 
 
 

@@ -205,5 +205,144 @@
             $tempo = 4;
             setcookie("modalNewsletter", "Ok", time()+3600*24*$tempo, "/", "www.esportscups.com.br", 1);
             break;
+        case "pesquisaHistoricoReal":
+            include "../session.php";
+            $inicio = $_POST['inicio'];
+            $fim = $_POST['fim'];
+            $tipo = $_POST['tipoTransacao'];
+            
+            if($tipo != ""){
+                if($inicio != ""){
+                    if($fim != ""){ // POSSUI FILTRO DE COMEÇO E FIM
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_real WHERE datahora >= '$inicio' AND datahora <= '$fim' AND tipo = $tipo AND cod_jogador = ".$_POST['codjogador']."");
+                    }else{ // POSSUI APENAS FILTRO DE COMEÇO
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_real WHERE datahora >= '$inicio' AND tipo = $tipo AND cod_jogador = ".$_POST['codjogador']."");   
+                    }
+                }else{
+                    if($fim != ""){ // POSSUI APENAS FILTRO DE FIM
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_real WHERE datahora <= '$fim' AND tipo = $tipo AND cod_jogador = ".$_POST['codjogador']."");    
+                    }else{ // POSSUI APENAS TIPO DE TRANSACAO
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_real WHERE tipo = $tipo AND cod_jogador = ".$_POST['codjogador']."");
+                    }
+                }    
+            }else{
+                if($inicio != ""){
+                    if($fim != ""){ // POSSUI FILTRO DE COMEÇO E FIM
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_real WHERE datahora >= '$inicio' AND datahora <= '$fim' AND cod_jogador = ".$_POST['codjogador']."");
+                    }else{ // POSSUI APENAS FILTRO DE COMEÇO
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_real WHERE datahora >= '$inicio' AND cod_jogador = ".$_POST['codjogador']."");   
+                    }
+                }else{
+                    if($fim != ""){ // POSSUI APENAS FILTRO DE FIM
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_real WHERE datahora <= '$fim' AND cod_jogador = ".$_POST['codjogador']."");    
+                    }
+                } 
+            }
+                            
+            ?>
+                <thead>
+                    <tr>
+                        <td>Cod.</td>
+                        <td>Data</td>
+                        <td>Descrição</td>
+                        <td class="valor">Valor</td>
+                    </tr>	
+                </thead>								
+                <?php
+                    while($transacao = mysqli_fetch_array($transacoes)){
+                    ?>
+                        <tr>
+                            <td><?php echo $transacao['codigo'];?></td>
+                            <td><?php echo date("d/m/Y H:i",strtotime($transacao['datahora'])); ?></td>
+                            <td><?php echo $transacao['descricao'];?></td>
+                            <td>
+                            <?php
+                                if($transacao['tipo'] == 0){
+                                    echo "<div class='debito'>
+                                        -
+                                    ";
+                                }else{
+                                    echo "<div class='credito'>
+                                        +
+                                    ";
+                                }
+
+                                echo "R$ ".number_format($transacao['valor'], 2, ',', '.');
+                            ?>
+                            </td>
+                        </tr>
+                    <?php
+                    }        
+            break;
+        case "pesquisaHistoricoCoin":
+            include "../session.php";
+            $inicio = $_POST['inicio'];
+            $fim = $_POST['fim'];
+            $tipo = $_POST['tipoTransacao'];
+            
+            if($_POST['tipoTransacao'] != ""){
+                if($inicio != ""){
+                    if($fim != ""){ // POSSUI FILTRO DE COMEÇO E FIM
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_coin WHERE datahora >= '$inicio' AND datahora <= '$fim' AND tipo = $tipo AND cod_jogador = ".$_POST['codjogador']."");
+                    }else{ // POSSUI APENAS FILTRO DE COMEÇO
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_coin WHERE datahora >= '$inicio' AND tipo = $tipo AND cod_jogador = ".$_POST['codjogador']."");   
+                    }
+                }else{
+                    if($fim != ""){ // POSSUI APENAS FILTRO DE FIM
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_coin WHERE datahora <= '$fim' AND tipo = $tipo AND cod_jogador = ".$_POST['codjogador']."");    
+                    }else{ // POSSUI APENAS TIPO DE TRANSACAO
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_coin WHERE tipo = $tipo AND cod_jogador = ".$_POST['codjogador']."");
+                    }
+                }    
+            }else{
+                if($inicio != ""){
+                    if($fim != ""){ // POSSUI FILTRO DE COMEÇO E FIM
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_coin WHERE datahora >= '$inicio' AND datahora <= '$fim' AND cod_jogador = ".$_POST['codjogador']."");
+                    }else{ // POSSUI APENAS FILTRO DE COMEÇO
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_coin WHERE datahora >= '$inicio' AND cod_jogador = ".$_POST['codjogador']."");   
+                    }
+                }else{
+                    if($fim != ""){ // POSSUI APENAS FILTRO DE FIM
+                        $transacoes = mysqli_query($conexao, "SELECT * FROM log_coin WHERE datahora <= '$fim' AND cod_jogador = ".$_POST['codjogador']."");    
+                    }
+                } 
+            }
+                            
+            ?>
+                <thead>
+                    <tr>
+                        <td>Cod.</td>
+                        <td>Data</td>
+                        <td>Descrição</td>
+                        <td class="valor">Valor</td>
+                    </tr>	
+                </thead>								
+                <?php
+                    while($transacao = mysqli_fetch_array($transacoes)){
+                    ?>
+                        <tr>
+                            <td><?php echo $transacao['codigo'];?></td>
+                            <td><?php echo date("d/m/Y H:i",strtotime($transacao['datahora'])); ?></td>
+                            <td><?php echo $transacao['descricao'];?></td>
+                            <td>
+                            <?php
+                                if($transacao['tipo'] == 0){
+                                    echo "<div class='debito'>
+                                        -
+                                    ";
+                                }else{
+                                    echo "<div class='credito'>
+                                        +
+                                    ";
+                                }
+
+                                echo number_format($transacao['valor'], '0', '', '.');
+                                echo "<img class='coin' src='../img/icones/escoin.png' alt='eSCoins' title='eSCoins'>";
+                            ?>
+                            </td>
+                        </tr>
+                    <?php
+                    }    
+            break;
 	}
 ?>
