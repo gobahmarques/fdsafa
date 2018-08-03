@@ -25,7 +25,7 @@
 					mysqli_query($conexao, "UPDATE caixa SET saldo = saldo + $valor WHERE codigo = ".$_POST['caixa']."");
 				}				
 				mysqli_query($conexao, "UPDATE organizacao SET saldo_coin = saldo_coin - $valor WHERE codigo = ".$organizacao['codigo']."");
-				mysqli_query($conexao, "INSERT INT log_coin_organizacao VALUES (NULL, ".$organizacao['codigo'].", ".$usuario['codigo'].", $valor, 'Depósito na Caixa de ID ".$_POST['caixa']."', 0, '$datahora')");
+				mysqli_query($conexao, "INSERT INTO log_coin_organizacao VALUES (NULL, ".$organizacao['codigo'].", ".$usuario['codigo'].", $valor, 'Depósito na Caixa de ID ".$_POST['caixa']."', 0, '$datahora')");
 			}else{
 				echo "0";
 			}	

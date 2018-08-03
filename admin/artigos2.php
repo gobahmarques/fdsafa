@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="adminlte/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="adminlte/dist/css/skins/skin-blue.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -82,7 +83,8 @@ desired effect
                     <th>Título</th>
                     <th>Autor</th>
                     <th>Jogo</th>
-					  <th>Criação</th>
+				    <th>Data</th>
+                      <th>Ações</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -113,6 +115,9 @@ desired effect
 									</td>									
 									<td><?php echo $jogo['nome']; ?></td>
 									<td><?php echo date("d/m/Y H:i", strtotime($artigo['data'])); ?></td>
+                                    <td>
+                                        <a href="painel/artigos/<?php echo $artigo['codigo']; ?>/"><button type="button" class="btn" style="background: #333; color: #fff;"><i class="fas fa-edit"></i></button></a>
+                                    </td>
 					  			</tr>
 					  		<?php
 						}

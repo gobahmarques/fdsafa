@@ -1,7 +1,7 @@
 <?php
-	$css = 'https://www.esportscups.com.br/admin/css/';
-	$img = 'https://www.esportscups.com.br/admin/img/';
-	$js = 'https://www.esportscups.com.br/admin/js/';
+	$css = 'http://localhost/esportscups/admin/css/';
+	$img = 'http://localhost/esportscups/admin/img/';
+	$js = 'http://localhost/esportscups/admin/js/';
 ?>
 
-<base href="https://www.esportscups.com.br/admin/" />
+<base href="http://localhost/esportscups/admin/" />

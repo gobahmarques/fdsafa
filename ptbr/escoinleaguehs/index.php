@@ -9,6 +9,34 @@
     <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo $css; ?>estrutura.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64433449-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-64433449-2');
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1812303375512785');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1812303375512785&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
 </head>
 
 <body>
@@ -90,13 +118,13 @@
                                 30 DIAS<br>  
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                31 DIAS<br> 
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                30 DIAS<br> 
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                30 DIAS<br> 
                             </td>
                         </tr>
                         <tr>
@@ -107,47 +135,30 @@
                                 PONTOS CORRIDOS<br>  
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                PONTOS CORRIDOS<br> 
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                PONTOS CORRIDOS<br> 
                             </td>
                             <td>
-                                EM BREVE<br> 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                 QTD. VAGAS  
-                            </td>
-                            <td>
-                                SEM LIMITE<br>  
-                            </td>
-                            <td>
-                                EM BREVE<br> 
-                            </td>
-                            <td>
-                                EM BREVE<br> 
-                            </td>
-                            <td>
-                                EM BREVE<br> 
+                                PONTOS CORRIDOS<br> 
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                 MODO 
+                                 MODO DE JOGO
                             </td>
                             <td>
                                 <strong>PADRÃO</strong><br>  
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                <strong>PADRÃO</strong><br> 
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                <strong>PADRÃO</strong><br> 
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                <strong>PADRÃO</strong><br> 
                             </td>
                         </tr>
                         <tr>
@@ -158,13 +169,13 @@
                                 Apenas <strong>Cartas Básicas</strong> e <strong>Cartas Comuns</strong><br>  
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                Apenas <strong>Cartas Básicas</strong>, <strong>Cartas Comuns</strong> e <strong>Cartas Raras</strong><br> 
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                Apenas <strong>Cartas Básicas</strong>, <strong>Cartas Comuns</strong>, <strong>Cartas Raras</strong> e <strong>Cartas Épicas</strong><br>
                             </td>
                             <td>
-                                EM BREVE<br> 
+                                <strong>Todas</strong> as cartas são permitidas aqui
                             </td>
                         </tr>
                         <tr>
@@ -213,7 +224,7 @@
                 </div>
                 <div class="col-md-6 text-right">
                     <h4>CLASSIFICAÇÃO GERAL</h4>
-                    Atualizado dia 13 de Julho de 2018 <br><br>
+                    Atualizado dia 31 de Julho de 2018 <br><br>
                     <table>
                         <thead>
                             <tr>

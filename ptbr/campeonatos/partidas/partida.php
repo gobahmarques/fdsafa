@@ -94,7 +94,7 @@
                 })
             }
             function validar(){
-                var counter = $('.limitado2:checked').length;
+                var counter = $('.limitado:checked').length;
                 var limit = <?php echo $campeonato['qtd_ban']; ?>;
                 if(counter < limit){
                     alert("É obrigatório selecionar "+limit+" banimentos!");
@@ -242,9 +242,9 @@
                 }
             }
 
-            $(document).on('click', '.limitado2', function(){
+            $(document).on('click', '.limitado', function(){
                 var limit = <?php echo $campeonato['qtd_ban']; ?>;
-                var counter = $('.limitado2:checked').length;
+                var counter = $('.limitado:checked').length;
                 if(counter > limit) {
                     this.checked = false;  
                     alert('Só é possível realizar '+limit+' banimento!');

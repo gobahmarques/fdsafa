@@ -1,6 +1,6 @@
 <?php
 	include "session.php";
-include "enderecos.php";
+    include "enderecos.php";
 
 
 	$campeonato = $_GET['codigo'];

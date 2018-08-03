@@ -161,6 +161,22 @@
 
 
 <header id="menuHeader">
+    <div class="infosHeader row-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <?php
+                        $limite = date('Y-m-d H:i:s', strtotime('-5minutes'));
+                        $totalJogadores = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM login WHERE datahora >= '$limite'"));
+                        echo "Jogadores Online: ".$totalJogadores;
+                    ?>
+                </div>
+                <div class="col text-right">
+                    Português - BR
+                </div>
+            </div>
+        </div>        
+    </div>
     <ul class="menuPrincipalHeader">
         <div class="container">
             <a href="ptbr/jogar/campeonatos/"><li class="campeonatos">Campeonatos</li></a>

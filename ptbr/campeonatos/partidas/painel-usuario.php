@@ -82,7 +82,7 @@
                                         while($aux < $campeonato['qtd_pick']){
                                         ?>
                                             <div class="col">
-                                                <input type="checkbox" name="heroi[]" class="escolha limitado2" value="<?php echo $herois[$aux]; ?>" id="<?php echo $herois[$aux]; ?>" hidden="hidden">
+                                                <input type="checkbox" name="heroi[]" class="escolha limitado" value="<?php echo $herois[$aux]; ?>" id="<?php echo $herois[$aux]; ?>" hidden="hidden">
                                                 <label for="<?php echo $herois[$aux]; ?>" class="heroi">
                                                     <img src="<?php echo "http://www.esportscups.com.br/img/draft/".$jogo['abreviacao']."/".$herois[$aux].".png" ?>" title="<?php echo $herois[$aux]; ?>" alt= "<?php echo $herois[$aux]; ?>" width="100">
                                                 </label>
@@ -307,7 +307,7 @@
                                         $herois = explode(";", $draftUm['picks']);
                                         $aux = 0;							
                                         echo "<h2>Você deve realizar ".$campeonato['qtd_ban']." banimento</h2><br>";
-                                        echo "<form action='ptbr/campeonatos/draft-enviar.php' method='post' onSubmit='return validar();'>";
+                                        echo "<form action='ptbr/campeonatos/draft-enviar.php' method='post' onSubmit='return validar();' class='text-center'>";
                                         echo "<input type='text' name='funcao' id='funcao' value='ban' hidden='hidden'>";
                                         echo "<input type='text' name='codSemente' id='codSemente' value='".$sementeDois['cod_semente']."' hidden='hidden'>";
                                         echo "<input type='hidden' name='codPartida' id='codPartida' value='".$partida['codigo']."'>";
@@ -318,7 +318,7 @@
                                         while($aux < $campeonato['qtd_pick']){
                                         ?>
                                             <div class="col">
-                                                <input type="checkbox" name="heroi[]" class="escolha limitado2" value="<?php echo $herois[$aux]; ?>" id="<?php echo $herois[$aux]; ?>" hidden="hidden">
+                                                <input type="checkbox" name="heroi[]" class="escolha limitado" value="<?php echo $herois[$aux]; ?>" id="<?php echo $herois[$aux]; ?>" hidden="hidden">
                                                 <label for="<?php echo $herois[$aux]; ?>" class="heroi">
                                                     <img src="<?php echo "http://www.esportscups.com.br/img/draft/".$jogo['abreviacao']."/".$herois[$aux].".png" ?>" title="<?php echo $herois[$aux]; ?>" alt= "<?php echo $herois[$aux]; ?>" width="100">
                                                 </label>

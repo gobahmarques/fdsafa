@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <title>eSC - Painel de Controle</title>
 <link rel="stylesheet" href="<?php echo $css; ?>estrutura.css">
-<script src="js/jquery.js"></script>
+<script src="../js/jquery.js"></script>
 </head>
 
 <body>

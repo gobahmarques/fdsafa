@@ -577,6 +577,13 @@ header {
     position: relative;
     z-index: 99;
 }
+header .infosHeader {
+    position: relative;
+    z-index: 99;
+    background: #ccc;
+    border-bottom: solid 3px #3c3c3b;
+    color: #000;
+}
 header .logoHeader {
     height: 50px;
 }

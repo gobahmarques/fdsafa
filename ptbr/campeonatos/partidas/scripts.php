@@ -464,8 +464,7 @@
 		}
 	}
 
-	function resultadoPontosCorridos($etapa, $partida){
-		include "../../../conexao-banco.php";
+	function resultadoPontosCorridos($etapa, $partida, $conexao){
 		include "../../../scripts/gameficacao.php";
 		$xpWin = 25;
 		$xpLose = 10;
@@ -563,10 +562,10 @@
 					avancarElimSimples($etapa, $partida, $conexao);		
 					break;
 				case 2: // GRUPO PONTOS CORRIDOS
-					resultadoPontosCorridos($etapa, $partida);
+					resultadoPontosCorridos($etapa, $partida, $conexao);
 					break;
 				case 3: // ELIMINAÇÃO DUPLA
-					avancarElimDupla($etapa, $partida);
+					avancarElimDupla($etapa, $partida, $conexao);
 					break;
 			}	
 		}		
