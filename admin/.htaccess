@@ -16,5 +16,6 @@ RewriteRule ^painel/sitego/?$ sitego.php [NC,L]
 
 RewriteRule ^painel/rifas/?$ rifas.php [NC,L]
 RewriteRule ^painel/rifas/nova/?$ rifas-nova.php [NC,L]
+RewriteRule ^painel/rifa/([0-9]+)/?$ rifas-editar.php?rifa=$1 [NC,L]
 
 RewriteRule ^painel/pedidos/?$ pedidos.php [NC,L]

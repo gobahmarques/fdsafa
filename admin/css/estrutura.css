@@ -110,3 +110,28 @@ input[type=button]:hover, input[type=submit]:hover {
 	margin-top: 5px;
 	color: #fff;
 }
+
+/* RIFAS */
+
+.cupom-rifa {
+    border: solid 2px #000;
+    width: 75px;
+    height: 75px;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background: #000;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+.cupom-rifa:hover {
+    border: solid 2px #f60;
+}
+.cupom-rifa img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
+    margin-bottom: -65px;
+}
