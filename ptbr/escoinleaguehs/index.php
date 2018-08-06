@@ -182,16 +182,16 @@
                             <td>
                             </td>
                             <td>
-                                <a href="https://www.esportscups.com.br/ptbr/campeonato/340/" target="_blank"><input type="button" class="btn btn-success" value="INSCRIÇÕES ABERTAS"></a>
+                                <a href="https://www.esportscups.com.br/ptbr/campeonato/340/" target="_blank"><input type="button" class="btn btn-primary" value="EM ANDAMENTO"></a>
                             </td>
                             <td>
-                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES EM BREVE" disabled>
+                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES DIA 27/08" disabled>
                             </td>
                             <td>
-                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES EM BREVE" disabled>
+                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES DIA 01/10" disabled>
                             </td>
                             <td>
-                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES EM BREVE" disabled>
+                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES DIA 05/11" disabled>
                             </td>
                         </tr>
                     </table>
@@ -220,7 +220,7 @@
                     Os 16 mais pontuados após a execução das 4 etapas classificatórias <br>
                     irão se enfrentar em uma Eliminação Dupla para disputar o <br>
                     prêmio de 500 mil eSCoins (e$).<br><br>
-                    <img src="<?php echo $img; ?>logo.png" class="logo-min" width="150px"><br><br>
+                    <img src="<?php echo $img; ?>logo.png" class="logo-min" width="150px"><br><br>                    
                 </div>
                 <div class="col-md-6 text-right">
                     <h4>CLASSIFICAÇÃO GERAL</h4>

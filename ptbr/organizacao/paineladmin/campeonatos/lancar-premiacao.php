@@ -84,7 +84,7 @@
                             <label for="">Premiação e$</label>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="">Premiação e$</label>
+                            <label for="">Premiação R$</label>
                         </div>       
                         <div class="form-group col-md-6">
                             <label for="">Divisão</label>

@@ -307,9 +307,9 @@
                     ?>
                 </div>
                 <div class="col-12 col-md-4">
-                    <h2 class="tituloIndex">Ajude o <strong>Cenário</strong></h2>
+                    <h2 class="tituloIndex">Liga eSCoin <strong>Hearthstone</strong></h2>
                     <div class="detalheTituloIndex"></div>
-                    <a href="ptbr/rifas/"><img src="<?php echo $img; ?>index/anuncio-rifa.png" width="100%" ></a>
+                    <a href="ptbr/escoinleaguehs/"><img src="<?php echo $img; ?>index/anuncio-escoin-league-hs.png" width="100%" ></a>
                 </div>
                 <div class="col-12 col-md-4 listaLobbys">
                     <h2 class="tituloIndex">Salas <strong>Públicas</strong></h2>

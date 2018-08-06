@@ -44,9 +44,10 @@
 		</li>
 	</ol>
 	";
-	$premiacao = "<p><strong>1st&nbsp;</strong>- e$ 1.600<br />
-	<strong>2nd</strong>&nbsp;- e$ 1.200<br />
-	<strong>3rd~4th</strong>&nbsp;- e$ 700<br />
+	$premiacao = "<p>A premiação será proporcional ao número de inscritos, ou seja: Qtd. Inscritos * 200 = Prêmio Total<br>
+    <strong>1st&nbsp;</strong>- 45%<br />
+	<strong>2nd</strong>&nbsp;- 25%<br />
+	<strong>3rd~4th</strong>&nbsp;- 15%<br />
 	";
 	$cronograma = "
 	<p><strong>Check-in:</strong> ".date("d/m - H:i", strtotime($inicio))."<br />
@@ -61,10 +62,10 @@
 	");
 
 	$id = mysqli_insert_id($conexao);
-	mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 1, 1600, 0, NULL, NULL)");
+	/* mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 1, 1600, 0, NULL, NULL)");
 	mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 2, 1200, 0, NULL, NULL)");
 	mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 3, 700, 0, NULL, NULL)");
-	mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 4, 700, 0, NULL, NULL)");
+	mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 4, 700, 0, NULL, NULL)"); */
 
     echo $id."<br>";
 
@@ -128,9 +129,9 @@
 	");
 
 	$id = mysqli_insert_id($conexao);
-	mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 1, 1600, 0, NULL, NULL)");
+	/* mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 1, 1600, 0, NULL, NULL)");
 	mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 2, 1200, 0, NULL, NULL)");
 	mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 3, 700, 0, NULL, NULL)");
-	mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 4, 700, 0, NULL, NULL)");
+	mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, 4, 700, 0, NULL, NULL)"); */
 
     echo $id."<br>";
