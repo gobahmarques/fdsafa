@@ -97,11 +97,11 @@
 			// Evita nomes com acentos, espaços e caracteres não alfanuméricos
 			$novoNome = 'logo.'.$extensao;
 			// Concatena a pasta com o nome
-			$destino = '../img/campeonatos/'.$id."/".$novoNome;
-			if(file_exists("../img/campeonatos/".$id."/")){
+			$destino = '../../../img/campeonatos/'.$id."/".$novoNome;
+			if(file_exists("../../../img/campeonatos/".$id."/")){
 				@move_uploaded_file ($arquivo_tmp, $destino);
 			}else{
-				mkdir("../img/campeonatos/".$id."/");
+				mkdir("../../../img/campeonatos/".$id."/");
 				@move_uploaded_file($arquivo_tmp, $destino);
 			}
 			mysqli_query($conexao, "UPDATE campeonato SET thumb = '$destino' WHERE codigo = $id");
@@ -141,6 +141,6 @@
 		mysqli_query($conexao, "UPDATE organizacao SET saldo_real = saldo_real - $totalReal WHERE codigo = ".$organizacao['codigo']." ");
 	}
 
-	// header("Location: campeonato/".$id."/");
+	header("Location: ptbr/campeonato/".$id."/");
 
 	

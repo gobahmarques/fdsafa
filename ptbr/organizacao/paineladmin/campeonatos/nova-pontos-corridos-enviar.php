@@ -72,5 +72,5 @@
 	include "../../../../scripts/gerar-jogos.php";
 	jogosPontosCorridos($etapa, $campeonato);
 
-	// header("Location: ../../../organizacao/".$campeonato['cod_organizacao']."/painel/campeonato/".$codCampeonato."/etapas/");
+	header("Location: ../../../organizacao/".$campeonato['cod_organizacao']."/painel/campeonato/".$codCampeonato."/etapas/");
 ?>

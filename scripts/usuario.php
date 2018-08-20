@@ -54,6 +54,60 @@
 			include "../session.php";
 			mysqli_query($conexao, "UPDATE jogador SET steam = NULL WHERE codigo = ".$usuario['codigo']." ");
 			break;
+        case "atualizarPerfil":
+            include "../session.php";
+            mysqli_query($conexao, "UPDATE jogador SET nick = '".$_POST['nick']."' WHERE codigo = ".$usuario['codigo']." ");
+            if(isset($_FILES['perfil']) && $_FILES['perfil']['error'] == 0){
+                $arquivo_tmp = $_FILES['perfil']['tmp_name'];
+				$nome = $_FILES['perfil']['name'];
+				// Pega a extensão
+				$extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+				// Converte a extensão para minúsculo
+				$extensao = strtolower ( $extensao );
+
+				if ( strstr ( '.jpg;.jpeg;.png', $extensao ) ) {
+					// Cria um nome único para esta imagem
+					// Evita que duplique as imagens no servidor.
+					// Evita nomes com acentos, espaços e caracteres não alfanuméricos
+					$novoNome = $usuario['codigo'].".".$extensao;
+					// Concatena a pasta com o nome
+					$destino = '../img/usuarios/'.$novoNome;
+					if(file_exists("../img/usuarios/")){
+						@move_uploaded_file ($arquivo_tmp, $destino);
+					}else{
+						mkdir("../img/usuarios/");
+						@move_uploaded_file($arquivo_tmp, $destino);
+					}
+					mysqli_query($conexao, "UPDATE jogador SET foto_perfil = 'usuarios/$novoNome' WHERE codigo = ".$usuario['codigo']." ");
+                    echo "funcionando";
+				}
+            }
+            if(isset($_FILES['banner']) && $_FILES['banner']['error'] == 0){
+                $arquivo_tmp = $_FILES['banner']['tmp_name'];
+				$nome = $_FILES['banner']['name'];
+				// Pega a extensão
+				$extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+				// Converte a extensão para minúsculo
+				$extensao = strtolower ( $extensao );
+
+				if ( strstr ( '.jpg;.jpeg;.png', $extensao ) ) {
+					// Cria um nome único para esta imagem
+					// Evita que duplique as imagens no servidor.
+					// Evita nomes com acentos, espaços e caracteres não alfanuméricos
+					$novoNome = $usuario['codigo']."banner.".$extensao;
+					// Concatena a pasta com o nome
+					$destino = '../img/usuarios/'.$novoNome;
+					if(file_exists("../img/usuarios/")){
+						@move_uploaded_file ($arquivo_tmp, $destino);
+					}else{
+						mkdir("../img/usuarios/");
+						@move_uploaded_file($arquivo_tmp, $destino);
+					}
+					mysqli_query($conexao, "UPDATE jogador SET foto_banner = 'usuarios/$novoNome' WHERE codigo = ".$usuario['codigo']." ");
+				}
+            }
+            header("Location: ../ptbr/usuario/".$usuario['codigo']."/editar/");            
+            break;
 		case "alterarFoto":
 			include "../session.php";
 			?>

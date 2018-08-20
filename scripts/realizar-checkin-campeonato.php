@@ -1,4 +1,4 @@
-<?php
+ses<?php
 	include "../conexao-banco.php";
 
 	$campeonato = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM campeonato WHERE codigo = ".$_POST['campeonato'].""));

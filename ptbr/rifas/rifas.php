@@ -51,14 +51,23 @@
                         <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-12 col-md-4">
-                                <img src="img/rifas/<?php echo $rifa2['codigo']."/".$rifa2['foto_produto']; ?>" alt="" width="100%" class="img-fluid">
+                                <?php
+                                    if($rifa2['link_produto'] != ""){
+                                    ?>
+                                        <a href="<?php echo $rifa2['link_produto']; ?>" target="_blank">
+                                            <img src="img/rifas/<?php echo $rifa2['codigo']."/".$rifa2['foto_produto']; ?>" alt="" width="100%" class="img-fluid">
+                                        </a>
+                                    <?php
+                                    }
+                                ?>
+                                
                             </div>
                             <div class="col-12 col-md-7">
                                 <div class="row text-white">
                                     <div class="col-12 col-md-6">
                                         <div class="bg-azul alert" role="alert">
                                             <strong>PRODUTO RIFADO</strong><br>
-                                            <?php echo $rifa2['nome_produto']; ?>
+                                            <a href="<?php echo $rifa2['link_produto']; ?>" target="_blank"><?php echo $rifa2['nome_produto']; ?></a>
                                         </div>
                                     </div>						
                                     <div class="col-12 col-md-6">
@@ -103,15 +112,18 @@
                         <div class="row">
                             <div class="col-md-12">
                             <?php
-                                $contador = 1;
-                                while($contador <= $rifa2['max_cupom']){
-                                ?>
-                                    <div class="cupomRifa cupom<?php echo $contador; ?>" data-placement="bottom" title="Comprar Cupom <?php echo $contador; ?>" data-toggle="modal" data-target="#exampleModal" onClick="selecionarCupom(<?php echo $contador; ?>);">
-                                        <?php echo $contador; ?>
-                                    </div>
-                                <?php
-                                    $contador++;
+                                if($rifa2['status'] == 1 && date('Y-m-d H:i:s') < strtotime($rifa2['data_sorteio'])){
+                                    $contador = 1;
+                                    while($contador <= $rifa2['max_cupom']){
+                                    ?>
+                                        <div class="cupomRifa cupom<?php echo $contador; ?>" data-placement="bottom" title="Comprar Cupom <?php echo $contador; ?>" data-toggle="modal" data-target="#exampleModal" onClick="selecionarCupom(<?php echo $contador; ?>);">
+                                            <?php echo $contador; ?>
+                                        </div>
+                                    <?php
+                                        $contador++;
+                                    }   
                                 }
+                                
                             ?>
                             </div>
                         </div>

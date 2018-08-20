@@ -270,6 +270,10 @@ a:hover {
     background: #f00;
     padding: 20px;
 }
+.barraSociais .instagram {
+    background: #cd486b;
+    padding: 20px;
+}
 .parceiros {
     padding: 20px;
     border: solid 1px #ccc;
@@ -930,6 +934,12 @@ footer a:hover {
     background: #ccc;
     border-bottom: solid 3px #666;
 }
+.visualizarRifa a {
+    color: #fff;
+}
+.visualizarRifa a:hover {
+    color: #000;
+}
 .cupomRifa {
 	background: #00a3b2;
 	width: 50px;
@@ -1410,6 +1420,12 @@ footer a:hover {
 }
 .perfilJogador .infosPerfil h2 {
     font-weight: bold;
+}
+.perfilJogador .infosPerfil a {
+    color: #f60;
+}
+.perfilJogador .infosPerfil a:hover {
+    color: #000;
 }
 .perfilJogador .menuPerfil {
     list-style: none;

@@ -21,7 +21,11 @@
             <div class="col">
                 <div class="infosPerfil">
                     <h2><?php echo $perfil['nome']." '".$perfil['nick']."' ".$perfil['sobrenome']; ?></h2>
-                    Membro desde: <?php echo date("d/m/Y", strtotime($perfil['cadastro'])); ?>
+                    Membro desde: <?php echo date("d/m/Y", strtotime($perfil['cadastro'])); 
+                        if(isset($usuario['codigo']) && $usuario['codigo'] == $perfil['codigo']){
+                            echo "<br><a href='ptbr/usuario/".$perfil['codigo']."/editar/'><i class='fas fa-cog'></i> Editar</a>";
+                        }
+                    ?>
                 </div>            
             </div>          
         </div>        

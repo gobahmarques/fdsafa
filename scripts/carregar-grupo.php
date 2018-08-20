@@ -53,7 +53,7 @@
                                 $inscricao = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM campeonato_inscricao WHERE cod_campeonato = ".$campeonato['codigo']." AND cod_jogador = ".$seed['cod_jogador'].""));
                             ?>
                                 <tr>
-                                    <td class="nome"><?php echo $inscricao['conta']; ?></td>								
+                                    <td class="nome"><a href="ptbr/usuario/<?php echo $inscricao['cod_jogador']; ?>/"><?php echo $inscricao['conta']; ?></a></td>								
                                     <td><?php echo $totalPartidasConcluidas."/".$totalPartidas; ?></td>
                                     <td><?php echo $seed['vitorias']; ?></td>
                                     <td><?php echo $seed['derrotas']; ?></td>

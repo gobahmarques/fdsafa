@@ -47,6 +47,6 @@
         }
     }
     
-    // header ("Location: ptbr/organizacao/".$infosCamp['cod_organizacao']."/painel/campeonato/$campeonato/");
+    header ("Location: ptbr/organizacao/".$infosCamp['cod_organizacao']."/painel/campeonato/$campeonato/");
 
 ?>

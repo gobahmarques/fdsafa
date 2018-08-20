@@ -71,6 +71,6 @@
 		}
 	}
 
-	// header("Location: organizacao/".$campeonato['cod_organizacao']."/painel/campeonato/".$campeonato['codigo']."/");
+	header("Location: organizacao/".$campeonato['cod_organizacao']."/painel/campeonato/".$campeonato['codigo']."/");
 
 	
