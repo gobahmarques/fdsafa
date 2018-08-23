@@ -5,11 +5,16 @@
     ?>
         <div class="bgjogo <?php echo $jogo['background']; ?>">
             <div class="container">
-                <div class="row">
-                    <div class="col-4 col-md-3">
-
-                        <img src="img/<?php echo $campeonato['thumb']; ?>" width="100%">
-                    </div>
+                <div class="row justify-content-between">
+                    <?php
+                        if($campeonato['thumb'] != NULL){
+                        ?>
+                            <div class="col-4 col-md-3">
+                                <img src="img/<?php echo $campeonato['thumb']; ?>" width="100%">
+                            </div>
+                        <?php
+                        }
+                    ?>   
                     <div class="col-8 col-md-5">
                         <br>
                         <div class="row">

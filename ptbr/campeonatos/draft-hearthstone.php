@@ -1,6 +1,15 @@
 <div class="passoInscricao draft">
     <h3>Escolha seus novos heróis</h3>  
-    <form action="ptbr/campeonatos/draft-enviar.php" method="post" onSubmit="return validar();">	
+    <form action="ptbr/campeonatos/draft-enviar.php" method="post" onSubmit="return validar();">
+        <input type="hidden" name="deckstringdruida" id="deckstringdruida" value="" class="form-control" >
+        <input type="hidden" name="deckstringhunter" id="deckstringhunter" value="" class="form-control" >
+        <input type="hidden" name="deckstringmage" id="deckstringmage" value="" class="form-control" >
+        <input type="hidden" name="deckstringpaladin" id="deckstringpaladin" value="" class="form-control" >
+        <input type="hidden" name="deckstringpriest" id="deckstringpriest" value="" class="form-control" >
+        <input type="hidden" name="deckstringrogue" id="deckstringrogue" value="" class="form-control" >
+        <input type="hidden" name="deckstringshaman" id="deckstringshaman" value="" class="form-control" >
+        <input type="hidden" name="deckstringwarlock" id="deckstringwarlock" value="" class="form-control" >
+        <input type="hidden" name="deckstringwarrior" id="deckstringwarrior" value="" class="form-control" >
         <div class="row">
         <input type="text" name="funcao" id="funcao" value="alterar" hidden="hidden">
         <input type="hidden" name="codCampeonato" id="codCampeonato" value="<?php echo $campeonato['codigo']; ?>">

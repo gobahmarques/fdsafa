@@ -274,13 +274,47 @@
                     }
                 })
             }
+            function enviarDeckString(){
+                if($(".deckstring").val() != ""){
+                    var classe = $(".deckstring").attr("class").split(" ");
+                    var deckstring = $(".deckstring").val();
+                    var nomeCampo = "deckstring"+classe[3];
+                    $("#"+nomeCampo).val(deckstring);
+                    $(".modal").modal("hide");   
+                }else{
+                    alert("Você deve informar o DECKSTRING");   
+                }                
+            }
             $(document).on('click', '.limitado', function(){		
                 var limit = <?php echo $campeonato['qtd_pick']; ?>;
                 var counter = $('.limitado:checked').length;
+                var campo = this;
                 if(counter > limit) {
                     this.checked = false;
                     alert('Só é permito selecionar '+limit+'!');
-                }
+                }else{
+                    if(this.checked == true){
+                        if(<?php echo $campeonato['open_decklist']; ?> == 1){
+                            $(document).ready(function(){
+                              $(document).keydown(function(e){
+                                if(e.wich == 27 || e.keyCode == 27){
+                                    $(".modal").removeAttr("data-backdrop");
+                                    campo.checked = false;
+                                }
+                              })
+                            })                            
+                            $(".modal-title").html("<h3>Deckstring</h3>");
+                            $(".modal-body").html("Informe o Deckstring do seu baralho de  <strong>"+this.value.toUpperCase()+"</strong> para que seu baralho seja visível a todos.<br><br><input type='text' name='deckstring' class='deckstring form-control btn-dark' placeholder='Informe o Deckstring do seu baralho de "+this.value.toUpperCase()+"'>");
+                            $(".modal-footer").html("<button type='button' class='btn btn-dark' onClick='enviarDeckString();'>ENVIAR</button>");
+                            $(".deckstring").addClass(""+this.value+"");
+                            $(".modal").attr("data-backdrop", "static");
+                            $(".modal").modal();
+                        }   
+                    }else{
+                        $("#deckstring"+this.value).val("");
+                        
+                    }
+                }                
             });	
             $(document).on('click', '.limitado2', function(){
                 var limit = 1;

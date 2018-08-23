@@ -34,6 +34,14 @@
 
     gtag('config', 'UA-64433449-2');
 </script>
+<script type="text/javascript">
+    window.smartlook||(function(d) {
+    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+    c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+    })(document);
+    smartlook('init', 'e199d1b3fa4b81f35197bbe3451a504bb091469c');
+</script>
 <script src="<?php echo $js; ?>jquery.js"></script>
 <script src="<?php echo $js; ?>bootstrap.js"></script>
 <script src="<?php echo $js; ?>jquery.countdown.js" type="text/javascript"></script>
@@ -47,7 +55,7 @@
     <?php
         if($exibirModal == true){
         ?>
-            $( document ).on( "mousemove", function( event ) {
+            $( document ).on( "mousemove", function( event ) { 
                 if(window.event.clientY < 5){
                     $(".modal").addClass("modalNewsletter");
                     $(".modalNewsletter .modal-content").html("<div class='conteudo'><div class='bg'><img src='img/bgs/bgnewsletter.jpeg' width='100%' /></div><div class='formularioModal'><h3>Saiba das nossas competições e atualizações antes de todos.</h3><link href='//cdn-images.mailchimp.com/embedcode/classic-10_7.css' rel='stylesheet' type='text/css'><style type='text/css'>#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; float:left; width:100%;}</style><div id='mc_embed_signup'><form action='https://esportscups.us18.list-manage.com/subscribe/post?u=491faca4b1b499fd4138aa470&amp;id=f3feeb058d' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' class='validate' target='_blank' novalidate><div id='mc_embed_signup_scroll'><div class='indicates-required'><span class='asterisk'>*</span> campos obrigatórios</div><div class='mc-field-group'><label for='mce-EMAIL'>Seu melhor e-mail  <span class='asterisk'>*</span></label><input type='email' value='' name='EMAIL' class='required email' id='mce-EMAIL'></div><strong>Jogos de Interesse </strong><div class='mc-field-group input-group'><ul><li><input type='checkbox' value='1' name='group[285][1]' id='mce-group[285]-285-0'><label for='mce-group[285]-285-0'>Dota 2</label></li><li><input type='checkbox' value='2' name='group[285][2]' id='mce-group[285]-285-1'><label for='mce-group[285]-285-1'>GWENT</label></li><li><input type='checkbox' value='4' name='group[285][4]' id='mce-group[285]-285-2'><label for='mce-group[285]-285-2'>Hearthstone</label></li><li><input type='checkbox' value='8' name='group[285][8]' id='mce-group[285]-285-3'><label for='mce-group[285]-285-3'>League of Legends</label></li><li><input type='checkbox' value='16' name='group[285][16]' id='mce-group[285]-285-4'><label for='mce-group[285]-285-4'>Overwatch</label></li></ul></div><div id='mce-responses' class='clear'><div class='response' id='mce-error-response' style='display:none'></div><div class='response' id='mce-success-response' style='display:none'></div></div><div style='position: absolute; left: -5000px;' aria-hidden='true'><input type='text' name='b_491faca4b1b499fd4138aa470_f3feeb058d' tabindex='-1' value=''></div><div class='clear'><input type='submit' value='Enviar' name='subscribe' id='mc-embedded-subscribe' class='button'></div></div></form></div></div></div>");    

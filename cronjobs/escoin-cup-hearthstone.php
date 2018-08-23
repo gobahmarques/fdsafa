@@ -58,7 +58,7 @@
 
 	mysqli_query($conexao, "
 		INSERT INTO campeonato VALUES
-		(NULL, 11, 639282, 369, 'eSCoin Cup Hearthstone', 16, 1, 200, 0, '$inicioInscricao', '$fimInscricao', '$inicio', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 0, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 4, 1, 'PC', 0, NULL, 0, NULL);
+		(NULL, 11, 639282, 369, 'eSCoin Cup Hearthstone', 16, 1, 200, 0, '$inicioInscricao', '$fimInscricao', '$inicio', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 0, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 4, 1, 'PC', 0, NULL, 0, NULL, 0);
 	");
 
 	$id = mysqli_insert_id($conexao);
@@ -126,7 +126,7 @@
 
 	mysqli_query($conexao, "
 		INSERT INTO campeonato VALUES
-		(NULL, 11, 639282, 369, 'eSCoin Cup Hearthstone', 16, 1, 200, 0, '$inicioInscricao', '$fimInscricao', '$inicio', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 0, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 4, 1, 'PC', 0, NULL, 0, NULL);
+		(NULL, 11, 639282, 369, 'eSCoin Cup Hearthstone', 16, 1, 200, 0, '$inicioInscricao', '$fimInscricao', '$inicio', '$fim', 'Américas', '$descricao', '$regulamento', '$premiacao', '$cronograma', '$thumb', 0, 'Horário de Brasília', NULL, 'Brasil', 'Online', 0, 0, 1, 4, 1, 'PC', 0, NULL, 0, NULL, 0);
 	");
 
 	$id = mysqli_insert_id($conexao);

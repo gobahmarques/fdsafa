@@ -40,11 +40,14 @@
                 if($campeonato['tipo_inscricao'] == 0){ // INSCRIÇÕES SOLO			
                     $pesquisaInscricoes = mysqli_query($conexao, "SELECT * FROM campeonato_inscricao WHERE cod_campeonato = ".$campeonato['codigo']." AND cod_equipe is null AND status = 1 ORDER BY conta ASC");
                     while($inscricao = mysqli_fetch_array($pesquisaInscricoes)){ // LOOP PARA MOSTRAR TODAS AS INSCRIÇÕES
+                        
+                        $buscarDraft = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM campeonato_draft WHERE cod_campeonato = ".$inscricao['cod_campeonato']." AND cod_jogador = ".$inscricao['cod_jogador'].""));
+                        
                         $inscrito = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM jogador WHERE codigo = ".$inscricao['cod_jogador'].""));
                         $lvlInscrito = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM gm_jogador_level WHERE cod_jogador = ".$inscricao['cod_jogador']." AND cod_jogo = ".$jogo['codigo']." "));
                     ?>
                         <div class="col-12 col-md-3">
-                            <div class="row-fluid inscrito no-gutters">
+                            <div class="row-fluid inscrito no-gutters" onClick="abrirInscricao(<?php echo $inscricao['cod_campeonato']; ?>, <?php echo $inscricao['cod_jogador']; ?>);">
                                 <div class="col-4 col-md-4 float-left">
                                     <img src="http://www.esportscups.com.br/img/<?php echo $inscrito['foto_perfil'];  ?>" alt="">
                                 </div>
@@ -164,6 +167,19 @@
         <script src="<?php echo $js; ?>jquery.js"></script>
         <script src="<?php echo $js; ?>bootstrap.js"></script>
         <script>
+            function abrirInscricao(torneio, jogador){
+                jQuery.ajax({
+                    type: "POST",
+                    url: "scripts/campeonato/resumo-inscricao.php",
+                    data: "codjogador="+jogador+"&codcampeonato="+torneio,
+                    success: function(data){
+                        $(".modal-title").html("Notificações Recentes");
+                        $(".modal-body").html(data);
+                        $(".modal-footer").html("");
+                        $(".modal").modal();
+                    }
+                });
+            }
             jQuery(function($){
                 $(".participantes").addClass("ativo");
                 $(".menuPrincipalHeader .campeonatos").addClass("ativo");

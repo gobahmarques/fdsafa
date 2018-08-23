@@ -202,7 +202,7 @@
                         <a class="nav-link" href="ptbr/caixas/">Caixas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ptbr/loja/">Loja e$</a>
+                        <a class="nav-link" href="ptbr/loja/">Trocar e$</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ptbr/rifas/">Rifas</a>

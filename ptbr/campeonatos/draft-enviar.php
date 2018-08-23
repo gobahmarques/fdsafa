@@ -22,11 +22,14 @@
                     $listaHerois = "";
                     while($aux < $campeonato['qtd_pick']){
                         $listaHerois = $listaHerois.$heroi[$aux].";";
+                        mysqli_query($conexao, "INSERT INTO campeonato_inscricao_deckstring VALUES (".$campeonato['codigo'].", ".$usuario['codigo'].", '$heroi[$aux]', '".$_POST['deckstring'.$heroi[$aux]]."')");
                         $aux++;
                     }
 
                     $draft = mysqli_query($conexao, "INSERT INTO campeonato_draft VALUES (".$campeonato['codigo'].", ".$usuario['codigo'].", '$data', '$listaHerois')");
-                    mysqli_query($conexao, "INSERT INTO campeonato_inscricao VALUES (".$campeonato['codigo'].", ".$usuario['codigo'].", NULL, '$data', 0, '".$usuario['battletag']."', NULL, NULL)");	
+                    
+                    mysqli_query($conexao, "INSERT INTO campeonato_inscricao VALUES (".$campeonato['codigo'].", ".$usuario['codigo'].", NULL, '$data', 0, '".$usuario['battletag']."', NULL, NULL)");
+                    
 					if($campeonato['valor_escoin'] > 0){ // INSCRIÇÃO PAGA COM ESCOIN
 						if($usuario['pontos'] >= $camponato['valor_escoin']){
 							mysqli_query($conexao, "UPDATE jogador SET pontos = pontos - ".$campeonato['valor_escoin']." WHERE codigo = ".$usuario['codigo']."");
@@ -43,11 +46,13 @@
 					header("Location: ../campeonato/".$campeonato['codigo']."/inscricao/");
 					break;
 				case "alterar":
+                    mysqli_query($conexao, "DELETE FROM campeonato_inscricao_deckstring WHERE cod_campeonato = ".$campeonato['codigo']." AND cod_jogador = ".$usuario['codigo']."");
 					$heroi = $_POST['heroi'];					
 					$aux = 0;					
 					$listaHerois = "";
 					while($aux < $campeonato['qtd_pick']){
 						$listaHerois = $listaHerois.$heroi[$aux].";";
+                        mysqli_query($conexao, "INSERT INTO campeonato_inscricao_deckstring VALUES (".$campeonato['codigo'].", ".$usuario['codigo'].", '$heroi[$aux]', '".$_POST['deckstring'.$heroi[$aux]]."')");
 						$aux++;
 					}
 					mysqli_query($conexao, "UPDATE campeonato_draft SET picks = '$listaHerois' WHERE cod_campeonato = ".$campeonato['codigo']." AND cod_jogador = ".$usuario['codigo']."");

@@ -206,10 +206,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="dispInsc">Disponibilidade Inscrição</label><br>
-                                        <input type="radio" name="dispInsc" value="0"> Público 
+                                    <div class="form-group col-md-2">
+                                        <label for="dispInsc">Inscrição</label><br>
+                                        <input type="radio" name="dispInsc" value="0"> Público <br>
                                         <input type="radio" name="dispInsc" value="1"> Privado
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="dispInsc">Deck List</label><br>
+                                        <input type="radio" name="decklist" value="1"> Aberto <br>
+                                        <input type="radio" name="decklist" value="0"> Fechado
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="logoCamp">Logo do Torneio (500x500px)</label>

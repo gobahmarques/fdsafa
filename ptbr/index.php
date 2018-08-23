@@ -372,15 +372,7 @@
             </div>
         </div>
         
-        <div class="barraSociais row text-center">
-            
-            <div class="col-3 facebook">
-                <a href="https://www.facebook.com/escups/" target="_blank">
-                    <div class="col-xs-12 col-md-12">		
-                        <i class="fab fa-facebook-f" style="font-size:48px"></i><br>
-                    </div>
-                </a>                
-            </div>
+        <div class="barraSociais row text-center"> 
             <div class="col-3 twitter">
                 <a href="https://twitter.com/cups_e" target="_blank">
                     <div class="col-xs-12 col-md-12">		
@@ -395,12 +387,28 @@
                     </div>
                 </a>  
             </div>
-            <div class="col-3 youtube">
+            <div class="col-3 facebook">
+                <a href="https://www.facebook.com/escups/" target="_blank">
+                    <div class="col-xs-12 col-md-12">		
+                        <i class="fab fa-facebook-f" style="font-size:48px"></i><br>
+                    </div>
+                </a>                
+            </div>
+            <!--
+            <div class="col-2 youtube">
                 <a href="https://www.youtube.com/channel/UCmOVIphlEpXqg6L4Sa9EW_g" target="_blank">
                     <div class="col-xs-12 col-md-12">		
                         <i class="fab fa-youtube" style="font-size:48px"></i><br>
                     </div>
                 </a> 
+            </div>
+            -->
+            <div class="col-3 instagram">
+                <a href="https://www.instagram.com/esportscups" target="_blank">
+                    <div class="col-xs-12 col-md-12">		
+                        <i class="fab fa-instagram" style="font-size:48px"></i><br>
+                    </div>
+                </a>  
             </div>
         </div>
         
