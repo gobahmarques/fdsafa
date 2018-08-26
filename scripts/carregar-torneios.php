@@ -8,12 +8,30 @@
     if(!isset($_POST['funcao'])){
         $_POST['funcao'] = 3;
     }
+    if(isset($_POST['qtdexibir'])){
+        $quantidade = $_POST['qtdexibir'];
+    }else{
+        $quantidade = 10;
+    }
 	switch($_POST['funcao']){
+        case 0: // TODOS OS TORNEIOS
+            $campeonatos = mysqli_query($conexao, "SELECT * FROM campeonato
+				WHERE cod_jogo = $codJogo
+                ORDER BY inicio DESC 
+                LIMIT $quantidade	               
+			");
+            break;
 		case 1: // CAMPEONATOS EM DESTAQUE
-			$campeonatos = mysqli_query($conexao, "SELECT * FROM campeonato WHERE destaque != 0 AND status != 2 AND cod_jogo = $codJogo ORDER BY inicio ASC");
+			$campeonatos = mysqli_query($conexao, "
+            SELECT * FROM campeonato 
+            WHERE destaque != 0 
+            AND status != 2 
+            AND cod_jogo = $codJogo 
+            ORDER BY inicio ASC 
+            LIMIT $quantidade");
 			break;
 		case 2: // CAMPEONATOS PASSADOS
-			$campeonatos = mysqli_query($conexao, "SELECT * FROM campeonato WHERE status = 2 AND cod_jogo = $codJogo  ORDER BY inicio DESC");
+			$campeonatos = mysqli_query($conexao, "SELECT * FROM campeonato WHERE status = 2 AND cod_jogo = $codJogo ORDER BY inicio DESC LIMIT $quantidade");
 			break;
 		case 3: // INSCRIÇÕES ABERTAS
 			$campeonatos = mysqli_query($conexao, "SELECT * FROM campeonato
@@ -21,14 +39,16 @@
 				AND fim_inscricao > '$date'
 				AND status = 0
 				AND cod_jogo = $codJogo
-				ORDER BY inicio ASC
+                ORDER BY inicio ASC
+				LIMIT $quantidade                
 			");
 			break;
 		case 4: // EM ANDAMENTO
 			$campeonatos = mysqli_query($conexao, "SELECT * FROM campeonato
 				WHERE status = 1
 				AND cod_jogo = $codJogo
-				ORDER BY inicio ASC
+                ORDER BY inicio ASC
+				LIMIT $quantidade
 			");
 			break;
 		case 5: // EM BREVE
@@ -36,20 +56,37 @@
 				WHERE status = 0
 				AND cod_jogo = $codJogo
 				AND inicio_inscricao > '$date'
-				ORDER BY inicio ASC
+                ORDER BY inicio ASC
+				LIMIT $quantidade
 			");
 			break;
 			
 	}
 	
 ?>
-<ul class="menuCups">
-    <li class="cupsDestaques" onClick="trocarAba2(1);">Destaques</li>
-    <li class="cupsAbertos" onClick="trocarAba2(3);">Abertos</li>
-    <li class="cupsPassados" onClick="trocarAba2(2);">Passados</li>
-    <li class="cupsAndamento" onClick="trocarAba2(4);">Em Andamento</li>
-    <li class="cupsBreve" onClick="trocarAba2(5);">Em Breve</li>
-</ul>
+<div class="row">
+    <div class="col-12 col-md-7">
+        Filtrar Torneios
+        <ul class="menuCups">            
+            <li class="cupsDestaques" onClick="trocarAba2('1');">Destaques</li>
+            <li class="cupsAbertos" onClick="trocarAba2('3');">Abertos</li>
+            <li class="cupsPassados" onClick="trocarAba2('2');">Passados</li>
+            <li class="cupsAndamento" onClick="trocarAba2('4');">Em Andamento</li>
+            <li class="cupsBreve" onClick="trocarAba2('5');">Em Breve</li>
+        </ul>
+    </div>
+    <div class="col-12 col-md-5 text-right">
+        Exibir
+        <ul class="menuCups">            
+            <li class="exibir10" onClick="qtdexibir(10);">10</li>
+            <li class="exibir20" onClick="qtdexibir(20);">20</li>
+            <li class="exibir50" onClick="qtdexibir(50);">50</li>
+            <li class="exibir100" onClick="qtdexibir(100);">100</li>
+        </ul>
+    </div>
+    <hr>
+</div>
+
 
 
 <div class="row campeonatos">

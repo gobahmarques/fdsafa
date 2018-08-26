@@ -28,6 +28,8 @@
         <?php
             if($codJogo != 0){ // JÁ SELECIONOU O JOGO
             ?>
+                <input type="text" name="filtro" value="0" class="filtro">
+                <input type="text" name="qtdexibir" value="10" class="qtdexibir">
                 <ul class="menuJogar centralizar">
                     <a href="ptbr/jogar/campeonatos/dota2/"><li class="357"><img src="<?php echo $img; ?>icones/dota2.png"></li></a>
                     <a href="ptbr/jogar/campeonatos/gwent/"><li class="123"><img src="<?php echo $img; ?>icones/gwent.png"></li></a>
@@ -37,7 +39,7 @@
                 </ul>
         
                 <div class="container">
-                    <div class="carregarConteudo centralizar">
+                    <div class="carregarConteudo">
 
                     </div>           
                 </div>
@@ -97,81 +99,103 @@
                 $(".cupsAbertos").removeClass("ativo");
                 $(".cupsAndamento").removeClass("ativo");
                 $(".cupsBreve").removeClass("ativo");
-                switch(numero){
-                    case 1: // DESTAQUES
-                        $.ajax({
-                            type: "POST",
-                            url: "scripts/carregar-torneios.php",
-                            data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero,
-                            success: function(resultado){
-                                $(".carregarConteudo").html(resultado);
-                                $(".cupsDestaques").addClass("ativo");
-                                return false;
-                            }
-                        });
-                        break;
-                    case 2: // PASSADOS
-                        $.ajax({
-                            type: "POST",
-                            url: "scripts/carregar-torneios.php",
-                            data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero,
-                            success: function(resultado){
-                                $(".carregarConteudo").html(resultado);
-                                $(".cupsPassados").addClass("ativo");
-                                return false;
-                            }
-                        });
-                        break;
-                    case 3: // INSCRIÇÕES ABERTAS
-                        $.ajax({
-                            type: "POST",
-                            url: "scripts/carregar-torneios.php",
-                            data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero,
-                            success: function(resultado){
-                                $(".carregarConteudo").html(resultado);
-                                $(".cupsAbertos").addClass("ativo");
-                                return false;
-                            }
-                        });
-                        break;
-                    case 4: // EM ANDAMENTO
-                        $.ajax({
-                            type: "POST",
-                            url: "scripts/carregar-torneios.php",
-                            data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero,
-                            success: function(resultado){
-                                $(".carregarConteudo").html(resultado);
-                                $(".cupsAndamento").addClass("ativo");
-                                return false;
-                            }
-                        });
-                        break;
-                    case 5: // EM BREVE
-                        $.ajax({
-                            type: "POST",
-                            url: "scripts/carregar-torneios.php",
-                            data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero,
-                            success: function(resultado){
-                                $(".carregarConteudo").html(resultado);
-                                $(".cupsBreve").addClass("ativo");
-                                return false;
-                            }
-                        });
-                        break;
-                }
+                $(".exibir10").removeClass("ativo");
+                $(".exibir20").removeClass("ativo");
+                $(".exibir50").removeClass("ativo");
+                $(".exibir100").removeClass("ativo");
+                $(".exibirtodos").removeClass("ativo");
+                setTimeout(function(){
+                    var qtdexibir = $(".qtdexibir").val();
+                    switch(numero){
+                        case '0': // TODOS
+                            $(".filtro").val(0);
+                            $.ajax({
+                                type: "POST",
+                                url: "scripts/carregar-torneios.php",
+                                data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero+"&qtdexibir="+qtdexibir,
+                                success: function(resultado){
+                                    $(".carregarConteudo").html(resultado);
+                                    return false;
+                                }
+                            });
+                            break;
+                        case '1': // DESTAQUES
+                            $(".filtro").val(1);
+                            $.ajax({
+                                type: "POST",
+                                url: "scripts/carregar-torneios.php",
+                                data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero+"&qtdexibir="+qtdexibir,
+                                success: function(resultado){
+                                    $(".carregarConteudo").html(resultado);
+                                    $(".cupsDestaques").addClass("ativo");
+                                    return false;
+                                }
+                            });
+                            break;
+                        case '2': // PASSADOS
+                            $(".filtro").val(2);
+                            $.ajax({
+                                type: "POST",
+                                url: "scripts/carregar-torneios.php",
+                                data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero+"&qtdexibir="+qtdexibir,
+                                success: function(resultado){
+                                    $(".carregarConteudo").html(resultado);
+                                    $(".cupsPassados").addClass("ativo");
+                                    return false;
+                                }
+                            });
+                            break;
+                        case '3': // INSCRIÇÕES ABERTAS
+                            $(".filtro").val(3);
+                            $.ajax({
+                                type: "POST",
+                                url: "scripts/carregar-torneios.php",
+                                data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero+"&qtdexibir="+qtdexibir,
+                                success: function(resultado){
+                                    $(".carregarConteudo").html(resultado);
+                                    $(".cupsAbertos").addClass("ativo");
+                                    return false;
+                                }
+                            });
+                            break;
+                        case '4': // EM ANDAMENTO
+                            $(".filtro").val(4);
+                            $.ajax({
+                                type: "POST",
+                                url: "scripts/carregar-torneios.php",
+                                data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero+"&qtdexibir="+qtdexibir,
+                                success: function(resultado){
+                                    $(".carregarConteudo").html(resultado);
+                                    $(".cupsAndamento").addClass("ativo");
+                                    return false;
+                                }
+                            });
+                            break;
+                        case '5': // EM BREVE
+                            $(".filtro").val(5);
+                            $.ajax({
+                                type: "POST",
+                                url: "scripts/carregar-torneios.php",
+                                data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero+"&qtdexibir="+qtdexibir,
+                                success: function(resultado){
+                                    $(".carregarConteudo").html(resultado);
+                                    $(".cupsBreve").addClass("ativo");
+                                    return false;
+                                }
+                            });
+                            break;
+                    }
+                    $(".exibir20").addClass("ativo");
+                }, 500);
             }
             function carregarTorneios(){
                 $(".<?php echo $codJogo; ?>").addClass("ativo");
-                $.ajax({
-                    type: "POST",
-                    url: "scripts/carregar-torneios.php",
-                    data: "codjogo=<?php echo $codJogo; ?>",
-                    success: function(resultado){
-                        $(".carregarConteudo").html(resultado);
-                        trocarAba2(1);
-                        return false;
-                    }
-                });
+                trocarAba2('0');
+            }
+            function qtdexibir(qtd){
+                $(".qtdexibir").val(qtd);
+                var filtro = $(".filtro").val();
+                trocarAba2(filtro);
             }
             function encaminhar(link){
                 window.location.href = link;

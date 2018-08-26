@@ -136,32 +136,36 @@
         
         <br>
         <div class="container">
-        <?php
-            $rifas = mysqli_query($conexao, "SELECT * FROM rifa WHERE data_sorteio > '".date("Y-m-d H:i:s")."' AND status = 1");
-            if(mysqli_num_rows($rifas) > 0){
-                while($rifa = mysqli_fetch_array($rifas)){
-                    $totalCupons = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM rifa_cupom WHERE cod_rifa = ".$rifa['codigo'].""));
-                    $porcentagem = ($totalCupons * 100) / $rifa['max_cupom'];
-                ?>
-                    <div class="col-6 col-md-3 centralizar" style="border:solid 1px #ccc; padding: 15px;">
-                        <?php echo "<h3><strong>".$rifa['nome_produto']."</strong></h3>"; ?>
-                        <img src="img/rifas/<?php echo $rifa['codigo']."/".$rifa['foto_produto']; ?>" alt="" width="100%">
-                        <div class="progress-group">
-                            <span class="progress-number"><?php echo $totalCupons." / ".$rifa['min_cupom']." / ".$rifa['max_cupom']; ?></span>
-                            <div class="progress sm">
-                                <div class="progress-bar bg-laranja" role="progressbar" style="width: <?php echo ($totalCupons/$rifa['max_cupom'])*100; ?>%;" aria-valuenow="<?php echo $totalCupons; ?>"><?php echo $totalCupons; ?></div>
+            <div class="row">
+            <?php
+                $rifas = mysqli_query($conexao, "SELECT * FROM rifa WHERE data_sorteio > '".date("Y-m-d H:i:s")."' AND status = 1");
+                if(mysqli_num_rows($rifas) > 0){
+                    while($rifa = mysqli_fetch_array($rifas)){
+                        $totalCupons = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM rifa_cupom WHERE cod_rifa = ".$rifa['codigo'].""));
+                        $porcentagem = ($totalCupons * 100) / $rifa['max_cupom'];
+                    ?>
+                        <div class="col-6 col-md-3 centralizar">
+                            <div style="border:solid 1px #ccc; padding: 15px;">
+                                <?php echo "<h3><strong>".$rifa['nome_produto']."</strong></h3>"; ?>
+                                <img src="img/rifas/<?php echo $rifa['codigo']."/".$rifa['foto_produto']; ?>" alt="" width="100%">
+                                <div class="progress-group">
+                                    <span class="progress-number"><?php echo $totalCupons." / ".$rifa['min_cupom']." / ".$rifa['max_cupom']; ?></span>
+                                    <div class="progress sm">
+                                        <div class="progress-bar bg-laranja" role="progressbar" style="width: <?php echo ($totalCupons/$rifa['max_cupom'])*100; ?>%;" aria-valuenow="<?php echo $totalCupons; ?>"><?php echo $totalCupons; ?></div>
 
-                                <div class="progress-bar bg-azul" role="progressbar" style="width: <?php echo (($rifa['min_cupom']/$rifa['max_cupom'])*100)-(($totalCupons/$rifa['max_cupom'])*100); ?>%;" aria-valuenow="<?php echo $totalCupons; ?>"></div>
-                            </div>
-                        </div><br>
-                        <a href="ptbr/rifas/?codigo=<?php echo $rifa['codigo']; ?>"><input type="button" class="btn btn-laranja" data-toggle="tooltip" data-placement="bottom" title="Preços" value="VISUALIZAR RIFA" style="width: 100%;"></input></a>		
-                    </div>
-                <?php
+                                        <div class="progress-bar bg-azul" role="progressbar" style="width: <?php echo (($rifa['min_cupom']/$rifa['max_cupom'])*100)-(($totalCupons/$rifa['max_cupom'])*100); ?>%;" aria-valuenow="<?php echo $totalCupons; ?>"></div>
+                                    </div>
+                                </div><br>
+                                <a href="ptbr/rifas/?codigo=<?php echo $rifa['codigo']; ?>"><input type="button" class="btn btn-laranja" data-toggle="tooltip" data-placement="bottom" title="Preços" value="VISUALIZAR RIFA" style="width: 100%;"></a>	
+                            </div>                          	
+                        </div>
+                    <?php
+                    }
+                }else{
+                    echo "<h2>Nenhuma rifa disponível!</h2>";
                 }
-            }else{
-                echo "<h2>Nenhuma rifa disponível!</h2>";
-            }
-        ?>
+            ?>
+            </div>        
         </div>
     
         <?php include "../footer.php"; ?>
@@ -179,7 +183,7 @@
                     success: function(resultado){
                         if(resultado == 0){
                             $(".modal-body").html("Infelizmente você não possui saldo suficiente para comprar o cupom.");
-                            $(".modal-footer").append("<button type='button' class='btn btn-secondary' data-dismiss='modal'>Fechar</button>");
+                            $(".modal-footer").html("<a href='<?php echo "ptbr/usuario/".$usuario['codigo']."/carteira-real/adicionar-saldo/"; ?>'><button type='button' class='btn btn-warning'>Adicionar Saldo</button></a>");
                         }else if(resultado == 1){
                             window.location.reload();
                         }
@@ -202,7 +206,7 @@
 
                         if($rifa2['preco_real'] > 0){
                         ?>
-                            $(".modal-footer").append("<button type='button' class='btn btn-success' onClick='comprarCupom("+numCupom+", <?php echo $rifa2['codigo']; ?>, <?php echo $usuario['codigo']; ?>, 1);'>R$ <?php echo number_format($rifa2['preco_real'], 2, ',', '.') ?></button>");
+                            $(".modal-footer").append("<button type='button' class='btn btn-success' onClick='comprarCupom("+numCupom+", <?php echo $rifa2['codigo']; ?>, <?php echo $usuario['codigo']; ?>, 1);'>CUPOM <strong>R$ <?php echo number_format($rifa2['preco_real'], 2, ',', '.') ?></strong></button>");
                         <?php
                         }
                     }else{
@@ -213,7 +217,6 @@
                     <?php	
                     }
                 ?>
-                $(".modal-footer").append("<button type='button' class='btn btn-secondary' data-dismiss='modal'>Pensar mais um pouco!</button>");
             }
             $(function () {		  
                 <?php
