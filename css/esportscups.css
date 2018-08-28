@@ -1489,6 +1489,15 @@ footer a:hover {
     background: #666;
     cursor: default;
 }
+.lvlLobby {
+    width: 100%;
+    float: right;
+    padding: 5px;
+    background: #c3c3c3;
+}
+.lvlLobby img {
+    width: 100%;
+}
 .criarLobby {
 	width: 100%;
 	float: right;

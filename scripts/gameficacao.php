@@ -27,4 +27,19 @@
 			");
 		}	
 	}
+
+    if(!function_exists("criarPerfil")){
+		function criarPerfil($codJogador, $codJogo){
+			include "../conexao-banco.php";
+            mysqli_query($conexao, "INSERT INTO gm_jogador_level VALUES ($codJogador, 1, 0, 50, 0, '".date("Y-m-d")."', $codJogo, 1, 0, 50)");
+		}	
+	}
+
+    if(isset($_POST['funcao'])){
+        switch($_POST['funcao']){
+            case "criarPerfil":
+                criarPerfil($_POST['codJogador'], $_POST['codJogo']);
+                break;
+        }
+    }
 ?>
