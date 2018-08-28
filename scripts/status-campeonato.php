@@ -51,6 +51,7 @@
 				}
 			}
 			
+            mysqli_query($conexao, "DELETE FROM campeonato_inscricao_deckstring WHERE cod_campeonato = ".$campeonato['codigo']." ");
 			mysqli_query($conexao, "DELETE FROM campeonato_inscricao WHERE cod_campeonato = ".$campeonato['codigo']." ");			
 			mysqli_query($conexao, "DELETE FROM log_campeonato WHERE cod_campeonato = ".$campeonato['codigo']." ");
 			mysqli_query($conexao, "DELETE FROM campeonato WHERE codigo = ".$campeonato['codigo']." ");

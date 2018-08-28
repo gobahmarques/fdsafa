@@ -149,6 +149,15 @@
                                     <div class="col-12 col-md-12">
                                         <input type="button" class="btn btn-dark" value="ALTERAR" onClick="mudarDraftHs();">
                                     </div>
+                                <script>
+                                    function mudarDraftHs(){
+                                        $(".draft").load("ptbr/campeonatos/draft-hearthstone.php");
+                                        setTimeout(function(){
+                                            $("#funcao").val("alterar");
+                                            $("#codCampeonato").val(<?php echo $campeonato['codigo']; ?>);
+                                        }, 300)
+                                    } 
+                                </script>
                                 <?php
                                 }
                             ?>

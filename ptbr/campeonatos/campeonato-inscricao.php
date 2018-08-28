@@ -35,7 +35,7 @@
                 global $usuario, $conexao, $campeonato, $datahora, $jogo;
                 switch($codJogo){
                     case 369: // HEARTHSTONE
-                        include "campeonato-inscricao-hearthstone.php";                        
+                        include "campeonato-inscricao-hearthstone.php";  
                         break;
                     case 123: // GWENT
                         include "campeonato-inscricao-gwent.php";
@@ -247,14 +247,7 @@
                     return false;
                 }
                 return true;
-            }
-            function mudarDraftHs(){
-                $(".draft").load("ptbr/campeonatos/draft-hearthstone.php");
-                setTimeout(function(){
-                    $("#funcao").val("alterar");
-                    $("#codCampeonato").val(<?php echo $campeonato['codigo']; ?>);
-                }, 300)
-            }            
+            }         
             function mudarDraftGwent(){
                 $(".draft").load("ptbr/campeonatos/draft-gwent.php");
                 setTimeout(function(){

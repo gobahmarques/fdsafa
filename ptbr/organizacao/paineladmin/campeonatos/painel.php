@@ -199,7 +199,7 @@
                             type: "POST",
                             url: "scripts/status-campeonato.php",
                             data: "campeonato="+campeonato+"&status="+status,
-                            success: function(resultado){                               
+                            success: function(resultado){
                                 window.location = "ptbr/organizacao/<?php echo $organizacao['codigo']; ?>/painel/";
                             }
                         });

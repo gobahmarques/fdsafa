@@ -551,7 +551,7 @@ header .navbar {
 }
 .partidasPendentesUsuario {
     padding: 10px 0px;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.65);
     width: 100%;
     position: relative;
     border-bottom: solid 3px #f60;

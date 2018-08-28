@@ -65,9 +65,10 @@
 	
 ?>
 <div class="row">
-    <div class="col-12 col-md-7">
+    <div class="col-6 col-md-7">
         Filtrar Torneios
-        <ul class="menuCups">            
+        <ul class="menuCups">      
+            <li class="cupsTodos" onClick="trocarAba2('0');">Todos</li>
             <li class="cupsDestaques" onClick="trocarAba2('1');">Destaques</li>
             <li class="cupsAbertos" onClick="trocarAba2('3');">Abertos</li>
             <li class="cupsPassados" onClick="trocarAba2('2');">Passados</li>
@@ -75,7 +76,7 @@
             <li class="cupsBreve" onClick="trocarAba2('5');">Em Breve</li>
         </ul>
     </div>
-    <div class="col-12 col-md-5 text-right">
+    <div class="col-6 col-md-5 text-right">
         Exibir
         <ul class="menuCups">            
             <li class="exibir10" onClick="qtdexibir(10);">10</li>

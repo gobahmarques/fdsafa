@@ -74,7 +74,13 @@
     ?>
     function abrirPartidasPendentes(){
         var hPartidasPendentes = $(".partidasPendentesUsuario").height() + 25;
-        $(".partidasPendentesUsuario").css("padding-top", ""+(hPartidasPendentes+20)+"");     
+        $(".partidasPendentesUsuario").css("padding-top", ""+(hPartidasPendentes+20)+"");    
+        $(".fa-gamepad").attr("onclick", "fecharPartidasPendentes();");
+    }
+    function fecharPartidasPendentes(){
+        var hPartidasPendentes = $(".partidasPendentesUsuario").height() + 25;
+        $(".partidasPendentesUsuario").css("padding-top", "0");     
+        $(".fa-gamepad").attr("onclick", "abrirPartidasPendentes();");
     }
     $(function(){ 
         var hPartidasPendentes = $(".partidasPendentesUsuario").height() + 25;

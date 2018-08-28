@@ -28,8 +28,8 @@
         <?php
             if($codJogo != 0){ // JÁ SELECIONOU O JOGO
             ?>
-                <input type="text" name="filtro" value="0" class="filtro">
-                <input type="text" name="qtdexibir" value="10" class="qtdexibir">
+                <input type="hidden" name="filtro" value="0" class="filtro">
+                <input type="hidden" name="qtdexibir" value="10" class="qtdexibir">
                 <ul class="menuJogar centralizar">
                     <a href="ptbr/jogar/campeonatos/dota2/"><li class="357"><img src="<?php echo $img; ?>icones/dota2.png"></li></a>
                     <a href="ptbr/jogar/campeonatos/gwent/"><li class="123"><img src="<?php echo $img; ?>icones/gwent.png"></li></a>
@@ -94,6 +94,7 @@
         <script src="<?php echo $js; ?>bootstrap.js"></script>
         <script>
             function trocarAba2(numero){
+                $(".cupsTodos").removeClass("ativo");
                 $(".cupsDestaques").removeClass("ativo");
                 $(".cupsPassados").removeClass("ativo");
                 $(".cupsAbertos").removeClass("ativo");
@@ -115,6 +116,7 @@
                                 data: "codjogo=<?php echo $codJogo; ?>&funcao="+numero+"&qtdexibir="+qtdexibir,
                                 success: function(resultado){
                                     $(".carregarConteudo").html(resultado);
+                                    $(".cupsTodos").addClass("ativo");
                                     return false;
                                 }
                             });
@@ -190,7 +192,7 @@
             }
             function carregarTorneios(){
                 $(".<?php echo $codJogo; ?>").addClass("ativo");
-                trocarAba2('0');
+                trocarAba2('1');
             }
             function qtdexibir(qtd){
                 $(".qtdexibir").val(qtd);
