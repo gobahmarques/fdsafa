@@ -183,7 +183,7 @@
                     success: function(resultado){
                         if(resultado == 0){
                             $(".modal-body").html("Infelizmente você não possui saldo suficiente para comprar o cupom.");
-                            $(".modal-footer").html("<a href='<?php echo "ptbr/usuario/".$usuario['codigo']."/carteira-real/adicionar-saldo/"; ?>'><button type='button' class='btn btn-warning'>Adicionar Saldo</button></a>");
+                            $(".modal-footer").html("<a href='ptbr/usuario/"+codJogador+"/carteira-real/adicionar-saldo/'><button type='button' class='btn btn-warning'>Adicionar Saldo</button></a>");
                         }else if(resultado == 1){
                             window.location.reload();
                         }
@@ -191,6 +191,9 @@
                 });
             }
             function selecionarCupom(numCupom){
+                $(".modal-title").html("<h3><?php echo $rifa['nome']; ?></h3>");
+                $(".modal-body").html("É necessário que você realize o login para que possa comprar seus cupons.");
+                $(".modal-footer").html("<input type='button' value='Realizar Login' class='btn btn-warning' onClick='abrirLogin();'>");
                 <?php
                     if(isset($usuario['codigo'])){
                     ?>
@@ -209,12 +212,6 @@
                             $(".modal-footer").append("<button type='button' class='btn btn-success' onClick='comprarCupom("+numCupom+", <?php echo $rifa2['codigo']; ?>, <?php echo $usuario['codigo']; ?>, 1);'>CUPOM <strong>R$ <?php echo number_format($rifa2['preco_real'], 2, ',', '.') ?></strong></button>");
                         <?php
                         }
-                    }else{
-                    ?>
-                        $(".modal-title").html("<h3><?php echo $rifa['nome']; ?></h3>");
-                        $(".modal-body").html("É necessário que você realize o login para que possa comprar seus cupons.");
-                        $(".modal-footer").html("");
-                    <?php	
                     }
                 ?>
             }
