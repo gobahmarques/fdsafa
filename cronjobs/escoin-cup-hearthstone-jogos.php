@@ -29,7 +29,7 @@
 		$numEtapa = $numEtapa['cod_etapa'] + 1;
 
 
-		mysqli_query($conexao, "INSERT INTO campeonato_etapa VALUES (".$campeonato['codigo'].", $numEtapa, 'Fase Principal', 1, NULL, NULL, NULL, NULL, 5, 0, $vagas, NULL, NULL, NULL)");
+		mysqli_query($conexao, "INSERT INTO campeonato_etapa VALUES (".$campeonato['codigo'].", $numEtapa, 'Fase Principal', 1, NULL, NULL, NULL, NULL, 5, 0, $vagas, NULL, NULL, NULL, 0)");
 
 		$i = 0;
 

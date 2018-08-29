@@ -45,22 +45,29 @@
                     <input type="text" name="datalimite" placeholder="DD/MM/AAAA HH:MM:SS" class="form-control">
                 </div>
             </div>
-            <div class="col-6 col-md-4">
+            <div class="col-6 col-md-3">
                 <div class="form-group">
-                    <label for="number">Pts por vitória</label>
+                    <label for="number">Vitória (pts)</label>
                     <input type="number" id="vagas" name="vitoria" value="3" class="form-control">
                 </div>
             </div>
-            <div class="col-6 col-md-4">
+            <div class="col-6 col-md-3">
                 <div class="form-group">
-                    <label for="number">Pts por empate</label>
+                    <label for="number">Empate (pts)</label>
                     <input type="number" id="vagas" name="empate" value="0" class="form-control">
                 </div>
             </div>
-            <div class="col-6 col-md-4">
+            <div class="col-6 col-md-3">
                 <div class="form-group">
-                    <label for="number">Pts por derrota</label>
+                    <label for="number">Derrota (pts)</label>
                     <input type="number" id="vagas" name="derrota" value="1" class="form-control">
+                </div>
+            </div>
+            <div class="col-6 col-md-6">
+                <div class="form-group">
+                    <label>Última etapa do torneio?</label> <br>
+                    <input type="radio" name="ultimaEtapa" value="1" required> Sim
+                    <input type="radio" name="ultimaEtapa" value="0" checked required> Não
                 </div>
             </div>
             <div class="col-12 col-md-12">

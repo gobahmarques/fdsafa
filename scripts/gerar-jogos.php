@@ -1,5 +1,9 @@
 <?php
-	function jogosElimSimples($etapa, $campeonato, $jogadores, $partida, $dispTerceiro, $conexao){
+	function jogosElimSimples($etapa, $campeonato, $jogadores, $partida, $dispTerceiro, $inicio, $conexao){
+        $inicio = date("Y-m-d H:i:s", strtotime($inicio));
+        
+        /* JOGOS */
+        
 		$maiorExp = 2;
 		while($maiorExp < $jogadores){
 			$maiorExp = $maiorExp * 2;
@@ -17,14 +21,14 @@
 				$c++;
 				$limiteLinha = $limiteLinha / 2;
 			}
-			mysqli_query($conexao, "INSERT INTO campeonato_partida VALUES (NULL, $etapa, '".$campeonato['inicio']."', NULL, NULL, ".$campeonato['codigo'].", $partida, 0, $l, $c, 0, 0, NULL)");
+			mysqli_query($conexao, "INSERT INTO campeonato_partida VALUES (NULL, $etapa, '$inicio', NULL, NULL, ".$campeonato['codigo'].", $partida, 0, $l, $c, 0, 0, NULL)");
 			$aux--;
 			$l++;
 		}
 		if($dispTerceiro == 1){
 			$c++;
 			$l--;
-			mysqli_query($conexao, "INSERT INTO campeonato_partida VALUES (NULL, $etapa, '".$campeonato['inicio']."', NULL, NULL, ".$campeonato['codigo'].", $partida, 0, $l, $c, 0, 0, NULL)");
+			mysqli_query($conexao, "INSERT INTO campeonato_partida VALUES (NULL, $etapa, '$inicio', NULL, NULL, ".$campeonato['codigo'].", $partida, 0, $l, $c, 0, 0, NULL)");
 		}
 	}
 
@@ -184,9 +188,7 @@
 	}
 
 	function jogosElimDupla($etapa, $campeonato, $jogadores, $partida, $inicio, $conexao){
-		$formato = "d/m/Y H:i:s";
-		$inicio = DateTime::createFromFormat($formato, $_POST['inicio']);
-		$inicio = $inicio->format("Y-m-d H:i:s");
+        $inicio = date("Y-m-d H:i:s", strtotime($inicio));
 		
 		/* UPPER BRACKET */
 		
@@ -250,8 +252,6 @@
 		/* FINAL */
 		
 		$l = 1;
-		$c++;
-		mysqli_query($conexao, "INSERT INTO campeonato_partida VALUES (NULL, $etapa, NULL, NULL, NULL, '".$campeonato['codigo']."', $partida, 0, $l, $c, 0, 0, NULL)");
 		$c++;
 		mysqli_query($conexao, "INSERT INTO campeonato_partida VALUES (NULL, $etapa, NULL, NULL, NULL, '".$campeonato['codigo']."', $partida, 0, $l, $c, 0, 0, NULL)");
 		

@@ -11,13 +11,19 @@
 	$dataLimite = DateTime::createFromFormat($formato, $_POST['datalimite']);
 	$dataLimite = $dataLimite->format("Y-m-d H:i:s");
 
+    $ultimaEtapa = $_POST['ultimaEtapa'];
+    
+    if($ultimaEtapa = 1){
+        mysqli_query($conexao, "UPDATE campeonato_etapa SET ultimaEtapa = 0 WHERE cod_campeonato = $codCampeonato");
+    }
+
 	$numEtapa = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM campeonato_etapa WHERE cod_campeonato = $codCampeonato ORDER BY cod_etapa DESC LIMIT 1"));
 	$numEtapa = $numEtapa + 1;
 	
 
 	// CRIAR ETAPA
 
-	mysqli_query($conexao, "INSERT INTO campeonato_etapa VALUES ($codCampeonato, $numEtapa, '$nome', 2, NULL, ".$_POST['vitoria'].", ".$_POST['empate'].", ".$_POST['derrota'].", $formatoPartidas, NULL, $vagas, ".$_POST['grupos'].", ".$_POST['classificados'].", '$dataLimite')");
+	mysqli_query($conexao, "INSERT INTO campeonato_etapa VALUES ($codCampeonato, $numEtapa, '$nome', 2, NULL, ".$_POST['vitoria'].", ".$_POST['empate'].", ".$_POST['derrota'].", $formatoPartidas, NULL, $vagas, ".$_POST['grupos'].", ".$_POST['classificados'].", '$dataLimite', $ultimaEtapa)");
 
 	$etapa = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM campeonato_etapa WHERE cod_campeonato = $codCampeonato AND cod_etapa = $numEtapa"));
 

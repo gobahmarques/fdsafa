@@ -251,7 +251,7 @@
 			}
 		}	
 		
-		if($colunaDestino <= $maxColunas){
+		if($colunaDestino < $maxColunas){
 			$dataPartida = date("Y-m-d H:i:s");
 			$partidaDestino = mysqli_fetch_array(mysqli_query($conexao, "SELECT codigo, cod_campeonato FROM campeonato_partida WHERE cod_etapa = ".$etapa['cod_etapa']." AND cod_campeonato = ".$partida['cod_campeonato']." AND linha = $linhaDestino AND coluna = $colunaDestino"));
 			mysqli_query($conexao, "UPDATE campeonato_partida SET datahora = '$dataPartida' WHERE codigo = ".$partidaDestino['codigo']." ");
@@ -263,21 +263,30 @@
 				mysqli_query($conexao, "INSERT INTO campeonato_partida_semente VALUES ($ganhador, ".$partidaDestino['codigo'].", 0, 1, NULL, ".$partida['cod_campeonato'].", ".$etapa['cod_etapa'].")");
 			}
 			situacaoOponenteElimSimples($partidaDestino); // VERIFICA QUAL A SITUAÇÃO ATUAL DO OPONENTE DO GANHADOR NA PRÓXIMA PARTIDA E GERA UMA NOTIFICAÇÃO.
-		}else{ // VERIFICAR SE TEM QUE IR PARA DISPUTA DE TERCEIRO
-			if($etapa['desempate'] == 1){
-				$dataPartida = date("Y-m-d H:i:s", strtotime("+15 minutes", strtotime(date("Y-m-d H:i:s"))));
-				$linhaDestino = 1;
-				$partidaDestino = mysqli_fetch_array(mysqli_query($conexao, "SELECT codigo FROM campeonato_partida WHERE cod_etapa = ".$etapa['cod_etapa']." AND cod_campeonato = ".$partida['cod_campeonato']." AND linha = $linhaDestino AND coluna = $colunaDestino"));
-				mysqli_query($conexao, "UPDATE campeonato_partida SET datahora = '$dataPartida' WHERE codigo = ".$partidaDestino['codigo']." ");
-				if($partida['linha'] % 2 == 0){ // VAI SER O JOGADOR 2
-					mysqli_query($conexao, "DELETE FROM campeonato_partida_semente WHERE cod_partida = ".$partidaDestino['codigo']." AND lado = 2");
-					mysqli_query($conexao, "INSERT INTO campeonato_partida_semente VALUES ($perdedor, ".$partidaDestino['codigo'].", 0, 2, NULL, ".$partida['cod_campeonato'].", ".$etapa['cod_etapa'].")");				
-				}else{ // VAI SER O JOGADOR 1
-					mysqli_query($conexao, "DELETE FROM campeonato_partida_semente WHERE cod_partida = ".$partidaDestino['codigo']." AND lado = 1");
-					mysqli_query($conexao, "INSERT INTO campeonato_partida_semente VALUES ($perdedor, ".$partidaDestino['codigo'].", 0, 1, NULL, ".$partida['cod_campeonato'].", ".$etapa['cod_etapa'].")");
-				}
-				situacaoOponenteElimSimples($partidaDestino); // VERIFICA QUAL A SITUAÇÃO ATUAL DO OPONENTE DO GANHADOR NA PRÓXIMA PARTIDA E GERA UMA NOTIFICAÇÃO.
+		}elseif($colunaDestino == $maxColunas){
+            $dataPartida = date("Y-m-d H:i:s");
+			$partidaDestino = mysqli_fetch_array(mysqli_query($conexao, "SELECT codigo, cod_campeonato FROM campeonato_partida WHERE cod_etapa = ".$etapa['cod_etapa']." AND cod_campeonato = ".$partida['cod_campeonato']." AND linha = $linhaDestino AND coluna = $colunaDestino"));
+			mysqli_query($conexao, "UPDATE campeonato_partida SET datahora = '$dataPartida' WHERE codigo = ".$partidaDestino['codigo']." ");
+			if($partida['linha'] % 2 == 0){ // VAI SER O JOGADOR 2
+				mysqli_query($conexao, "DELETE FROM campeonato_partida_semente WHERE cod_partida = ".$partidaDestino['codigo']." AND lado = 2");
+				mysqli_query($conexao, "INSERT INTO campeonato_partida_semente VALUES ($ganhador, ".$partidaDestino['codigo'].", 0, 2, NULL, ".$partida['cod_campeonato'].", ".$etapa['cod_etapa'].")");				
+			}else{ // VAI SER O JOGADOR 1
+				mysqli_query($conexao, "DELETE FROM campeonato_partida_semente WHERE cod_partida = ".$partidaDestino['codigo']." AND lado = 1");
+				mysqli_query($conexao, "INSERT INTO campeonato_partida_semente VALUES ($ganhador, ".$partidaDestino['codigo'].", 0, 1, NULL, ".$partida['cod_campeonato'].", ".$etapa['cod_etapa'].")");
 			}
+            if($etapa['desempate'] == 1){
+                $colunaDestino++;
+                $partidaDestino = mysqli_fetch_array(mysqli_query($conexao, "SELECT codigo, cod_campeonato FROM campeonato_partida WHERE cod_etapa = ".$etapa['cod_etapa']." AND cod_campeonato = ".$partida['cod_campeonato']." AND linha = $linhaDestino AND coluna = $colunaDestino"));
+                mysqli_query($conexao, "UPDATE campeonato_partida SET datahora = '$dataPartida' WHERE codigo = ".$partidaDestino['codigo']." ");
+                if($partida['linha'] % 2 == 0){ // VAI SER O JOGADOR 2
+                    mysqli_query($conexao, "DELETE FROM campeonato_partida_semente WHERE cod_partida = ".$partidaDestino['codigo']." AND lado = 2");
+                    mysqli_query($conexao, "INSERT INTO campeonato_partida_semente VALUES ($perdedor, ".$partidaDestino['codigo'].", 0, 2, NULL, ".$partida['cod_campeonato'].", ".$etapa['cod_etapa'].")");				
+                }else{ // VAI SER O JOGADOR 1
+                    mysqli_query($conexao, "DELETE FROM campeonato_partida_semente WHERE cod_partida = ".$partidaDestino['codigo']." AND lado = 1");
+                    mysqli_query($conexao, "INSERT INTO campeonato_partida_semente VALUES ($perdedor, ".$partidaDestino['codigo'].", 0, 1, NULL, ".$partida['cod_campeonato'].", ".$etapa['cod_etapa'].")");
+                }   
+            }
+        }else{ // VERIFICAR SE É A ETAPA FINAL DO TORNEIO -> TORNEIO FINALIZADO NESSE PONTO
 		}
 		
 	}
@@ -553,12 +562,11 @@
         
 		$partida = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM campeonato_partida WHERE codigo = $codPartida"));
         
-		$etapa = mysqli_fetch_array(mysqli_query($conexao, "SELECT cod_etapa, tipo_etapa, vagas FROM campeonato_etapa WHERE cod_etapa = ".$partida['cod_etapa']." AND cod_campeonato = ".$partida['cod_campeonato'].""));
+		$etapa = mysqli_fetch_array(mysqli_query($conexao, "SELECT cod_etapa, tipo_etapa, vagas, desempate FROM campeonato_etapa WHERE cod_etapa = ".$partida['cod_etapa']." AND cod_campeonato = ".$partida['cod_campeonato'].""));
 		
 		if($partida['status'] == 1){
 			switch($etapa['tipo_etapa']){
 				case 1: // ELIMINAÇÃO SIMPLES
-                    echo "elim simples";
 					avancarElimSimples($etapa, $partida, $conexao);		
 					break;
 				case 2: // GRUPO PONTOS CORRIDOS

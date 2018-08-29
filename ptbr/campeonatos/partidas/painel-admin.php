@@ -67,7 +67,8 @@
 			url: "ptbr/campeonatos/partidas/funcoes-painel-admin.php",
 			data: "funcao=resultadofinal&sementeUm="+sementeUm+"&sementeDois="+sementeDois+"&placarUm="+placarUm+"&placarDois="+placarDois+"&partida="+partida,
 			success: function(resultado){
-				location.reload();
+                alert(resultado);
+				// location.reload();
 			}
 		});
     }

@@ -93,7 +93,7 @@
                                             <div class="col-6 col-md-4">
                                                 <a href="ptbr/organizacao/<?php echo $organizacao['codigo']; ?>/painel/campeonato/<?php echo $campeonato['codigo']; ?>/lancar-premiacao/">
                                                     <div class="acao">
-                                                        <i class="fas fa-dollar-sign"></i>
+                                                        <i class="fas fa-dollar-sign" style="font-size: 60px; margin: 20px 0px;"></i>
                                                         <h3>Premiação</h3>
                                                         Configura a premiação automática
                                                     </div>
