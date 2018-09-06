@@ -929,9 +929,16 @@ footer a:hover {
 
 /* RIFAS */
 
+.bodyRifa {
+    background-repeat: no-repeat;
+}
+.rifa {
+    margin-bottom: 20px;
+}
 .visualizarRifa {
     background: #ccc;
     border-bottom: solid 3px #666;
+    background: #ccc;
 }
 .visualizarRifa a {
     color: #fff;

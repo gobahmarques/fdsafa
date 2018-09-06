@@ -23,7 +23,7 @@
 		case 2: // PASSO 02 - PREENCHER FORM DE POSIÇÕES
             
 			$aux = 0;
-			$limite = 8;
+			$limite = 32;
 			$sementes = mysqli_query($conexao, "SELECT * FROM campeonato_etapa_semente WHERE cod_campeonato = ".$_POST['campeonato']." AND cod_etapa = ".$_POST['etapa']." ORDER BY numero ASC");
 			$opcoes = "";
 			while($seed = mysqli_fetch_array($sementes)){
@@ -45,16 +45,20 @@
                         <div class="col-12 col-md-12">
                             <table cellpadding="0" cellspacing="0" id="tabelaLobbys" class="centralizar">
                                 <tr>
-                                    <td>Colocação</td>
+                                    <td>#</td>
                                     <td>Semente</td>
                                     <td>P. e$</td>
                                     <td>P. R$</td>
+                                    <td>Pontos</td>
                                     <td>Divisão</td>
                                 </tr>
                                 <?php
                                     while($aux < $limite){
                                         $posicao = $aux+1;
-                                        $colocacao = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM campeonato_premiacao WHERE cod_campeonato = ".$_POST['campeonato']." AND posicao = $posicao"));
+                                        $colocacao = mysqli_fetch_array(mysqli_query($conexao, "
+                                            SELECT * FROM campeonato_premiacao 
+                                            WHERE cod_campeonato = ".$_POST['campeonato']." 
+                                            AND posicao = $posicao"));                                        
                                         ?>
                                             <tr>
                                                 <td><?php echo "#".($aux+1); ?></td>
@@ -65,13 +69,16 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="coin<?php echo $aux; ?>" placeholder="e$ xxx.xxx" size="15" style="width: 75px;" readonly value="<?php echo $colocacao['premio_coin']; ?>" class="form-control">
+                                                    <input type="text" name="coin<?php echo $aux; ?>" placeholder="e$ xxx.xxx" size="15" readonly value="<?php echo $colocacao['premio_coin']; ?>" class="form-control">
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="real<?php echo $aux; ?>" placeholder="R$ xxx.xxx" size="15" style="width: 75px;" readonly value="<?php echo $colocacao['premio_real']; ?>" class="form-control">
+                                                    <input type="text" name="real<?php echo $aux; ?>" placeholder="R$ xxx.xxx" size="15" readonly value="<?php echo $colocacao['premio_real']; ?>" class="form-control">
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="divisao<?php echo $aux; ?>" placeholder="---------" size="15" style="width: 75px;" readonly value="<?php echo $colocacao['cod_divisao']; ?>" class="form-control">
+                                                    <input type="text" name="pontos<?php echo $aux; ?>" placeholder="0" size="15" readonly value="<?php echo number_format($colocacao['pontos'], 0); ?>" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="divisao<?php echo $aux; ?>" placeholder="---------" size="15" readonly value="<?php echo $colocacao['cod_divisao']; ?>" class="form-control">
                                                 </td>
                                             </tr>
                                         <?php
@@ -109,32 +116,68 @@
 				$nome = "colocado".$aux;
 				$coin = "coin".$aux;
 				$real = "real".$aux;
+                $pontos = "pontos".$aux;
                 $divisao = "divisao".$aux;
 				if($_POST[$nome] != ""){
 					$semente = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM campeonato_etapa_semente WHERE codigo = ".$_POST[$nome]." "));
                     $inscricao = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM campeonato_inscricao WHERE cod_jogador = ".$semente['cod_jogador']." AND cod_campeonato = ".$campeonato['codigo']." "));
-					echo $semente['cod_equipe'];
-					if($semente['cod_equipe'] == NULL){	// INSCRIÇÕES SOLO
-						mysqli_query($conexao, "INSERT INTO campeonato_colocacao VALUES (".$_POST['campeonato'].", ".$semente['cod_jogador'].", NULL, ".($aux+1).", 0, 0)");	
-						
-						if($_POST[$coin] != "" && $_POST[$coin] > 0){ // PREMIAÇÃO EM COIN
-							if($organizacao['saldo_coin'] >= $_POST[$coin]){ // ORGANIZAÇÃO POSSUI SALDO
-								mysqli_query($conexao, "UPDATE campeonato_colocacao SET premio_coin = $_POST[$coin] WHERE cod_campeonato = ".$_POST['campeonato']." AND cod_jogador = ".$semente['cod_jogador']."");
+                    
+                    // 1 - VERIFICAR SE TORNEIO É DE LIGA
+                    // 2 - CASO SEJA, VERIFICAR INSCRIÇÃO NA LIGA -> CASO NÃO TENHO, CRIE UMA.
+                    // 3 - VERIFICA AVANÇO DE DIVISÃO E REALIZA O TRATAMENTO
+                    // 4 - CASO NÃO TENHO AVANÇO DE DIVISÃO, VERIFICA EXISTENCIA DE PONTUAÇÃO E REALIZA O TRATAMENTO.
+                    
+                    if($campeonato['cod_liga'] != NULL){ // CAMPEONATO PERTENCE A ALGUMA LIGA
+                        $verificaInscricaoLiga = mysqli_query($conexao, "SELECT * FROM liga_inscricao WHERE cod_liga = ".$campeonato['cod_liga']." AND cod_jogador = ".$semente['cod_jogador']." ");
+                        if(mysqli_num_rows($verificaInscricaoLiga) == 0){ // NÃO POSSUI INSCRIÇÃO NA LIGA, CRIAR UMA NA DIVISÃO ATUAL.
+                            mysqli_query($conexao, "INSERT INTO liga_inscricao VALUES 
+                            (".$campeonato['cod_liga'].", ".$campeonato['cod_divisao'].", ".$inscricao['cod_jogador'].", NULL, '".date("Y-m-d H:i:s")."', 0, '".$inscricao['conta']."', 0)");
+                            if($inscricao['cod_equipe'] != NULL){
+                                $lineUpInscricao = mysqli_query($conexao, "SELECT * FROM campeonato_lineup
+                                WHERE cod_campeonato = ".$campeonato['codigo']."
+                                AND cod_equipe = ".$inscricao['cod_equipe']."");
+                                while($membroLineup = mysqli_fetch_array($liveUpInscricao)){
+                                    mysqli_query($conexao, "INSERT INTO liga_inscricao_lineup
+                                    VALUES (".$campeonato['cod_liga'].", ".$membroLineup['cod_jogador'].", ".$membroLineup['cod_equipe'].", ".$membroLineup['capitao'].")");
+                                }
+                            }
+                        }
+                        if($_POST[$divisao] != ""){ // POSSUI AVANÇO DE DIVISÃO
+                            mysqli_query($conexao, "UPDATE liga_inscricao
+                            SET cod_divisao = $_POST[$divisao],
+                            pontos = 0,
+                            status = 1
+                            WHERE cod_liga = ".$campeonato['cod_liga']."
+                            AND cod_jogador = ".$inscricao['cod_jogador']."");
+                        }elseif($_POST[$pontos] > 0){ // PREMIAÇÃO EM PONTOS
+                            mysqli_query($conexao, "UPDATE liga_inscricao
+                            SET pontos = pontos + $_POST[$pontos]
+                            WHERE cod_liga = ".$campeonato['cod_liga']."
+                            AND cod_jogador = ".$inscricao['cod_jogador'].""); 
+                        }
+                    }
+                    
+                    if($semente['cod_equipe'] == NULL){	// INSCRIÇÕES SOLO
+                        mysqli_query($conexao, "INSERT INTO campeonato_colocacao VALUES (".$_POST['campeonato'].", ".$semente['cod_jogador'].", NULL, ".($aux+1).", 0, 0)");	
 
-								mysqli_query($conexao, "INSERT INTO log_coin VALUES (NULL, ".$semente['cod_jogador'].", ".$_POST[$coin].", 'Premiação torneio <strong>".$campeonato['nome']."</strong>', 1, '$datahora')");
-								mysqli_query($conexao, "UPDATE jogador SET pontos = pontos + ".$_POST[$coin]." WHERE codigo = ".$semente['cod_jogador']." ");
-							}										
-						}
-						
-						if($_POST[$real] != "" && $_POST[$real] > 0){ // PREMIAÇÃO EM R$
-							if($organizacao['saldo_real'] >= $_POST[$real]){ // ORGANIZAÇÃO POSSUI SALDO
-								mysqli_query($conexao, "UPDATE campeonato_colocacao SET premio_real = $_POST[$real] WHERE cod_campeonato = ".$_POST['campeonato']." AND cod_jogador = ".$semente['cod_jogador']."");
+                        if($_POST[$coin] != "" && $_POST[$coin] > 0){ // PREMIAÇÃO EM COIN
+                            if($organizacao['saldo_coin'] >= $_POST[$coin]){ // ORGANIZAÇÃO POSSUI SALDO
+                                mysqli_query($conexao, "UPDATE campeonato_colocacao SET premio_coin = $_POST[$coin] WHERE cod_campeonato = ".$_POST['campeonato']." AND cod_jogador = ".$semente['cod_jogador']."");
 
-								mysqli_query($conexao, "INSERT INTO log_real VALUES (NULL, ".$semente['cod_jogador'].", ".$_POST[$real].", 'Premiação torneio <strong>".$campeonato['nome']."</strong>', 1, '$datahora')");
-								mysqli_query($conexao, "UPDATE jogador SET saldo = saldo + ".$_POST[$real]." WHERE codigo = ".$semente['cod_jogador']." ");
-							}										
-						}
-                        
+                                mysqli_query($conexao, "INSERT INTO log_coin VALUES (NULL, ".$semente['cod_jogador'].", ".$_POST[$coin].", 'Premiação torneio <strong>".$campeonato['nome']."</strong>', 1, '$datahora')");
+                                mysqli_query($conexao, "UPDATE jogador SET pontos = pontos + ".$_POST[$coin]." WHERE codigo = ".$semente['cod_jogador']." ");
+                            }										
+                        }
+
+                        if($_POST[$real] != "" && $_POST[$real] > 0){ // PREMIAÇÃO EM R$
+                            if($organizacao['saldo_real'] >= $_POST[$real]){ // ORGANIZAÇÃO POSSUI SALDO
+                                mysqli_query($conexao, "UPDATE campeonato_colocacao SET premio_real = $_POST[$real] WHERE cod_campeonato = ".$_POST['campeonato']." AND cod_jogador = ".$semente['cod_jogador']."");
+
+                                mysqli_query($conexao, "INSERT INTO log_real VALUES (NULL, ".$semente['cod_jogador'].", ".$_POST[$real].", 'Premiação torneio <strong>".$campeonato['nome']."</strong>', 1, '$datahora')");
+                                mysqli_query($conexao, "UPDATE jogador SET saldo = saldo + ".$_POST[$real]." WHERE codigo = ".$semente['cod_jogador']." ");
+                            }										
+                        }
+
                         if($_POST[$divisao] != NULL){
                             $infosDivisao = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM liga_divisao WHERE codigo = $_POST[$divisao] "));
                             $pesquisaInscricao = mysqli_query($conexao, "SELECT * FROM liga_inscricao WHERE cod_liga = ".$infosDivisao['cod_liga']." AND cod_jogador = ".$semente['cod_jogador']."");
@@ -144,27 +187,27 @@
                                 mysqli_query($conexao, " INSERT INTO liga_inscricao (cod_liga, cod_divisao, cod_jogador, datahora, status, conta) VALUES (".$infosDivisao['cod_liga'].", ".$infosDivisao['codigo'].", ".$semente['cod_jogador'].", '".date("Y-m-d H:i:s")."', 1, '".$inscricao['conta']."')");
                             }
                         }
-					}else{ // INSCRIÇÕES EM EQUIPE		
-						mysqli_query($conexao, "INSERT INTO campeonato_colocacao VALUES (".$_POST['campeonato'].", ".$semente['cod_jogador'].", ".$semente['cod_equipe'].", ".($aux+1).", 0, 0)");
-						
-						if($_POST[$coin] != "" && $_POST[$coin] > 0){
-							if($organizacao['saldo_coin'] >= $_POST[$coin]){
-								mysqli_query($conexao, "UPDATE campeonato_colocacao SET premio_coin = $_POST[$coin] WHERE cod_campeonato = ".$_POST['campeonato']." AND cod_jogador = ".$semente['cod_jogador']."");
-								
-								mysqli_query($conexao, "UPDATE equipe SET saldo_coin = saldo_coin + ".$_POST[$coin]." WHERE codigo = ".$semente['cod_equipe']." ");
-								mysqli_query($conexao, "INSERT INTO log_coin_equipe VALUES (NULL, ".$semente['cod_equipe'].", ".$_POST[$coin].", 'Premiação torneio <strong>".$campeonato['nome']."</strong>', 0, '".date("Y-m-d H:i:s")."')");
-							}						
-						}
-						
-						if($_POST[$real] != "" && $_POST[$real] > 0){
-							if($organizacao['saldo_real'] >= $_POST[$real]){
-								mysqli_query($conexao, "UPDATE campeonato_colocacao SET premio_real = $_POST[$real] WHERE cod_campeonato = ".$_POST['campeonato']." AND cod_jogador = ".$semente['cod_jogador']."");
-								
-								mysqli_query($conexao, "UPDATE equipe SET saldo_real = saldo_real + ".$_POST[$real]." WHERE codigo = ".$semente['cod_equipe']." ");
-								mysqli_query($conexao, "INSERT INTO log_real_equipe VALUES (NULL, ".$semente['cod_equipe'].", ".$_POST[$real].", 'Premiação torneio <strong>".$campeonato['nome']."</strong>', 0, '".date("Y-m-d H:i:s")."')");
-							}						
-						}
-                        
+                    }else{ // INSCRIÇÕES EM EQUIPE		
+                        mysqli_query($conexao, "INSERT INTO campeonato_colocacao VALUES (".$_POST['campeonato'].", ".$semente['cod_jogador'].", ".$semente['cod_equipe'].", ".($aux+1).", 0, 0)");
+
+                        if($_POST[$coin] != "" && $_POST[$coin] > 0){
+                            if($organizacao['saldo_coin'] >= $_POST[$coin]){
+                                mysqli_query($conexao, "UPDATE campeonato_colocacao SET premio_coin = $_POST[$coin] WHERE cod_campeonato = ".$_POST['campeonato']." AND cod_jogador = ".$semente['cod_jogador']."");
+
+                                mysqli_query($conexao, "UPDATE equipe SET saldo_coin = saldo_coin + ".$_POST[$coin]." WHERE codigo = ".$semente['cod_equipe']." ");
+                                mysqli_query($conexao, "INSERT INTO log_coin_equipe VALUES (NULL, ".$semente['cod_equipe'].", ".$_POST[$coin].", 'Premiação torneio <strong>".$campeonato['nome']."</strong>', 0, '".date("Y-m-d H:i:s")."')");
+                            }						
+                        }
+
+                        if($_POST[$real] != "" && $_POST[$real] > 0){
+                            if($organizacao['saldo_real'] >= $_POST[$real]){
+                                mysqli_query($conexao, "UPDATE campeonato_colocacao SET premio_real = $_POST[$real] WHERE cod_campeonato = ".$_POST['campeonato']." AND cod_jogador = ".$semente['cod_jogador']."");
+
+                                mysqli_query($conexao, "UPDATE equipe SET saldo_real = saldo_real + ".$_POST[$real]." WHERE codigo = ".$semente['cod_equipe']." ");
+                                mysqli_query($conexao, "INSERT INTO log_real_equipe VALUES (NULL, ".$semente['cod_equipe'].", ".$_POST[$real].", 'Premiação torneio <strong>".$campeonato['nome']."</strong>', 0, '".date("Y-m-d H:i:s")."')");
+                            }						
+                        }
+
                         if($_POST[$divisao] != NULL){
                             $infosDivisao = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM liga_divisao WHERE codigo = $_POST[$divisao] "));
                             $pesquisaInscricao = mysqli_query($conexao, "SELECT * FROM liga_inscricao WHERE cod_liga = ".$infosDivisao['cod_liga']." AND cod_equipe = ".$semente['cod_equipe']."");
@@ -174,8 +217,8 @@
                                 mysqli_query($conexao, " INSERT INTO liga_inscricao (cod_liga, cod_divisao, cod_jogador, datahora, status, cod_equipe) VALUES (".$infosDivisao['cod_liga'].", ".$infosDivisao['codigo'].", ".$semente['cod_jogador'].", '".date("Y-m-d H:i:s")."', 1, ".$inscricao['cod_equipe'].")");
                             }
                         }
-					}  
-				}
+                    }
+                }
 				$aux++;
 			}
 			mysqli_query($conexao, "UPDATE campeonato SET status = 2 WHERE codigo = ".$campeonato['codigo']." ");
@@ -209,7 +252,7 @@
 				}
 			}
 			
-			header("Location: ../organizacao/".$organizacao['codigo']."/painel/");
+			// header("Location: ../organizacao/".$organizacao['codigo']."/painel/");
 			break;
 	}
     ?>

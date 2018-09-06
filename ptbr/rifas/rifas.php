@@ -15,7 +15,7 @@
 
         <title>Rifas de eSports - Ajude o crescimento do cenário | e-Sports Cups</title>
     </head>
-    <body>
+    <body class="bodyRifa">
         <?php 
             include "../header.php";        
             if(isset($_GET['codigo'])){
@@ -83,7 +83,7 @@
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-md-6">
-                                        <div class="bg-azul alert" role="alert">
+                                        <div class="bg-azul alert" role="alert" data-toggle="tooltip" data-placement="bottom" title="Toda a quantia arrecadada com cupons serão destinadas exclusivamente à organização de Torneios com premiações para os demais jogos disponíveis na plataforma.">
                                             <strong>VALOR DO CUPOM</strong><br>
                                             <?php
                                                 if($rifa2['preco_coin'] > 0){
@@ -136,7 +136,13 @@
         
         <br>
         <div class="container">
-            <div class="row">
+            <div class="row">.
+                <div class="col-12 centralizar">
+                    <h2>Colabore com o crescimento do Esporte Eletrônico</h2>
+                    Toda quantia arrecadada por estas ações serão destinadas à premiação de alguma competição realizada pela e-Sports Cups.<br>
+                    Cada mês rodam novos produtos e cada mês será para premiação em um torneio diferente.<br><br>
+                    <br>
+                </div>
             <?php
                 $rifas = mysqli_query($conexao, "SELECT * FROM rifa WHERE data_sorteio > '".date("Y-m-d H:i:s")."' AND status = 1");
                 if(mysqli_num_rows($rifas) > 0){
@@ -144,18 +150,25 @@
                         $totalCupons = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM rifa_cupom WHERE cod_rifa = ".$rifa['codigo'].""));
                         $porcentagem = ($totalCupons * 100) / $rifa['max_cupom'];
                     ?>
-                        <div class="col-6 col-md-3 centralizar">
-                            <div style="border:solid 1px #ccc; padding: 15px;">
-                                <?php echo "<h3><strong>".$rifa['nome_produto']."</strong></h3>"; ?>
-                                <img src="img/rifas/<?php echo $rifa['codigo']."/".$rifa['foto_produto']; ?>" alt="" width="100%">
-                                <div class="progress-group">
-                                    <span class="progress-number"><?php echo $totalCupons." / ".$rifa['min_cupom']." / ".$rifa['max_cupom']; ?></span>
-                                    <div class="progress sm">
-                                        <div class="progress-bar bg-laranja" role="progressbar" style="width: <?php echo ($totalCupons/$rifa['max_cupom'])*100; ?>%;" aria-valuenow="<?php echo $totalCupons; ?>"><?php echo $totalCupons; ?></div>
-
-                                        <div class="progress-bar bg-azul" role="progressbar" style="width: <?php echo (($rifa['min_cupom']/$rifa['max_cupom'])*100)-(($totalCupons/$rifa['max_cupom'])*100); ?>%;" aria-valuenow="<?php echo $totalCupons; ?>"></div>
+                        <div class="col-6 col-md-6 centralizar rifa">
+                            <div style="border:solid 1px #ccc; padding: 15px; background: #fff;">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img src="img/rifas/<?php echo $rifa['codigo']."/".$rifa['foto_produto']; ?>" alt="" width="100%">
                                     </div>
-                                </div><br>
+                                    <div class="col-8">
+                                        <?php echo "<h3 style='width:100%; text-overflow: ellisis;'><strong>".$rifa['nome_produto']."</strong></h3>"; ?>
+                                        <div class="progress-group">
+                                            <span class="progress-number"><?php echo $totalCupons." / ".$rifa['min_cupom']." / ".$rifa['max_cupom']; ?></span>
+                                            <div class="progress sm">
+                                                <div class="progress-bar bg-laranja" role="progressbar" style="width: <?php echo ($totalCupons/$rifa['max_cupom'])*100; ?>%;" aria-valuenow="<?php echo $totalCupons; ?>"><?php echo $totalCupons; ?></div>
+
+                                                <div class="progress-bar bg-azul" role="progressbar" style="width: <?php echo (($rifa['min_cupom']/$rifa['max_cupom'])*100)-(($totalCupons/$rifa['max_cupom'])*100); ?>%;" aria-valuenow="<?php echo $totalCupons; ?>"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
                                 <a href="ptbr/rifas/?codigo=<?php echo $rifa['codigo']; ?>"><input type="button" class="btn btn-laranja" data-toggle="tooltip" data-placement="bottom" title="Preços" value="VISUALIZAR RIFA" style="width: 100%;"></a>	
                             </div>                          	
                         </div>

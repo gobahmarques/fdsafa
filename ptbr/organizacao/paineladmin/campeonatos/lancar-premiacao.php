@@ -85,9 +85,12 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label for="">Premiação R$</label>
-                        </div>       
-                        <div class="form-group col-md-6">
-                            <label for="">Divisão</label>
+                        </div>   
+                        <div class="form-group col-md-2">
+                            <label for="">Pontos</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Avanço Divisão</label>
                         </div>
                         <form method="post" action="scripts/campeonato/registrar-premiacao.php" onsubmit="return verificarSaldos();">
                             <input type="hidden" value="<?php echo $campeonato['codigo']; ?>" name="codcampeonato">
@@ -107,7 +110,10 @@
                                         <div class="form-group col-md-2">
                                             <input type="text" class="form-control <?php echo "real".$contador; ?>" onChange="attSaldoReal();" value="0" tabindex="<?php echo $contador+2; ?>" name="<?php echo "real".$contador; ?>">
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-2">
+                                            <input type="text" class="form-control <?php echo "real".$contador; ?>" value="0" tabindex="<?php echo $contador+2; ?>" name="<?php echo "pontos".$contador; ?>">
+                                        </div>
+                                        <div class="form-group col-md-4">
                                         <?php
                                             $divisoesDisponiveis = mysqli_query($conexao, "SELECT *, liga_divisao.nome AS nomeDivisao, liga_divisao.codigo cod_divisao FROM liga_divisao
                                             INNER JOIN liga ON liga.codigo = liga_divisao.cod_liga

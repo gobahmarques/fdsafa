@@ -12,34 +12,50 @@
 	$totalCoin = $totalReal = 0;
 
 	while($contador < 32){
-		if($_POST['coin'.$contador] > 0 && $_POST['real'.$contador] > 0){ // TEM PREMIAÇÃO EM COIN E EM REAL
-            if($_POST['divisao'.$contador] != ""){
-                mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), ".$_POST['coin'.$contador].", ".$_POST['real'.$contador].", NULL, ".$_POST['divisao'.$contador].")");
-            }else{
-                mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), ".$_POST['coin'.$contador].", ".$_POST['real'.$contador].", NULL, NULL)");
-            }			
-			$totalCoin += $_POST['coin'.$contador];
-			$totalReal += $_POST['real'.$contador];
-		}else{
-			if($_POST['coin'.$contador] > 0){
-                if($_POST['divisao'.$contador] != ""){
-                    mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), ".$_POST['coin'.$contador].", 0, NULL, ".$_POST['divisao'.$contador].")");
-                }else{
-                    mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), ".$_POST['coin'.$contador].", 0, NULL, NULL)");
-                }				
-				$totalCoin += $_POST['coin'.$contador];
-			}elseif($_POST['real'.$contador] > 0){
-                if($_POST['divisao'.$contador] != ""){
-                    mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), 0, ".$_POST['real'.$contador].", NULL, ".$_POST['divisao'.$contador].")");
-                    echo $_POST['divisao'.$contador];
-                }else{
-                    mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), 0, ".$_POST['real'.$contador].", NULL, NULL)");
-                }				
-				$totalReal += $_POST['real'.$contador];
-			}
-		}
-		$contador++;
+        
+        mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), NULL, NULL, NULL, NULL)");
+        
+        if($_POST['coin'.$contador] > 0){ // TEM PREMIAÇÃO EM COIN
+            mysqli_query($conexao, "UPDATE campeonato_premiacao
+                SET premio_coin = ".$_POST['coin'.$contador]."
+                WHERE cod_campeonato = $id
+                AND posicao = ($contador + 1)
+            ");
+        }
+        if($_POST['real'.$contador] > 0){ // TEM PREMIAÇÃO REAL
+            mysqli_query($conexao, "UPDATE campeonato_premiacao
+                SET premio_real = ".$_POST['real'.$contador]."
+                WHERE cod_campeonato = $id
+                AND posicao = ($contador + 1)
+            ");
+        }
+        if($_POST['divisao'.$contador] != ""){ // TEM AVANÇO DE DIVISÃO
+            mysqli_query($conexao, "UPDATE campeonato_premiacao
+                SET cod_divisao = ".$_POST['divisao'.$contador]."
+                WHERE cod_campeonato = $id
+                AND posicao = ($contador + 1)
+            ");
+        }
+        if($_POST['pontos'.$contador] > 0){ // TEM PREMIAÇÃO EM PONTOS
+            mysqli_query($conexao, "UPDATE campeonato_premiacao
+                SET pontos = ".$_POST['pontos'.$contador]."
+                WHERE cod_campeonato = $id
+                AND posicao = ($contador + 1)
+            ");
+        }
+        $contador++;
 	}
+
+    // EXCLUIR PREMIAÇÕES SEM PREMIOS
+
+    mysqli_query($conexao, "
+        DELETE FROM campeonato_premiacao
+        WHERE cod_campeonato = $id
+        AND premio_coin is NULL
+        AND premio_real is NULL
+        AND pontos is NULL
+        AND cod_divisao is NULL
+    ");
 
 	// REGISTRAR MOVIMENTAÇÃO ORGANIZACAO
 

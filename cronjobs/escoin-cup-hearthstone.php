@@ -5,7 +5,7 @@
 
 	$inicio = date("Y-m-d")." 21:00:00";
 	$fim = date("Y-m-d H:i:s", strtotime("+5hours", strtotime($inicio)));
-	$inicioInscricao = date("Y-m-d H:i:s", strtotime("-6hours", strtotime($inicio)));
+	$inicioInscricao = date("Y-m-d H:i:s", strtotime("-13hours", strtotime($inicio)));
 	$fimInscricao = date("Y-m-d H:i:s", strtotime("-5minutes", strtotime($inicio)));
 
 	$descricao = "<p>A eSCoin Cup &eacute; um torneio que visa premiar o usu&aacute;rio com eSCoins. Ajudando-o a acumular recursos muito mais r&aacute;pido.</p>";
@@ -73,7 +73,7 @@
 
 	$inicio = date("Y-m-d")." 22:00:00";
 	$fim = date("Y-m-d H:i:s", strtotime("+5hours", strtotime($inicio)));
-	$inicioInscricao = date("Y-m-d H:i:s", strtotime("-6hours", strtotime($inicio)));
+	$inicioInscricao = date("Y-m-d H:i:s", strtotime("-14hours", strtotime($inicio)));
 	$fimInscricao = date("Y-m-d H:i:s", strtotime("-5minutes", strtotime($inicio)));
 
 	$descricao = "<p>A eSCoin Cup &eacute; um torneio que visa premiar o usu&aacute;rio com eSCoins. Ajudando-o a acumular recursos muito mais r&aacute;pido.</p>";

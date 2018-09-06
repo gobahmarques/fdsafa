@@ -287,6 +287,9 @@
                 }   
             }
         }else{ // VERIFICAR SE É A ETAPA FINAL DO TORNEIO -> TORNEIO FINALIZADO NESSE PONTO
+            if($etapa['ultimaEtapa'] == 1){
+                
+            }
 		}
 		
 	}

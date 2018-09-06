@@ -222,6 +222,7 @@
                     url: "scripts/registrar-vencedores.php",
                     data: "campeonato="+campeonato+"&passo="+passo+"&etapa="+etapa,
                     success: function(resultado){
+                        $(".modal-dialog").addClass("modal-lg");
                         $(".modal-title").html("Informe os Campeões da competição.");
                         $(".modal-body").html(resultado);
                         $(".modal-footer").html("");
