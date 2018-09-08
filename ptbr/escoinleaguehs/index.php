@@ -1,5 +1,6 @@
 ﻿<?php
 	include "enderecos.php";
+    include "../../conexao-banco.php";
 ?>
 <!doctype html>
 <html>
@@ -224,7 +225,7 @@
                 </div>
                 <div class="col-md-6 text-right">
                     <h4>CLASSIFICAÇÃO GERAL</h4>
-                    Atualizado dia 31 de Julho de 2018 <br><br>
+                    Atualizado dia 06 de Setembro de 2018 <br><br>
                     <table>
                         <thead>
                             <tr>
@@ -232,87 +233,36 @@
                                 <td>JOGADOR</td>
                                 <td>PTS</td>
                             </tr>
-                        </thead>                        
-                        <tr>
-                            <td>1</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>14</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
-                        <tr>
-                            <td>16</td>
-                            <td>EM BREVE</td>
-                            <td>----</td>
-                        </tr>
+                        </thead>
+                        <?php
+                            $aux = 1;
+                            $inscricoesLiga = mysqli_query($conexao, "SELECT * FROM liga_inscricao
+                            WHERE cod_liga = 1
+                            ORDER BY pontos DESC
+                            LIMIT 16");
+                            while($inscricao = mysqli_fetch_array($inscricoesLiga)){
+                            ?>
+                                <tr>
+                                    <td><?php echo $aux; ?></td>
+                                    <td><?php echo $inscricao['conta']; ?></td>
+                                    <td><?php echo $inscricao['pontos']; ?></td>
+                                </tr>
+                            <?php
+                                $aux++;
+                            }
+                            $restante = 16 - mysqli_num_rows($inscricoesLiga);
+                            while($restante > 0){
+                            ?>
+                                <tr>
+                                    <td><?php echo $aux; ?></td>
+                                    <td><?php echo "EM BREVE"; ?></td>
+                                    <td><?php echo "-----"; ?></td>
+                                </tr>
+                            <?php
+                                $restante--;  
+                                $aux++;
+                            }
+                        ?>
                     </table>
                 </div>
             </div>

@@ -156,7 +156,7 @@
                                         $inscricoesPendentes = mysqli_num_rows(mysqli_query($conexao, "SELECT cod_jogador FROM campeonato_inscricao WHERE cod_campeonato = ".$campeonato['codigo']." AND status = 0 "));
                                         $inscricoesConfirmadas = mysqli_num_rows(mysqli_query($conexao, "SELECT cod_jogador FROM campeonato_inscricao WHERE cod_campeonato = ".$campeonato['codigo']." AND status = 1 "));
                                         $totalInscricoes = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM campeonato_inscricao WHERE cod_campeonato = ".$campeonato['codigo']." AND cod_equipe is null AND status != 2"));
-                                        echo $inscricoesConfirmadas;
+                                        echo $totalInscricoes;
                                     ?>
                                     </div>
                                     <div class="max">

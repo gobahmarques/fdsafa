@@ -95,9 +95,9 @@
                                                     $lvlLobby = mysqli_fetch_array($lvlLobby);
                                                     $tamBarra = ($lvlLobby['xp_atual'] / $lvlLobby['xp_final']) * 100; 
                                                 ?>
-                                                    <br>
-                                                    <div class="progress" style="height: 15px;">
-                                                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <?php echo $tamBarra; ?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo $tamBarra; ?></div>  
+                                                    Level <?php echo $lvlLobby['level']; ?>
+                                                    <div class="progress centralizar" style="height: 15px;">
+                                                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <?php echo $tamBarra; ?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo number_format($tamBarra, 0); ?> %</div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-6 text-left">
