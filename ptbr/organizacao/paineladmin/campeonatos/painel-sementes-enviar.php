@@ -3,7 +3,8 @@
 
     switch($_POST['funcao']){
         case "preencherSemente":            
-            $inscricao = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM campeonato_inscricao WHERE cod_campeonato = ".$_POST['codCampeonato']." AND cod_jogador = ".$_POST['codInscricao'].""));           
+            $inscricao = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM campeonato_inscricao WHERE cod_campeonato = ".$_POST['codCampeonato']." AND cod_jogador = ".$_POST['codInscricao'].""));   
+            $campeonato = mysqli_fetch_array(mysqli_query($conexao, "SELECT cod_organizacao FROM campeonato WHERE codigo = ".$_POST['codCampeonato'].""));
             mysqli_query($conexao, "UPDATE campeonato_etapa_semente
                 SET cod_jogador = ".$inscricao['cod_jogador']."
                 WHERE codigo = ".$_POST['codSemente']."
@@ -14,7 +15,7 @@
                     WHERE codigo = ".$_POST['codSemente']."
                 ");
             }
-            header("Location: ../../../organizacao/".$campeonato['cod_organizacao']."/painel/campeonato/".$campeonato['codigo']."/etapa/".$etapa['cod_etapa']."/");
+            header("Location: ../../../organizacao/".$campeonato['cod_organizacao']."/painel/campeonato/".$_POST['codCampeonato']."/etapa/".$_POST['codEtapa']."/sementes/");
             break;
     }
 
