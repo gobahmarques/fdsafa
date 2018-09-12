@@ -37,8 +37,11 @@
         <div class="container painelSementes">
             <div class="row">
                 <div class="col-12 col-md-4">
-                    <div class="listagemSementes">
-                        <h3>Sementes</h3>
+                    <h3>Sementes</h3>
+                    <input type="button" value="Distribuir Aleatoriamente" class="btn btn-dark" onClick="distribuirAleatoriamente(<?php echo $etapa['cod_etapa']; ?>, <?php echo $campeonato['codigo']; ?>);"><br>
+                    ou clique em cada semente para preencher manualmente.
+                    <br>
+                    <div class="listagemSementes">                        
                         <?php
                             $sementes = mysqli_query($conexao, "SELECT * FROM campeonato_etapa_semente WHERE cod_campeonato = ".$campeonato['codigo']." AND cod_etapa = ".$etapa['cod_etapa']." ");
                         ?>
@@ -123,98 +126,16 @@
                 }, 1000);
                 $(".modal").modal();
             }
-            function selecionarEtapa(etapa, campeonato, vagas){
+            function distribuirAleatoriamente(etapa, campeonato){
                 $.ajax({
                     type: "POST",
-                    url: "scripts/etapa.php",
-                    data: "funcao=carregarjogadores&etapa="+etapa+"&campeonato="+campeonato+"&vagas="+vagas,
-                    success: function(resposta){
-                        $(".listajogadores").html(resposta);
+                    url: "ptbr/organizacao/paineladmin/campeonatos/painel-sementes-enviar.php",
+                    data: "funcao=preencherAleatorio&codEtapa="+etapa+"&codCampeonato="+campeonato,
+                    success: function(resposta2){
+                        window.location.reload();
                     }
                 })
             }
-            function painelSementes(codcampeonato, codetapa){
-                $(".painelSementes").load("ptbr/organizacao/paineladmin/campeonatos/painel-sementes.php?campeonato="+codcampeonato+"&etapa="+codetapa);
-                setTimeout(function(){
-                    // selecionarEtapa(0,codcampeonato, codetapa);
-                }, 200);                
-            }
-            function distJogadores(funcao){
-                var resposta = confirm("REDISTRIBUIR SEMENTES? Esta ação não poderá ser desfeita!");		
-                if(resposta == true){
-                    var torneio = <?php echo $_GET['torneio']; ?>;
-                    var etapa = <?php echo $_GET['etapa']; ?>;
-                    $.ajax({
-                        type: "POST",
-                        url: "scripts/distribuir-jogadores.php",			
-                        data: "funcao="+funcao+"&campeonato="+torneio+"&etapa="+etapa+"",
-                        success: function(mensagem){
-                            location.reload();
-                        }
-                    });
-                }		
-            }
-            function statusPartida(status){
-                var torneio = <?php echo $_GET['torneio']; ?>;
-                var etapa = <?php echo $_GET['etapa']; ?>;
-                $.ajax({
-                    type: "POST",
-                    url: "scripts/status-partida.php",			
-                    data: "campeonato="+torneio+"&etapa="+etapa+"&status="+status,
-                    success: function(mensagem){
-                        location.reload();
-                    }
-                });
-            }
-            function resetarEtapa(codEtapa, codCampeonato){
-                var resposta = confirm("Deseja realmente RESETAR esta etapa? Esta ação não poderá ser desfeita!");		
-                if(resposta == true){
-                    $.ajax({
-                        type: "POST",
-                        url: "scripts/etapa.php",			
-                        data: "etapa="+codEtapa+"&funcao=resetar&campeonato="+codCampeonato,
-                        success: function(mensagem){
-                            alert(mensagem);
-                        }
-                    });
-                }		
-            }
-            function apagarEtapa(codEtapa, codCampeonato){
-                var resposta = confirm("Deseja realmente EXCLUIR esta etapa? Esta ação não poderá ser desfeita!");		
-                if(resposta == true){
-                    $.ajax({
-                        type: "POST",
-                        url: "scripts/etapa.php",			
-                        data: "etapa="+codEtapa+"&funcao=apagar&campeonato="+codCampeonato,
-                        success: function(mensagem){
-                            alert(mensagem);
-                            window.location = "organizacao/<?php echo $organizacao['codigo']; ?>/painel/campeonato/"+codCampeonato+"/etapas/";
-                        }
-                    });	
-                }		
-            }
-            function validar(){
-                var counter = $('.limitado3:checked').length;
-                var limit = <?php echo $etapa['vagas']; ?>;
-
-                if(counter != limit){
-                    alert('É obrigatório selecionar '+limit+' avanços!');
-                    return false;
-                }else{
-                    return true;
-                }
-                return false;
-            }
-            $(document).on('click', '.limitado3', function(){
-               
-                var limit = <?php echo $etapa['vagas']; ?>;                
-                var counter = $('.limitado3:checked').length;
-                alert(counter);
-                if(counter > limit) {
-                    this.checked = false;
-                    alert('Só é permito selecionar '+limit+' jogadores!');
-                }
-            });
         </script>
     </body>
 </html>

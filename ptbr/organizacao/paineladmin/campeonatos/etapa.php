@@ -166,7 +166,7 @@
                         data: "etapa="+codEtapa+"&funcao=apagar&campeonato="+codCampeonato,
                         success: function(mensagem){
                             alert(mensagem);
-                            window.location = "organizacao/<?php echo $organizacao['codigo']; ?>/painel/campeonato/"+codCampeonato+"/etapas/";
+                            window.location.href = "organizacao/<?php echo $organizacao['codigo']; ?>/painel/campeonato/"+codCampeonato+"/etapas/";
                         }
                     });	
                 }		
