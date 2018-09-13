@@ -53,7 +53,43 @@
                 }
                 $auxJogador++;
             }
-            // header("Location: ../../../organizacao/".$campeonato['cod_organizacao']."/painel/campeonato/".$_POST['codCampeonato']."/etapa/".$_POST['codEtapa']."/sementes/");
+            break;
+        case "limparSemente":
+            $semente = $_POST['codSemente'];
+            
+            $partidasSemente = mysqli_query($conexao, "
+                SELECT * FROM campeonato_partida
+                INNER JOIN campeonato_partida_semente ON campeonato_partida_semente.cod_partida = campeonato_partida.codigo
+                WHERE campeonato_partida_semente.cod_semente = $semente
+            ");
+            
+            while($partida = mysqli_fetch_array($partidasSemente)){
+                mysqli_query($conexao, "
+                    DELETE FROM campeonato_partida_resultado
+                    WHERE cod_partida = ".$partida['codigo']."
+                "); 
+                mysqli_query($conexao, "
+                    DELETE FROM campeonato_partida_checkin
+                    WHERE cod_partida = ".$partida['codigo']."
+                ");
+                mysqli_query($conexao, "
+                    DELETE FROM campeonato_partida_chat
+                    WHERE cod_partida = ".$partida['codigo']."
+                ");
+            }
+            
+            mysqli_query($conexao, "
+                UPDATE campeonato_etapa_semente
+                SET cod_jogador = NULL,
+                cod_equipe = NULL,
+                total_jogos = 0,
+                vitorias = 0,
+                empates = 0,
+                derrotas = 0,
+                partidas_pro = 0,
+                partidas_contra = 0
+                WHERE codigo = $semente
+            ");
             break;
     }
 

@@ -65,6 +65,15 @@
                                                     $inscricao = mysqli_fetch_array(mysqli_query($conexao, "SELECT conta FROM campeonato_inscricao WHERE cod_campeonato = ".$campeonato['codigo']." AND cod_jogador = ".$seed['cod_jogador']." "));
                                                     echo $inscricao['conta'];
                                                 }
+                                                $eligibilidade = mysqli_query($conexao, "SELECT * FROM campeonato_partida_semente
+                                                INNER JOIN campeonato_partida ON campeonato_partida.codigo = campeonato_partida_semente.cod_partida
+                                                WHERE campeonato_partida_semente.cod_semente = ".$seed['codigo']."
+                                                AND campeonato_partida.status > 0");
+                                                if(mysqli_num_rows($eligibilidade) == 0){
+                                                ?>
+                                                    <br><button type="button" class="btn btn-danger" onclick="limparSemente(<?php echo $seed['codigo']; ?>)"><i class="fas fa-trash"></i></button>
+                                                <?php
+                                                }
                                             ?>
                                             </td>
                                         </tr>
@@ -127,14 +136,30 @@
                 $(".modal").modal();
             }
             function distribuirAleatoriamente(etapa, campeonato){
-                $.ajax({
-                    type: "POST",
-                    url: "ptbr/organizacao/paineladmin/campeonatos/painel-sementes-enviar.php",
-                    data: "funcao=preencherAleatorio&codEtapa="+etapa+"&codCampeonato="+campeonato,
-                    success: function(resposta2){
-                        window.location.reload();
-                    }
-                })
+                var resposta = confirm("Deseja preencher as sementes vagas aleatoriamente?");
+                if(resposta == true){
+                    $.ajax({
+                        type: "POST",
+                        url: "ptbr/organizacao/paineladmin/campeonatos/painel-sementes-enviar.php",
+                        data: "funcao=preencherAleatorio&codEtapa="+etapa+"&codCampeonato="+campeonato,
+                        success: function(resposta2){
+                            window.location.reload();
+                        }
+                    })
+                }
+            }
+            function limparSemente(codSemente){
+                var resposta = confirm("Deseja realmente limpar a semente?");
+                if(resposta == true){
+                    $.ajax({
+                        type: "POST",
+                        url: "ptbr/organizacao/paineladmin/campeonatos/painel-sementes-enviar.php",
+                        data: "funcao=limparSemente&codSemente="+codSemente,
+                        success: function(resposta2){
+                            window.location.reload();
+                        }
+                    })
+                }
             }
         </script>
     </body>
