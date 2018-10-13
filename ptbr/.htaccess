@@ -126,4 +126,5 @@ RewriteRule ^lobby/([0-9]+)/?$ lobby/lobby.php?codigo=$1 [NC,L]
 
 # RIFAS #
 RewriteRule ^rifas/?$ rifas/rifas.php [NC,L]
+RewriteRule ^rifas/confirmar-compra/([0-9]+)/?$ rifas/confirmar-compra.php?codrifa=$1 [NC,L]
 

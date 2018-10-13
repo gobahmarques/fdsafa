@@ -43,16 +43,3 @@
 			mysqli_query($conexao, "UPDATE rifa SET foto_produto = '$novoNome' WHERE codigo = $id");
 		}
 	}
-
-
-
-	/*
-	$autor = $_POST['codautor'];
-	$jogo = $_POST['codjogo'];
-	$descricao = addslashes($_POST['descricao']);
-	$artigo = addslashes($_POST['artigo']);
-
-	
-
-	
-	*/

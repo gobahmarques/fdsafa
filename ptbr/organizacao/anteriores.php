@@ -55,6 +55,10 @@
                         <?php
                         $torneios = mysqli_query($conexao, "SELECT * FROM campeonato WHERE cod_organizacao = ".$organizacao['codigo']." AND status = 2 ORDER BY fim DESC");
                         while($torneio = mysqli_fetch_array($torneios)){
+                            $qtdInscritos = mysqli_num_rows(mysqli_query($conexao, "
+                                SELECT * FROM campeonato_inscricao
+                                WHERE cod_campeonato = ".$torneio['codigo']."
+                            "));
                         ?>
                                 <tr data-url="ptbr/campeonato/<?php echo $torneio['codigo']; ?>/">
                                     <td>
@@ -79,7 +83,7 @@
                                     ?>
                                     </td>
                                     <td><?php echo $torneio['nome']; ?></td>
-                                    <td><?php echo $torneio['vagas']; ?></td>
+                                    <td><?php echo $qtdInscritos." / ".$torneio['vagas']; ?></td>
                                     <td><?php echo date("d/m/Y - H:i", strtotime($torneio['inicio'])); ?></td>
                                     <td>
                                     <?php

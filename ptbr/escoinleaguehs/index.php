@@ -186,10 +186,10 @@
                                 <a href="https://www.esportscups.com.br/ptbr/campeonato/340/" target="_blank"><input type="button" class="btn btn-danger" value="FINALIZADO"></a>
                             </td>
                             <td>
-                                <a href="https://www.esportscups.com.br/ptbr/campeonato/341/" target="_blank"><input type="button" class="btn btn-primary" value="EM ANDAMENTO"></a>
+                                <a href="https://www.esportscups.com.br/ptbr/campeonato/341/" target="_blank"><input type="button" class="btn btn-danger" value="FINALIZADO"></a>
                             </td>
                             <td>
-                                <input type="button" class="btn btn-dark" value="INSCRIÇÕES DIA 01/10" disabled>
+                                <a href="https://www.esportscups.com.br/ptbr/campeonato/342/" target="_blank"><input type="button" class="btn btn-success" value="INSCRIÇÕES ABERTAS"></a>
                             </td>
                             <td>
                                 <input type="button" class="btn btn-dark" value="INSCRIÇÕES DIA 05/11" disabled>

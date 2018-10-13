@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+rewritecond %{http_host} ^esportscups.com.br [NC] 
+rewriterule ^(.*)$ https://www.esportscups.com.br/$1 [r=301,NC] 

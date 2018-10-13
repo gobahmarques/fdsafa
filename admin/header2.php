@@ -217,7 +217,16 @@
         <li><a href="painel/artigos/"><i class="fa fa-link"></i> <span>Artigos</span></a></li>
         <li><a href="painel/caixas/"><i class="fa fa-link"></i> <span>Caixas</span></a></li>
 		  <li><a href="painel/rifas/"><i class="fa fa-link"></i> <span>Rifas</span></a></li>
-		
+		<li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>Gameficação</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="painel/gameficacao/missoes/">Missões</a></li>
+          </ul>
+        </li>
 		<li><a href="#"><i class="fa fa-link"></i> <span>Sit&Go (em breve)</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Caixas</span>

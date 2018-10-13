@@ -32,8 +32,8 @@
             <br>
             <div class="row">                
                 <div class="col-12 col-md-12 text-center">
-                    <h3>Sua plataforma de eSports para alcançar o próximo nível</h3>
-                    Jogue e organize competições de Dota 2, Hearthstone, GWENT, League of Legends e Overwatch, abra caixas, junte eSCoins (e$) e muito mais...
+                    <h3>Bem Vindo(a) à e-Sports Cups, sua Plataforma de Esporte Eletrônico</h3>
+                    Jogue e organize competições de Esportes Eletrônicos e acumule recursos com ou sem investimento.<br>
                 </div>               
             </div>
             <br>
@@ -277,10 +277,8 @@
                     <div class="detalheTituloIndex"></div>
                     <?php
                         $leveis = mysqli_query($conexao, "
-                            SELECT *, gm_jogador_level.cod_jogo AS codigojogo FROM gm_jogador_level
+                            SELECT * FROM gm_jogador_level
                             INNER JOIN jogador ON jogador.codigo = gm_jogador_level.cod_jogador
-                            INNER JOIN jogos ON jogos.codigo = gm_jogador_level.cod_jogo
-                            WHERE gm_jogador_level.cod_jogo is not null
                             ORDER BY level DESC
                             LIMIT 10
                         ");						
@@ -330,19 +328,19 @@
                                         <?php
                                             switch($lobby['cod_jogo']){
                                                 case 369: // HEARTHSTONE
-                                                    echo "<img src='http://www.esportscups.com.br/img/icones/hs.png' alt='Hearthstone' title='Hearthstone' width='100%'>";
+                                                    echo "<img src='https://www.esportscups.com.br/img/icones/hs.png' alt='Hearthstone' title='Hearthstone' width='100%'>";
                                                     break;
                                                 case 123:
-                                                    echo "<img src='http://www.esportscups.com.br/img/icones/gwent.png' alt='GWENT' title='GWENT' width='100%'>";
+                                                    echo "<img src='https://www.esportscups.com.br/img/icones/gwent.png' alt='GWENT' title='GWENT' width='100%'>";
                                                     break;
                                                 case 147: // League of Legends
-                                                    echo "<img src='http://www.esportscups.com.br/img/icones/lol.png' alt='League of Legends' title='League of Legends' width='100%'>";
+                                                    echo "<img src='https://www.esportscups.com.br/img/icones/lol.png' alt='League of Legends' title='League of Legends' width='100%'>";
                                                     break;
                                                 case 357: // Dota 2
-                                                    echo "<img src='http://www.esportscups.com.br/img/icones/dota2.png' alt='Dota 2' title='Dota 2' width='100%'>";
+                                                    echo "<img src='https://www.esportscups.com.br/img/icones/dota2.png' alt='Dota 2' title='Dota 2' width='100%'>";
                                                     break;
                                                 case 258: // Overwatch
-                                                    echo "<img src='http://www.esportscups.com.br/img/icones/overwatch2.png' alt='Overwatch' title='Overwatch' width='100%'>";
+                                                    echo "<img src='https://www.esportscups.com.br/img/icones/overwatch2.png' alt='Overwatch' title='Overwatch' width='100%'>";
                                                     break;
                                             }
                                         ?>

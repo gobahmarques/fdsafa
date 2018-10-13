@@ -70,7 +70,9 @@
                 include "painel-usuario.php";
             }
             if(isset($usuario['codigo']) && mysqli_num_rows($pesquisaFuncao) != 0){
-                include "painel-admin.php";
+                if($campeonato['status'] < 2){
+                    include "painel-admin.php";    
+                }                
             }
         ?>
         

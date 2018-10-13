@@ -64,13 +64,11 @@
                     <hr>
                     <div class="row">
                         <div class="col-12 col-md-12">
-                            <h3>DADOS ENTREGA</h3> <br> 
-                        </div>
-                        <div class="col-12 col-md-12">
                             <div>
                             <?php
                                 if($produto['tipo_input'] != NULL){
                                 ?>
+                                    <h3><?php echo $produto['instrucao']; ?></h3>
                                     <input type="<?php echo $produto['tipo_input']; ?>" placeholder="<?php echo $produto['instrucao']; ?>" name="instrucao" class="form-control instrucao" required><br>
                                 <?php
                                 }

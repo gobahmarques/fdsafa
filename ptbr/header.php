@@ -8,10 +8,11 @@
 				url: "ptbr/validar_login.php",
 				data: $("#login").serialize(),
 				success: function(resultado){
+                    alert(resultado);
 					if(resultado == "0"){						
 						$(".modal-body").html("<h2>QUE BOM QUE VOCÊ ESTÁ AQUI!</h2>  RECEBA ESTA RECOMPENSA PELO SEU PRIMEIRO LOGIN DO DIA!<br> <div class='valor' style='margin: 3% 0%; font-size: 300%;'><img class='coin' src='<?php echo $img; ?>icones/escoin.png' height='4%'> 100</div><br><a href='https://www.esportscups.com.br/ptbr/jogar/campeonatos/'><input type='button' value='JOGAR'></a> ");
 					}else if(resultado == "1"){
-						window.location.href = "https://www.esportscups.com.br/ptbr/";
+						window.location.reload();
 					}else if(resultado == "2"){
 						$(".modal-body").html("E-mail ou senha incorretos.<br>Tente novamente.");
 						$(".modal-footer").html("<button type='button' value='Tentar Novamente' class='btn btn-primary' onClick='abrirLogin();'>Tentar Novamente</button>");
@@ -137,6 +138,11 @@
             WHERE lobby_equipe_semente.cod_jogador = ".$usuario['codigo']."
             AND lobby_equipe.posicao = 0
         ");
+        $pesquisaMissoesPendentes = mysqli_query($conexao, "
+            SELECT * FROM gm_jogador_missao
+            WHERE cod_jogador = ".$usuario['codigo']."
+            AND data_conclusao is null
+        ");
         if($lobbyPendente = mysqli_fetch_array($pesquisaLobbyPendente)){
         ?>
         
@@ -251,6 +257,11 @@
                                     if(mysqli_num_rows($pesquisaPartidasPendentes) > 0){
                                     ?>
                                         <i onClick="abrirPartidasPendentes();" class="fas fa-gamepad" style="font-size:22px"></i>
+                                    <?php
+                                    }
+                                    if(mysqli_num_rows($pesquisaMissoesPendentes) > 0){
+                                    ?>
+                                        <i class="fas fa-exclamation colo" style="font-size:22px" onclick=" window.location.href = 'ptbr/usuario/<?php echo $usuario['codigo']; ?>/';"></i>
                                     <?php
                                     }
                                 ?>

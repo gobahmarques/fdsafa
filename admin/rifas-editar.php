@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="adminlte/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="adminlte/dist/css/skins/skin-blue.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estrutura.css">
 </head>
 <!--
@@ -152,8 +153,10 @@ desired effect
 				  </div>
                   
                   <div class="col-md-12">
-				  	<div class="box-footer">
-						<button type="submit" class="btn btn-primary">Enviar</button>
+				  	<div class="box-footer text-right">
+						<button type="submit" class="btn btn-primary"><i class="far fa-check-circle"></i> Atualizar Dados</button>
+                        <button type="button" class="btn btn-danger" onclick="cancelarRifa(<?php echo $rifa['codigo']; ?>);"><i class="fas fa-times"></i> Cancelar Rifa</button>
+                        <button type="button" class="btn btn-success" onclick="realizarSorteio(<?php echo $rifa['codigo']; ?>);"><i class="fas fa-ticket-alt"></i> Realizar Sorteio</button>
 					  </div>
 				  </div>
 				  
@@ -263,6 +266,20 @@ desired effect
 <script src="adminlte/dist/js/adminlte.min.js"></script>
 	<script src="js/ckeditor/ckeditor.js"></script>
 <script>
+    function cancelarRifa(codRifa){
+        var confirmacao = confirm("O valor investido nos tickets será retornado para a conta dos jogadores e a Rifa será desativada. Deseja realmente cancelar esta Rifa? ");
+        if(confirmacao == true){
+           $.ajax({
+                type: "POST",
+                url: "scripts/rifas.php",
+                data: "funcao=cancelarRifa&codrifa="+codRifa,
+                success: function(resultado){
+                    alert(resultado);
+                    window.location.reload();
+                }
+            });  
+        }
+    }
 	$(function () {
 		// Replace the <textarea id="editor1"> with a CKEditor
 		// instance, using default configuration.

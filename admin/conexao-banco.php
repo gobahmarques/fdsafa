@@ -1,7 +1,7 @@
 <?php
-	$servidor = "mysql.esportscups.com.br";
-	$usuario = "esportscups";
-	$senha = "parede2209azul";
+	$servidor = "localhost";
+	$usuario = "root";
+	$senha = "";
 	$banco = "esportscups";
 	$conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 	

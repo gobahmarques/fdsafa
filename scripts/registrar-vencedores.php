@@ -157,7 +157,7 @@
                         }
                     }
                     
-                    if($semente['cod_equipe'] == NULL){	// INSCRIÇÕES SOLO
+                    if($semente['cod_equipe'] == NULL){	// INSCRIÇÕES SOLO                        
                         mysqli_query($conexao, "INSERT INTO campeonato_colocacao VALUES (".$_POST['campeonato'].", ".$semente['cod_jogador'].", NULL, ".($aux+1).", 0, 0)");	
 
                         if($_POST[$coin] != "" && $_POST[$coin] > 0){ // PREMIAÇÃO EM COIN
@@ -185,6 +185,16 @@
                                 mysqli_query($conexao, "UPDATE liga_inscricao SET cod_divisao = ".$infosDivisao['codigo'].", status = 1 WHERE cod_liga = ".$infosDivisao['cod_liga']." AND cod_jogador = ".$semente['cod_jogador']." ");
                             }else{
                                 mysqli_query($conexao, " INSERT INTO liga_inscricao (cod_liga, cod_divisao, cod_jogador, datahora, status, conta) VALUES (".$infosDivisao['cod_liga'].", ".$infosDivisao['codigo'].", ".$semente['cod_jogador'].", '".date("Y-m-d H:i:s")."', 1, '".$inscricao['conta']."')");
+                            }
+                        }
+                        // GATILHOS DE GAMEFICAÇÃO
+                    
+                        if($aux < 3){ // FOI NO MINIMO TERCEIRO COLOCADO
+                            include "gameficacao.php";
+                            concluirMissao($semente['cod_jogador'], 3);
+
+                            if($aux == 0){ // FOI O PRIMERIO COLOCADO
+                                concluirMissao($semente['cod_jogador'], 2);   
                             }
                         }
                     }else{ // INSCRIÇÕES EM EQUIPE		
@@ -217,7 +227,25 @@
                                 mysqli_query($conexao, " INSERT INTO liga_inscricao (cod_liga, cod_divisao, cod_jogador, datahora, status, cod_equipe) VALUES (".$infosDivisao['cod_liga'].", ".$infosDivisao['codigo'].", ".$semente['cod_jogador'].", '".date("Y-m-d H:i:s")."', 1, ".$inscricao['cod_equipe'].")");
                             }
                         }
-                    }
+                        $lineup = mysqli_query($conexao, "
+                            SELECT * FROM campeonato_lineup
+                            WHERE cod_campeonato = ".$campeonato['codigo']."
+                            AND cod_equipe = ".$semente['cod_equipe']."
+                        ");
+                        while($jogadorDraft = mysqli_fetch_array($lineup)){
+                            // GATILHOS DE GAMEFICAÇÃO
+                    
+                            if($aux < 3){ // FOI NO MINIMO TERCEIRO COLOCADO
+                                include "gameficacao.php";
+                                concluirMissao($jogadorDraft['cod_jogador'], 3);
+
+                                if($aux == 0){ // FOI O PRIMERIO COLOCADO
+                                    concluirMissao($semente['cod_jogador'], 2); 
+                                }
+                            }
+                        }
+                    }                    
+                    
                 }
 				$aux++;
 			}

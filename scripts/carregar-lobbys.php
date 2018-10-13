@@ -90,43 +90,22 @@
                                     <div class="row">
                                         <div class="col">
                                             <?php
-                                                $lvlLobby = mysqli_query($conexao, "SELECT * FROM gm_jogador_level WHERE cod_jogador = ".$usuario['codigo']." AND cod_jogo = $codJogo");
-                                                if(mysqli_num_rows($lvlLobby) > 0){ // Caso já tenha Perfil de Atleta
-                                                    $lvlLobby = mysqli_fetch_array($lvlLobby);
-                                                    $tamBarra = ($lvlLobby['xp_atual'] / $lvlLobby['xp_final']) * 100; 
-                                                ?>
-                                                    Level <?php echo $lvlLobby['level']; ?>
-                                                    <div class="progress centralizar" style="height: 15px;">
-                                                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <?php echo $tamBarra; ?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo number_format($tamBarra, 0); ?> %</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-6 text-left">
-                                                            0
-                                                        </div>
-                                                        <div class="col-6 text-right">
-                                                            <?php echo $lvlLobby['xp_final']; ?>
-                                                        </div>
-                                                    </div>
-                                                <?php
-                                                }else{ // Caso não tenha Perfil de Atleta
-                                                ?>
-                                                    <script>
-                                                        function criarPerfil(){
-                                                            $.ajax({
-                                                                type: "POST",
-                                                                url: "scripts/gameficacao.php",
-                                                                data: "funcao=criarPerfil&codJogador=<?php echo $usuario['codigo']; ?>&codJogo=<?php echo $codJogo; ?>",
-                                                                success: function(resultado){
-                                                                    window.location.reload();
-                                                                    return false;
-                                                                }
-                                                            });
-                                                        }
-                                                        criarPerfil();
-                                                    </script>
-                                                <?php
-                                                }
+                                                $lvlJogador = mysqli_query($conexao, "SELECT * FROM gm_jogador_level WHERE cod_jogador = ".$usuario['codigo']."");
+                                                $lvlJogador = mysqli_fetch_array($lvlJogador);
+                                                $tamBarra = ($lvlJogador['xp_atual'] / $lvlJogador['xp_final']) * 100; 
                                             ?>
+                                                Level <?php echo $lvlJogador['level']; ?>
+                                                <div class="progress centralizar" style="height: 15px;">
+                                                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <?php echo $tamBarra; ?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo number_format($tamBarra, 0); ?> %</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6 text-left">
+                                                        0
+                                                    </div>
+                                                    <div class="col-6 text-right">
+                                                        <?php echo $lvlJogador['xp_final']; ?>
+                                                    </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>

@@ -44,7 +44,7 @@
                         $buscarDraft = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM campeonato_draft WHERE cod_campeonato = ".$inscricao['cod_campeonato']." AND cod_jogador = ".$inscricao['cod_jogador'].""));
                         
                         $inscrito = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM jogador WHERE codigo = ".$inscricao['cod_jogador'].""));
-                        $lvlInscrito = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM gm_jogador_level WHERE cod_jogador = ".$inscricao['cod_jogador']." AND cod_jogo = ".$jogo['codigo']." "));
+                        $lvlInscrito = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM gm_jogador_level WHERE cod_jogador = ".$inscricao['cod_jogador'].""));
                     ?>
                         <div class="col-12 col-md-3">
                             <div class="row-fluid inscrito no-gutters" onClick="abrirInscricao(<?php echo $inscricao['cod_campeonato']; ?>, <?php echo $inscricao['cod_jogador']; ?>);">

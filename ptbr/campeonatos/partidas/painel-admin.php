@@ -19,19 +19,21 @@
                     <input type="button" class="btn btn-dark form-group" value="Lado 02">
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-6 col-md-3">
+                <div class="form-group">
+                    <label>Voltar Resultado</label><br>
+                    <input type="button" class="btn btn-dark form-group" value="RESETAR PARTIDA" onclick="resetarPartida(<?php echo $partida['codigo']; ?>);">
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
                 <div class="form-group">
                     <label>Resultado Final</label><br>
                     <div class="row">
-                        <div class="col">
-                        </div>
                         <div class="col">
                             <input type="number" name="placarUm"  placeholder="Placar Um" class="placarUm form-control">
                         </div>
                         <div class="col">
                             <input type="number" name="placarDois" placeholder="Placar Dois" class="placarDois form-control">
-                        </div>
-                        <div class="col">
                         </div>
                     </div>
                     <div class="row">
@@ -82,4 +84,15 @@
 			}
 		});
 	}
+    function resetarPartida(codPartida){
+        $.ajax({
+			type: "POST",
+			url: "ptbr/campeonatos/partidas/funcoes-painel-admin.php",
+			data: "funcao=resetarPartida&partida="+codPartida,
+			success: function(resultado){
+                alert(resultado);
+				// location.reload();
+			}
+		});
+    }
 </script>

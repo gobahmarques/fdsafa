@@ -50,8 +50,8 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Artigos eSC
-        <small>Área de administração de artigos</small>
+        Rifas eSC
+        <small>Área de administração de Rifas</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -62,14 +62,6 @@ desired effect
     <!-- Main content -->
     <section class="content container-fluid">
 		<div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Artigos</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div>
             <!-- /.box-header -->
 			<div class="box-footer clearfix">
               <a href="painel/rifas/nova/" class="btn btn-sm btn-info btn-flat pull-right">Nova Rifa</a>
@@ -84,7 +76,7 @@ desired effect
                     <th>Min / Max</th>
                     <th>Cupons Vendidos</th>
 					<th>Data Sorteio</th>
-                      <th>Ações</th>
+                    <th class="text-right">Ações</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -126,9 +118,8 @@ desired effect
 										</div>
 									</td>
 									<td><?php echo date("d/m/Y H:i", strtotime($rifa['data_sorteio'])); ?></td>
-                                    <td>
-                                        <a href="painel/rifa/<?php echo $rifa['codigo']; ?>/"><button type="button" class="btn" style="background: #333; color: #fff;"><i class="fas fa-edit"></i></button></a>
-                                        <a href="painel/rifa/<?php echo $rifa['codigo']; ?>/"><button type="button" class="btn" style="background: #333; color: #fff;"><i class="fas fa-edit"></i></button></a> 
+                                    <td class="text-right">
+                                        <a href="painel/rifa/<?php echo $rifa['codigo']; ?>/"><button type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button></a>
                                     </td>
 					  			</tr>
 					  		<?php

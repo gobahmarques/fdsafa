@@ -20,6 +20,58 @@
 				mysqli_query($conexao, "INSERT INTO log_coin VALUES (NULL, ".$autorizacao['cod_jogador'].", 100, 'Login diário', 1, '".date("Y-m-d H:i:s")."')");
 				mysqli_query($conexao, "INSERT INTO notificacao VALUES (NULL, 'Recompensa de Login Diário', ".$autorizacao['cod_jogador'].", 0)");
 				mysqli_query($conexao, "INSERT INTO log_login VALUES (NULL, ".$autorizacao['cod_jogador'].", '".date("Y-m-d H:i:s")."')");
+                
+                // DAR MISSÃO PARA JOGADOR
+                
+                $missao = mysqli_fetch_array(mysqli_query($conexao, "
+                    SELECT * FROM gm_missoes
+                    ORDER BY rand()
+                    LIMIT 1
+                "));
+                
+                $qtdMissoesUsuario = mysqli_num_rows(mysqli_query($conexao, "
+                    SELECT * FROM gm_jogador_missao
+                    WHERE cod_jogador = ".$autorizacao['cod_jogador']."
+                    AND data_conclusao is null
+                "));
+
+                $usuarioMissao = mysqli_query($conexao, "
+                    SELECT * FROM gm_jogador_missao
+                    WHERE cod_jogador = ".$autorizacao['cod_jogador']."
+                    AND cod_missao = ".$missao['id']."
+                    AND data_conclusao is null
+                ");
+
+                if($qtdMissoesUsuario < 3){
+                    if(mysqli_num_rows($usuarioMissao) == 0){
+                        mysqli_query($conexao, "
+                            INSERT INTO gm_jogador_missao
+                            VALUES
+                            (NULL, ".$autorizacao['cod_jogador'].", ".$missao['id'].", '".date("Y-m-d")."', NULL)
+                        ");   
+                    }else{
+                        while(mysqli_num_rows($usuarioMissao) != 0){
+                            $missao = mysqli_fetch_array(mysqli_query($conexao, "
+                                SELECT * FROM gm_missoes
+                                ORDER BY rand()
+                                LIMIT 1
+                            "));
+
+                            $usuarioMissao = mysqli_query($conexao, "
+                                SELECT * FROM gm_jogador_missao
+                                WHERE cod_jogador = ".$autorizacao['cod_jogador']."
+                                AND cod_missao = ".$missao['id']."
+                                AND data_conclusao is null
+                            ");    
+                        }
+                        mysqli_query($conexao, "
+                            INSERT INTO gm_jogador_missao
+                            VALUES
+                            (NULL, ".$autorizacao['cod_jogador'].", ".$missao['id'].", '".date("Y-m-d")."', NULL)
+                        ");
+                    }
+                }
+                
 			}
 			$_SESSION['codigo'] = $autorizacao['cod_jogador'];
 		}else{

@@ -93,3 +93,4 @@
         $(".partidasPendentesUsuario").css("margin-bottom", "-"+hPartidasPendentes+"px");
     });
 </script>
+

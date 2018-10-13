@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             
-                                <div class="row valoresCaixa">
+                                <div class="row valoresCaixa justify-content-center">
                                     <div class="col-12 col-md-4">
                                     <?php
                                         if(isset($usuario['codigo'])){
@@ -129,23 +129,7 @@
                                                 ?>
                                                     </div>
                                                 <?php
-                                            }else{
-                                            ?>
-                                                <div class="col-12 col-md-4 float-left">
-                                                    <input type="button" value="ENTRAR" class="btn btn-laranja btn-full float-left" onClick="abrirLogin();">
-                                                    <input type="button" value="ENTRAR" class="btn btn-dark btn-full float-left" onClick="abrirLogin();">
-                                                </div>
-                                            <?php
                                             }						
-                                        }else{
-                                        ?>
-                                            <div class="col-12 col-md-4 float-left">
-                                                INDISPONÍVEL
-                                            </div>
-                                            <div class="col-12 col-md-4 float-left">
-                                                INDISPONÍVEL
-                                            </div>
-                                        <?php	
                                         }
                                     ?> 
                                 </div>

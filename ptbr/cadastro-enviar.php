@@ -28,16 +28,24 @@
 		TENTE NOVAMENTE!
 	<?php
 	}else{
+        $id = mysqli_insert_id($conexao);
+        
+        mysqli_query($conexao, "
+            INSERT INTO gm_jogador_level
+            VALUES
+            ($id, 1, 0, 50, 0, '".date("Y-m-d")."', 1, 0, 50)
+        ");
+        
 		//REMETENTE --> ESTE EMAIL TEM QUE SER VALIDO DO DOMINIO
 		//==================================================== 
-		$email_remetente = "noreply@esportscups.com.br"; // deve ser uma conta de email do seu dominio 
+		$email_remetente = "contato@esportscups.com.br"; // deve ser uma conta de email do seu dominio 
 		//====================================================
 
 		//Configurações do email, ajustar conforme necessidade
 		//==================================================== 
 		$email_destinatario = "$email"; // pode ser qualquer email que receberá as mensagens
 		$email_reply = "$email"; 
-		$email_assunto = "e-SC - Confirmação de Cadastro"; // Este será o assunto da mensagem
+		$email_assunto = "eSC - Confirmação de Cadastro"; // Este será o assunto da mensagem
 		//====================================================
 
 		//Monta o Corpo da Mensagem

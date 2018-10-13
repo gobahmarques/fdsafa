@@ -114,7 +114,7 @@
 	}   
 </script>
 <?php
-	if(!isset($lobby['codigo'])){
+	/*if(!isset($lobby['codigo'])){
 		if(isset($usuario['codigo'])){
 			$pesquisaLobby = mysqli_query($conexao, "
 					SELECT * FROM lobby_equipe_semente
@@ -127,34 +127,22 @@
 			}			
 		}	
 	}	
+    */
 ?>
-<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title centralizar" id="exampleModalLabel">Modal title</h5>
-      </div>
-      <div class="modal-body centralizar">
-      </div>
-      <div class="modal-footer">
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(Página atual)</span></a>
+      <a class="nav-item nav-link" href="#">Destaques</a>
+      <a class="nav-item nav-link" href="#">Preços</a>
+      <a class="nav-item nav-link disabled" href="#">Desativado</a>
     </div>
   </div>
-</div>
-<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
-<div id="wrapper">
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="">e-Sports Cups</a>
-            </li>
-            <li>Ok</li>
-            <li>Ok</li>
-            <li>Ok</li>
-            <li>Ok</li>
-            <li>Ok</li>
-        </ul>
-    </div>    
+</nav> 
 
 
 

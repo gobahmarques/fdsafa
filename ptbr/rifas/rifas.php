@@ -14,6 +14,24 @@
         <link rel="stylesheet" href="<?php echo $css; ?>esportscups.css">
 
         <title>Rifas de eSports - Ajude o crescimento do cenário | e-Sports Cups</title>
+        <!-- Facebook Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '2173345296319711');
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+            <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2173345296319711&ev=PageView&noscript=1" />
+        </noscript>
+        <!-- End Facebook Pixel Code -->
+
     </head>
     <body class="bodyRifa">
         <?php 
@@ -136,12 +154,14 @@
         
         <br>
         <div class="container">
-            <div class="row">.
+            <div class="row justify-content-center">.
                 <div class="col-12 centralizar">
                     <h2>Colabore com o crescimento do Esporte Eletrônico</h2>
                     Toda quantia arrecadada por estas ações serão destinadas à premiação de alguma competição realizada pela e-Sports Cups.<br>
                     Cada mês rodam novos produtos e cada mês será para premiação em um torneio diferente.<br><br>
-                    <br>
+                    Dia e Hora do Sorteio:<br>
+                    <span class="h1">31/10/2018 - 16:00</span><br>
+                    <a href="https://www.facebook.com/escups/" target="_blank">Facebook eSports Cups</a><br><br>
                 </div>
             <?php
                 $rifas = mysqli_query($conexao, "SELECT * FROM rifa WHERE data_sorteio > '".date("Y-m-d H:i:s")."' AND status = 1");
@@ -150,14 +170,17 @@
                         $totalCupons = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM rifa_cupom WHERE cod_rifa = ".$rifa['codigo'].""));
                         $porcentagem = ($totalCupons * 100) / $rifa['max_cupom'];
                     ?>
-                        <div class="col-6 col-md-6 centralizar rifa">
+                        <div class="col-6 col-md-3 centralizar rifa">
                             <div style="border:solid 1px #ccc; padding: 15px; background: #fff;">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-12">
+                                        <span class="h3"><?php echo $rifa['nome']; ?></span>
+                                    </div>
+                                    <div class="col-12">
                                         <img src="img/rifas/<?php echo $rifa['codigo']."/".$rifa['foto_produto']; ?>" alt="" width="100%">
                                     </div>
-                                    <div class="col-8">
-                                        <?php echo "<h3 style='width:100%; text-overflow: ellisis;'><strong>".$rifa['nome_produto']."</strong></h3>"; ?>
+                                    <div class="col-12">
+                                        <!--
                                         <div class="progress-group">
                                             <span class="progress-number"><?php echo $totalCupons." / ".$rifa['min_cupom']." / ".$rifa['max_cupom']; ?></span>
                                             <div class="progress sm">
@@ -166,10 +189,11 @@
                                                 <div class="progress-bar bg-azul" role="progressbar" style="width: <?php echo (($rifa['min_cupom']/$rifa['max_cupom'])*100)-(($totalCupons/$rifa['max_cupom'])*100); ?>%;" aria-valuenow="<?php echo $totalCupons; ?>"></div>
                                             </div>
                                         </div>
+                                        -->
                                     </div>
                                 </div>
                                 <br>
-                                <a href="ptbr/rifas/?codigo=<?php echo $rifa['codigo']; ?>"><input type="button" class="btn btn-laranja" data-toggle="tooltip" data-placement="bottom" title="Preços" value="VISUALIZAR RIFA" style="width: 100%;"></a>	
+                                <a href="ptbr/rifas/?codigo=<?php echo $rifa['codigo']; ?>"><input type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Preços" value="VISUALIZAR RIFA" style="width: 100%;"></a>	
                             </div>                          	
                         </div>
                     <?php
@@ -198,7 +222,7 @@
                             $(".modal-body").html("Infelizmente você não possui saldo suficiente para comprar o cupom.");
                             $(".modal-footer").html("<a href='ptbr/usuario/"+codJogador+"/carteira-real/adicionar-saldo/'><button type='button' class='btn btn-warning'>Adicionar Saldo</button></a>");
                         }else if(resultado == 1){
-                            window.location.reload();
+                            window.location.href = "ptbr/rifas/confirmar-compra/"+numRifa+"/";
                         }
                     }
                 });
