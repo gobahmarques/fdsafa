@@ -17,6 +17,10 @@
 						
 						mysqli_query($conexao, "INSERT INTO rifa_cupom VALUES (".$_POST['numCupom'].", ".$rifa['codigo'].", ".$jogador['codigo'].", '".date('Y-m-d H:i:s')."', 0, 0)");
 					}
+                    // GATILHO GAMEFICAÇÃO
+            
+                    include "gameficacao.php";
+                    concluirMissao($jogador['codigo'], 11);
 					echo 1;
 				}else{ // JOGADOR NÃO POSSUI SALDO SUFICIENTE
 					echo 0;
@@ -33,6 +37,10 @@
 						
 						mysqli_query($conexao, "INSERT INTO rifa_cupom VALUES (".$_POST['numCupom'].", ".$rifa['codigo'].", ".$jogador['codigo'].", '".date('Y-m-d H:i:s')."', 0, 1)");
 					}
+                    // GATILHO GAMEFICAÇÃO
+            
+                    include "gameficacao.php";
+                    concluirMissao($jogador['codigo'], 11);
 					echo 1;
 				}else{ // JOGADOR NÃO POSSUI SALDO SUFICIENTE
 					echo 0;	

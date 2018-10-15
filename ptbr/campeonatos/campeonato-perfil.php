@@ -22,19 +22,19 @@
                             <?php
                                 switch($campeonato['cod_jogo']){
                                     case 369: // HEARTHSTONE
-                                        echo "<img src='http://www.esportscups.com.br/img/icones/hs.png' alt='Hearthstone' title='Hearthstone' class='iconeJogo'>";
+                                        echo "<img src='https://www.esportscups.com.br/img/icones/hs.png' alt='Hearthstone' title='Hearthstone' class='iconeJogo'>";
                                         break;
                                     case 123: // GWENT
-                                        echo "<img src='http://www.esportscups.com.br/img/icones/gwent.png' alt='GWENT: The Witcher Card Game' title='GWENT: The Witcher Card Game' class='iconeJogo'>";
+                                        echo "<img src='https://www.esportscups.com.br/img/icones/gwent.png' alt='GWENT: The Witcher Card Game' title='GWENT: The Witcher Card Game' class='iconeJogo'>";
                                         break;
                                     case 147: // League of Legends
-                                        echo "<img src='http://www.esportscups.com.br/img/icones/lol.png' alt='League of Legends' title='League of Legends' class='iconeJogo'>";
+                                        echo "<img src='https://www.esportscups.com.br/img/icones/lol.png' alt='League of Legends' title='League of Legends' class='iconeJogo'>";
                                         break;
                                     case 357: // Dota 2
-                                        echo "<img src='http://www.esportscups.com.br/img/icones/dota2.png' alt='Dota 2' title='Dota 2' class='iconeJogo'>";
+                                        echo "<img src='https://www.esportscups.com.br/img/icones/dota2.png' alt='Dota 2' title='Dota 2' class='iconeJogo'>";
                                         break;
                                     case 258: // Overwatch
-                                        echo "<img src='http://www.esportscups.com.br/img/icones/overwatch2.png' alt='Overwatch' title='Overwatch' class='iconeJogo'>";
+                                        echo "<img src='https://www.esportscups.com.br/img/icones/overwatch2.png' alt='Overwatch' title='Overwatch' class='iconeJogo'>";
                                         break;
                                 }
                                 echo $jogo['nome']." - ".$campeonato['plataforma'];

@@ -86,6 +86,19 @@
 				}		
 			}	
 		}
+        
+        $apostadores = mysqli_query($conexao, "
+            SELECT * FROM lobby_equipe_semente
+            INNER JOIN lobby_equipe ON lobby_equipe.codigo = lobby_equipe_semente.cod_equipe
+            WHERE lobby_equipe.cod_lobby = $codLobby
+            AND lobby_equipe_semente.palpite > 0
+        ");
+        
+        while($apostador = mysqli_fetch_array($apostadores)){
+            // GATILHOS DE GAMEFICAÇÃO
+            include "gameficacao.php";
+            concluirMissao($apostador['cod_jogador'], 5); // APOSTAR NO LOBBY
+        }
 		
 	}
 
@@ -107,15 +120,39 @@
 		$membros = mysqli_query($conexao, "SELECT * FROM lobby_equipe_semente WHERE cod_equipe = ".$resultado['cod_equipe']."");
 		if($resultado['resultado'] == 1){ // EQUIPE FOI VENCEDORA DO LOBBY					
 			while($membro = mysqli_fetch_array($membros)){ // LANÇAR XP PARA USUARIOS (25xp) - VITÓRIA
-				adicionarXp($membro['cod_jogador'], $lobby['cod_jogo'], 25);
-			}
+				// GATILHOS DE GAMEFICAÇÃO
+                include "gameficacao.php";
+                concluirMissao($membro['cod_jogador'], 4); // FICAR EM PRIMEIRO NO LOBBY
+                concluirMissao($membro['cod_jogador'], 8); // MINIMO EM TERCEIRO NO LOBBY
+                if($membro['cod_jogador'] == $lobby['cod_jogador']){
+                    concluirMissao($membro['cod_jogador'], 6); // CRIAR UM LOBBY E JOGA-LO 
+                }
+			}            
 			distribuirPote($resultado['cod_equipe'], $lobby['codigo']);
 		}else{  // EQUIPE NAO FOI VENCEDORA
-			while($membro = mysqli_fetch_array($membros)){ // LANÇAR XP PARA USUARIO (10xp) - DERROTA
-				adicionarXp($membro['cod_jogador'], $lobby['cod_jogo'], 10);
-			}
+            if($resultado['resultado'] <= 3){ // NO MÍNIMO EM TERCEIRO
+                while($membro = mysqli_fetch_array($membros)){
+                    // GATILHOS DE GAMEFICAÇÃO
+                    include "gameficacao.php";
+                    concluirMissao($membro['cod_jogador'], 8); // MINIMO EM TERCEIRO NO LOBBY
+                    concluirMissao($membro['cod_jogador'], 7); // JOGAR QUALQUER LOBBY
+                    if($membro['cod_jogador'] == $lobby['cod_jogador']){
+                        concluirMissao($membro['cod_jogador'], 6); // CRIAR UM LOBBY E JOGA-LO 
+                    }
+                }
+            }else{
+                while($membro = mysqli_fetch_array($membros)){
+                    // GATILHOS DE GAMEFICAÇÃO
+                    include "gameficacao.php";
+                    concluirMissao($membro['cod_jogador'], 7); // JOGAR QUALQUER LOBBY
+                    if($membro['cod_jogador'] == $lobby['cod_jogador']){
+                        concluirMissao($membro['cod_jogador'], 6); // CRIAR UM LOBBY E JOGA-LO 
+                    }
+                }
+            }
+			
 		}
-		require "../../js/vendor/autoload.php";
+		require "../js/vendor/autoload.php";
 		$pusher = new Pusher("40415e4e25c159832d51", "b9c2207863070b1055a0", "399063", array('cluster' => 'us2'));
 		$pusher->trigger('lobby'.$codLobby, 'attEquipe', array('codequipe' => $resultado['cod_equipe']));
 	}
@@ -131,11 +168,10 @@
 			
 			// APROVAR RESULTADOS
 			
-			$resultadosAprovados = mysqli_query($conexao, "SELECT *, COUNT(*) FROM lobby_resultado
+			$resultadosAprovados = mysqli_query($conexao, "SELECT * FROM lobby_resultado
 				INNER JOIN lobby_equipe ON lobby_equipe.codigo = lobby_resultado.cod_equipe
 				WHERE lobby_equipe.cod_lobby = $codLobby AND lobby_resultado.confirmacao = 0
 				GROUP BY lobby_resultado.resultado
-				HAVING COUNT(*) = 1
 			");
 			while($resultado = mysqli_fetch_array($resultadosAprovados)){
 				confirmarResultado($resultado['cod_equipe'], $lobby['codigo']);
@@ -396,7 +432,7 @@
 			$verificacao = mysqli_query($conexao, "
 				SELECT * FROM lobby_resultado
 				INNER JOIN lobby_equipe ON lobby_equipe.codigo = lobby_resultado.cod_equipe
-				WHERE lobby_resultado.resultado = ".$_POST['colocacao']." AND confirmacao = 1 AND lobby_equipe.cod_lobby = ".$_POST['codlobby']."
+				WHERE lobby_resultado.resultado = ".$_POST['colocacao']." AND lobby_resultado.confirmacao = 1 AND lobby_equipe.cod_lobby = ".$_POST['codlobby']."
 			");
 			
 			if(mysqli_num_rows($verificacao) == 0){

@@ -312,7 +312,7 @@
         <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
         <script src="<?php echo $js; ?>lobby.js"></script>
         <script src="js/lobby.js"></script>
-        <script src="<?php echo $js; ?>../dota2/examples/example.js"></script>
+        <!-- <script src="<?php echo $js; ?>../dota2/examples/example.js"></script> -->
         <script>
             function excluirLobby(codLobby){
                 $.ajax({
@@ -421,7 +421,6 @@
                     }
                 });
             }
-
             function carregarMsgEquipe(codEquipe, codJogador){
                 $.ajax({
                     type: "POST",

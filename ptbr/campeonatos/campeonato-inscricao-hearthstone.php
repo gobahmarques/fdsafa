@@ -13,7 +13,7 @@
                                 <h3>Sua Battletag</h3>
                                 <div class="row">
                                     <div class="img col-3 col-md-3">
-                                        <img src="http://www.esportscups.com.br/img/icones/battlenet.png" alt="">	
+                                        <img src="https://www.esportscups.com.br/img/icones/battlenet.png" alt="">	
                                     </div>
                                     <div class="conta col-9 col-md-9">
                                         <?php echo $usuario['battletag']; ?>	
@@ -41,55 +41,55 @@
                                         <div class="col-4 col-md-4">
                                             <input type="checkbox" name="heroi[]" class="limitado" value="druida" id="druida" hidden="hidden">
                                             <label for="druida" class="heroi">
-                                                <img src="<?php echo "http://www.esportscups.com.br/img/draft/Hearthstone/druida.png" ?>" width="100">
+                                                <img src="<?php echo "https://www.esportscups.com.br/img/draft/Hearthstone/druida.png" ?>" width="100">
                                             </label>
                                         </div>
                                         <div class="col-4 col-md-4">
                                             <input type="checkbox" name="heroi[]" class="limitado" value="hunter" id="hunter" hidden="hidden">
                                             <label for="hunter" class="heroi">
-                                                <img src="<?php echo "http://www.esportscups.com.br/img/draft/Hearthstone/hunter.png" ?>" width="100">
+                                                <img src="<?php echo "https://www.esportscups.com.br/img/draft/Hearthstone/hunter.png" ?>" width="100">
                                             </label>
                                         </div>
                                         <div class="col-4 col-md-4">
                                             <input type="checkbox" name="heroi[]" class="limitado" value="mage" id="mage" hidden="hidden">
                                             <label for="mage" class="heroi">
-                                                <img src="<?php echo "http://www.esportscups.com.br/img/draft/Hearthstone/mage.png" ?>" width="100">
+                                                <img src="<?php echo "https://www.esportscups.com.br/img/draft/Hearthstone/mage.png" ?>" width="100">
                                             </label>
                                         </div>
                                         <div class="col-4 col-md-4">
                                             <input type="checkbox" name="heroi[]" class="limitado" value="paladin" id="paladin" hidden="hidden">
                                             <label for="paladin" class="heroi">
-                                                <img src="<?php echo "http://www.esportscups.com.br/img/draft/Hearthstone/paladin.png" ?>" width="100">
+                                                <img src="<?php echo "https://www.esportscups.com.br/img/draft/Hearthstone/paladin.png" ?>" width="100">
                                             </label>
                                         </div>
                                         <div class="col-4 col-md-4">
                                             <input type="checkbox" name="heroi[]" class="limitado" value="priest" id="priest" hidden="hidden">
                                             <label for="priest" class="heroi">
-                                                <img src="<?php echo "http://www.esportscups.com.br/img/draft/Hearthstone/priest.png" ?>" width="100">
+                                                <img src="<?php echo "https://www.esportscups.com.br/img/draft/Hearthstone/priest.png" ?>" width="100">
                                             </label>
                                         </div>
                                         <div class="col-4 col-md-4">
                                             <input type="checkbox" name="heroi[]" class="limitado" value="rogue" id="rogue" hidden="hidden">
                                             <label for="rogue" class="heroi">
-                                                <img src="<?php echo "http://www.esportscups.com.br/img/draft/Hearthstone/rogue.png" ?>" width="100">
+                                                <img src="<?php echo "https://www.esportscups.com.br/img/draft/Hearthstone/rogue.png" ?>" width="100">
                                             </label>
                                         </div>
                                         <div class="col-4 col-md-4">
                                             <input type="checkbox" name="heroi[]" class="limitado" value="shaman" id="shaman" hidden="hidden">
                                             <label for="shaman" class="heroi">
-                                                <img src="<?php echo "http://www.esportscups.com.br/img/draft/Hearthstone/shaman.png" ?>" width="100">
+                                                <img src="<?php echo "https://www.esportscups.com.br/img/draft/Hearthstone/shaman.png" ?>" width="100">
                                             </label>
                                         </div>
                                         <div class="col-4 col-md-4">
                                             <input type="checkbox" name="heroi[]" class="limitado" value="warlock" id="warlock" hidden="hidden">
                                             <label for="warlock" class="heroi">
-                                                <img src="<?php echo "http://www.esportscups.com.br/img/draft/Hearthstone/warlock.png" ?>" width="100">
+                                                <img src="<?php echo "https://www.esportscups.com.br/img/draft/Hearthstone/warlock.png" ?>" width="100">
                                             </label>
                                         </div>
                                         <div class="col-4 col-md-4">
                                             <input type="checkbox" name="heroi[]" class="limitado" value="warrior" id="warrior" hidden="hidden">
                                             <label for="warrior" class="heroi">
-                                                <img src="<?php echo "http://www.esportscups.com.br/img/draft/Hearthstone/warrior.png" ?>" width="100">
+                                                <img src="<?php echo "https://www.esportscups.com.br/img/draft/Hearthstone/warrior.png" ?>" width="100">
                                             </label>
                                         </div>
                                         <div class="col-12 col-md-12">
@@ -118,7 +118,7 @@
                             <h3>Battletag Inscrita</h3>
                             <div class="row">
                                 <div class="img col-3 col-md-3">
-                                    <img src="http://www.esportscups.com.br/img/icones/battlenet.png" alt="">	
+                                    <img src="https://www.esportscups.com.br/img/icones/battlenet.png" alt="">	
                                 </div>
                                 <div class="conta col-9 col-md-9">
                                     <?php echo $inscricao['conta']; ?>	
@@ -138,7 +138,7 @@
                                 ?>
                                     <div class="col-3 col-md-3">
                                     <?php
-                                        echo "<img src='http://www.esportscups.com.br/img/draft/".$jogo['abreviacao']."/".$herois[$aux].".png' alt='".$herois[$aux]."' title='".$herois[$aux]."' height='100px'>";
+                                        echo "<img src='https://www.esportscups.com.br/img/draft/".$jogo['abreviacao']."/".$herois[$aux].".png' alt='".$herois[$aux]."' title='".$herois[$aux]."' height='100px'>";
                                     ?>
                                     </div>
                                 <?php                                    
@@ -169,17 +169,17 @@
                             <h3>Sua Inscrição</h3>
                             <?php
                                 if($inscricao['status'] == 0){ // EM ANALISE
-                                    echo "<img src='http://www.esportscups.com.br/img/icones/pendente.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
+                                    echo "<img src='https://www.esportscups.com.br/img/icones/pendente.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
                                     if($campeonato['precheckin'] > 0){
                                         echo "Está tudo OK com sua inscrição até o momento. Para confirmá-la basta realizar o <strong>PRÉ CHECK-IN</strong> que inicia <strong>".$campeonato['precheckin']." minutos</strong> antes do início da competição. Bons jogos.";
                                     }else{								
                                         echo "Sua inscrição está sendo analisada pela organização do torneio e em breve você terá uma resposta.";	
                                     }							
                                 }elseif($inscricao['status'] == 1){ // APROVADA
-                                    echo "<img src='http://www.esportscups.com.br/img/icones/aprovada.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
+                                    echo "<img src='https://www.esportscups.com.br/img/icones/aprovada.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
                                     echo "Sua inscrição está <strong>CONFIRMADA.</strong><br>Nos vemos dia ".date("d/m/Y - H:i", strtotime($campeonato['inicio']));
                                 }else{ // RECUSADA
-                                    echo "<img src='http://www.esportscups.com.br/img/icones/recusada.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
+                                    echo "<img src='https://www.esportscups.com.br/img/icones/recusada.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
                                     echo "Sua inscrição foi recusada pela organização. <br> Para esclarecimentos, entre em contato direto através do e-mail: <strong>".$organizacao['email']."</strong>";
                                 }
                             ?>
@@ -197,7 +197,7 @@
                             <h3>Battletag Inscrita</h3>
                             <div class="row">
                                 <div class="img col-3 col-md-3">
-                                    <img src="http://www.esportscups.com.br/img/icones/battlenet.png" alt="">	
+                                    <img src="https://www.esportscups.com.br/img/icones/battlenet.png" alt="">	
                                 </div>
                                 <div class="conta col-9 col-md-9">
                                     <?php echo $inscricao['conta']; ?>	
@@ -217,7 +217,7 @@
                                 ?>
                                     <div class="col-3 col-md-3">
                                     <?php
-                                        echo "<img src='http://www.esportscups.com.br/img/draft/".$jogo['abreviacao']."/".$herois[$aux].".png' alt='".$herois[$aux]."' title='".$herois[$aux]."' height='100px'>";
+                                        echo "<img src='https://www.esportscups.com.br/img/draft/".$jogo['abreviacao']."/".$herois[$aux].".png' alt='".$herois[$aux]."' title='".$herois[$aux]."' height='100px'>";
                                     ?>
                                     </div>
                                 <?php                                    
@@ -232,17 +232,17 @@
                             <h3>Sua Inscrição</h3>
                             <?php
                                 if($inscricao['status'] == 0){ // EM ANALISE
-                                    echo "<img src='http://www.esportscups.com.br/img/icones/pendente.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
+                                    echo "<img src='https://www.esportscups.com.br/img/icones/pendente.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
                                     if($campeonato['precheckin'] > 0){
                                         echo "Está tudo OK com sua inscrição até o momento. Para confirmá-la basta realizar o <strong>PRÉ CHECK-IN</strong> que inicia <strong>".$campeonato['precheckin']." minutos</strong> antes do início da competição. Bons jogos.";
                                     }else{								
                                         echo "Sua inscrição está sendo analisada pela organização do torneio e em breve você terá uma resposta.";	
                                     }							
                                 }elseif($inscricao['status'] == 1){ // APROVADA
-                                    echo "<img src='http://www.esportscups.com.br/img/icones/aprovada.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
+                                    echo "<img src='https://www.esportscups.com.br/img/icones/aprovada.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
                                     echo "Sua inscrição está <strong>CONFIRMADA.</strong><br>Nos vemos dia ".date("d/m/Y - H:i", strtotime($campeonato['inicio']));
                                 }else{ // RECUSADA
-                                    echo "<img src='http://www.esportscups.com.br/img/icones/recusada.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
+                                    echo "<img src='https://www.esportscups.com.br/img/icones/recusada.png' alt='Inscrição em Análise' title='Inscrição em Análise'><br><br>";
                                     echo "Sua inscrição foi recusada pela organização. <br> Para esclarecimentos, entre em contato direto através do e-mail: <strong>".$organizacao['email']."</strong>";
                                 }
                             ?>

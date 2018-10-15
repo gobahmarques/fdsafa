@@ -139,6 +139,54 @@
                         </div>
 					<?php
 					}
+                    
+                    /* 
+                        GATILHO DE GAMEFICAÇÃO 
+                        
+                        1 - Verificar se jogador possui a missão
+                        2 - Caso positivo, acrescentar ao contador
+                        3 - realizar tratamento
+                    
+                    */
+                    
+                    $pesquisaMissao10 = mysqli_query($conexao, "
+                        SELECT * FROM gm_jogador_missao
+                        WHERE cod_jogador = ".$jogador['codigo']."
+                        AND cod_missao = 10
+                    "); // ABRIR 3 CAIXAS DE ESPORTS
+                    
+                    $pesquisaMissao12 = mysqli_query($conexao, "
+                        SELECT * FROM gm_jogador_missao
+                        WHERE cod_jogador = ".$jogador['codigo']."
+                        AND cod_missao = 12
+                    "); // ABRIR 10 CAIXAS DE ESPORTS
+                    
+                    if(mysqli_num_rows($pesquisaMissao10) > 0){
+                        $missao10 = mysqli_fetch_array($pesquisaMissao10);
+                        mysqli_query($conexao, "
+                            UPDATE gm_jogador_missao
+                            SET contador = contador + 1
+                            WHERE codigo = ".$missao10['codigo']."
+                        ");
+                        if(($missao10['contador'] + 1) >= 3){
+                            include "gameficacao.php";
+                            concluirMissao($jogador['codigo'], 10);
+                        }
+                    }
+                    
+                    if(mysqli_num_rows($pesquisaMissao12) > 0){
+                        $missao12 = mysqli_fetch_array($pesquisaMissao12);
+                        mysqli_query($conexao, "
+                            UPDATE gm_jogador_missao
+                            SET contador = contador + 1
+                            WHERE codigo = ".$missao12['codigo']."
+                        ");
+                        if(($missao12['contador'] + 1) >= 10){
+                            include "gameficacao.php";
+                            concluirMissao($jogador['codigo'], 12);
+                        }
+                    }
+                    
 				}
 			}			
 			break;

@@ -128,11 +128,13 @@
                 });
             }
             function aceitarAmizade(jogadorUm, jogadorDois){
+                alert("ok, funcionando");
                 $.ajax({
                     type: "POST",
                     url: "scripts/usuario.php",
                     data: "funcao=aceitarAmizade&jogadorUm="+jogadorUm+"&jogadorDois="+jogadorDois,
                     success: function(resultado){
+                        alert(resultado);
                         window.location.reload();
                     }
                 });

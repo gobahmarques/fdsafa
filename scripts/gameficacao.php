@@ -1,4 +1,20 @@
 <?php
+    if(!function_exists("creditarCoin")){
+        function creditarCoin($codJogador, $quantidade, $motivo){
+            global $conexao;
+
+            mysqli_query($conexao, "
+                INSERT INTO log_coin
+                VALUES
+                (NULL, $codJogador, $quantidade, '$motivo', 1, '".date("Y-m-d H:i:s")."')
+            ");
+            mysqli_query($conexao, "
+                UPDATE jogador
+                SET pontos = pontos + $quantidade
+                WHERE codigo = $codJogador
+            ");
+        }
+    }
 	if(!function_exists("adicionarXp")){
 		function adicionarXp($codJogador, $xp){
 			global $conexao;
@@ -43,8 +59,6 @@
                     SELECT * FROM gm_missoes
                     WHERE id = $codMissao
                 "));
-
-                include "usuario.php";
 
                 /*
 

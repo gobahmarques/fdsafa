@@ -47,7 +47,7 @@
                         mysqli_query($conexao, "
                             INSERT INTO gm_jogador_missao
                             VALUES
-                            (NULL, ".$autorizacao['cod_jogador'].", ".$missao['id'].", '".date("Y-m-d")."', NULL)
+                            (NULL, ".$autorizacao['cod_jogador'].", ".$missao['id'].", '".date("Y-m-d")."', NULL, 0)
                         ");   
                     }else{
                         while(mysqli_num_rows($usuarioMissao) != 0){
@@ -67,7 +67,7 @@
                         mysqli_query($conexao, "
                             INSERT INTO gm_jogador_missao
                             VALUES
-                            (NULL, ".$autorizacao['cod_jogador'].", ".$missao['id'].", '".date("Y-m-d")."', NULL)
+                            (NULL, ".$autorizacao['cod_jogador'].", ".$missao['id'].", '".date("Y-m-d")."', NULL, 0)
                         ");
                     }
                 }

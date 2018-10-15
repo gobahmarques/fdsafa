@@ -67,7 +67,7 @@
                     mysqli_query($conexao, "
                         INSERT INTO gm_jogador_missao
                         VALUES
-                        (NULL, ".$_SESSION['codigo'].", ".$missao['id'].", '".date("Y-m-d")."', NULL)
+                        (NULL, ".$_SESSION['codigo'].", ".$missao['id'].", '".date("Y-m-d")."', NULL, 0)
                     ");    
                 }                
             }else{
@@ -88,7 +88,7 @@
                 mysqli_query($conexao, "
                     INSERT INTO gm_jogador_missao
                     VALUES
-                    (NULL, ".$_SESSION['codigo'].", ".$missao['id'].", '".date("Y-m-d")."', NULL)
+                    (NULL, ".$_SESSION['codigo'].", ".$missao['id'].", '".date("Y-m-d")."', NULL, 0)
                 ");
             }
 		}else{				

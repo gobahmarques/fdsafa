@@ -36,8 +36,8 @@
         
         <div class="container">
             <ul class="menuCarteira">
-                <li class="ativo">Resumo</li>
-                <li>Histórico (em breve)</li>
+                <a href="ptbr/usuario/<?php echo $usuario['codigo']; ?>/carteira-escoin/"><li>Resumo</li></a>
+                <li class="ativo">Histórico</li>
             </ul>
             <div class="row-fluid">
                 <div class="resumoCarteira">

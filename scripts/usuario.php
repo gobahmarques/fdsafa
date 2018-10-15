@@ -1,52 +1,58 @@
 ﻿<?php
-	function carregarNotificacoes($codJogador){
-		include "../conexao-banco.php";
-		$notificacoes = mysqli_query($conexao, "SELECT * FROM notificacao WHERE cod_jogador = $codJogador AND status = 0");
-		?>
-			<ul class="notificacoeslista">
-			<?php
-				while($notificacao = mysqli_fetch_array($notificacoes)){
-                    if($notificacao['link'] != "" && $notificacao['link'] != NULL){
-                     ?>
-                        <a href="ptbr/<?php echo $notificacao['link']; ?>" target="_blank">
+    if(!function_exists("carregarNotificacoes")){
+	   function carregarNotificacoes($codJogador){
+            include "../conexao-banco.php";
+            $notificacoes = mysqli_query($conexao, "SELECT * FROM notificacao WHERE cod_jogador = $codJogador AND status = 0");
+            ?>
+                <ul class="notificacoeslista">
+                <?php
+                    while($notificacao = mysqli_fetch_array($notificacoes)){
+                        if($notificacao['link'] != "" && $notificacao['link'] != NULL){
+                         ?>
+                            <a href="ptbr/<?php echo $notificacao['link']; ?>" target="_blank">
+                                <li onMouseOver="validarNotificacao(<?php echo $notificacao['codigo']; ?>);">
+                                    <?php echo $notificacao['mensagem']; ?>
+                                </li>
+                            </a>
+                        <?php   
+                        }else{
+                        ?>
                             <li onMouseOver="validarNotificacao(<?php echo $notificacao['codigo']; ?>);">
                                 <?php echo $notificacao['mensagem']; ?>
                             </li>
-                        </a>
-                    <?php   
-                    }else{
-                    ?>
-                        <li onMouseOver="validarNotificacao(<?php echo $notificacao['codigo']; ?>);">
-                            <?php echo $notificacao['mensagem']; ?>
-                        </li>
-                    <?php      
-                    }
-				
-				}
-			?>
-			</ul>
-		<?php
-		
-	}
+                        <?php      
+                        }
 
-	function validarNotificacao($codigo){
+                    }
+                ?>
+                </ul>
+            <?php
+
+        }
+    }
+
+    if(!function_exists("validarNotificacao")){
+	   function validarNotificacao($codigo){
 		include "../conexao-banco.php";
 		mysqli_query($conexao, "UPDATE notificacao SET status = 1 WHERE codigo = $codigo");
 	}
+    }
 
-    function creditarCoin($codJogador, $quantidade, $motivo){
-        global $conexao;
-        
-        mysqli_query($conexao, "
-            INSERT INTO log_coin
-            VALUES
-            (NULL, $codJogador, $quantidade, '$motivo', 1, '".date("Y-m-d H:i:s")."')
-        ");
-        mysqli_query($conexao, "
-            UPDATE jogador
-            SET pontos = pontos + $quantidade
-            WHERE codigo = $codJogador
-        ");
+    if(!function_exists("creditarCoin")){
+        function creditarCoin($codJogador, $quantidade, $motivo){
+            global $conexao;
+
+            mysqli_query($conexao, "
+                INSERT INTO log_coin
+                VALUES
+                (NULL, $codJogador, $quantidade, '$motivo', 1, '".date("Y-m-d H:i:s")."')
+            ");
+            mysqli_query($conexao, "
+                UPDATE jogador
+                SET pontos = pontos + $quantidade
+                WHERE codigo = $codJogador
+            ");
+        }
     }
 
     if(isset($_POST['funcao'])){
@@ -207,6 +213,11 @@
             case "aceitarAmizade":
                 include "../session.php";
                 mysqli_query($conexao, "UPDATE jogador_amizades SET status = 1 WHERE cod_jogador1 = ".$_POST['jogadorUm']." AND cod_jogador2 = ".$_POST['jogadorDois']." ");
+                
+                include "gameficacao.php";
+                concluirMissao($_POST['jogadorUm'], 9);
+                concluirMissao($_POST['jogadorDois'], 9);
+                
                 break;
             case "excluirAmizade":
                 include "../session.php";
