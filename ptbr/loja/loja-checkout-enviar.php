@@ -13,7 +13,8 @@
 		$cupom = mysqli_fetch_array($verificarCupom);
 		mysqli_query($conexao, "UPDATE produto_cupom SET status = 1, datahora = '$datahora' WHERE codigo = ".$cupom['codigo']."");
 	}else{
-		mysqli_query($conexao, "UPDATE jogador SET pontos = pontos - $valor WHERE codigo = ".$usuario['codigo']."");		
+        include "../../scripts/usuario.php";
+        creditarCoin($usuario['codigo'], $valor, 'Troca de eSCoin na Loja');		
 	}
 	mysqli_query($conexao, "INSERT INTO pedido VALUES (NULL, ".$_SESSION['codigo'].", '$data', NULL, $endereco, $valor, $produto, NULL)");
 	$pedido = mysqli_insert_id($conexao);

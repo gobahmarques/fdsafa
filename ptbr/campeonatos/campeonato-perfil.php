@@ -2,6 +2,11 @@
     if($campeonato['codigo'] == NULL){
         echo "ok";
     }else{
+        $ipLeitor = $_SERVER['REMOTE_ADDR'];
+        $pesquisaVisita = mysqli_query($conexao, "SELECT * FROM visitas WHERE ip = '$ipLeitor' AND pagina = 'ptbr/campeonato/".$campeonato['codigo']."/'");
+        if(mysqli_num_rows($pesquisaVisita) == 0){
+            mysqli_query($conexao, "INSERT INTO visitas VALUES (NULL, '$ipLeitor', 'ptbr/campeonato/".$campeonato['codigo']."/')");
+        }
     ?>
         <div class="bgjogo <?php echo $jogo['background']; ?>">
             <div class="container">
@@ -20,6 +25,10 @@
                         <div class="row">
                             <div class="col-12 col-md-12">
                             <?php
+                                $visualizacoes = mysqli_num_rows(mysqli_query($conexao, "
+                                    SELECT codigo FROM visitas 
+                                    WHERE pagina = 'ptbr/campeonato/".$campeonato['codigo']."/'
+                                "));
                                 switch($campeonato['cod_jogo']){
                                     case 369: // HEARTHSTONE
                                         echo "<img src='https://www.esportscups.com.br/img/icones/hs.png' alt='Hearthstone' title='Hearthstone' class='iconeJogo'>";
@@ -42,7 +51,7 @@
                             </div>
                             <div class="col-12 col-md-12">
                                 <h1><?php echo $campeonato['nome']; ?></h1>
-                            </div>                    
+                            </div>  
                             <?php
                                 if($campeonato['cod_divisao'] != NULL){
                                     $liga = mysqli_fetch_array(mysqli_query($conexao, "
@@ -58,7 +67,12 @@
                                 }
                             ?>
                             <div class="col-12 col-md-12">
-                                Por <strong><a href="ptbr/organizacao/<?php echo $organizacao['codigo']; ?>/"><?php echo $organizacao['nome']; ?></strong></a>
+                                Por <strong><a href="ptbr/organizacao/<?php echo $organizacao['codigo']; ?>/"><?php echo $organizacao['nome']; ?></a></strong>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <?php
+                                    echo "<i class='fas fa-eye'></i> ".$visualizacoes;
+                                ?>
                             </div>
                             <br><br>  
                             <div class="col-12 col-md-12">

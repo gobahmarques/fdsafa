@@ -45,6 +45,11 @@
                 <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
+                <h2 class="tituloLateral">Aumente seu <strong>Nível</strong></h2>
+                <div class="detalheTituloLateral"></div>
+                <a href="https://go.hotmart.com/H9153842R" target="_blank"><img src="<?php echo $img; ?>artigos/afiliado01.png" width="100%" class="mb-3"></a>
+                <a href="https://go.hotmart.com/W9080866G" target="_blank"><img src="<?php echo $img; ?>artigos/afiliado02.png" width="100%" class="mb-3"></a>
+                <a href="https://go.hotmart.com/J9530117U" target="_blank"><img src="<?php echo $img; ?>artigos/afiliado03.png" width="100%"></a>
                 <h2 class="tituloLateral">Nosso <strong>Facebook</strong></h2>
                 <div class="detalheTituloLateral"></div>
                 <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fescups&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
@@ -118,7 +123,7 @@
             closeNav();
 		}
 		jQuery(function($){
-			trocarAba(369);
+			trocarAba(0);
 		});
 	</script>
   </body>

@@ -38,7 +38,7 @@
                         mysqli_query($conexao, "
                             INSERT INTO log_real
                             VALUES 
-                            (NULL, ".$cupom['cod_jogador'].", ".$rifa['preco_coin'].", 'Cancelamento da rifa <strong>".$rifa['nome']."</strong>, devolução do cupom <strong>".$cupom['codigo']."</strong>', 1, '".date("Y-m-d H:i:s")."')
+                            (NULL, ".$cupom['cod_jogador'].", ".$rifa['preco_real'].", 'Cancelamento da rifa <strong>".$rifa['nome']."</strong>, devolução do cupom <strong>".$cupom['codigo']."</strong>', 1, '".date("Y-m-d H:i:s")."')
                         ");
                         
                     }

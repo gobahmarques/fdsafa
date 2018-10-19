@@ -43,7 +43,7 @@
 		</div>
 	</div>
 	<script src="js/jquery.js"></script>
-	<script src="js/ckeditor/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
 	<script type="text/javascript">		
 		CKEDITOR.replace( 'artigo' );
 		jQuery(function($){

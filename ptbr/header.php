@@ -8,7 +8,6 @@
 				url: "ptbr/validar_login.php",
 				data: $("#login").serialize(),
 				success: function(resultado){
-                    alert(resultado);
 					if(resultado == "0"){						
 						$(".modal-body").html("<h2>QUE BOM QUE VOCÊ ESTÁ AQUI!</h2>  RECEBA ESTA RECOMPENSA PELO SEU PRIMEIRO LOGIN DO DIA!<br> <div class='valor' style='margin: 3% 0%; font-size: 300%;'><img class='coin' src='<?php echo $img; ?>icones/escoin.png' height='4%'> 100</div><br><a href='https://www.esportscups.com.br/ptbr/jogar/campeonatos/'><input type='button' value='JOGAR'></a> ");
 					}else if(resultado == "1"){

@@ -160,21 +160,29 @@
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">                              
                                 <br>
                                 <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="descricao">Descrição do Torneio</label>
-                                        <textarea name="descricao" id="descricao" class="form-control" cols="30" rows="10" placeholder="DESCRIÇÃO" required><?php echo $campeonato['descricao']; ?></textarea>
+                                    <div class="form-group col-md-12">
+                                        <div class="border p-3 text-center">
+                                            <label for="descricao" class="h4">Descrição do Torneio</label>
+                                            <textarea name="descricao" id="descricao" class="form-control" cols="30" rows="10" placeholder="DESCRIÇÃO" required><?php echo $campeonato['descricao']; ?></textarea>
+                                        </div>                                        
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <div class="border p-3 text-center">
+                                            <label for="regulamento" class="h4">Regulamento</label>
+                                            <textarea name="regulamento" id="regulamento" class="form-control" cols="30" rows="10" placeholder="REGULAMENTO" required><?php echo $campeonato['regulamento']; ?></textarea>
+                                        </div>                                            
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="regulamento">Regulamento</label>
-                                        <textarea name="regulamento" id="regulamento" class="form-control" cols="30" rows="10" placeholder="REGULAMENTO" required><?php echo $campeonato['regulamento']; ?></textarea>
+                                        <div class="border p-3 text-center">
+                                            <label for="premiacao" class="h4">Premiação Fora do Padrão?</label>
+                                            <textarea name="premiacao" id="premiacao" class="form-control" cols="30" rows="10" placeholder="Premiações em R$ ou e$ são configurados na aba 'Premiação Automática'" required><?php echo $campeonato['premiacao']; ?></textarea>
+                                        </div>                                            
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="premiacao">Premiação Fora do Padrão?</label>
-                                        <textarea name="premiacao" id="premiacao" class="form-control" cols="30" rows="10" placeholder="Premiações em R$ ou e$ são configurados na aba 'Premiação Automática'" required><?php echo $campeonato['premiacao']; ?></textarea>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="cronograma">Cronograma Completo da Competição</label>
-                                        <textarea name="cronograma" id="cronograma" class="form-control" cols="30" rows="10" placeholder="Exemplo: 05/06/2019 13h00 -> Início do Pré Check-in" required><?php echo $campeonato['cronograma']; ?></textarea>
+                                        <div class="border p-3 text-center">
+                                            <label for="cronograma" class="h4">Cronograma Completo da Competição</label>
+                                            <textarea name="cronograma" id="cronograma" class="form-control" cols="30" rows="10" placeholder="Exemplo: 05/06/2019 13h00 -> Início do Pré Check-in" required><?php echo $campeonato['cronograma']; ?></textarea>
+                                        </div>                                            
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="local">Local / Estado</label>
@@ -199,7 +207,7 @@
         
         <script src="<?php echo $js; ?>jquery.js"></script>
         <script src="<?php echo $js; ?>bootstrap.js"></script>
-        <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=xk83vu3tqnzfzqfckbr4scsj3mzmi8cqvi6s0u6ed34nfnxu"></script>
         <script type="text/javascript">
 			function tratarJogo(nomeJogo){
 				if(codigoJogo == 369){
@@ -261,10 +269,37 @@
 				});
                 attSaldoReal();
                 attSaldoCoin();
-                CKEDITOR.replace( 'descricao' );
-                CKEDITOR.replace( 'regulamento' );
-                CKEDITOR.replace( 'premiacao' );
-                CKEDITOR.replace( 'cronograma' );
+                tinymce.init({
+                   selector: "#descricao",
+                    toolbar: 'styleselect | bold, italic, underline, strikethrough | alignleft, aligncenter, alignright, alignjustify | bullist, numlist, outdent, indent, undo, redo',
+                    menubar: false
+                    
+                });
+                tinymce.init({
+                    selector: '#regulamento',
+                    theme: 'modern',
+                    height: 300,
+                    plugins: [
+                      'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+                      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                      'save table contextmenu directionality emoticons template paste textcolor'
+                    ],
+                    content_css: 'css/content.css',
+                    toolbar: 'insertfile undo redo | styleselect | bold italic underline forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media preview fullpage',
+                    menubar: false
+                  });
+                tinymce.init({
+                   selector: "#premiacao",
+                    toolbar: 'styleselect | bold, italic, underline, strikethrough | alignleft, aligncenter, alignright, alignjustify | bullist, numlist, outdent, indent, undo, redo',
+                    menubar: false
+                    
+                });
+                tinymce.init({
+                   selector: "#cronograma",
+                    toolbar: 'styleselect | bold, italic, underline, strikethrough | alignleft, aligncenter, alignright, alignjustify | bullist, numlist, outdent, indent, undo, redo',
+                    menubar: false
+                    
+                });
 			});
 		</script>
     </body>

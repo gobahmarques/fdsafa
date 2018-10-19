@@ -38,34 +38,47 @@
     <?php include "../header.php"; ?>
       <div class="linhaTituloArtigo">
         <div class="container">
-            <div class="jogo">
-			<?php
-				if(isset($jogo['nome'])){
-					echo strtoupper($jogo['nome']);	
-				}else{
-					echo "eSports Cups";
-				}
-				 
-			?>
-			</div>
-            <div class="tituloArtigo">
-                <?php echo "<h1>".$artigo['nome']."</h1>"; ?>
-            </div>			
-			<div class="infos">
-			<?php 
-				echo date("d/m/Y", strtotime($artigo['data']))." - $visualizacoes visualizações<br>";
-				echo strtoupper($autor['nome'])." '<strong>".strtoupper($autor['nick'])."</strong>' ".strtoupper($autor['sobrenome']);
-			?>	
-			</div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="jogo">
+                    <?php
+                        if(isset($jogo['nome'])){
+                            echo strtoupper($jogo['nome']);	
+                        }else{
+                            echo "eSports Cups";
+                        }
+
+                    ?>
+                    </div>   
+                    <div class="tituloArtigo">
+                        <?php echo "<h1>".$artigo['nome']."</h1>"; ?>
+                    </div>
+                </div>
+                <div class="col-8 col-md-4">
+                    <div class="infos">
+                    <?php 
+                        echo date("d/m/Y", strtotime($artigo['data']))." - $visualizacoes visualizações<br>";
+                        echo strtoupper($autor['nome'])." '<strong>".strtoupper($autor['nick'])."</strong>' ".strtoupper($autor['sobrenome']);
+                    ?>	
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div>
+                        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.esportscups.com.br%2Fptbr%2Fartigo%2F<?php echo $artigo['codigo']; ?>%2F&layout=button&size=small&mobile_iframe=true&width=97&height=20&appId" width="97" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            			
+			
         </div>
       </div>
       <div class="container">
         <div class="row">
             <div class="col-12 col-md-8">
-                <div class="row-fluid apresentacaoArtigo">
-                    <img src="http://www.esportscups.com.br/img/artigos/<?php echo $artigo['thumb']; ?>" alt="" width="100%"><br><br>
+                <div class="apresentacaoArtigo">
+                    <img src="https://www.esportscups.com.br/img/artigos/<?php echo $artigo['thumb']; ?>" alt="" width="100%"><br><br>
                     <?php echo $artigo['artigo']; ?>
-                    
                     <div id="fb-root"></div>
                     <script>(function(d, s, id) {
                       var js, fjs = d.getElementsByTagName(s)[0];
@@ -75,7 +88,7 @@
                           fjs.parentNode.insertBefore(js, fjs);
                         }(document, 'script', 'facebook-jssdk'));
                     </script>
-                    <div class="fb-comments" data-href="https://www.esportscups.com.br/ptbr/artigo/<?php echo $artigo['codigo']; ?>/" data-width="100%" data-numposts="5"></div>
+                    <div class="fb-comments" data-href="https://www.esportscups.com.br/ptbr/artigo/<?php echo $artigo['codigo']; ?>/" data-width="100%" data-numposts="15"></div>
                 </div>
             </div>
             <div class="col-12 col-md-4">
@@ -90,6 +103,12 @@
                 <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
+                <h2 class="tituloLateral">Aumente seu <strong>Nível</strong></h2>
+                <div class="detalheTituloLateral"></div>
+                <a href="https://go.hotmart.com/H9153842R" target="_blank"><img src="<?php echo $img; ?>artigos/afiliado01.png" width="100%" class="mb-3"></a>
+                <a href="https://go.hotmart.com/W9080866G" target="_blank"><img src="<?php echo $img; ?>artigos/afiliado02.png" width="100%" class="mb-3"></a>
+                <a href="https://go.hotmart.com/J9530117U" target="_blank"><img src="<?php echo $img; ?>artigos/afiliado03.png" width="100%"></a>
+                
                 <h2 class="tituloLateral">Nosso <strong>Facebook</strong></h2>
                 <div class="detalheTituloLateral"></div>
                 <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fescups&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
@@ -97,7 +116,7 @@
                 <div class="detalheTituloLateral"></div>
                 
                 <?php
-                    $artigos = mysqli_query($conexao, "SELECT * FROM artigos WHERE cod_jogo is not null ORDER BY data DESC LIMIT 6");
+                    $artigos = mysqli_query($conexao, "SELECT * FROM artigos WHERE codigo != ".$artigo['codigo']." ORDER BY data DESC LIMIT 6");
                     while($destaque = mysqli_fetch_array($artigos)){
                     ?>
                         <a href="ptbr/artigo/<?php echo $destaque['codigo']; ?>/">
