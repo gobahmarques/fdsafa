@@ -38,9 +38,7 @@
 		$pesquisaLogin = mysqli_query($conexao, "SELECT * FROM log_login WHERE cod_jogador = ".$dados['codigo']." AND date(datahora) = '$diaAtual'");
 
 		if(mysqli_num_rows($pesquisaLogin) == 0){
-			echo "0";
-			mysqli_query($conexao, "UPDATE jogador SET pontos = pontos + 100 WHERE codigo = ".$dados['codigo']."");
-			mysqli_query($conexao, "INSERT INTO log_coin VALUES (NULL, ".$dados['codigo'].", 100, 'Login diário', 1, '$dataHora')");
+			echo "1";
             // DAR MISSÃO PARA JOGADOR
                 
             $missao = mysqli_fetch_array(mysqli_query($conexao, "
@@ -91,6 +89,7 @@
                     (NULL, ".$_SESSION['codigo'].", ".$missao['id'].", '".date("Y-m-d")."', NULL, 0)
                 ");
             }
+            */
 		}else{				
 			echo "1";			
 		}
