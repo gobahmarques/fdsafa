@@ -25,6 +25,16 @@
         <link rel="stylesheet" href="<?php echo $css; ?>esportscups.css">
 
         <title>Inscrição <?php echo $campeonato['nome']; ?> | e-Sports Cups</title>
+        <link rel="manifest" href="<?php echo $js; ?>onesignal/manifest.json" />
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+        <script>
+          var OneSignal = window.OneSignal || [];
+          OneSignal.push(function() {
+            OneSignal.init({
+              appId: "e1b0a86c-93cb-4b45-9e13-6909c7a422d1",
+            });
+          });
+        </script>
     </head>
     <body>
         <?php include "../header.php"; ?>
@@ -50,6 +60,8 @@
             }
             
             if(isset($usuario['codigo'])){ // POSSUI USUÁRIO LOGADO
+                mostrarPaginaInsc($campeonato['cod_jogo']);
+                /*
                 $pesquisaInscricao = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM campeonato_inscricao WHERE cod_jogador = ".$usuario['codigo']." AND cod_campeonato = ".$campeonato['codigo']." "));
                 if($pesquisaInscricao > 0){ // JÁ POSSUI INSCRIÇÃO
                     mostrarPaginaInsc($campeonato['cod_jogo']);
@@ -57,12 +69,7 @@
                     if($campeonato['cod_divisao'] != NULL){ // CAMPEONATO PERTENCE A ALGUMA DIVISÃO
                         $pesquisaInscricao = mysqli_query($conexao, "SELECT * FROM liga_inscricao WHERE cod_jogador = ".$usuario['codigo']." AND cod_liga = ".$liga['codigo']." ");
                         if(mysqli_num_rows($pesquisaInscricao) > 0){ // É INSCRITO DA LIGA
-                            $inscricaoLiga = mysqli_fetch_array($pesquisaInscricao);
-                            if($inscricaoLiga['cod_divisao'] == $campeonato['cod_divisao']){ // É INTEGRANTE DA DIVISÃO DO CAMPEONATO
-                                mostrarPaginaInsc($campeonato['cod_jogo']);
-                            }else{ // NÃO É INTEGRANTE DA DIVISÃO
-                                   
-                            }
+                            mostrarPaginaInsc($campeonato['cod_jogo']);
                         }else{ // NÃO É INSCRITO NA LIGA
                             mostrarPaginaInsc($campeonato['cod_jogo']);
                         }
@@ -70,6 +77,7 @@
                         mostrarPaginaInsc($campeonato['cod_jogo']);
                     }                  
                 }
+                */
             }else{ // MENSAGEM PARA REALIZAR LOGIN
             ?>
                 <h2>REALIZE O LOGIN</h2>

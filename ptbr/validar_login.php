@@ -20,7 +20,7 @@
 		
 		$id = mysqli_insert_id($conexao);
 		
-		if(isset($_POST['remember']) && $_POST['remember'] == 1){ // LEMBRAR LOGIN						
+		if(isset($_POST['remember']) && $_POST['remember'] == 1){ // LEMBRAR LOGIN	
 			setcookie('auth', $id, $expirar);
 		}else{
 			setcookie('auth', $id, time() + 5);
@@ -89,7 +89,6 @@
                     (NULL, ".$_SESSION['codigo'].", ".$missao['id'].", '".date("Y-m-d")."', NULL, 0)
                 ");
             }
-            */
 		}else{				
 			echo "1";			
 		}
