@@ -91,6 +91,9 @@
         var hPartidasPendentes = $(".partidasPendentesUsuario").height() + 25;
         $(".partidasPendentesUsuario").css("top", "-"+hPartidasPendentes+"px");
         $(".partidasPendentesUsuario").css("margin-bottom", "-"+hPartidasPendentes+"px");
+        if(Notification.permission === "default"){
+            Notification.requestPermission();
+        }
     });
 </script>
 

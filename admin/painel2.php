@@ -213,6 +213,25 @@ desired effect
 <script src="adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="adminlte/dist/js/adminlte.min.js"></script>
+    <script>
+        $(function(){ 
+            if(Notification.permission === "default"){
+                Notification.requestPermission();
+            }else{
+                var img = "https://www.esportscups.com.br/img/logo.png";
+                var text = "Apenas teste de notificação, será que funciona?";
+                var notificacao = new Notification("Teste de Notificação", {
+                    body: text, icon: img
+                });
+
+                notificacao.onclick = function(){
+                    window.open("https://www.esportscups.com.br");
+                };
+
+                setTimeout(notificacao.close.bind(notificacao), 7000);
+            }
+        });
+    </script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

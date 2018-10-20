@@ -16,6 +16,24 @@
 				if($jogo != "" && $jogo != NULL){
 					mysqli_query($conexao, "UPDATE artigos SET cod_jogo = $jogo WHERE codigo = $id");
 				}
+                ?>
+                <script>
+                    $(function(){ 
+                        if(Notification.permission === "granted"){
+                            var img = "https://www.esportscups.com.br/img/logo.png";
+                            var text = "Novo post publicado na e-Sports Cups";
+                            var notificacao = new Notification("<?php echo $nome; ?>", {
+                                body: text, icon: img
+                            });
+
+                            notificacao.onclick = function(){
+                                window.open("https://www.esportscups.com.br/ptbr/artigo/<?php echo $id; ?>/");
+                            };
+                            setTimeout(notificacao.close.bind(notificacao), 5000);
+                        }
+                    });
+                </script>
+                <?php
 				header("Location: painel/artigos/");
 				break;
 			case "alterar":
@@ -54,5 +72,4 @@
 			mysqli_query($conexao, "UPDATE artigos SET thumb = '$novoNome' WHERE codigo = $id");
 		}
 	}
-
-	// 
+?>

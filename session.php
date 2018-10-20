@@ -4,11 +4,15 @@
 		@ob_start();
 		session_start();
 	}
+
     if(!isset($_COOKIE['modalNewsletter'])){        
         $exibirModal = true;
     }else{
         $exibirModal = false;
     }
+    
+
+
 	if(isset($_COOKIE['auth'])){
 		$autorizacao = mysqli_query($conexao, "SELECT * FROM login_autenticacao WHERE id = '".$_COOKIE['auth']."' ");		
 		if(mysqli_num_rows($autorizacao) != 0){

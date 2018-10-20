@@ -142,6 +142,27 @@
 		mysqli_query($conexao, "UPDATE organizacao SET saldo_real = saldo_real - $totalReal WHERE codigo = ".$organizacao['codigo']." ");
 	}
 
+    // NOTIFICAÇÃO PARA USUÁRIOS
+
+    ?>
+    <script>
+        $(function(){ 
+            if(Notification.permission === "granted"){
+                var img = "https://www.esportscups.com.br/img/logo.png";
+                var text = "Novo Torneio criado na e-Sports Cups";
+                var notificacao = new Notification("<?php echo $nome; ?>", {
+                    body: text, icon: img
+                });
+
+                notificacao.onclick = function(){
+                    window.open("https://www.esportscups.com.br/ptbr/campeonato/<?php echo $id; ?>/");
+                };
+                setTimeout(notificacao.close.bind(notificacao), 5000);
+            }
+        });
+    </script>
+    <?php
+
 	header("Location: ../../../../campeonato/".$id."/");
 
 	
