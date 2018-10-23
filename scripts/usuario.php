@@ -284,7 +284,7 @@
                 break;
             case "cookieModal":
                 $tempo = 7;
-                setcookie("modalNewsletter", "Ok", time()+3600*24*$tempo, "/", "www.esportscups.com.br", 1);
+                setcookie("modalRifas", "Ok", time()+3600*24*$tempo, "/", "www.esportscups.com.br", 1);
                 break;
             case "pesquisaHistoricoReal":
                 include "../session.php";

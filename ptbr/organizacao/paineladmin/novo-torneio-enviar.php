@@ -116,15 +116,15 @@
 
 	while($contador < 32){
 		if($_POST['coin'.$contador] > 0 && $_POST['real'.$contador] > 0){ // TEM PREMIAÇÃO EM COIN E EM REAL
-			mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), ".$_POST['coin'.$contador].", ".$_POST['real'.$contador].", NULL)");
+			@mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), ".$_POST['coin'.$contador].", ".$_POST['real'.$contador].", NULL)");
 			$totalCoin += $_POST['coin'.$contador];
 			$totalReal += $_POST['real'.$contador];
 		}else{
 			if($_POST['coin'.$contador] > 0){
-				mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), ".$_POST['coin'.$contador].", 0, NULL)");
+				@mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), ".$_POST['coin'.$contador].", 0, NULL)");
 				$totalCoin += $_POST['coin'.$contador];
 			}elseif($_POST['real'.$contador] > 0){
-				mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), 0, ".$_POST['real'.$contador].", NULL )");
+				@mysqli_query($conexao, "INSERT INTO campeonato_premiacao VALUES ($id, ($contador + 1), 0, ".$_POST['real'.$contador].", NULL )");
 				$totalReal += $_POST['real'.$contador];
 			}
 		}
@@ -146,23 +146,21 @@
 
     ?>
     <script>
-        $(function(){ 
-            if(Notification.permission === "granted"){
-                var img = "https://www.esportscups.com.br/img/logo.png";
-                var text = "Novo Torneio criado na e-Sports Cups";
-                var notificacao = new Notification("<?php echo $nome; ?>", {
-                    body: text, icon: img
-                });
+        if(Notification.permission === "granted"){
+            var img = "https://www.esportscups.com.br/img/logo.png";
+            var text = "Novo Torneio criado na e-Sports Cups";
+            var notificacao = new Notification("<?php echo $nome; ?>", {
+                body: text, icon: img
+            });
 
-                notificacao.onclick = function(){
-                    window.open("https://www.esportscups.com.br/ptbr/campeonato/<?php echo $id; ?>/");
-                };
-                setTimeout(notificacao.close.bind(notificacao), 5000);
-            }
-        });
+            notificacao.onclick = function(){
+                window.open("https://www.esportscups.com.br/ptbr/campeonato/<?php echo $id; ?>/");
+            };
+            setTimeout(notificacao.close.bind(notificacao), 5000);
+        }
     </script>
     <?php
 
-	header("Location: ../../../../campeonato/".$id."/");
+	// header("Location: ../../../../campeonato/".$id."/");
 
 	

@@ -10,11 +10,7 @@
 		return false;
 	}
 
-	if (isBrazil()) {
-	   header('Location: https://www.esportscups.com.br/ptbr/');
-	} else {
-	   header('Location: https://www.esportscups.com.br/ptbr/');
-	}
+	header('Location: https://www.esportscups.com.br/ptbr/');
 ?>
 
 <html>

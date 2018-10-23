@@ -1,5 +1,5 @@
 <?php
-	include "../conexao-banco.php";
+	include "conexao-banco.php";
 		
 	// TORNEIO 21H
 

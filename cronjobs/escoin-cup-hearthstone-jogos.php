@@ -1,5 +1,5 @@
 <?php
-	include "../conexao-banco.php";
+	include "conexao-banco.php";
 	$data = date("Y-m-d");
 
 	$campeonato = mysqli_query($conexao, "SELECT * FROM campeonato WHERE nome LIKE '%eSCoin Cup%' AND inicio LIKE '%$data%' AND cod_jogo = 369 AND status = 0 ORDER BY codigo LIMIT 1");

@@ -47,7 +47,7 @@
                 </script>
                 <h2 class="tituloLateral">Aumente seu <strong>Nível</strong></h2>
                 <div class="detalheTituloLateral"></div>
-                <a href="https://go.hotmart.com/H9153842R" target="_blank"><img src="<?php echo $img; ?>artigos/afiliado01.png" width="100%" class="mb-3"></a>
+                <a href="https://go.hotmart.com/K9462064L" target="_blank"><img src="<?php echo $img; ?>artigos/afiliado01.png" width="100%" class="mb-3"></a>
                 <a href="https://go.hotmart.com/W9080866G" target="_blank"><img src="<?php echo $img; ?>artigos/afiliado02.png" width="100%" class="mb-3"></a>
                 <a href="https://go.hotmart.com/J9530117U" target="_blank"><img src="<?php echo $img; ?>artigos/afiliado03.png" width="100%"></a>
                 <h2 class="tituloLateral">Nosso <strong>Facebook</strong></h2>

@@ -72,7 +72,6 @@ a:hover {
 .modalNewsletter .conteudo {
     width: 100%;
     float: left;
-    font-weight: bold;
 }
 .modalNewsletter .conteudo .bg {
     background: #000;
@@ -85,7 +84,6 @@ a:hover {
 }
 .modalNewsletter .conteudo .bg img {
     position: relative;
-    top: -100px;
 }
 .modalNewsletter .conteudo .formularioModal {
     padding: 30px;

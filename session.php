@@ -5,12 +5,23 @@
 		session_start();
 	}
 
+    /* MODAL NEWSLETTER
+
     if(!isset($_COOKIE['modalNewsletter'])){        
         $exibirModal = true;
     }else{
         $exibirModal = false;
-    }
+    }    
     
+    */
+
+    // MODAL RIFAS
+
+    if(!isset($_COOKIE['modalRifas'])){        
+        $exibirModal = true;
+    }else{
+        $exibirModal = false;
+    }   
 
 
 	if(isset($_COOKIE['auth'])){

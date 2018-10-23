@@ -15,7 +15,7 @@
                         if($campeonato['thumb'] != NULL){
                         ?>
                             <div class="col-4 col-md-3">
-                                <img src="img/<?php echo $campeonato['thumb']; ?>" width="100%">
+                                <img src="<?php echo $img.$campeonato['thumb']; ?>" width="100%" style="max-height:100%;">
                             </div>
                         <?php
                         }
@@ -92,7 +92,7 @@
                                     if($campeonato['precheckin'] > 0){
                                     ?>
                                         <button type="button" class="btn btn-azul btn-lg" role="button" disabled>
-                                            <strong>CHECK-IN</strong><br>
+                                            <strong>PRÉ CHECK-IN</strong><br>
                                             <?php echo date("d/m - H:i", strtotime("-".$campeonato['precheckin']."minutes", strtotime($campeonato['inicio']))); ?>
                                         </button>
                                     <?php	

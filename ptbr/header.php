@@ -114,7 +114,7 @@
         $(".modal").modal();
 	}   
 </script>
-<?php    	
+<?php  
     if(isset($usuario['codigo'])){
         $pesquisaNotificacoes = mysqli_query($conexao, "
             SELECT * FROM notificacao WHERE cod_jogador = ".$usuario['codigo']." AND status = 0

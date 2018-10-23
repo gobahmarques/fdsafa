@@ -18,20 +18,16 @@
 				}
                 ?>
                 <script>
-                    $(function(){ 
-                        if(Notification.permission === "granted"){
-                            var img = "https://www.esportscups.com.br/img/logo.png";
-                            var text = "Novo post publicado na e-Sports Cups";
-                            var notificacao = new Notification("<?php echo $nome; ?>", {
-                                body: text, icon: img
-                            });
-
-                            notificacao.onclick = function(){
-                                window.open("https://www.esportscups.com.br/ptbr/artigo/<?php echo $id; ?>/");
-                            };
-                            setTimeout(notificacao.close.bind(notificacao), 5000);
-                        }
+                    var img = "https://www.esportscups.com.br/img/logo.png";
+                    var text = "Novo post publicado na e-Sports Cups";
+                    var notificacao = new Notification("<?php echo $nome; ?>", {
+                        body: text, icon: img
                     });
+
+                    notificacao.onclick = function(){
+                        window.open("https://www.esportscups.com.br/ptbr/artigo/<?php echo $id; ?>/");
+                    };
+                    setTimeout(notificacao.close.bind(notificacao), 5000);
                 </script>
                 <?php
 				header("Location: painel/artigos/");
