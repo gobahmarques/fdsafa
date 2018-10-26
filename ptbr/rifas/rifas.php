@@ -36,8 +36,14 @@
     <body class="bodyRifa">
         <?php 
             include "../header.php";        
-            if(isset($_GET['codigo'])){
-                $rifa2 = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM rifa WHERE codigo = ".$_GET['codigo']." "));	
+            if(isset($_GET['codigo'])){     
+                $rifa2 = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM rifa WHERE codigo = ".$_GET['codigo']." "));
+                $countdown1 = date("M", strtotime($rifa2['data_sorteio']));
+                $countdown2 = date("j", strtotime($rifa2['data_sorteio']));
+                $countdown3 = date("Y", strtotime($rifa2['data_sorteio']));
+                $countdown4 = date("H", strtotime($rifa2['data_sorteio']));
+                $countdown5 = date("i", strtotime($rifa2['data_sorteio']));
+                $countdown6 = date("s", strtotime($rifa2['data_sorteio']));
                 $pesquisaCupons = mysqli_query($conexao, "
                     SELECT rifa_cupom.*, jogador.nick, jogador.foto_perfil FROM rifa_cupom
                     INNER JOIN jogador ON jogador.codigo = rifa_cupom.cod_jogador
@@ -252,6 +258,33 @@
                     }
                 ?>
             }
+            // Set the date we're counting down to
+            var countDownDate = new Date("<?php echo $countdown1." ".$countdown2.", ".$countdown3." ".$countdown4.":".$countdown5.":".$countdown6; ?>").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+                // Get todays date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in the element with id="demo"
+                $("#clock").html("<div class='row h4 mt-2'><div class='col-3'>" +days + "<br>dias </div><div class='col-3'> " + hours + "<br>horas </div><div class='col-3'>" + minutes + "<br>minutos </div><div class='col-3'>" + seconds + "<br>segundos </div></div> ");
+
+                // If the count down is finished, write some text 
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("clock").innerHTML = "EXPIRED";
+                }
+            }, 1000);
             $(function () {		  
                 <?php
                     if(isset($_GET['codigo'])){
