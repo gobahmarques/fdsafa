@@ -128,6 +128,23 @@ a:hover {
 	background: #00A3B2;
 	color: #fff;
 }
+.botaoDoacao a {
+    color: #000;
+}
+.botaoDoacao {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background: #00a3b2;
+    padding: 15px;
+    font-size: 30px;
+    border-radius: 50px;
+}
+.botaoDoacao a:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
 
 /* NOTIFICAÇÕES */
 

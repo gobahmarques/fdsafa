@@ -23,6 +23,9 @@
         </div>
     </div>
 </footer>
+<div class="botaoDoacao">
+    <a href="https://pag.ae/7UgtGRn4o" target="_blank"><i class="fas fa-dollar-sign"></i></a>
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <!-- Global site tag (gtag.js) - Google Analytics -->

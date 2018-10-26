@@ -193,7 +193,7 @@
                 });
                 */
                 
-                var taxa = valor*0.0500 + 0.4;
+                var taxa = valor*0.06 + 0.4;
                 var total = valor + taxa; 
                 
                 jQuery.ajax({

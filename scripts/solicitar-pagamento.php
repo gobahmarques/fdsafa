@@ -2,7 +2,7 @@
 	require("../session.php");
 
     $valor = $_POST['valor'];
-    $taxa = ($valor * 0.05) + 0.4;
+    $taxa = ($valor * 0.06) + 0.4;
     mysqli_query($conexao, "
         INSERT INTO jogador_pagamentos
         VALUES
