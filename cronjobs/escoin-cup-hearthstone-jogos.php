@@ -40,7 +40,7 @@
 
 		// DISTRIBUIR SEMENTES
 
-		include "../scripts/gerar-jogos.php";
+		include "scripts/gerar-jogos.php";
 		jogosElimSimples($numEtapa, $campeonato['codigo'], $vagas, 5, 0, $campeonato['inicio'], $conexao);
 		byesElimSimples($numEtapa, $campeonato['codigo'], $conexao);
 		distribuirSementesElimSimples($numEtapa, $campeonato['codigo'], $conexao);

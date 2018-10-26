@@ -1,21 +1,60 @@
 <?php
-	header("access-control-allow-origin: https://pagseguro.uol.com.br");
-	require_once("PagSeguro.class.php");
+    $notificationCode = preg_replace("/[^[:alnum:]-]/", "", $_POST['notificationCode']);
 
-	if(isset($_POST['notificationType']) && $_POST['notificationType'] == 'transaction'){
-		$PagSeguro = new PagSeguro();
-		$response = $PagSeguro->executeNotification($_POST);
-		if( $response->status==3 || $response->status==4 ){
-        	include "../conexao-banco.php";
-			$transacao = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM jogador_pagamentos WHERE codigo = '".$response->reference."'"));
-			if($transacao['status'] == 0){
-				mysqli_query($conexao, "UPDATE jogador SET saldo = saldo + ".$transacao['valor']." WHERE codigo = ".$transacao['cod_jogador']."");
-				mysqli_query($conexao, "INSERT INTO log_real VALUES (NULL, ".$transacao['cod_jogador'].", ".$transacao['valor'].", 'Saldo adicionado Carteira eSC', 1, '".date("Y-m-d H:i:s")."')");
-				mysqli_query($conexao, "UPDATE jogador_pagamentos SET status = 1, cod_transacao = '".$response->code."' WHERE codigo = ".$transacao['codigo']." ");
-			}			
-		}else{
-			//PAGAMENTO PENDENTE
-			echo $PagSeguro->getStatusText($PagSeguro->status);
-		}
-	}
+    $data['token'] ='BBE73746D35E431E858B704FB027E8F6';
+    $data['email'] = 'gobahmarques@live.com';
+
+    $url = 'https://ws.pagseguro.uol.com.br/v2/transactions/notifications/'.$notificationCode.'?'.$data;
+
+    $data = http_build_query($data);
+
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_URL, $url);
+    $xml= curl_exec($curl);
+    curl_close($curl);
+
+    $xml= simplexml_load_string($xml);
+
+    $reference = $xml->reference;
+    $status = $xml->status;
+
+    if($status && $reference){
+        include "../conexao-banco.php";
+        $transacao = mysqli_fetch_array(mysqli_query($conexao, "
+            SELECT * FROM jogador_pagamentos
+            WHERE codigo = $reference
+        "));
+        
+        switch($status){
+            case "3": // PAGAMENTO APROVADO
+                // 1 - ADICIONAR SALDO
+                // 2 - ATUALIZAR PAGAMENTO
+                
+                include "../scripts/usuario.php";
+                creditarSaldo($transacao['cod_jogador'], $transacao['valor'], 'Saldo Adicionado, Pedido '.$reference);
+                
+                mysqli_query($conexao, "
+                    UPDATE jogador_pagamentos
+                    SET status = 1
+                    WHERE codigo = $reference
+                ");
+                
+                break;
+            case "6": // PEDIDO CANCELADO E VALOR DEVOLVIDO A COMPRADOR
+                // 1 - RETIRAR SALDO DO JOGADOR
+                
+                include "../scripts/usuario.php";
+                debitarSaldo($transacao['cod_jogador'], $transacao['valor'], 'Pedido '.$reference.' contestado');                
+                
+                break;
+        }
+        
+        $pedido = mysqli_query($conexao, "
+            UPDATE jogador_pagamentos
+            SET cod_transacao = $xml->code
+            WHERE codigo = $reference
+        ");
+    }
+
 ?>

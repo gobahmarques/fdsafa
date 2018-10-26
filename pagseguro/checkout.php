@@ -21,7 +21,7 @@ $venda = array("codigo"=>"1",
 			   "cep"=>"XX.XXX-XXX",
 			   "codigo_pagseguro"=>"");
 			   
-$PagSeguro->executeCheckout($venda,"http://SEUSITE/pedido/".$_GET['codigo']);
+$PagSeguro->executeCheckout($venda,"https://www.esportscups/ptbr/");
 
 //----------------------------------------------------------------------------
 

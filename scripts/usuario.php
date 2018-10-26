@@ -55,6 +55,42 @@
         }
     }
 
+    if(!function_exists("creditarSaldo")){
+        function creditarSaldo($codJogador, $quantidade, $motivo){
+            global $conexao;
+
+            mysqli_query($conexao, "
+                INSERT INTO log_real
+                VALUES
+                (NULL, $codJogador, $quantidade, '$motivo', 1, '".date("Y-m-d H:i:s")."')
+            ");
+            mysqli_query($conexao, "
+                UPDATE jogador
+                SET saldo = saldo + $quantidade
+                WHERE codigo = $codJogador
+            ");
+        }
+    }
+
+    if(!function_exists("debitarSaldo")){
+        function debitarSaldo($codJogador, $quantidade, $motivo){
+            global $conexao;
+
+            mysqli_query($conexao, "
+                INSERT INTO log_real
+                VALUES
+                (NULL, $codJogador, $quantidade, '$motivo', 0, '".date("Y-m-d H:i:s")."')
+            ");
+            mysqli_query($conexao, "
+                UPDATE jogador
+                SET saldo = saldo - $quantidade
+                WHERE codigo = $codJogador
+            ");
+        }
+    }
+
+    
+
     if(isset($_POST['funcao'])){
         switch($_POST['funcao']){
             case "notificacoes":

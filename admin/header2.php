@@ -227,7 +227,7 @@
             <li><a href="painel/gameficacao/missoes/">Missões</a></li>
           </ul>
         </li>
-		<li><a href="#"><i class="fa fa-link"></i> <span>Sit&Go (em breve)</span></a></li>
+		<li><a href="painel/sitego/"><i class="fa fa-link"></i> <span>Sit&Go (em breve)</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Caixas</span>
             <span class="pull-right-container">

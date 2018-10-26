@@ -1,10 +1,8 @@
+<!DOCTYPE html>
 <?php
     include "../../enderecos.php";
     include "../../session.php";
-    
-    
 ?>
-<!doctype html>
 <html>
     <head>
         <!-- Required meta tags -->
@@ -40,6 +38,9 @@
             </ul>
             <div class="row-fluid">
                 <div class="resumoCarteira">
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;" id="pagseguro">
+                        <input type="hidden" name="code" id="code" value="">
+                    </form>
                     <h1>Adicionar saldo à sua Carteira eSC</h1>
                     O saldo de sua Carteira eSC poderá ser utilizado na compra de chaves para caixas e inscrições em campeonatos pagos (por enquanto). <br><br>
                     Você ainda terá a oportunidade de revisar o seu pedido antes que ele seja finalizado. <br><br>
@@ -50,7 +51,7 @@
                                     <h3>Adicionar R$ 5</h3>
                                     <div class="caixaBotao acoes">
                                         R$ 5,00
-                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(5);">ADICIONAR SALDO</button>
+                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(5, <?php echo $usuario['codigo']; ?>);">ADICIONAR SALDO</button>
                                     </div>
                                     <div class="caixaBotao aviso" >
                                         <input type="button" class="btn btn-azul" value="Cadastrar Endereço" onClick="novoEndereco();">
@@ -62,7 +63,7 @@
                                     <h3>Adicionar R$ 10</h3>
                                     <div class="caixaBotao acoes">
                                         R$ 10,00
-                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(10);">ADICIONAR SALDO</button>
+                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(10, <?php echo $usuario['codigo']; ?>);">ADICIONAR SALDO</button>
                                     </div>
                                     <div class="caixaBotao aviso" style="display=none;">
                                         <input type="button" class="btn btn-azul" value="Cadastrar Endereço" onClick="novoEndereco();">
@@ -74,7 +75,7 @@
                                     <h3>Adicionar R$ 25</h3>
                                     <div class="caixaBotao acoes">
                                         R$ 25,00
-                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(25);">ADICIONAR SALDO</button>
+                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(25, <?php echo $usuario['codigo']; ?>);">ADICIONAR SALDO</button>
                                     </div>
                                     <div class="caixaBotao aviso" style="display=none;">
                                         <input type="button" class="btn btn-azul" value="Cadastrar Endereço" onClick="novoEndereco();">
@@ -86,7 +87,7 @@
                                     <h3>Adicionar R$ 50</h3>
                                     <div class="caixaBotao acoes">
                                         R$ 50,00
-                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(50);">ADICIONAR SALDO</button>
+                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(50, <?php echo $usuario['codigo']; ?>);">ADICIONAR SALDO</button>
                                     </div>
                                     <div class="caixaBotao aviso" style="display=none;">
                                         <input type="button" class="btn btn-azul" value="Cadastrar Endereço" onClick="novoEndereco();">
@@ -98,7 +99,7 @@
                                     <h3>Adicionar R$ 100</h3>
                                     <div class="caixaBotao acoes">
                                         R$ 100,00
-                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(100);">ADICIONAR SALDO</button>
+                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(100, <?php echo $usuario['codigo']; ?>);">ADICIONAR SALDO</button>
                                     </div>
                                     <div class="caixaBotao aviso" style="display=none;">
                                         <input type="button" class="btn btn-azul" value="Cadastrar Endereço" onClick="novoEndereco();">
@@ -110,7 +111,7 @@
                                     <h3>Adicionar R$ 150</h3>
                                     <div class="caixaBotao acoes">
                                         R$ 150,00
-                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(150);">ADICIONAR SALDO</button>
+                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(150, <?php echo $usuario['codigo']; ?>);">ADICIONAR SALDO</button>
                                     </div>
                                     <div class="caixaBotao aviso" style="display=none;">
                                         <input type="button" class="btn btn-azul" value="Cadastrar Endereço" onClick="novoEndereco();">
@@ -122,7 +123,7 @@
                                     <h3>Adicionar R$ 200</h3>
                                     <div class="caixaBotao acoes">
                                         R$ 200,00
-                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(200);">ADICIONAR SALDO</button>
+                                        <button type="button" class="btn-laranja btn" onClick="solicitarPagamento(200, <?php echo $usuario['codigo']; ?>);">ADICIONAR SALDO</button>
                                     </div>
                                     <div class="caixaBotao aviso" style="display=none;">
                                         <input type="button" class="btn btn-azul" value="Cadastrar Endereço" onClick="novoEndereco();">
@@ -137,8 +138,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
+                </div>                
             </div>
         </div>
         
@@ -150,6 +150,13 @@
         <script src="<?php echo $js; ?>bootstrap.js"></script>
         <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
         <script>
+            
+            function enviaPagseguro(){
+                $.post('pagseguro/pagseguro/pagseguro.php','',function(data){
+                    $('#code').val(data);
+                    $('#comprar').submit();
+                })
+            }
             function novoEnderecoEnviar(){
                 $("#cadastroEndereco").submit();
             }
@@ -161,7 +168,8 @@
                 $(".modal").modal();
                 setTimeout(function(){ $("#codProduto").val(produto); }, 1000);
             }
-            function solicitarPagamento(valor){
+            function solicitarPagamento(valor, jogador){
+                /*
                 jQuery.ajax({
                     type: "POST",
                     url: "scripts/solicitar-pagamento.php",
@@ -183,6 +191,23 @@
                         });
                     }
                 });
+                */
+                
+                var taxa = valor*0.0500 + 0.4;
+                var total = valor + taxa; 
+                
+                jQuery.ajax({
+                    type: "POST",
+                    url: "scripts/solicitar-pagamento.php",
+                    data: "jogador="+jogador+"&valor="+valor,
+                    success: function(data){
+                        total = total.toFixed(2);
+                        $.post("pagseguro/pagseguro/pagseguro.php", {codPagamento: data, totalPedido: total, emailUsuario: "<?php echo $usuario['email']; ?>"}, function(data){
+                            $("#code").val(data);
+                            $("#pagseguro").submit();
+                        });
+                    }
+                });                        
             }
             
             $(function(){  
