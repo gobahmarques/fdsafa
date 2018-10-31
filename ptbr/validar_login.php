@@ -5,7 +5,7 @@
 	$senha = sha1($_POST['senha']);
 
 	$pesquisa = mysqli_query($conexao, "
-		SELECT * FROM jogador WHERE email = '$email' AND senha = '$senha'
+		SELECT * FROM jogador WHERE email = '$email' AND senha = '$senha' AND status = 1
 	");
 
 	if(mysqli_num_rows($pesquisa) > 0){

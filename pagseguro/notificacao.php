@@ -2,11 +2,11 @@
     $notificationCode = preg_replace("/[^[:alnum:]-]/", "", $_POST['notificationCode']);
 
     $data['token'] ='BBE73746D35E431E858B704FB027E8F6';
-    $data['email'] = 'gobahmarques@live.com';
-
-    $url = 'https://ws.pagseguro.uol.com.br/v2/transactions/notifications/'.$notificationCode.'?'.$data;
+    $data['email'] = 'gobahmarques@live.com';   
 
     $data = http_build_query($data);
+
+    $url = 'https://ws.pagseguro.uol.com.br/v2/transactions/notifications/'.$notificationCode.'?'.$data;
 
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -25,6 +25,8 @@
             SELECT * FROM jogador_pagamentos
             WHERE codigo = $reference
         "));
+        
+        echo $xml->code;
         
         switch($status){
             case "3": // PAGAMENTO APROVADO
@@ -52,7 +54,7 @@
         
         $pedido = mysqli_query($conexao, "
             UPDATE jogador_pagamentos
-            SET cod_transacao = $xml->code
+            SET cod_transacao = '$xml->code'
             WHERE codigo = $reference
         ");
     }

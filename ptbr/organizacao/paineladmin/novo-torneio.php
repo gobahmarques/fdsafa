@@ -135,7 +135,7 @@
                                                 <input type="date" placeholder="Inicio das Inscrições (dd/mm/aaaa H:m:s)" name="inicioInscData" class="datahora form-control" id="inicioInsc" required>
                                             </div>
                                             <div class="col-md-5">
-                                                <input type="time" placeholder="Fim das Inscrições (dd/mm/aaaa H:m:s)" name="inicioInscHora" class="datahora form-control" id="fimInsc" required>
+                                                <input type="time" placeholder="" name="inicioInscHora" class="datahora form-control" id="fimInsc" required>
                                             </div>
                                         </div>
 
@@ -147,7 +147,7 @@
                                                 <input type="date" placeholder="Fim das Inscrições (dd/mm/aaaa H:m:s)" name="fimInscData" class="datahora form-control" id="fimInsc" required>
                                             </div>
                                             <div class="col-md-5">
-                                                <input type="time" placeholder="Fim das Inscrições (dd/mm/aaaa H:m:s)" name="fimInscHora" class="datahora form-control" id="fimInsc" required>
+                                                <input type="time" placeholder="" name="fimInscHora" class="datahora form-control" id="fimInsc" required>
                                             </div>
                                         </div>							
                                     </div>
@@ -159,7 +159,7 @@
                                                 <input type="date" placeholder="Inicio (dd/mm/aaaa H:m:s)" name="inicioData" class="datahora form-control" id="inicioTorneio" required>
                                             </div>
                                             <div class="col-md-5">
-                                                <input type="time" placeholder="Fim das Inscrições (dd/mm/aaaa H:m:s)" name="inicioHora" class="datahora form-control" id="fimInsc" required>
+                                                <input type="time" placeholder="" name="inicioHora" class="datahora form-control" id="fimInsc" required>
                                             </div>
                                         </div>							
                                     </div>
@@ -171,7 +171,7 @@
                                                 <input type="date" placeholder="Fim (dd/mm/aaaa H:m:s)" name="fimData" class="datahora form-control" id="fimTorneio" required>
                                             </div>
                                             <div class="col-md-5">
-                                                <input type="time" placeholder="Fim das Inscrições (dd/mm/aaaa H:m:s)" name="fimHora" class="datahora form-control" id="fimTorneio" required>
+                                                <input type="time" placeholder="" name="fimHora" class="datahora form-control" id="fimTorneio" required>
                                             </div>
                                         </div>							
                                     </div>

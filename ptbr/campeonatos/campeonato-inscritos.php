@@ -46,7 +46,7 @@
                         $inscrito = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM jogador WHERE codigo = ".$inscricao['cod_jogador'].""));
                         $lvlInscrito = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM gm_jogador_level WHERE cod_jogador = ".$inscricao['cod_jogador'].""));
                     ?>
-                        <div class="col-12 col-md-3">
+                        <div class="col-6 col-md-3">
                             <div class="row-fluid inscrito no-gutters" onClick="abrirInscricao(<?php echo $inscricao['cod_campeonato']; ?>, <?php echo $inscricao['cod_jogador']; ?>);">
                                 <div class="col-4 col-md-4 float-left">
                                     <img src="http://www.esportscups.com.br/img/<?php echo $inscrito['foto_perfil'];  ?>" alt="">
@@ -76,10 +76,10 @@
                     $pesquisaInscricoes = mysqli_query($conexao, "SELECT * FROM campeonato_inscricao WHERE cod_campeonato = ".$campeonato['codigo']." AND cod_equipe is null AND status = 0 ORDER BY conta ASC");
                     while($inscricao = mysqli_fetch_array($pesquisaInscricoes)){ // LOOP PARA MOSTRAR TODAS AS INSCRIÇÕES
                         $inscrito = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM jogador WHERE codigo = ".$inscricao['cod_jogador'].""));
-                        $lvlInscrito = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM gm_jogador_level WHERE cod_jogador = ".$inscricao['cod_jogador']." AND cod_jogo = ".$jogo['codigo']." "));
+                        $lvlInscrito = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM gm_jogador_level WHERE cod_jogador = ".$inscricao['cod_jogador'].""));
                     ?>
                         <div class="col-6 col-md-3">
-                            <div class="row-fluid inscrito no-gutters">
+                            <div class="row-fluid inscrito no-gutters" onClick="abrirInscricao(<?php echo $inscricao['cod_campeonato']; ?>, <?php echo $inscricao['cod_jogador']; ?>);">
                                 <div class="col-4 col-md-4 float-left">
                                     <img src="http://www.esportscups.com.br/img/<?php echo $inscrito['foto_perfil'];  ?>" alt="">
                                 </div>

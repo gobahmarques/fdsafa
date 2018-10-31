@@ -186,7 +186,7 @@
         <div class="container">
             <a href="ptbr/jogar/campeonatos/"><li class="campeonatos">Campeonatos</li></a>
             <a href="ptbr/jogar/lobbys/"><li class="lobbys">Lobbys</li></a>
-            <a href="ptbr/jogar/lobbys/"><li class="lobbys">Sit&Go</li></a>
+            <!-- <a href="ptbr/jogar/lobbys/"><li class="lobbys">Sit&Go</li></a> -->
         </div>        
     </ul>
     <nav class="navbar navbar-expand-lg navbar-dark bg-cinza">

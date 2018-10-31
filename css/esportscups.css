@@ -128,9 +128,9 @@ a:hover {
 	background: #00A3B2;
 	color: #fff;
 }
-.botaoDoacao a {
-    color: #000;
-}
+
+/* BOTÃO DE DOAÇÃO */
+
 .botaoDoacao {
     position: fixed;
     right: 30px;
@@ -140,7 +140,10 @@ a:hover {
     font-size: 30px;
     border-radius: 50px;
 }
-.botaoDoacao a:hover {
+.botaoDoacao a {
+    color: #000;
+}
+.botaoDoacao a:hover, .botaoDoacao:hover {
     color: #fff;
     cursor: pointer;
 }

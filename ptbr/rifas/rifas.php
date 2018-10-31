@@ -128,7 +128,9 @@
                                         </div>
                                     </div>
                                     <br><br>
-                                    <div class="clock clockrifa col-md-12" id="clock" style="background: none;"></div>
+                                    <div class="col-12">
+                                        <div class="clock clockrifa col-md-12" id="clock" style="background: none;"></div>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>

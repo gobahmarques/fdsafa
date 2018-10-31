@@ -47,7 +47,7 @@
                     <h2>A compra do seu cupom foi realizada com sucesso.</h2>
                     Suas chances estão mais altas para ganhar o <?php echo $rifa['nome_produto']; ?>. O sorteio será realizado <?php echo date("d/m/Y - H:i", strtotime($rifa['data_sorteio'])); ?>
                     através da nossa página no facebook.<br><br>
-                    <a href="ptbr/rifas/" target="_blank"><input type="button" value="RESERVAR MAIS CUPONS" class="btn btn-success"></a>
+                    <a href="ptbr/rifas/?codigo=<?php echo $rifa['codigo']; ?>"><input type="button" value="RESERVAR MAIS CUPONS" class="btn btn-success"></a>
                 </div>
             </div>        
         </div>
