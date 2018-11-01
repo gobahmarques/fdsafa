@@ -53,6 +53,17 @@
                 ");
                 
                 break;
+            case "ativarRifa":
+                $codrifa = $_POST['codrifa'];
+                $status = $_POST['status'];
+                
+                mysqli_query($conexao, "
+                    UPDATE rifa
+                    SET status = $status
+                    WHERE codigo = $codrifa
+                ");
+                
+                break;
         }    
     }    
 ?>

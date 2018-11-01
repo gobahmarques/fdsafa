@@ -76,6 +76,7 @@ desired effect
                     <th>Min / Max</th>
                     <th>Cupons Vendidos</th>
 					<th>Data Sorteio</th>
+                    <th>Status</th>
                     <th class="text-right">Ações</th>
                   </tr>
                   </thead>
@@ -118,6 +119,21 @@ desired effect
 										</div>
 									</td>
 									<td><?php echo date("d/m/Y H:i", strtotime($rifa['data_sorteio'])); ?></td>
+                                    <td>
+                                    <?php
+                                        switch($rifa['status']){
+                                            case 0:
+                                                echo "Desativada";
+                                                break;
+                                            case 1:
+                                                echo "Ativa";
+                                                break;
+                                            case 2:
+                                                echo "Cancelada";
+                                                break;
+                                        }
+                                    ?>
+                                    </td>
                                     <td class="text-right">
                                         <a href="painel/rifa/<?php echo $rifa['codigo']; ?>/"><button type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button></a>
                                     </td>

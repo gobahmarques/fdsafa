@@ -1,6 +1,6 @@
 <?php
    function verificarPlacar($codSemente, $codPartida){
-      include "../../../conexao-banco.php";
+      global $conexao;
       $pesquisaPlacar = mysqli_query($conexao, "SELECT * FROM campeonato_partida_resultado WHERE cod_partida = $codPartida && cod_semente = $codSemente");
       if(mysqli_num_rows($pesquisaPlacar) == 0){ // JOGADOR AINDA NÃO LANÇOU PLACAR
          return 0;

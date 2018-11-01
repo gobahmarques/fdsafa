@@ -122,14 +122,44 @@
                                             <span class="progress-number"><?php echo $totalCupons." / ".$rifa2['min_cupom']." / ".$rifa2['max_cupom']; ?></span>
                                             <div class="progress sm">
                                                 <div class="progress-bar bg-laranja" role="progressbar" style="width: <?php echo ($totalCupons/$rifa2['max_cupom'])*100; ?>%;" aria-valuenow="<?php echo $totalCupons; ?>"><?php echo $totalCupons; ?></div>
-
-                                                <div class="progress-bar bg-dark" role="progressbar" style="width: <?php echo (($rifa2['min_cupom']/$rifa2['max_cupom'])*100)-(($totalCupons/$rifa2['max_cupom'])*100); ?>%;" aria-valuenow="<?php echo $totalCupons; ?>">Mínimo Cupons</div>
+                                                
+                                                <?php
+                                                    if($totalCupons < $rifa2['min_cupom']){
+                                                    ?>
+                                                        <div class="progress-bar bg-dark" role="progressbar" style="width: <?php echo (($rifa2['min_cupom']/$rifa2['max_cupom'])*100)-(($totalCupons/$rifa2['max_cupom'])*100); ?>%;" aria-valuenow="<?php echo $totalCupons; ?>">Mínimo Cupons</div>
+                                                    <?php
+                                                    }
+                                                ?>                                                
                                             </div>
                                         </div>
                                     </div>
                                     <br><br>
                                     <div class="col-12">
-                                        <div class="clock clockrifa col-md-12" id="clock" style="background: none;"></div>
+                                        <?php
+                                            if(date("Y-m-d H:i:s") > $rifa2['data_sorteio'] || $rifa2['status'] == 0){ // JA PASSOU DA DATA DO SORTEIO
+                                            ?>
+                                                <div class="clock clockrifa h3 mt-3">
+                                                <?php
+                                                    switch($rifa2['status']){
+                                                        case 0:
+                                                            echo "Rifa Desativada";
+                                                            break;
+                                                        case 1:
+                                                            echo "Rifa Finalizada";
+                                                            break;
+                                                        case 2:
+                                                            echo "Rifa Cancelada";
+                                                            break;
+                                                    }   
+                                                ?>
+                                                </div>
+                                            <?php
+                                            }else{ // AINDA ESTÁ NO PRAZO DO SORTEIO
+                                            ?>
+                                                <div class="clock clockrifa" id="clock"></div>
+                                            <?php
+                                            }
+                                        ?>                                        
                                     </div>                                    
                                 </div>
                             </div>
@@ -138,7 +168,7 @@
                         <div class="row">
                             <div class="col-md-12">
                             <?php
-                                if($rifa2['status'] == 1 && date('Y-m-d H:i:s') < strtotime($rifa2['data_sorteio'])){
+                                if($rifa2['status'] == 1){
                                     $contador = 1;
                                     while($contador <= $rifa2['max_cupom']){
                                     ?>
@@ -148,8 +178,7 @@
                                     <?php
                                         $contador++;
                                     }   
-                                }
-                                
+                                }                                
                             ?>
                             </div>
                         </div>
@@ -210,7 +239,44 @@
                     echo "<h2>Nenhuma rifa disponível!</h2>";
                 }
             ?>
-            </div>        
+            </div>     
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <div class="h2">
+                        Rifas Anteriores
+                    </div>
+                </div>
+                <?php
+                    $rifasAntigas = mysqli_query($conexao, "SELECT * FROM rifa WHERE data_sorteio <= '".date("Y-m-d H:i:s")."' LIMIT 12");
+                    while($rifaAntiga = mysqli_fetch_array($rifasAntigas)){
+                    $totalCupons = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM rifa_cupom WHERE cod_rifa = ".$rifaAntiga['codigo'].""));
+                        $totalCupons = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM rifa_cupom WHERE cod_rifa = ".$rifaAntiga['codigo'].""));
+                        $porcentagem = ($totalCupons * 100) / $rifaAntiga['max_cupom'];
+                        if($totalCupons >= $rifaAntiga['min_cupom']){
+                            if($rifaAntiga['link_sorteio'] == NULL){
+                                $cor = "secondary";
+                            }else{
+                                $cor = "success";  
+                            }                            
+                        }else{
+                            $cor = "danger";
+                        }
+                    ?>
+                        <div class="col-6 col-md-2 centralizar rifa">
+                            <div style="border:solid 1px #ccc; padding: 15px; background: #fff;" class="border-<?php echo $cor; ?>">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img src="img/rifas/<?php echo $rifaAntiga['codigo']."/".$rifaAntiga['foto_produto']; ?>" alt="" width="100%">
+                                    </div>                                 
+                                </div>
+                                <br>
+                                <a href="ptbr/rifas/?codigo=<?php echo $rifaAntiga['codigo']; ?>"><input type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Preços" value="VISUALIZAR" style="width: 100%;"></a>	
+                            </div>                          	
+                        </div>
+                    <?php
+                    }
+                ?>
+            </div>
         </div>
     
         <?php include "../footer.php"; ?>
@@ -236,27 +302,50 @@
                 });
             }
             function selecionarCupom(numCupom){
-                $(".modal-title").html("<h3><?php echo $rifa['nome']; ?></h3>");
-                $(".modal-body").html("É necessário que você realize o login para que possa comprar seus cupons.");
-                $(".modal-footer").html("<input type='button' value='Realizar Login' class='btn btn-warning' onClick='abrirLogin();'>");
                 <?php
-                    if(isset($usuario['codigo'])){
+                    if(date("Y-m-d H:i:s") > $rifa2['data_sorteio']){
+                    ?>
+                        $(".modal-title").html("<h3>Rifa Finalizada</h3>");
+                        $(".modal-body").html("Esta Rifa foi finalizada dia <?php echo date("d/m/Y H:i", strtotime($rifa2['data_sorteio'])); 
+                                                if($rifa2['link_sorteio'] != NULL){
+                                                    echo "<br>O Resultado do Sorteio esta disponível no -> <a href='".$rifa2['link_sorteio']."' target='_blank'>LINK</a> <-";
+                                                }                        
+                                                if($rifa2['link_transmissao'] != NULL){
+                                                    echo "<br>A transmissão ao vivo do sorteio esta disponível aqui neste -> <a href='".$rifa2['link_transmissao']."' target='_blank'>LINK</a> <-";
+                                                }
+                                              ?>");
+                    <?php
+                    }else{
                     ?>
                         $(".modal-title").html("<h3><?php echo $rifa2['nome']; ?></h3>");
-                        $(".modal-body").html("Você está preste a comprar o <strong>CUPOM "+numCupom+"</strong>, selecione o tipo de pagamento para confirmar esta transação.<br><br>Seu cupom só será reembolsável, e 100%, somente quando o número mínimo de cupons não forem atingidos até a data e hora do sorteio, caso contrário, você não poderá a nenhum momento desistir do seu investimento.");
-                        $(".modal-footer").html("");
+                        $(".modal-body").html("É necessário que você realize o login para que possa comprar seus cupons.");
+                        $(".modal-footer").html("<input type='button' value='Realizar Login' class='btn btn-warning' onClick='abrirLogin();'>");
                     <?php
-                        if($rifa2['preco_coin'] > 0){
+                    }
+                ?>                 
+                <?php
+                    if(isset($usuario['codigo'])){
+                        if(date("Y-m-d H:i:s")  < strtotime($rifa2['data_sorteio']) && $rifa2['link_sorteio'] == NULL){
                         ?>
-                            $(".modal-footer").append("<button type='button' class='btn btn-warning' onClick='comprarCupom("+numCupom+", <?php echo $rifa2['codigo']; ?>, <?php echo $usuario['codigo']; ?>, 0);'>e$ <?php echo number_format($rifa2['preco_coin'], 0, '', '.') ?></button>");
+                            $(".modal-title").html("<h3><?php echo $rifa2['nome']; ?></h3>");
+                            $(".modal-body").html("Você está preste a comprar o <strong>CUPOM "+numCupom+"</strong>, selecione o tipo de pagamento para confirmar esta transação.<br><br>Seu cupom só será reembolsável, e 100%, somente quando o número mínimo de cupons não forem atingidos até a data e hora do sorteio, caso contrário, você não poderá a nenhum momento desistir do seu investimento.");
+                            $(".modal-footer").html("");
                         <?php
-                        }
+                        
+                            if($rifa2['preco_coin'] > 0){
+                            ?>
+                                $(".modal-footer").append("<button type='button' class='btn btn-warning' onClick='comprarCupom("+numCupom+", <?php echo $rifa2['codigo']; ?>, <?php echo $usuario['codigo']; ?>, 0);'>e$ <?php echo number_format($rifa2['preco_coin'], 0, '', '.') ?></button>");
+                            <?php
+                            }
 
-                        if($rifa2['preco_real'] > 0){
-                        ?>
-                            $(".modal-footer").append("<button type='button' class='btn btn-success' onClick='comprarCupom("+numCupom+", <?php echo $rifa2['codigo']; ?>, <?php echo $usuario['codigo']; ?>, 1);'>CUPOM <strong>R$ <?php echo number_format($rifa2['preco_real'], 2, ',', '.') ?></strong></button>");
-                        <?php
-                        }
+                            if($rifa2['preco_real'] > 0){
+                            ?>
+                                $(".modal-footer").append("<button type='button' class='btn btn-success' onClick='comprarCupom("+numCupom+", <?php echo $rifa2['codigo']; ?>, <?php echo $usuario['codigo']; ?>, 1);'>CUPOM <strong>R$ <?php echo number_format($rifa2['preco_real'], 2, ',', '.') ?></strong></button>");
+                            <?php
+                            }    
+                        }else{
+                            
+                        }                           
                     }
                 ?>
             }
@@ -291,16 +380,30 @@
                 <?php
                     if(isset($_GET['codigo'])){
                         while($cupom = mysqli_fetch_array($pesquisaCupons)){
-                        ?>
-                            $(".cupom<?php echo $cupom['codigo']; ?>").html("<?php echo $cupom['codigo']; ?>");
-                            $(".cupom<?php echo $cupom['codigo']; ?>").css("background", "url('img/<?php echo $cupom['foto_perfil']; ?>')");
-                            $(".cupom<?php echo $cupom['codigo']; ?>").css("border", "none");
-                            $(".cupom<?php echo $cupom['codigo']; ?>").css("line-height", "50px");
-                            $(".cupom<?php echo $cupom['codigo']; ?>").removeAttr("data-toggle");
-                            $(".cupom<?php echo $cupom['codigo']; ?>").removeAttr("data-placemente");
-                            $(".cupom<?php echo $cupom['codigo']; ?>").attr("title", "<?php echo $cupom['nick']; ?>");
-                            $(".cupom<?php echo $cupom['codigo']; ?>").css("background-size", "100% 100%");
-                        <?php
+                            if($cupom['status'] == 1){
+                            ?>
+                                $(".cupom<?php echo $cupom['codigo']; ?>").html("<?php echo $cupom['codigo']; ?>");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").css("background", "url('img/<?php echo $cupom['foto_perfil']; ?>')");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").css("border", "solid 5px #f60");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").css("padding", "45px");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").css("line-height", "0px");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").removeAttr("data-toggle");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").removeAttr("data-placemente");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").attr("title", "<?php echo $cupom['nick']; ?>");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").css("background-size", "100% 100%");    
+                            <?php
+                            }else{
+                            ?>
+                                $(".cupom<?php echo $cupom['codigo']; ?>").html("<?php echo $cupom['codigo']; ?>");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").css("background", "url('img/<?php echo $cupom['foto_perfil']; ?>')");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").css("border", "none");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").css("line-height", "50px");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").removeAttr("data-toggle");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").removeAttr("data-placemente");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").attr("title", "<?php echo $cupom['nick']; ?>");
+                                $(".cupom<?php echo $cupom['codigo']; ?>").css("background-size", "100% 100%");       
+                            <?php    
+                            }
                         }
                         ?>
                         $('[data-toggle="tooltip"]').tooltip();

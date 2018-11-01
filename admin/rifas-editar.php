@@ -72,7 +72,8 @@ desired effect
             <!-- /.box-header -->
             <!-- form start -->
             <form action="rifas-nova-enviar.php" method="post" enctype="multipart/form-data">
-				<input type="hidden" value="criar" name="funcao">
+				<input type="hidden" value="alterar" name="funcao">
+                <input type="hidden" value="<?php echo $rifa['codigo']; ?>" name="codrifa">
               <div class="box-body">
                 <div class="form-group col-md-6">
                   <label for="exampleInputEmail1">Nome de Rifa *</label>
@@ -154,9 +155,31 @@ desired effect
                   
                   <div class="col-md-12">
 				  	<div class="box-footer text-right">
-						<button type="submit" class="btn btn-primary"><i class="far fa-check-circle"></i> Atualizar Dados</button>
-                        <button type="button" class="btn btn-danger" onclick="cancelarRifa(<?php echo $rifa['codigo']; ?>);"><i class="fas fa-times"></i> Cancelar Rifa</button>
-                        <button type="button" class="btn btn-success" onclick="realizarSorteio(<?php echo $rifa['codigo']; ?>);"><i class="fas fa-ticket-alt"></i> Realizar Sorteio</button>
+                    <?php
+                        switch($rifa['status']){
+                            case 0: // Rifa desativada
+                                ?>
+                                    <button type="button" class="btn btn-success" onclick="mudarStatus(<?php echo $rifa['codigo']; ?>, 1);"><i class="far fa-check-circle"></i> Ativar</button>
+                                <?php
+                                break;
+                            case 1: // Rifa Ativa
+                                ?>
+                                    
+                                    <button type="submit" class="btn btn-primary"><i class="far fa-check-circle"></i> Atualizar Dados</button>
+                                    <button type="button" class="btn btn-danger" onclick="mudarStatus(<?php echo $rifa['codigo']; ?>, 0);">Desativar</button>
+                                    <button type="button" class="btn btn-danger" onclick="cancelarRifa(<?php echo $rifa['codigo']; ?>);"><i class="fas fa-times"></i> Cancelar Rifa</button> 
+                                <?php
+                                    if($rifa['link_sorteio'] == NULL){
+                                    ?>
+                                        <button type="button" class="btn btn-success" onclick="realizarSorteio(<?php echo $rifa['codigo']; ?>);"><i class="fas fa-ticket-alt"></i> Registrar Sorteio</button>
+                                    <?php
+                                    }
+                                break;
+                        }  
+                    ?>
+						
+                        
+                        
 					  </div>
 				  </div>
 				  
@@ -267,7 +290,7 @@ desired effect
 	<script src="js/ckeditor/ckeditor.js"></script>
 <script>
     function cancelarRifa(codRifa){
-        var confirmacao = confirm("O valor investido nos tickets será retornado para a conta dos jogadores e a Rifa será desativada. Deseja realmente cancelar esta Rifa? ");
+        var confirmacao = confirm("O valor investido nos tickets será retornado para a conta dos jogadores e a Rifa será desativada. Deseja realmente cancelar esta Rifa? Esta ação não possui retorno.");
         if(confirmacao == true){
            $.ajax({
                 type: "POST",
@@ -280,13 +303,22 @@ desired effect
             });  
         }
     }
-	$(function () {
-		// Replace the <textarea id="editor1"> with a CKEditor
-		// instance, using default configuration.
-		CKEDITOR.replace('editor1')
-		//bootstrap WYSIHTML5 - text editor
-		$('.textarea').wysihtml5()
-	  })
+    function mudarStatus(codRifa, status){
+       $.ajax({
+            type: "POST",
+            url: "scripts/rifas.php",
+            data: "funcao=ativarRifa&codrifa="+codRifa+"&status="+status,
+            success: function(resultado){
+                window.location.reload();
+            }
+        }); 
+    }
+    function realizarSorteio(codRifa){
+        $(".modal-title").html("<h3>Registrar Sorteio</h3>");
+        $(".modal-body").html("<form method='post' action='rifas-enviar-sorteio.php'><input type='hidden' name='codRifa' value='"+codRifa+"'>Link do Resultado:<br><input type='text' class='form-control' name='linkSorteio' placeholder='Link do Sorteador.com.br'><br>Link da Transmissão:<br> <input type='text' class='form-control' name='linkTransmissao' placeholder='Link da Transmissão'> <br>Cupom Sorteado:<br><input type='number' class='form-control' name='cupomSorteado' value='0'><br> <input type='submit' class='btn btn-success' value='Enviar'></form>");
+        $(".modal-footer").html("");
+        $(".modal").modal();
+    }
 </script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.

@@ -17,7 +17,7 @@
 	do{
 		$id = rand(000000,999999);	
 		$consulta = mysqli_query($conexao, "SELECT * FROM jogador WHERE codigo = $id");
-	}while(mysqli_num_rows($consulta) != 0);
+	}while(mysqli_num_rows($consulta) > 0);
 	$foto = "usuarios/padrao.jpg";
 
 	$inserir = mysqli_query($conexao, "INSERT INTO jogador (codigo, nome, sobrenome, nick, email, senha, cadastro, status, foto_perfil, data_nascimento, sexo) VALUES ('$id', '$nome', '$sobrenome', '$nick', '$email', '$senha', '$datahora', '1', '$foto', '$dataNascimento', '".$_SESSION['sexo']."')");
@@ -73,6 +73,6 @@
 		<h2>CADASTRO EFETUADO COM SUCESSO!</h2>
 		Faça já o seu login e inscreva-se em um de nosso torneios!
 	<?php
-		// header("Location: ../ptbr/");
+		header("Location: ../ptbr/");
 	}
 ?>

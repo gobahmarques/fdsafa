@@ -7,14 +7,26 @@
 	if(isset($_POST['funcao'])){
 		switch($_POST['funcao']){
 			case "criar":
-				mysqli_query($conexao, "INSERT INTO rifa VALUES (NULL, '".$_POST['nome']."', ".$_POST['minCupons'].", ".$_POST['maxCupons'].", ".$_POST['precoCupom'].", ".$_POST['precoCupomCoin'].", '$dataSorteio', '".$_POST['nomeProduto']."', ".$_POST['precoProduto'].", '".$_POST['linkProduto']."', 'ok', 0)");
+				mysqli_query($conexao, "INSERT INTO rifa VALUES (NULL, '".$_POST['nome']."', ".$_POST['minCupons'].", ".$_POST['maxCupons'].", ".$_POST['precoCupom'].", ".$_POST['precoCupomCoin'].", '$dataSorteio', '".$_POST['nomeProduto']."', ".$_POST['precoProduto'].", '".$_POST['linkProduto']."', 'ok', 0, NULL, NULL)");
 				$id = mysqli_insert_id($conexao);
 				
-				header("Location: painel/rifas/");
+				header("Location: painel/rifa/$id/");
 				break;
 			case "alterar":
-								
-				header("Location: painel/artigos/$id/");
+				$id = $_POST['codrifa'];
+                mysqli_query($conexao, "
+                    UPDATE rifa
+                    SET
+                    nome = '".$_POST['nome']."',
+                    min_cupom = ".$_POST['minCupons'].",
+                    max_cupom = ".$_POST['maxCupons'].",
+                    data_sorteio = '$dataSorteio',
+                    nome_produto = '".$_POST['nomeProduto']."',
+                    preco_produto = ".$_POST['precoProduto'].",
+                    link_produto = '".$_POST['linkProduto']."'
+                    WHERE codigo = $id
+                ");
+				header("Location: painel/rifas/");
 				break;
 		}
 	}
