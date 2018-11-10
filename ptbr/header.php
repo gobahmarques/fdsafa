@@ -182,13 +182,15 @@
             </div>
         </div>        
     </div>
-    <ul class="menuPrincipalHeader">
+    <!--
+    <ul class="menuPrincipalHeader">        
         <div class="container">
             <a href="ptbr/jogar/campeonatos/"><li class="campeonatos">Campeonatos</li></a>
             <a href="ptbr/jogar/lobbys/"><li class="lobbys">Lobbys</li></a>
-            <!-- <a href="ptbr/jogar/lobbys/"><li class="lobbys">Sit&Go</li></a> -->
+             <a href="ptbr/jogar/lobbys/"><li class="lobbys">Sit&Go</li></a> 
         </div>        
     </ul>
+    -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-cinza">
         <div class="container">
             <a class="navbar-brand" href="/ptbr/"><img src="<?php echo $img; ?>logo-beta.png" class="logoHeader" /></a>
@@ -293,6 +295,21 @@
         </div>
         
     </nav>
+    <?php
+        if(isset($usuario['codigo'])){
+        ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <a href="ptbr/jogar/campeonatos/"><input type="button" class="btn btn-primary btnJogar" value="JOGAR"></a>
+                        <a href=""><input type="button" class="btn btn-danger btnOrganizar" value="ORGANIZAR"></a>
+                    </div>
+                </div>
+            </div>
+        <?php
+        }
+    ?>
+    
 </header>
 <?php
     if(isset($pesquisaPartidasPendentes) && mysqli_num_rows($pesquisaPartidasPendentes) > 0){

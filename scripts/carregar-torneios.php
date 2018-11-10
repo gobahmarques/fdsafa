@@ -1,5 +1,5 @@
 <?php
-	header("Content-Type: text/html;  charset=UTF-8",true);
+    header ('Content-type: text/html; charset=iso-8859-1');
 	include "../session.php";
 	$date = date("Y-m-d H:i:s");
 	
@@ -65,8 +65,11 @@
 	
 ?>
 <div class="row">
-    <div class="col-6 col-md-7">
-        Filtrar Torneios
+    <div class="col-12 mt-3">
+        <h2 class="tituloIndex"><strong>Torneios de <?php echo $jogo['nome']; ?></strong></h2>
+        <div class="detalheTituloIndex"></div>
+    </div>
+    <div class="col-12 col-md-8">
         <ul class="menuCups">      
             <li class="cupsTodos" onClick="trocarAba2('0');">Todos</li>
             <li class="cupsDestaques" onClick="trocarAba2('1');">Destaques</li>
@@ -76,8 +79,7 @@
             <li class="cupsBreve" onClick="trocarAba2('5');">Em Breve</li>
         </ul>
     </div>
-    <div class="col-6 col-md-5 text-right">
-        Exibir
+    <div class="col-12 col-md-4 text-right">
         <ul class="menuCups">            
             <li class="exibir10" onClick="qtdexibir(10);">10</li>
             <li class="exibir20" onClick="qtdexibir(20);">20</li>
@@ -107,6 +109,8 @@
 	}else{
 		while($campeonato = mysqli_fetch_array($campeonatos)){
 			$organizacao = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM organizacao WHERE codigo = ".$campeonato['cod_organizacao'].""));
+            $inscricoes = mysqli_num_rows(mysqli_query($conexao, "SELECT status FROM campeonato_inscricao WHERE cod_campeonato = ".$campeonato['codigo']." "));
+            /*
 		?>
             <div class="col-6 col-md-3 centralizar" onClick="encaminhar('<?php echo "ptbr/campeonato/".$campeonato['codigo']."/"; ?>');">
                 <div class="campeonatoLista">
@@ -138,6 +142,42 @@
                 </div>
             </div>
 		<?php
+            */
+        ?>
+            <div class="col-12" onClick="encaminhar('<?php echo "ptbr/campeonato/".$campeonato['codigo']."/"; ?>');" >
+                <div class="campeonatoLista row centralizar">
+                    <div class="col-md-2 align-self-center">
+                        <img src="img/<?php echo $campeonato['thumb']; ?>" alt="">
+                    </div>
+                    <div class="col-md-4 align-self-center">
+                        <span class="h4">
+                            <?php echo $campeonato['nome']; ?>
+                        </span><br>
+                        <?php echo $jogo['nome']; ?> - por: <a href="ptbr/organizacao/<?php echo $organizacao['codigo']; ?>/"><strong><?php echo $organizacao['nome']; ?></strong></a>
+                    </div>
+                    <div class="col-md-2 align-self-center">
+                        <strong><?php echo date("d/m/Y", strtotime($campeonato['inicio'])); ?></strong><br>
+                        as <strong><?php echo date("H:i", strtotime($campeonato['inicio'])); ?></strong>
+                    </div>
+                    <div class="col-md-2 align-self-center">
+                        Inscrições<br>
+                        <?php echo $inscricoes; ?> / <strong><?php echo $campeonato['vagas']; ?></strong>
+                    </div>
+                    <div class="col-md-2 align-self-center">
+                    <?php
+                        switch($campeonato['status']){
+                            case 0: // TORNEIO ABERTO
+                                echo "<span class='text-success'>Inscrições Abertas</span>";
+                                break;
+                            default:
+                                echo "<span class='text-secondary'>Inscrições Encerradas</span>";
+                                break;
+                        }
+                    ?>
+                    </div>
+                </div>    
+            </div>
+        <?php
 		}
 	}	
 	

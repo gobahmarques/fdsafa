@@ -30,18 +30,41 @@
             ?>
                 <input type="hidden" name="filtro" value="0" class="filtro">
                 <input type="hidden" name="qtdexibir" value="10" class="qtdexibir">
-                <ul class="menuJogar centralizar">
-                    <a href="ptbr/jogar/campeonatos/dota2/"><li class="357"><img src="<?php echo $img; ?>icones/dota2.png"></li></a>
-                    <a href="ptbr/jogar/campeonatos/gwent/"><li class="123"><img src="<?php echo $img; ?>icones/gwent.png"></li></a>
-                    <a href="ptbr/jogar/campeonatos/hearthstone/"><li class="369"><img src="<?php echo $img; ?>icones/hs.png"></li></a>
-                    <a href="ptbr/jogar/campeonatos/lol/"><li class="147"><img src="<?php echo $img; ?>icones/lol.png"></li></a>
-                    <a href="ptbr/jogar/campeonatos/overwatch/"><li class="258"><img src="<?php echo $img; ?>icones/overwatch2.png"></li></a>
-                </ul>
+                
         
-                <div class="container">
-                    <div class="carregarConteudo">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="carregarConteudo col-9">
 
-                    </div>           
+                        </div> 
+                        <div class="col-3">
+                            <h2 class="tituloLateral">Filtre sua <strong>Busca</strong></h2>
+                            <div class="detalheTituloLateral"></div>
+                            <ul class="menuJogar centralizar">
+                                <a href="ptbr/jogar/campeonatos/dota2/"><li class="357"><img src="<?php echo $img; ?>icones/dota2.png"></li></a>
+                                <a href="ptbr/jogar/campeonatos/gwent/"><li class="123"><img src="<?php echo $img; ?>icones/gwent.png"></li></a>
+                                <a href="ptbr/jogar/campeonatos/hearthstone/"><li class="369"><img src="<?php echo $img; ?>icones/hs.png"></li></a>
+                                <a href="ptbr/jogar/campeonatos/lol/"><li class="147"><img src="<?php echo $img; ?>icones/lol.png"></li></a>
+                                <a href="ptbr/jogar/campeonatos/overwatch/"><li class="258"><img src="<?php echo $img; ?>icones/overwatch2.png"></li></a>
+                            </ul>
+                            <div class="bg-light border border-secondary p-2 centralizar">
+                                Crie ou Jogue em <strong>Partidas Personalizadas</strong> nos Lobbys da e-SPorts Cups <br>
+                                <a href="ptbr/jogar/lobbys/<?php echo $jogo['background']; ?>/"><input type="button" class="btn btn-dark form-control mt-2" value="IR PARA LOBBYS"></a>
+                            </div>
+                            <br>
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Barra lateral página de Artigo -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-3038725769937948"
+                                 data-ad-slot="7294511218"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            
+                        </div> 
+                    </div>                              
                 </div>
             <?php   
             }else{ // AINDA NÃO SELECIONOU O JOGO
@@ -204,6 +227,7 @@
             }
             jQuery(function($){
                 carregarTorneios();
+                qtdexibir(10);
                 $(".menuPrincipalHeader .campeonatos").addClass("ativo");
             });
         </script>

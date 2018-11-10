@@ -17,16 +17,6 @@
   </head>
   <body>
     <?php include "../header.php"; ?>
-      
-    <ul class="menuJogar centralizar">
-        <li onClick="trocarAba(0);" class="esc"><img src="<?php echo $img; ?>logo.png"></li>
-        <li onClick="trocarAba(357);" class="357"><img src="<?php echo $img; ?>icones/dota2.png"></li>
-        <li onClick="trocarAba(123);" class="123"><img src="<?php echo $img; ?>icones/gwent.png"></li>
-        <li onClick="trocarAba(369);" class="369"><img src="<?php echo $img; ?>icones/hs.png"></li>
-        <li onClick="trocarAba(147);" class="147"><img src="<?php echo $img; ?>icones/lol.png"></li>
-        <li onClick="trocarAba(258);" class="258"><img src="<?php echo $img; ?>icones/overwatch2.png"></li>
-    </ul>
-      
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-8">
@@ -34,6 +24,16 @@
                 </div>
             </div>
             <div class="col-12 col-md-4">
+                <h2 class="tituloLateral">Filtre sua <strong>Busca</strong></h2>
+                <div class="detalheTituloLateral"></div>
+                <ul class="menuJogar centralizar">
+                    <li onClick="trocarAba(0);" class="esc"><img src="<?php echo $img; ?>logo.png"></li>
+                    <li onClick="trocarAba(357);" class="357"><img src="<?php echo $img; ?>icones/dota2.png"></li>
+                    <li onClick="trocarAba(123);" class="123"><img src="<?php echo $img; ?>icones/gwent.png"></li>
+                    <li onClick="trocarAba(369);" class="369"><img src="<?php echo $img; ?>icones/hs.png"></li>
+                    <li onClick="trocarAba(147);" class="147"><img src="<?php echo $img; ?>icones/lol.png"></li>
+                    <li onClick="trocarAba(258);" class="258"><img src="<?php echo $img; ?>icones/overwatch2.png"></li>
+                </ul>
                 <br>
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- Barra lateral página de Artigo -->
@@ -123,7 +123,7 @@
             closeNav();
 		}
 		jQuery(function($){
-			trocarAba(0);
+			trocarAba(-1);
 		});
 	</script>
   </body>

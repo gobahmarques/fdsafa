@@ -88,7 +88,12 @@ a:hover {
 .modalNewsletter .conteudo .formularioModal {
     padding: 30px;
 }
-
+.btnJogar, .btnOrganizar {
+    border: solid 5px #3c3c3c;
+    margin-top: -7px;
+    position: relative;
+    z-index: 99;    
+}
 
 .newsletter {
 	width: 100%;
@@ -409,16 +414,14 @@ a:hover {
 }
 
 .menuJogar {
-    background: #000;
-    color: #fff;
     list-style: none;
     position: relative;
-    z-index: 100;
+    z-index: 98;
 }
 .menuJogar li {
     display: inline-block;
-    padding: 10px 15px;    
     margin: 0px 5px;
+    padding: 3px;
 }
 .menuJogar li img {
     height: 30px;
@@ -427,9 +430,7 @@ a:hover {
 .menuJogar li.ativo {
     background: #fff;
     color: #000;
-    border: solid 5px #000;
     border-bottom: 0px;
-    margin-top: -5px;
     
 }
 .menuJogar li.ativo img {
@@ -449,8 +450,7 @@ a:hover {
 }
 .menuCups li{
     display: inline-block;
-    padding: 10px;
-    background: #ccc;
+    padding: 5px;
 }
 .menuCups li.ativo {
     background: #666;
@@ -565,7 +565,7 @@ a:hover {
 }
 header .navbar {
     position: relative;
-    z-index: 99;
+    z-index: 98;
 }
 .partidasPendentesUsuario {
     padding: 10px 0px;
@@ -732,7 +732,7 @@ footer a:hover {
 .apresentacaoArtigo {
     margin-top: 20px;
 }
-.apresentacaoArtigo ul {
+.apresentacaoArtigo ul, .apresentacaoArtigo ol {
     margin-left: 30px;
 }
 .destaqueArtigo {
@@ -994,8 +994,8 @@ footer a:hover {
     width: 100%;
 }
 .campeonatos .campeonatoLista {
-    margin-bottom: 50px;
-    padding: 15px;
+    margin-bottom: 20px;
+    padding: 5px;
     border: solid 1px #ccc;
     background: #f2f2f2;
 }

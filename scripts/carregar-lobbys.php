@@ -16,7 +16,7 @@
 	}else{
 	?>
         <div class="row">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-12">
                 <table cellspacing="0" cellpadding="0" id="tabelaLobbys" class="centralizar">
                     <thead>
                         <tr>
@@ -70,114 +70,6 @@
                         }
                     ?>
                 </table>
-            </div>
-            <div class="col-12 col-md-4">
-                <?php
-                    if(isset($usuario['codigo'])){
-                        // EXIBIR LEVEL
-                    ?>
-                        <div class="lvlLobby">
-                            <div class="row">
-                                <div class="col-md-4 col-3">
-                                    <img src="img/<?php echo $usuario['foto_perfil']; ?>">
-                                </div>
-                                <div class="col-md-8 col-9">
-                                    <div class="row">
-                                        <div class="col">
-                                            <?php echo $usuario['nome']." '".$usuario['nick']."' ".$usuario['sobrenome']; ?>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <?php
-                                                $lvlJogador = mysqli_query($conexao, "SELECT * FROM gm_jogador_level WHERE cod_jogador = ".$usuario['codigo']."");
-                                                $lvlJogador = mysqli_fetch_array($lvlJogador);
-                                                $tamBarra = ($lvlJogador['xp_atual'] / $lvlJogador['xp_final']) * 100; 
-                                            ?>
-                                                Level <?php echo $lvlJogador['level']; ?>
-                                                <div class="progress centralizar" style="height: 15px;">
-                                                    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: <?php echo $tamBarra; ?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><?php echo number_format($tamBarra, 0); ?> %</div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-6 text-left">
-                                                        0
-                                                    </div>
-                                                    <div class="col-6 text-right">
-                                                        <?php echo $lvlJogador['xp_final']; ?>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php
-                        // EXIBIR CRIAÇÃO
-                    }else{
-                        // PEDIR LOGIN
-                    }                    
-                ?>
-                
-                <div class="criarLobby">
-                <?php
-                    if(isset($usuario['codigo'])){
-                        ?>
-                                <h2>
-                                    <img src="https://www.esportscups.com.br/img/icones/+.png" alt="">
-                                    CRIAR LOBBY
-                                </h2>
-                                <form action="scripts/criar-lobby.php" method="post" onSubmit="return validarLobby();">
-                                    <div class="jogo">
-                                    <?php
-                                        switch($codJogo){
-                                            case 369: // HEARTHSTONE
-                                                echo "<img src='https://www.esportscups.com.br/img/icones/hs.png' alt='Hearthstone' title='Hearthstone'>";
-                                                echo "Hearthstone";
-                                                break;
-                                            case 123: // GWENT
-                                                echo "<img src='https://www.esportscups.com.br/img/icones/gwent.png' alt='GWENT' title='Hearthstone'>";
-                                                echo "GWENT: The Witcher Card Game";
-                                                break;
-                                            case 147: // League of Legends
-                                                echo "<img src='https://www.esportscups.com.br/img/icones/lol.png' alt='League of Legends' title='League of Legends'>";
-                                                echo "League of Legends";
-                                                break;
-                                            case 357: // Dota 2
-                                                echo "<img src='https://www.esportscups.com.br/img/icones/dota2.png' alt='Dota 2' title='Dota 2'>";
-                                                echo "Dota 2";
-                                                break;
-                                            case 258: // Overwatch
-                                                echo "<img src='https://www.esportscups.com.br/img/icones/overwatch.png' alt='Overwatch' title='Overwatch'>";
-                                                echo "Overwatch";
-                                                break;
-                                            case 741: // PUBG
-                                                echo "<img src='https://www.esportscups.com.br/img/icones/pubg.png' alt='PUBG' title='PUBG'>";
-                                                echo "Playerunknow's: Battlegrounds";
-                                                break;
-                                            case 653: // CLASH ROYALE
-                                                echo "<img src='https://www.esportscups.com.br/img/icones/clashroyale.png' alt='Clash Royale' title='Clash Royale'>";
-                                                echo "Clash Royale";
-                                                break;
-                                        }
-                                    ?>
-                                    </div>
-                                    <input type="hidden" name="codJogo" value="<?php echo $codJogo; ?>">
-                                    <input type="text" placeholder="NOME DO LOBBY (Máximo: 32 caracteres)" name="nome" maxlength="32">
-                                    <input type="number" placeholder="QTD. TIMES" name="qtdTimes" min="2" class="qtdTimes">
-                                    <input type="number" placeholder="JOGADOR P/ TIME" name="jogadorPorTime" min="1">
-                                    <select name="tipo" id="">
-                                        <option value="1">MD 1</option>
-                                    </select><br>
-                                    <input type="password" placeholder="SENHA (Máximo: 8 caracteres)" name="senha" class="senha" maxlength="8" onKeyDown="verificarPrivacidade();">
-                                    <input type="checkbox" value="1" name="privacidade" class="privacidade"> Lobby Privado? <br><br>
-                                    <input type="submit" value="CRIAR LOBBY" class="btn btn-azul">
-                                </form>
-                        <?php
-                    }else{
-                        echo "Faça o login para poder participar dos lobbys!";
-                    }
-                ?>
-                </div>
             </div>
         </div>
 	<?php

@@ -2,7 +2,9 @@
 	include "../conexao-banco.php";
 	$aba = $_POST['aba'];
 
-	if($aba == 0){
+    if($aba == -1){
+		$artigos = mysqli_query($conexao, "SELECT * FROM artigos ORDER BY data DESC LIMIT 10");
+	}elseif($aba == 0){
 		$artigos = mysqli_query($conexao, "SELECT * FROM artigos WHERE cod_jogo is null ORDER BY data DESC LIMIT 10");
 	}else{
 		$artigos = mysqli_query($conexao, "SELECT * FROM artigos WHERE cod_jogo = $aba ORDER BY data DESC LIMIT 10");

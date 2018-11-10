@@ -197,7 +197,7 @@
                     Toda quantia arrecadada por estas ações serão destinadas à premiação de alguma competição realizada pela e-Sports Cups.<br>
                     Cada mês rodam novos produtos e cada mês será para premiação em um torneio diferente.<br><br>
                     Dia e Hora do Sorteio:<br>
-                    <span class="h1">31/10/2018 - 16:00</span><br>
+                    <span class="h1">30/11/2018 - 16:00</span><br>
                     <a href="https://www.facebook.com/escups/" target="_blank">Facebook eSports Cups</a><br><br>
                 </div>
             <?php
@@ -247,7 +247,7 @@
                     </div>
                 </div>
                 <?php
-                    $rifasAntigas = mysqli_query($conexao, "SELECT * FROM rifa WHERE data_sorteio <= '".date("Y-m-d H:i:s")."' LIMIT 12");
+                    $rifasAntigas = mysqli_query($conexao, "SELECT * FROM rifa WHERE data_sorteio <= '".date("Y-m-d H:i:s")."' ORDER BY data_sorteio DESC LIMIT 12");
                     while($rifaAntiga = mysqli_fetch_array($rifasAntigas)){
                     $totalCupons = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM rifa_cupom WHERE cod_rifa = ".$rifaAntiga['codigo'].""));
                         $totalCupons = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM rifa_cupom WHERE cod_rifa = ".$rifaAntiga['codigo'].""));
