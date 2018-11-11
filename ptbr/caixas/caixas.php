@@ -156,7 +156,7 @@
                     data: "caixa="+caixa+"&funcao=testar",
                     success: function(resultado){
                         $(".valoresCaixa").css("display", "none");
-                        $(".recompensa .row").html(resultado);
+                        $(".recompensa").html(resultado);
                         $(".recompensa").css("display", "block");
                         return false;
                     }

@@ -800,9 +800,7 @@ footer a:hover {
     background: #f60;
 }
 .visualizarCaixa {
-    background: #ccc;
     padding: 20px 0px;
-    border-bottom: solid 3px #666;
     overflow: hidden;
     display: none;
 }
@@ -812,7 +810,7 @@ footer a:hover {
 }
 .visualizarCaixa .recompensa {
     border: dashed 1px #000;
-    margin: 20px 0px;
+    margin: 0px;
     padding: 10px;
 }
 .visualizarCaixa .recompensa img {
