@@ -1,7 +1,13 @@
 <div class="opcoesOrganizacao">
     <div class="row">
         <div class="col-5 col-md-12">
-            <img src="img/<?php echo $organizacao['perfil']; ?>" alt="<?php echo $organizacao['nome']; ?>" >
+        <?php
+            if($organizacao['perfil'] != NULL){
+            ?>
+                <img src="img/<?php echo $organizacao['perfil']; ?>" alt="<?php echo $organizacao['nome']; ?>" >
+            <?php
+            }  
+        ?>            
         </div>
         <div class="col-7 col-md-12">
             <h2><?php echo $organizacao['nome']; ?></h2>

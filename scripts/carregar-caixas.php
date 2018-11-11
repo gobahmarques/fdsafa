@@ -13,19 +13,20 @@
 		?>
 				<a href="ptbr/caixas?caixa=<?php echo $caixa['codigo']; ?>">
 					<div class="caixa col-6 col-md-4 centralizar">
-						<img src="img/caixas/<?php echo $caixa['codigo']; ?>.png" alt="">
-						<h3><?php echo $caixa['nome']; ?></h3>
-						<div class="valorCoin valor">
-						<?php
-							echo "e$ ".number_format($caixa['chave_coin'], 0, '', '.');
-						?>		
-						</div>
-						<div class="valorReal valor">
-						<?php
-							echo "R$ ".number_format($caixa['chave_real'], 2, ',', '.');
-						?>	
-						</div>
-
+                        <div>
+                            <img src="img/caixas/<?php echo $caixa['codigo']; ?>.png" alt="">
+                            <h3><?php echo $caixa['nome']; ?></h3>
+                            <div class="valorCoin valor">
+                            <?php
+                                echo "e$ ".number_format($caixa['chave_coin'], 0, '', '.');
+                            ?>		
+                            </div>
+                            <div class="valorReal valor">
+                            <?php
+                                echo "R$ ".number_format($caixa['chave_real'], 2, ',', '.');
+                            ?>	
+                            </div>
+                        </div>
 					</div>	
 				</a>
 		<?php
@@ -35,9 +36,14 @@
 		$organizacao = mysqli_fetch_array(mysqli_query($conexao, "SELECT nome FROM organizacao WHERE codigo = ".$caixa['cod_organizacao'].""));
 		$autorizacao = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM caixa_autorizacao WHERE cod_caixa = ".$caixa['codigo']." "));
 		?>
-            <div class="row">
-                
-                <div class="col-12 col-md-8 float-left">
+            <div class="row">      
+                <div class="col-6 col-md-6">
+                    <div class="infosCaixa centralizar">
+                        <h2><?php echo $caixa['nome'] ; ?></h2>
+                        <img src="img/caixas/<?php echo $caixa['codigo']; ?>.png" alt="" width="80%">
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 float-left">
                     <div class="row infosCaixa">
                         <div class="col-12 col-md-4 centralizar">
                             <img src="img/caixas/<?php echo $caixa['codigo']; ?>.png" alt="" width="80%">

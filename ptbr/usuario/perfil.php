@@ -38,7 +38,7 @@
             <?php
                 if(isset($usuario['codigo']) && $usuario['codigo'] == $perfil['codigo']){
                 ?>
-                    <a href="ptbr/usuario/<?php echo $perfil['codigo']; ?>/partidas-em-aberto/"><li class="partidasemaberto">Partidas em Aberto</li></a>
+                    <a href="ptbr/usuario/<?php echo $perfil['codigo']; ?>/organizacoes/"><li class="organizacoes">Organizacoes</li></a>
                     <a href="ptbr/usuario/<?php echo $perfil['codigo']; ?>/carteira-escoin/"><li class="carteiraes">Carteira e$</li></a>
                     <a href="ptbr/usuario/<?php echo $perfil['codigo']; ?>/carteira-real/"><li class="carteirars">Carteira R$</li></a>
                     <a href="ptbr/usuario/<?php echo $perfil['codigo']; ?>/permissoes/"><li class="permissoes">Permissões</li></a>

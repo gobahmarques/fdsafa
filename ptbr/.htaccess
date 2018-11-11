@@ -50,7 +50,7 @@ RewriteRule ^usuario/([0-9]+)/carteira-real/adicionar-saldo/checkout/?$ usuario/
 RewriteRule ^usuario/([0-9]+)/carteira-escoin/?$ usuario/carteira-escoin.php?perfil=$1 [NC,L]
 RewriteRule ^usuario/([0-9]+)/carteira-escoin/historico/?$ usuario/carteira-escoin-historico.php?perfil=$1 [NC,L]
 RewriteRule ^usuario/([0-9]+)/permissoes/?$ usuario/permissoes.php?perfil=$1 [NC,L]
-RewriteRule ^usuario/([0-9]+)/organizacao/?$ jogador_organizacao.php?perfil=$1 [NC,L]
+RewriteRule ^usuario/([0-9]+)/organizacoes/?$ usuario/organizacoes.php?perfil=$1 [NC,L]
 RewriteRule ^usuario/([0-9]+)/editar/?$ usuario/editar.php?perfil=$1 [NC,L]
 
 # LOJA #

@@ -1,6 +1,7 @@
 <?php
     include "../../enderecos.php";
     include "../../session.php";
+    
 ?>
 <!doctype html>
 <html>
@@ -13,30 +14,41 @@
         <link rel="stylesheet" href="<?php echo $css; ?>bootstrap.css">
         <link rel="stylesheet" href="<?php echo $css; ?>esportscups.css">
 
-        <title>Equipes eSports | e-Sports Cups</title>
+        <title>Sincronizações | e-Sports Cups</title>
     </head>
     <body>
         <?php 
             include "../header.php";
             include "perfil.php";
-            $equipes = mysqli_query($conexao, "SELECT jogador_equipe.*, equipe.*, jogos.nome AS nomeJogo FROM jogador_equipe
-                        INNER JOIN equipe ON equipe.codigo = jogador_equipe.cod_equipe
-                        INNER JOIN jogos ON jogos.codigo = equipe.cod_jogo
-                        WHERE jogador_equipe.cod_jogador = ".$perfil['codigo']."");
+            if(!isset($usuario['codigo']) || $usuario['codigo'] != $perfil['codigo']){
+                header("Location: ../../../");
+            }else{
+                if($usuario['codigo'] != $perfil['codigo']){
+                    header("Location: ../../../");
+                }
+            }
+            $organizacoes = mysqli_query($conexao, "
+                SELECT * FROM jogador_organizacao
+                INNER JOIN organizacao ON organizacao.codigo = jogador_organizacao.cod_organizacao
+                WHERE jogador_organizacao.cod_jogador = ".$usuario['codigo']."                
+            ");
         ?>
+        
         <div class="container">
             <div class="row">
             <?php
-                if(mysqli_num_rows($equipes) == 0){ // NÃO POSSUI NENHUMA EQUIPE
+                if(mysqli_num_rows($organizacoes) == 0){ // NÃO POSSUI NENHUMA ORGANIZAÇÃO
                     if(isset($usuario['codigo']) && $usuario['codigo'] == $perfil['codigo']){
                     ?>
                         <div class="centralizar">
-                            <h1>CRIE UMA EQUIPE</h1>
-                            Você não faz parte de nenhuma equipe, ainda.<br><br>
-                            Crie sua própria equipe e chame seus amigos para treinar e competir. <br>
-                            Atingir o topo só depende de vocês. <br><br>
+                            <h1>CRIE SUA ORGANIZAÇÃO</h1>
+                            Você ainda não tem possui e nem faz parte de <br>
+                            nenhuma Organização de Esportes Eletrônicos. <br><br>
+                            Crie agora mesmo sua Organização e comece a contribuir <br>
+                            com o cenário realizando competições de Alto Nível.
+                            
                             <div class="barraBotoes">
-                                <input type="button" value="CRIAR EQUIPE" class="botaoPqLaranja" onClick="criarEquipe();">
+                                <input type="button" value="CRIAR ORGANIZAÇÃO" class="botaoPqLaranja" onClick="criarOrganizacao();">
                             </div>
                         </div>
                     <?php	
@@ -48,21 +60,25 @@
                         </div>
                     <?php
                     }			
-                }else{ // POSSUI EQUIPE
+                }else{ // POSSUI ORGANIZAÇÃO
                     ?>
                         <div class="col-12 col-md-12">
-                            <input type="button" value="+ Novo Time" class="btn btn-dark" onClick="criarEquipe();">
+                            <input type="button" value="+ Nova Organização" class="btn btn-dark" onClick="criarOrganizacao();">
                         </div>
                         <br><br>
                     <?php
-                    while($equipe = mysqli_fetch_array($equipes)){
+                    while($organizacao = mysqli_fetch_array($organizacoes)){
+                        $totalTorneios = mysqli_num_rows(mysqli_query($conexao, "
+                            SELECT codigo FROM campeonato
+                            WHERE cod_organizacao = ".$organizacao['codigo']."
+                        "));
                     ?>
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-4">
                             
                                 <div class="amigo">
-                                    <a href="ptbr/time/<?php echo $equipe['codigo']; ?>/"><img src="img/<?php echo $equipe['logo']; ?>" alt=""></a>
-                                    <?php echo "<hmysq4>".$equipe['nome']."</h4>"; ?>
-                                    <?php echo $equipe['nomeJogo']; ?>
+                                    <a href="ptbr/organizacao/<?php echo $organizacao['codigo']; ?>/"><img src="<?php echo $img.$organizacao['perfil']; ?>" alt=""></a>
+                                    <?php echo "<h4>".$organizacao['nome']."</h4>"; ?>
+                                    Torneios Criados: <?php echo $totalTorneios; ?>
                                 </div>
                             
                         </div>
@@ -73,26 +89,26 @@
                     }
                 }
             ?>
-            </div>        
+            </div>
         </div>
-        
+
         <?php include "../footer.php"; ?>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="<?php echo $js; ?>jquery.js"></script>
         <script src="<?php echo $js; ?>bootstrap.js"></script>
         <script>
-            function criarEquipe(){
-                $(".modal-title").html("Crie seu Time e conquiste o cenário!");
-                $(".modal-body").load("ptbr/usuario/novo-time.php");
+            function criarOrganizacao(){
+                $(".modal-title").html("Crie sua organização");
+                $(".modal-body").load("ptbr/usuario/nova-organizacao.php");
                 $(".modal-footer").html("");
-                $(".modal").modal();
+                $(".modal").modal();   
             }
-            function validarEquipe(){
+            function validarOrganizacao(){
                 $.ajax({
                     type: "POST",
-                    url: "scripts/validar-equipe.php",
-                    data: $("#formCriarEquipe").serialize(),
+                    url: "scripts/validar-organizacao.php",
+                    data: $("#formCriarOrganizacao").serialize(),
                     success: function(resultado){
                         if(resultado != ""){
                             $(".status").html(resultado);
@@ -108,8 +124,8 @@
                 });
                 return false;
             }
-            $(function(){   
-                $(".times").addClass("ativo"); 
+            $(function(){               
+                $(".organizacoes").addClass("ativo"); 
             });
         </script>
     </body>

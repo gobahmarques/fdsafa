@@ -302,7 +302,7 @@
                 <div class="row">
                     <div class="col-12 text-right">
                         <a href="ptbr/jogar/campeonatos/"><input type="button" class="btn btn-primary btnJogar" value="JOGAR"></a>
-                        <a href=""><input type="button" class="btn btn-danger btnOrganizar" value="ORGANIZAR"></a>
+                        <a href="ptbr/usuario/<?php echo $usuario['codigo']; ?>/organizacoes/"><input type="button" class="btn btn-danger btnOrganizar" value="ORGANIZAR"></a>
                     </div>
                 </div>
             </div>

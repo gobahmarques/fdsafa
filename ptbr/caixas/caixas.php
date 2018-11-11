@@ -24,24 +24,28 @@
     <body>
         <?php include "../header.php"; ?>
         
-        <ul class="menuJogar centralizar">
-            <li onClick="trocarAba(0);" class="esc"><img src="<?php echo $img; ?>logo.png"></li>
-            <li onClick="trocarAba(357);" class="357"><img src="<?php echo $img; ?>icones/dota2.png"></li>
-            <li onClick="trocarAba(123);" class="123"><img src="<?php echo $img; ?>icones/gwent.png"></li>
-            <li onClick="trocarAba(369);" class="369"><img src="<?php echo $img; ?>icones/hs.png"></li>
-            <li onClick="trocarAba(147);" class="147"><img src="<?php echo $img; ?>icones/lol.png"></li>
-            <li onClick="trocarAba(258);" class="258"><img src="<?php echo $img; ?>icones/overwatch2.png"></li>
-        </ul>
         
-        <div class="visualizarCaixa">
-            <div class="container">
-            </div>
-        </div>
-        <div class="container">
+        
+        
+        <div class="container mt-4">
             <div class="row">
                 <div class="col-12 col-md-8 caixas">
+                    <div class="visualizarCaixa">
+                        <div class="container">
+                        </div>
+                    </div>   
                 </div>
                 <div class="col-xs-12 col-md-4">
+                    <h2 class="tituloLateral">Filtre sua <strong>Busca</strong></h2>
+                    <div class="detalheTituloLateral"></div>
+                    <ul class="menuJogar centralizar">
+                        <li onClick="trocarAba(0);" class="esc"><img src="<?php echo $img; ?>logo.png"></li>
+                        <li onClick="trocarAba(357);" class="357"><img src="<?php echo $img; ?>icones/dota2.png"></li>
+                        <li onClick="trocarAba(123);" class="123"><img src="<?php echo $img; ?>icones/gwent.png"></li>
+                        <li onClick="trocarAba(369);" class="369"><img src="<?php echo $img; ?>icones/hs.png"></li>
+                        <li onClick="trocarAba(147);" class="147"><img src="<?php echo $img; ?>icones/lol.png"></li>
+                        <li onClick="trocarAba(258);" class="258"><img src="<?php echo $img; ?>icones/overwatch2.png"></li>
+                    </ul>
                     <h2 class="tituloLateral">Nosso <strong>Facebook</strong></h2>
                     <div class="detalheTituloLateral"></div>
                     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fescups&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
