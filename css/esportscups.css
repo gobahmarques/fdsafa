@@ -1036,6 +1036,10 @@ footer a:hover {
     background: url("../img/bgs/overwatch.jpg");
     background-size: 100% auto;
 }
+.bgjogo.clashroyale {
+    background: url("../img/bgs/clashroyale.png");
+    background-size: 100% auto;
+}
 .bgjogo .iconeJogo {
     height: 20px;
     margin-right: 10px;

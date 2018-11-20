@@ -21,15 +21,18 @@
 	$foto = "usuarios/padrao.jpg";
 
 	$inserir = mysqli_query($conexao, "INSERT INTO jogador (codigo, nome, sobrenome, nick, email, senha, cadastro, status, foto_perfil, data_nascimento, sexo) VALUES ('$id', '$nome', '$sobrenome', '$nick', '$email', '$senha', '$datahora', '1', '$foto', '$dataNascimento', '".$_SESSION['sexo']."')");
+
+    $id = mysqli_insert_id($conexao);
+        
+    
+
 	if(!$inserir){				
 	?>
 		<h1>OPS...</h1>
 		<h2>ALGUM ERRO INESPERADO OCORREU!</h2>
 		TENTE NOVAMENTE!
 	<?php
-	}else{
-        $id = mysqli_insert_id($conexao);
-        
+	}else{        
         mysqli_query($conexao, "
             INSERT INTO gm_jogador_level
             VALUES

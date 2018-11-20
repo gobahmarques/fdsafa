@@ -35,6 +35,6 @@
 		$idLobby = mysqli_insert_id($conexao);
 
 		criarTimes($qtdTimes, $jogadorPorTime, $idLobby);
-		header("Location: ../lobby/$idLobby/");	
+		header("Location: ../ptbr/lobby/$idLobby/");	
 	}	
 ?>

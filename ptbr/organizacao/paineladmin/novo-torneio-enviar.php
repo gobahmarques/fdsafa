@@ -161,6 +161,6 @@
     </script>
     <?php
 
-	// header("Location: ../../../../campeonato/".$id."/");
+	header("Location: ../../../../campeonato/".$id."/");
 
 	

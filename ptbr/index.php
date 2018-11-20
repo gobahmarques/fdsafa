@@ -57,8 +57,8 @@
                 <div class="col-4 col-md-2 jogo">
                     <a href="ptbr/jogar/campeonatos/overwatch/"><img src="<?php echo $img; ?>index/overwatch.png" style="width: 100%;"></a>
                 </div>
-                <div class="col-4 col-md-2">
-                    <img src="<?php echo $img; ?>index/clashroyale2.png" style="width: 100%;">
+                <div class="col-4 col-md-2 jogo">
+                    <a href="ptbr/jogar/campeonatos/clashroyale/"><img src="<?php echo $img; ?>index/clashroyale.png" style="width: 100%;"></a>
                 </div>
             </div>
             <div class="row">

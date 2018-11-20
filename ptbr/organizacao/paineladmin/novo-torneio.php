@@ -75,6 +75,7 @@
                                         <label for="jogo">Selecione o JOGO</label>
                                         <select name="codJogo" id="jogo" class="form-control" onChange="$('#regiao').focus();" required>
                                             <option value="" hidden="hidden">SELECIONE O JOGO</option>
+                                            <option value="653">Clash Royale</option>
                                             <option value="357">Dota 2</option>
                                             <option value="123">GWENT: The Witcher Card Game</option>
                                             <option value="369">Hearthstone</option>
@@ -92,6 +93,7 @@
                                             <option value="" hidden="hidden">SELECIONE A PLATAFORMA</option>
                                             <option value="PC">PC</option>
                                             <option value="PS4">PS4</option>
+                                            <option value="PS4">SMARTPHONE/TABLET</option>
                                             <option value="XONE">X-ONE</option>
                                         </select>
                                     </div>

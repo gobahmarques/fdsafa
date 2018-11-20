@@ -73,7 +73,7 @@
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Descrição do Torneio</a>
                       </li>
                     </ul>
-                    <form action="<?php echo "ptbr/organizacao/paineladmin/campeonatos/editar-enviar.php"; ?>" method="post" enctype="multipart/form-data">
+                    <form action="ptbr/organizacao/paineladmin/campeonatos/editar-enviar.php" method="post" enctype="multipart/form-data">
                         <input type="text" name="codCampeonato" value="<?php echo $campeonato['codigo']; ?>" hidden="hidden">
                         <div class="tab-content" id="myTabContent">				
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -163,7 +163,7 @@
                                     <div class="form-group col-md-12">
                                         <div class="border p-3 text-center">
                                             <label for="descricao" class="h4">Descrição do Torneio</label>
-                                            <textarea name="descricao" id="descricao" class="form-control" cols="30" rows="10" placeholder="DESCRIÇÃO" required><?php echo $campeonato['descricao']; ?></textarea>
+                                            <textarea name="descricao" id="descricao" class="form-control" cols="30" rows="10" placeholder="DESCRIÇÃO"><?php echo $campeonato['descricao']; ?></textarea>
                                         </div>                                        
                                     </div>
                                     <div class="form-group col-md-12">
@@ -209,66 +209,12 @@
         <script src="<?php echo $js; ?>bootstrap.js"></script>
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=xk83vu3tqnzfzqfckbr4scsj3mzmi8cqvi6s0u6ed34nfnxu"></script>
         <script type="text/javascript">
-			function tratarJogo(nomeJogo){
-				if(codigoJogo == 369){
-					
-				}
-			}
-			function attSaldoCoin(){
-				var saldoTotal = 0;
-				var aux = 0;
-				while(aux < 16){
-					if($(".coin"+aux).val() != ""){
-						saldoTotal = parseInt(saldoTotal) + parseInt($(".coin"+aux).val());						
-					}					
-					aux++;
-				}
-				$(".totalCoin").val(saldoTotal);
-			}
-			function attSaldoReal(){
-				var saldoTotal = 0;
-				var aux = 0;
-				while(aux < 16){
-					if($(".real"+aux).val() != ""){
-						saldoTotal = parseFloat(saldoTotal) + parseFloat($(".real"+aux).val());						
-					}					
-					aux++;
-				}
-				$(".totalReal").val(saldoTotal);
-			}
-			function verificarSaldos(){
-				var totalCoin, totalReal, saldoCoin, saldoReal, status = 0;
-				totalCoin = $(".totalCoin").val();
-				totalReal = $(".totalReal").val();
-				saldoCoin = <?php echo $organizacao['saldo_coin']; ?>;
-				saldoReal = <?php echo $organizacao['saldo_real']; ?>;
-				if(totalCoin > 0){
-					if(totalCoin > saldoCoin){
-						status = 1;
-					}
-				}
-				if(totalReal > 0){
-					if(totalReal > saldoReal){
-						status = 1;
-					}
-				}
-				
-				if(status == 0){ // TUDO OK
-					return true;
-				}else{ // SEM SALDO
-					alert("A organização não possui saldo suficiente para criar esta competição!");
-					return false;
-				}
-				
-			}
 			jQuery(function($){
 				$('#myTab li:first-child a').tab('show');
 				$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 				  e.target // newly activated tab
 				  e.relatedTarget // previous active tab
 				});
-                attSaldoReal();
-                attSaldoCoin();
                 tinymce.init({
                    selector: "#descricao",
                     toolbar: 'styleselect | bold, italic, underline, strikethrough | alignleft, aligncenter, alignright, alignjustify | bullist, numlist, outdent, indent, undo, redo',

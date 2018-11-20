@@ -42,6 +42,7 @@
                                 <a href="ptbr/jogar/lobbys/hearthstone/"><li class="369"><img src="<?php echo $img; ?>icones/hs.png"></li></a>
                                 <a href="ptbr/jogar/lobbys/lol/"><li class="147"><img src="<?php echo $img; ?>icones/lol.png"></li></a>
                                 <a href="ptbr/jogar/lobbys/overwatch/"><li class="258"><img src="<?php echo $img; ?>icones/overwatch2.png"></li></a>
+                                <a href="ptbr/jogar/lobbys/clashroyale/"><li class="653"><img src="<?php echo $img; ?>icones/clashroyale.png"></li></a>
                             </ul>
                         <?php
                             if(isset($usuario['codigo'])){

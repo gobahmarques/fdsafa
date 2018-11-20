@@ -46,6 +46,19 @@
                         <li onClick="trocarAba(147);" class="147"><img src="<?php echo $img; ?>icones/lol.png"></li>
                         <li onClick="trocarAba(258);" class="258"><img src="<?php echo $img; ?>icones/overwatch2.png"></li>
                     </ul>
+                    
+                    <br>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Barra lateral página de Artigo -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-3038725769937948"
+                         data-ad-slot="7294511218"
+                         data-ad-format="auto"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    
                     <h2 class="tituloLateral">Nosso <strong>Facebook</strong></h2>
                     <div class="detalheTituloLateral"></div>
                     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fescups&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>

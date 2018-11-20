@@ -30,7 +30,7 @@
 	</div>
 	<div class="form-group col-md-6">
 		<label for="">Data Nascimento</label>
-		<input type="text" placeholder="DATA NASCIMENTO" style="width: 100%;" class="form-control maskData" name="dataNascimento">
+		<input type="text" placeholder="DD/MM/AAAA" style="width: 100%;" class="form-control maskData" name="dataNascimento">
 	</div>
 	
 	<div class="form-group col-md-6">

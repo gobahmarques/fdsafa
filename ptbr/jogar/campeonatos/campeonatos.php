@@ -41,15 +41,16 @@
                             <h2 class="tituloLateral">Filtre sua <strong>Busca</strong></h2>
                             <div class="detalheTituloLateral"></div>
                             <ul class="menuJogar centralizar">
-                                <a href="ptbr/jogar/campeonatos/dota2/"><li class="357"><img src="<?php echo $img; ?>icones/dota2.png"></li></a>
+                                <a href="ptbr/jogar/campeonatos/dota2/"><li class="357 mb-2"><img src="<?php echo $img; ?>icones/dota2.png"></li></a>
                                 <a href="ptbr/jogar/campeonatos/gwent/"><li class="123"><img src="<?php echo $img; ?>icones/gwent.png"></li></a>
                                 <a href="ptbr/jogar/campeonatos/hearthstone/"><li class="369"><img src="<?php echo $img; ?>icones/hs.png"></li></a>
                                 <a href="ptbr/jogar/campeonatos/lol/"><li class="147"><img src="<?php echo $img; ?>icones/lol.png"></li></a>
                                 <a href="ptbr/jogar/campeonatos/overwatch/"><li class="258"><img src="<?php echo $img; ?>icones/overwatch2.png"></li></a>
+                                <a href="ptbr/jogar/campeonatos/clashroyale/"><li class="258"><img src="<?php echo $img; ?>icones/clashroyale.png"></li></a>
                             </ul>
                             <div class="bg-light border border-secondary p-2 centralizar">
                                 Crie ou Jogue em <strong>Partidas Personalizadas</strong> nos Lobbys da e-SPorts Cups <br>
-                                <a href="ptbr/jogar/lobbys/<?php echo $jogo['background']; ?>/"><input type="button" class="btn btn-dark form-control mt-2" value="IR PARA LOBBYS"></a>
+                                <a href="ptbr/jogar/lobbys/dota2/"><input type="button" class="btn btn-dark form-control mt-2" value="IR PARA LOBBYS"></a>
                             </div>
                             <br>
                             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -98,8 +99,8 @@
                         <div class="col-4 col-md-2 jogo">
                             <a href="ptbr/jogar/campeonatos/overwatch/"><img src="<?php echo $img; ?>index/overwatch.png" style="width: 100%;"></a>
                         </div>
-                        <div class="col-4 col-md-2">
-                            <img src="<?php echo $img; ?>index/clashroyale2.png" style="width: 100%;">
+                        <div class="col-4 col-md-2 jogo">
+                            <a href="ptbr/jogar/campeonatos/clashroyale/"><img src="<?php echo $img; ?>index/clashroyale.png" style="width: 100%;"></a>
                         </div>
                     </div>
                 </div>
